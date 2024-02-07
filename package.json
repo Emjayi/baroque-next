@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@studio-freight/lenis": "^1.0.34",
+    "@studio-freight/react-lenis": "^0.0.43",
     "framer-motion": "^11.0.3",
     "next": "14.1.0",
     "react": "^18",

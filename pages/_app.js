@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export default function App({ Component, pageProps, router }) {
     return (
-        <div className='main bg-slate-900 min-h-screen'>
+        <div className=''>
             <AnimatePresence mode='wait'>
                 <Component key={router.route} {...pageProps} />
             </AnimatePresence>

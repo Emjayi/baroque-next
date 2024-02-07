@@ -7,9 +7,10 @@ const Inner = ({ children }: { children: any }) => {
             initial={{ opacity: 0 }}
             animate={{
                 opacity: 1,
-                y: "10%",
+
             }}
             exit={{ opacity: 0, y: "0%" }}
+            className='table'
         >
             {children}
         </motion.div>

@@ -1,14 +1,19 @@
 import { motion, useScroll } from 'framer-motion'
 import React from 'react'
 import Inner from '../../components/Inner'
+import Menu from '../../components/menu'
+import HorizantalScroll from '../../components/horizantalScroll'
 
 const index = () => {
     return (
-        <Inner>
-            <div className='flex min-h-[80vh] text-8xl items-center justify-center'>
-                <h1>Contact</h1>
+        <div className='items-center'>
+            <div className='table bg-gray-700'>
+                <Menu />
+                <div className='border-4 overflow-y-auto border-gray-200 p-4'>
+                    <HorizantalScroll />
+                </div>
             </div>
-        </Inner>
+        </div>
     )
 }
 
