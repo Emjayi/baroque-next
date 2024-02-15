@@ -85,9 +85,6 @@ const index = () => {
                         <div className="box p-10 gradient-blue">2</div>
                         <div className="box p-10 gradient-blue">3</div>
                         <div className='last h-full w-[20em]'><Image src={bg} alt={"team Picture"} className='image max-h-[78vh] -z-10 object-cover' /></div>
-                        <div className="last p-10 w-[7em] gradient-blue">I'm Emjayi.</div>
-                        <div className="last p-10 w-[6em] gradient-blue">I'm Here.</div>
-                        <div className="last p-10 w-[15em] gradient-blue">I'm the last one standing.</div>
                     </div>
                 </HorizantalScroll>
             </div>
