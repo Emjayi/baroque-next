@@ -114,7 +114,7 @@ const App = () => {
                         transition={{ duration: 1.2, ease: "easeIn" }}>
                         <motion.button
                             onClick={toggleMenu}
-                            className='text-white text-5xl tracking-wider hover:tracking-normal duration-200 absolute bottom-24'
+                            className='text-white text-5xl tracking-widest hover:tracking-normal duration-200 absolute bottom-24'
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 1 }}
