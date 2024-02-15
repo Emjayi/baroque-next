@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Menu from '../components/menu';
 import Link from 'next/link';
@@ -27,11 +27,11 @@ const App = () => {
     })
     // List of menu links
     const links = [
-        { name: 'Team', url: '/team', speed: 0.1, length: -50 },
-        { name: 'Construction', url: '/construction', speed: 0.2, length: -10 },
-        { name: 'Projects', url: '/projects', speed: 0.1, length: +50 },
-        { name: 'About us', url: '/about', speed: 0.2, length: -50 },
-        { name: 'Press', url: '/press', speed: 0.1, length: +50 }
+        { key: 1, name: 'Team', url: '/team', speed: 0.1, length: -50 },
+        { key: 2, name: 'Construction', url: '/construction', speed: 0.2, length: -10 },
+        { key: 3, name: 'Projects', url: '/projects', speed: 0.1, length: +50 },
+        { key: 4, name: 'About us', url: '/about', speed: 0.2, length: -50 },
+        { key: 5, name: 'Press', url: '/press', speed: 0.1, length: +50 }
     ];
 
     // Function to toggle the menu
@@ -133,7 +133,7 @@ const App = () => {
                                 <ul className='flex gap-2 justify-start'>
                                     {links.map((link) =>
                                     (
-                                        <Link href={link.url}>
+                                        <Link href={link.url} key={link.key}>
                                             <li className='text-zinc-400 hover:text-yellow-500 duration-300'>{link.name}</li>
                                         </Link>
                                     )
