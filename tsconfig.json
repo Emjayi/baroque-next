@@ -16,6 +16,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "strictNullChecks": false,
     "plugins": [
       {
         "name": "next"
@@ -33,7 +34,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "pages/_app.ts",
-    "pages/index.jsx"
+    "pages/index.jsx",
+    "pages/about/index.tsx"
   ],
   "exclude": [
     "node_modules"

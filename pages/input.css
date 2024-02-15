@@ -6,23 +6,69 @@
 html , body {
     margin: 0;
     padding: 0;
-    background-color: black;
 }
+body {
+    background-color: #1E2337;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.bg {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200vh;
+    background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
+    background-repeat: repeat;
+    animation: bg-animation .2s infinite;
+    opacity: .9;
+    visibility: visible;
+  }
+  
+  @keyframes bg-animation {
+      0% { transform: translate(0,0) }
+      10% { transform: translate(-5%,-5%) }
+      20% { transform: translate(-10%,5%) }
+      30% { transform: translate(5%,-10%) }
+      40% { transform: translate(-5%,15%) }
+      50% { transform: translate(-10%,5%) }
+      60% { transform: translate(15%,0) }
+      70% { transform: translate(0,10%) }
+      80% { transform: translate(-15%,0) }
+      90% { transform: translate(10%,5%) }
+      100% { transform: translate(5%,0) }
+  }
 ::-webkit-scrollbar-track
 {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,1);
+	transform: translateY();
 }
 
 ::-webkit-scrollbar
 {
-	width: 6px;
-    height: 6px;
-	background-color: #F5F5F5;
+	width: 0px;
+    height: 5px;
+	background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb
 {
-	background-color: rgb(192, 27, 27);
+	background-color: rgb(255, 255, 255);
     border-radius: 35px;
+}
+.home-svg > * {
+    margin: auto;
+    width: 70vm;
+    width: 200vmin;
+    height: auto;
+    fill: none;
+    stroke: #dadada;
+    stroke-width: .5px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 20;
 }

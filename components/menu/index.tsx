@@ -1,33 +1,92 @@
 import Link from 'next/link'
-import React, { useState } from 'react'
-import Inner from '../Inner'
+import React, { useState, useEffect } from 'react'
+import { motion, useAnimation } from 'framer-motion'
 
-const Menu = () => {
-    const [open, setOpen] = useState(false)
+// Menu component with animations
+const Menu = ({ isOpen }: { isOpen: boolean }) => {
+    // State to track if the component is mounted
+    const [isMounted, setIsMounted] = useState(false);
+
+    // Animation controls
+    const controls = useAnimation();
+
+    // Effect to handle animation when 'isOpen' prop changes
+    useEffect(() => {
+        // Play slide-in animation when the menu is opened
+        if (isOpen) {
+            controls.start({
+                x: 0,
+                opacity: 1,
+                transition: { duration: 0.5, delay: 0.2 }
+            });
+        } else {
+            // Slide out animation when the menu is closed
+            controls.start({
+                x: -50,
+                opacity: 0,
+                transition: { duration: 0.5 }
+            });
+        }
+    }, [isOpen]);
+
+    // Effect to set 'isMounted' to true when component mounts
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    // List of menu links
+    const links = [
+        { name: 'Team', url: '/team', speed: 0.1, length: -50 },
+        { name: 'Construction', url: '/construction', speed: 0.2, length: -10 },
+        { name: 'Projects', url: '/projects', speed: 0.1, length: +50 },
+        { name: 'About us', url: '/about', speed: 0.2, length: -50 },
+        { name: 'Press', url: '/press', speed: 0.1, length: +50 }
+    ];
+
+    // Render the menu component
     return (
-        <div className=' flex flex-col'>
-            <button onClick={() => setOpen(!open)} className='text-6xl text-zinc-200 font-bold justify-center text-center'>
-                Enter
-            </button>
-            <div >
-                {open && // If is open display the menu
-                    <Inner>
-                        <div className='absolute top-[-125px] text-6xl text-zinc-200 flex justify-around flex-col w-full h-screen bg-black bg-opacity-95 duration-200'>
-                            <div className='header flex gap-2 justify-center flex-col items-center font-bold'>
-                                <Link href="/" className='p-2 hover:text-zinc-500 duration-200'>Home</Link>
-                                <Link href="/about" className='p-2 hover:text-zinc-500 duration-200'>About</Link>
-                                <Link href="/contact" className='p-2 hover:text-zinc-500 duration-200'>Contact</Link>
-                            </div>
-                            <button onClick={() => setOpen(!open)} className='hover:text-zinc-500 duration-200 font-bold justify-center text-center'>
-                                Close
-                            </button>
-                        </div>
-                    </Inner>
-                }
-            </div>
+        <><div className='bg'></div><div className='menu fixed h-full w-full z-100'>
+            <div className='flex flex-col'>
+                <div>
+                    {/* Animated menu container */}
+                    <motion.div
+                        initial={{ y: -50, opacity: 0 }}
+                        animate={controls}
+                        className=' text-3xl text-zinc-500 flex items-center justify-start flex-col w-full h-screen p-24 duration-200'
+                    >
+                        {/* Menu title */}
+                        {/* <h1 className='text-4xl font-bold text-center text-yellow-600'>Baroque</h1> */}
 
-        </div >
+                        {/* List of menu links */}
+                        <ul className='header text-xl flex flex-col gap-2 justify-between items-center font-bold mt-6'>
+                            {isMounted && // Only render links when the component is mounted
+                                links.map((link, index) => (
+                                    // Animated link item
+                                    <motion.div
+                                        key={index}
+                                        initial={{ x: link.length, opacity: 0 }}
+                                        animate={{ x: 0, opacity: 1 }}
+                                        transition={{ duration: 0.5, delay: link.speed }}
+                                        className='flex justify-center items-center'
+                                    >
+
+                                        <li className='flex flex-col w-64 justify-center text-center'>
+                                            <Link
+                                                href={link.url}
+                                                className='duration-200 text-3xl  hover:text-white text-zinc-200 tracking-[.2em] hover:tracking-normal'
+                                            >
+                                                {link.name}
+                                            </Link>
+                                        </li>
+                                    </motion.div>
+                                ))}
+                        </ul>
+                    </motion.div>
+                </div>
+            </div>
+        </div></>
     )
 }
 
-export default Menu
+//Some of the comments have been rewritten with the help of ChatGPT! Sorry for any possible mistake.
+export default Menu;
