@@ -35,7 +35,7 @@ const variants = {
         }
     }
 };
-const index = () => {
+const Press = () => {
 
 
     const [open, setOpen] = useState(false);
@@ -141,4 +141,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Press

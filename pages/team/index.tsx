@@ -6,7 +6,7 @@ import bg from '/public/fg-1.jpg'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
 import { transform } from 'next/dist/build/swc';
 
-const index = () => {
+const Team = () => {
     const container = useRef()
     const { scrollXProgress } = useScroll();
 
@@ -78,4 +78,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Team
