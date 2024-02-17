@@ -36,7 +36,8 @@
     ".next/types/**/*.ts",
     "pages/_app.ts",
     "pages/index.jsx",
-    "pages/about/index.tsx"
+    "pages/about/index.tsx",
+    "pages/about/loading.js"
   ],
   "exclude": [
     "node_modules"

@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(useGSAP);
-const index = () => {
+const about = () => {
     // const container = useRef();
     // const tl: any = useRef();
 
@@ -92,5 +92,5 @@ const index = () => {
     )
 }
 
-export default index
+export default about
 
