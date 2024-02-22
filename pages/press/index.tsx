@@ -43,10 +43,51 @@ const Press = () => {
     const [intro, setIntro] = useState(true);
     setTimeout(() => {
         setIntro(false)
-    }, 4000)
+    }, 1000)
 
     return (
         <div className='grid grid-cols-3 grid-rows-3 gap-0 place-items-center h-screen'>
+
+
+            <motion.div className='row-start-2 col-start-2 grid grid-rows-9 grid-cols-9 w-64 h-64'>
+                <AnimatePresence>
+                    {intro && <>
+                        <motion.div
+                            exit={{ scaleX: [1, 15], y: -350 }}
+                            transition={{ times: [0, .2, .4, .5, .7, .9, 2], duration: 4 }}
+                            className=' row-start-1 col-start-1 col-span-9 bg-primary'>
+                        </motion.div>
+                        <motion.div
+                            exit={{ scaleY: [1, 10], x: 1000 }}
+                            transition={{ times: [0, .2, .4, .5, .7, .9, 2], duration: 4 }}
+                            className=' row-start-1 col-start-9 row-span-9 bg-primary'>
+                        </motion.div>
+                        <motion.div
+                            exit={{ scaleY: [1, 10], x: -1000 }}
+                            transition={{ times: [0, .2, .4, .5, .7, .9, 2], duration: 4 }}
+                            className=' row-start-1 col-start-1 row-span-9 bg-primary'>
+                        </motion.div>
+                        <motion.div
+                            exit={{ scaleX: [1, 15], y: 350 }}
+                            transition={{ times: [0, .2, .4, .5, .7, .9, 2], duration: 4 }}
+                            className=' row-start-9 col-start-1 col-span-9 bg-primary'>
+                        </motion.div>
+                    </>}
+                </AnimatePresence>
+            </motion.div>
+
+            {/* <motion.div
+                    transition={{ times: [0, .2, .6], duration: 1, repeat: Infinity, delay: .5, repeatType: "reverse", repeatDelay: .1 }}
+                    className=' row-start-5 col-start-1 col-span-9 -z-10 bg-primary'>
+                </motion.div>
+                <motion.div
+                    animate={{ backgroundColor: ["#D2AC72", "#ffffff", "#D2AC72"] }}
+                    transition={{ times: [0, .2, .6], duration: 1, repeat: Infinity, repeatDelay: .1 }}
+                    className=' row-start-1 col-start-5 row-span-9 -z-10'>
+                </motion.div> */}
+
+
+
             {/* <motion.div
                 className='fixed flex justify-center items-center h-screen w-screen z-0 bg-primary'
                 variants={variants}
@@ -87,7 +128,12 @@ const Press = () => {
             >
                 <button className='bg-primary text-white z-10 p-4 text-2xl'>Menu</button>
             </motion.div> */}
-            <AnimatePresence>
+
+
+
+
+
+            {/* <AnimatePresence>
                 {intro && (<><motion.div exit={{ opacity: 0 }} className='grid grid-cols-3 grid-rows-3 row-start-2 col-start-2'>
                     <motion.div
                         animate={{ backgroundColor: ["#D2AC72", "#ffffff", "#D2AC72"], opacity: [1, .5, 1] }}
@@ -110,7 +156,11 @@ const Press = () => {
                 >
 
                 </motion.div>}
-            </AnimatePresence>
+            </AnimatePresence> */}
+
+
+
+
             {/* <motion.div
                 initial={{}}
                 animate={{ backgroundColor: "#ffffff" }}

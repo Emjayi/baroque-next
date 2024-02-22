@@ -1,16 +1,16 @@
 'use client'
 import ReactLenis from '@studio-freight/react-lenis'
 
-const HorizantalScroll = ({ children }: any) => {
+const HorizontalScroll = ({ children }: any) => {
     return (
         <ReactLenis
             root
             options={{ orientation: "horizontal", gestureOrientataion: "both" }}
             classname=""
         >
-            <div className='flex'>{children}</div>
+            <div className='table'>{children}</div>
         </ReactLenis>
     )
 }
 
-export default HorizantalScroll
+export default HorizontalScroll

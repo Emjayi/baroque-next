@@ -37,7 +37,8 @@
     "pages/_app.ts",
     "pages/index.jsx",
     "pages/about/index.tsx",
-    "pages/about/loading.js"
+    "pages/about/loading.js",
+    "pages/projects/index.tsx"
   ],
   "exclude": [
     "node_modules"

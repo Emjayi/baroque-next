@@ -35,7 +35,7 @@ const App = () => {
         { key: 1, name: 'Team', url: '/team', speed: 0.1, length: -50 },
         { key: 2, name: 'Construction', url: '/construction', speed: 0.2, length: -10 },
         { key: 3, name: 'Projects', url: '/projects', speed: 0.1, length: +50 },
-        { key: 4, name: 'About us', url: '/about', speed: 0.2, length: -50 },
+        { key: 4, name: 'About', url: '/about', speed: 0.2, length: -50 },
         { key: 5, name: 'Press', url: '/press', speed: 0.1, length: +50 }
     ];
 
@@ -83,8 +83,8 @@ const App = () => {
                         className='text-primary text-6xl mt-16'
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ scale: 40, opacity: 0, }}
-                        transition={{ duration: 1, delay: .2 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 1, delay: 1.2 }}
                     >
                         <h1>Baroque</h1>
                     </motion.div>}
@@ -96,7 +96,7 @@ const App = () => {
                         <motion.div
                             className="fixed top-0 left-0 bg w-full h-full z-50"
                             initial={{ opacity: 0 }}
-                            animate={{ opacity: 0.5 }}
+                            animate={{ opacity: 0 }}
                             exit={{ opacity: 0 }}
                             transition={{ duration: 0.3 }} />
                     )}
@@ -138,7 +138,7 @@ const App = () => {
                             transition={{ duration: 1.2, ease: "easeIn" }}>
                             <motion.button
                                 onClick={toggleMenu}
-                                className='text-white flex tracking-widest hover:tracking-normal justify-center text-center w-64 text-2xl duration-200 absolute bottom-24'
+                                className='text-white flex tracking-widest hover:tracking-normal justify-center items-end text-center h-96 w-64 text-2xl duration-200 absolute bottom-24'
                                 initial={{ opacity: 0, y: 40 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 1, delay: 1 }}
