@@ -3,8 +3,9 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import Image from 'next/image'
 
-const Project = ({ id, name, url, mainImage, description }: any) => {
+const Project = ({ id, title, slug, mainImage, description }: any) => {
     const [hovered, setHovered] = useState(false);
+    const [active, setActive] = useState(false);
 
     // get scroll pos
     const { scrollX } = useScroll();
@@ -25,14 +26,25 @@ const Project = ({ id, name, url, mainImage, description }: any) => {
 
     return (
         <div key={id} className=' text-white duration-300 hover:text-primary text-center' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
-            <Link href={`/projects/${url}`}>
+            <Link href={`/projects/${slug.current}`}>
                 <motion.div
                     style={{ skewX: velocityFactor, x: parallax }}
                     whileHover={{ y: -20 }}
                     transition={{ duration: 1 }}
                     className='w-[300px]'
+                    onMouseEnter={() => setActive(true)}
+                    onMouseLeave={() => setActive(false)}
                 >
-                    <Image src={mainImage} width={1500} height={1000} alt='placeHolder' className=' h-[350px] object-contain grayscale hover:grayscale-0 duration-1000' />
+                    <img src={mainImage} width={1500} height={1000} alt='placeHolder' className=' object-contain grayscale hover:grayscale-0 duration-1000' />
+
+                </motion.div>
+                <motion.div
+                    style={{ skewX: velocityFactor, x: parallax }}
+                    animate={active ? { y: 20 } : { y: 0 }}
+                    transition={{ duration: 1 }}
+                    className='w-[300px]'
+                >
+                    <img src={mainImage} width={300} height={100} alt='shadow' className='absolute rotate-180 opacity-5 grayscale object-contain' />
                 </motion.div>
                 <div className=''>
 
@@ -44,7 +56,7 @@ const Project = ({ id, name, url, mainImage, description }: any) => {
                             style={{ x: parallax }}
                             transition={{ duration: 0.2 }}
 
-                        >{name}</motion.h1>
+                        >{title}</motion.h1>
                     </AnimatePresence>
 
 

@@ -1,194 +1,71 @@
-import React, { useState } from 'react'
-import Menu from '../../components/menu'
-import { AnimatePresence, motion } from 'framer-motion'
+import React, { useEffect, useState } from 'react';
+import { client } from '../../sanity/lib/client';
+import Link from 'next/link';
+import PageWrapper from '../../components/PageWrapper';
+import Project from '../../components/Project';
+import HorizontalScroll from '../../components/horizontalScroll';
+import projects from '../projects';
+import Image from 'next/image';
+import SanityImage from '../../components/sanityImage';
 
-const variants = {
-    hidden: {
-        opacity: [1, 1, 0.3, 0.3, 0],
-        y: [0, -10, 50, 50, 50],
-        x: [0, 0, 0, 0, -60],
-        transition: {
-            duration: 0.85,
-            times: [0, 0.25, 0.6, 0.76, 1],
-            ease: ["circOut", "circIn", "linear", "easeIn"]
-        },
-        transitionEnd: {
-            x: 10,
-            y: -60,
-            opacity: 0
-        }
-    },
-
-    visible: {
-        opacity: [0, 0, 0.9, 0.9, 1],
-        y: [-60, -60, 0, 0, 0],
-        x: [20, 20, 20, 20, 0],
-        transition: {
-            duration: 0.85,
-            ease: ["circOut", "circIn", "linear", "easeIn"],
-            times: [0, 0.25, 0.6, 0.76, 1]
-        },
-        transitionEnd: {
-            y: 0,
-            x: 0,
-            opacity: 1
-        }
-    }
-};
 const Press = () => {
+    const [posts, setPosts] = useState([]);
 
+    // This TypeScript code fetches posts from a Sanity database and sets them in the state using React's useEffect hook
 
-    const [open, setOpen] = useState(false);
+    useEffect(() => {
+        const getPosts = async () => {
+            const query = `
+                *[_type == "post"] {
+                    title,
+                    slug,
+                    "image": mainImage.asset->url,
+                    alt,
+                    categories
+                }
+            `;
+            try {
+                const data = await client.fetch(query);
+                setPosts(data);
+            } catch (error) {
+                console.error('Error fetching posts:', error);
+            }
+        };
 
-    const [intro, setIntro] = useState(true);
-    setTimeout(() => {
-        setIntro(false)
-    }, 1000)
+        getPosts();
+    }, []);
 
     return (
-        <div className='grid grid-cols-3 grid-rows-3 gap-0 place-items-center h-screen'>
+        // <main className="container mx-auto grid grid-cols-1 divide-y divide-blue-100">
+        //     {posts.map((post) => (
+        //         <article key={post.slug}>
+        //             <Link href={`/press/${post.slug.current}`}><h1 className='text-white'>{post.title}</h1></Link>
+        //             <div className=' flex justify-center items-center'></div>
+        //             {/* Render other post data as needed */}
+        //         </article>
+        //     ))}
+        // </main>
+        <PageWrapper pageName="Press">
 
+            <div className=' h-full'>
+                <HorizontalScroll>
+                    <div className='grid grid-flow-col grid-rows-2 gap-5'>
+                        {posts.map((post) => (
+                            <>
+                                {(post.image != null) &&
+                                    <div className='text-white w-52 h-64'>
+                                        <Link href={`/press/${post.slug.current}`}>
+                                            <SanityImage className='' src={post.image} width={500} height={500} alt={post.alt} placeholder='blur' blurDataURL={post.image} />
+                                            <h1>{post.title}</h1>
+                                        </Link>
+                                    </div >}
+                            </>
+                        ))}
+                    </div>
+                </HorizontalScroll>
+            </div >
+        </PageWrapper >
+    );
+};
 
-            <motion.div className='row-start-2 col-start-2 grid grid-rows-9 grid-cols-9 w-64 h-64'>
-                <AnimatePresence>
-                    {intro && <>
-                        <motion.div
-                            exit={{ scaleX: [1, 15], y: -350 }}
-                            transition={{ times: [0, .2, .4, .5, .7, .9, 2], duration: 4 }}
-                            className=' row-start-1 col-start-1 col-span-9 bg-primary'>
-                        </motion.div>
-                        <motion.div
-                            exit={{ scaleY: [1, 10], x: 1000 }}
-                            transition={{ times: [0, .2, .4, .5, .7, .9, 2], duration: 4 }}
-                            className=' row-start-1 col-start-9 row-span-9 bg-primary'>
-                        </motion.div>
-                        <motion.div
-                            exit={{ scaleY: [1, 10], x: -1000 }}
-                            transition={{ times: [0, .2, .4, .5, .7, .9, 2], duration: 4 }}
-                            className=' row-start-1 col-start-1 row-span-9 bg-primary'>
-                        </motion.div>
-                        <motion.div
-                            exit={{ scaleX: [1, 15], y: 350 }}
-                            transition={{ times: [0, .2, .4, .5, .7, .9, 2], duration: 4 }}
-                            className=' row-start-9 col-start-1 col-span-9 bg-primary'>
-                        </motion.div>
-                    </>}
-                </AnimatePresence>
-            </motion.div>
-
-            {/* <motion.div
-                    transition={{ times: [0, .2, .6], duration: 1, repeat: Infinity, delay: .5, repeatType: "reverse", repeatDelay: .1 }}
-                    className=' row-start-5 col-start-1 col-span-9 -z-10 bg-primary'>
-                </motion.div>
-                <motion.div
-                    animate={{ backgroundColor: ["#D2AC72", "#ffffff", "#D2AC72"] }}
-                    transition={{ times: [0, .2, .6], duration: 1, repeat: Infinity, repeatDelay: .1 }}
-                    className=' row-start-1 col-start-5 row-span-9 -z-10'>
-                </motion.div> */}
-
-
-
-            {/* <motion.div
-                className='fixed flex justify-center items-center h-screen w-screen z-0 bg-primary'
-                variants={variants}
-                onClick={() => setOpen(!open)}
-                initial={{}}
-                animate={open ? "visible" : "hidden"}
-                transition={{ duration: 2, ease: "easeInOut" }}
-            >
-                <motion.div
-                    initial={{}}
-                    className='p-8 w-full bg-white'
-
-                >
-
-                </motion.div>
-            </motion.div>
-            <motion.div
-                className="fixed left-auto top-auto"
-                onClick={() => setOpen(!open)}
-                variants={variants}
-                initial={{ opacity: 0 }}
-                animate={open ? "visible" : "hidden"}
-                style={{
-                    color: "#bf4d00"
-                }}
-            >
-                <button className='bg-white text-primary z-10 p-4 text-2xl'>close</button>
-            </motion.div>
-            <motion.div
-                className="fixed left-auto top-auto"
-                onClick={() => setOpen(!open)}
-                variants={variants}
-                initial={{ opacity: 1 }}
-                animate={open ? "hidden" : "visible"}
-                style={{
-                    color: "#bf4d00"
-                }}
-            >
-                <button className='bg-primary text-white z-10 p-4 text-2xl'>Menu</button>
-            </motion.div> */}
-
-
-
-
-
-            {/* <AnimatePresence>
-                {intro && (<><motion.div exit={{ opacity: 0 }} className='grid grid-cols-3 grid-rows-3 row-start-2 col-start-2'>
-                    <motion.div
-                        animate={{ backgroundColor: ["#D2AC72", "#ffffff", "#D2AC72"], opacity: [1, .5, 1] }}
-                        transition={{ times: [0, .2, .6], duration: 1, repeat: Infinity, repeatDelay: .1 }}
-                        className='col-start-1 bg-primary w-[50px] h-[50px]'></motion.div>
-                    <motion.div animate={{ backgroundColor: ["#D2AC72", "#ffffff", "#D2AC72"], opacity: [1, .5, 1] }} transition={{ times: [0, .4, .8], duration: 1, repeat: Infinity, repeatDelay: .1 }} className='col-start-3 bg-primary w-[50px] h-[50px]'></motion.div>
-                    <motion.div initial={{ y: 0 }} animate={{ y: [-50, 50, 0, 0, 0, -50], x: [0, 0, 0, 50, -50, 0, 0] }} transition={{ times: [0, .5, 1], duration: 2, repeat: Infinity, repeatDelay: 1 }} className='col-start-2 row-start-2 bg-primary w-[25px] h-full'></motion.div>
-                    <motion.div initial={{ y: 0 }} animate={{ y: [50, -50, 0, 0, 0, 50], x: [0, 0, 0, -50, 50, 0, 0] }} transition={{ times: [0, .5, 1], duration: 2, repeat: Infinity, repeatDelay: 1 }} className='col-start-2 row-start-2 bg-primary ml-[25px] w-[25px] h-full'></motion.div>
-                    <motion.div animate={{ backgroundColor: ["#D2AC72", "#ffffff", "#D2AC72"], opacity: [1, .5, 1] }} transition={{ times: [0, .3, .6], duration: 1, repeat: Infinity, repeatDelay: .1 }} className='col-start-1 row-start-3 bg-primary w-full h-full'></motion.div>
-                    <motion.div animate={{ backgroundColor: ["#D2AC72", "#ffffff", "#D2AC72"], opacity: [1, .5, 1] }} transition={{ times: [0, .3, .7], duration: 1, repeat: Infinity, repeatDelay: .1 }} className='col-start-3 row-start-3 bg-primary w-full h-full'></motion.div>
-                </motion.div>
-                    <div className='row-start-3 col-start-2'><h1 className=' text-zinc-300 text-lg'>Loading...</h1></div></>)}
-            </AnimatePresence>
-            <AnimatePresence>
-                {!intro && <motion.div
-                    className='row-start-2 col-start-2 h-screen w-screen'
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
-                >
-
-                </motion.div>}
-            </AnimatePresence> */}
-
-
-
-
-            {/* <motion.div
-                initial={{}}
-                animate={{ backgroundColor: "#ffffff" }}
-                transition={{ duration: 1, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-                className='h-14 w-2 bg-primary fixed left-[48vw] right-auto'></motion.div>
-            <motion.div
-                initial={{}}
-                animate={{ backgroundColor: "#ffffff" }}
-                transition={{ duration: 1, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-                className='h-14 w-2 bg-primary fixed right-[48vw]'></motion.div>
-            <motion.div
-                initial={{}}
-                animate={{ backgroundColor: "#ffffff" }}
-                transition={{ duration: 1, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-                className='h-2 w-12 bg-primary fixed top-[46.1vh]'></motion.div>
-            <motion.div
-                initial={{}}
-                animate={{ backgroundColor: "#ffffff" }}
-                transition={{ duration: 1, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-                className='h-2 w-12 bg-primary fixed bottom-[46.1vh]'></motion.div>
-            <motion.div
-                initial={{}}
-                animate={open ? { height: "15vh", border: "10px", borderColor: "white" } : {}}
-                transition={open ? { duration: 1, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" } : { duration: 2 }}
-                className='h-10 w-54 border-4 rounded-8 border-primary bg-primary fixed '></motion.div> */}
-            {/* <button className='fixed bottom-[25vh] text-white bg-primary rounded-8 px-4 py-2' onClick={() => setOpen(!open)}>Enter</button> */}
-        </div>
-    )
-}
-
-export default Press
+export default Press;
