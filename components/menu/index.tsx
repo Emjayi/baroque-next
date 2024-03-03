@@ -1,6 +1,10 @@
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion'
+import Spline from '@splinetool/react-spline';
+import Logo from './logo';
+import { LampContainer } from '../ui/lamp';
+
 
 // Menu component with animations
 const Menu = ({ isOpen }: { isOpen: boolean }) => {
@@ -48,50 +52,61 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
         <>
             {/*Noisy background*/}
             <div className='bg'></div>
+            <LampContainer className=''>
+                <motion.div
+                    initial={{ opacity: 0.5, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{
+                        delay: 0.3,
+                        duration: 0.8,
+                        ease: "easeInOut",
+                    }}
+                    className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500  bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+                >
+                    <ul className='header text-xl flex flex-col md:flex-row gap-2 justify-between items-center font-bold mt-6'>
+                        {isMounted && // Only render links when the component is mounted
+                            links.map((link, index) => (
+                                // Animated link item
+                                <motion.div
+                                    key={index}
+                                    initial={{ x: link.length, opacity: 0 }}
+                                    animate={{ x: 0, opacity: 1 }}
+                                    transition={{ duration: 0.5, delay: link.speed }}
+                                    className='flex justify-center items-center w-44'
+                                >
 
-            <div className='menu fixed h-full w-full z-100'>
-                <div className='flex flex-col'>
+                                    <li className='flex flex-col gap-3 justify-center text-center'>
+                                        <Link
+                                            href={link.url}
+                                            className='duration-200 text-xl text-center w-44 hover:text-white text-zinc-400 tracking-[.2em] hover:tracking-normal'
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    </li>
+                                </motion.div>
+                            ))}
+                    </ul>
+                </motion.div>
+            </LampContainer>
+            <div className='menu fixed top-0'>
+                <div className=''>
                     <div>
                         {/* Animated menu container */}
                         <motion.div
                             initial={{ y: -50, opacity: 0 }}
                             animate={controls}
-                            className=' text-3xl text-zinc-500 flex items-center justify-start flex-col w-full h-screen p-24 duration-200'
+                            className=' text-3xl text-zinc-500 flex items-center justify-start flex-col pt-16 duration-200'
                         >
+
                             {/* Menu title */}
                             {/* <h1 className='text-4xl font-bold text-center text-yellow-600'>Baroque</h1> */}
 
                             {/* List of menu links */}
-                            <Link href={"/"}><h1>Baroque</h1></Link>
-                            <ul className='header text-xl flex gap-2 justify-between items-center font-bold mt-6'>
-                                {isMounted && // Only render links when the component is mounted
-                                    links.map((link, index) => (
-                                        // Animated link item
-                                        <motion.div
-                                            key={index}
-                                            initial={{ x: link.length, opacity: 0 }}
-                                            animate={{ x: 0, opacity: 1 }}
-                                            transition={{ duration: 0.5, delay: link.speed }}
-                                            className='flex justify-center items-center w-44'
-                                        >
+                            <Link href={"/"}><h1 className='text-primary'>Baroque</h1></Link>
 
-                                            <li className='flex flex-col gap-3 justify-center text-center'>
-                                                <Link
-                                                    href={link.url}
-                                                    className='duration-200 text-xl text-center w-44 hover:text-white text-zinc-400 tracking-[.2em] hover:tracking-normal'
-                                                >
-                                                    {link.name}
-                                                </Link>
-                                            </li>
-                                        </motion.div>
-                                    ))}
-                            </ul>
                         </motion.div>
-                        <motion.div className='top-auto left-auto absolute grid grid-rows-9 grid-cols-9'>
-                            <motion.div className='row-start-2 col-start-2  w-36 h-36 bg-primary'>fuck</motion.div>
-                        </motion.div>
+
                     </div>
-
                 </div>
             </div></>
     )

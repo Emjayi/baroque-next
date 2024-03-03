@@ -8,10 +8,17 @@ export default function App({ Component, pageProps, router }) {
 
 
     return (
-        <div className=''>
-            <AnimatePresence mode='wait'>
+
+        <AnimatePresence mode="wait">
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 5 }}
+            >
                 <Component key={router.route} {...pageProps} />
-            </AnimatePresence>
-        </div>
+            </motion.div>
+        </AnimatePresence>
+
     )
 }

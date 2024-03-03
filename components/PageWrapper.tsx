@@ -2,8 +2,11 @@ import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion';
 import Menu from './menu';
 import HorizontalScroll from './horizontalScroll';
+import { UilBars } from '@iconscout/react-unicons'
 
 const PageWrapper = ({ pageName, children }: any) => {
+
+    const [menuHover, setMenuHover] = useState(false)
 
     //Menu links array
     const links = [
@@ -18,7 +21,7 @@ const PageWrapper = ({ pageName, children }: any) => {
     const [intro, setIntro] = useState(true);
     setTimeout(() => {
         setIntro(false)
-    }, 3400);
+    }, 1400);
 
     const [open, setOpen] = useState(false);
 
@@ -71,30 +74,32 @@ const PageWrapper = ({ pageName, children }: any) => {
                         </div>
                         <AnimatePresence>
                             <motion.div
-                                initial={{ scale: 0.2 }}
+                                initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
                                 exit={{ scale: 0 }}
-                                transition={{ duration: 1, delay: 3.2 }}
+                                transition={{ duration: 1, delay: 1.2 }}
                                 className='flex'
                             >
                                 {!intro && <div className=' h-screen flex items-center'>
-                                    <motion.h1 initial={{ opacity: 0, scale: 0.5 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        transition={{ duration: 2, ease: "easeInOut", delay: .5 }}
+                                    <motion.h1
                                         className='text-white text-xl w-36 ml-32 pr-4'>{pageName}</motion.h1>
                                     <motion.button
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        transition={{ duration: 1, ease: "easeInOut", delay: .5 }}
+                                        initial={{ width: 60, opacity: 0 }}
+                                        animate={menuHover ? { width: 110, opacity: 1 } : { opacity: 1 }}
+                                        transition={{ duration: .5, ease: "easeInOut", delay: .2 }}
                                         onClick={() => setOpen(!open)}
-                                        className='fixed top-10 px-4 py-6 rounded-r-md text-white hover:bg-white duration-150 hover:text-zinc-700 z-50'>Menu</motion.button>
+                                        onMouseEnter={() => setMenuHover(!menuHover)}
+                                        onMouseLeave={() => setMenuHover(!menuHover)}
+                                        className='fixed flex top-10 px-4 py-6 rounded-r-md bg-primary duration-150 text-white z-50'>
+                                        <UilBars /><AnimatePresence>{menuHover && <motion.p className='fixed' initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 40 }} exit={{ opacity: 0, x: 0 }} transition={{ duration: .5, ease: "easeInOut", delay: .4 }}>Menu</motion.p>}</AnimatePresence>
+                                    </motion.button>
                                     <AnimatePresence>
                                         {open &&
                                             <motion.div
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: 1 }}
-                                                transition={{ duration: .5, ease: "easeInOut" }}
-                                                exit={{ opacity: 0 }}
+                                                // initial={{ opacity: 0 }}
+                                                // animate={{ opacity: 1 }}
+                                                // transition={{ duration: .5, ease: "easeInOut" }}
+                                                // exit={{ opacity: 0 }}
                                                 className='h-screen w-screen bg-secondary fixed top-0 left-0 flex flex-col justify-center items-center z-40'>
                                                 <Menu isOpen={open} />
                                             </motion.div>}

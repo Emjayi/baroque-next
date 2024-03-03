@@ -20,6 +20,7 @@ const Press = () => {
                     title,
                     slug,
                     "image": mainImage.asset->url,
+                    "blur": mainImage.asset->metadata.lqip,
                     alt,
                     categories
                 }
@@ -55,7 +56,7 @@ const Press = () => {
                                 {(post.image != null) &&
                                     <div className='text-white w-52 h-64'>
                                         <Link href={`/press/${post.slug.current}`}>
-                                            <SanityImage className='' src={post.image} width={500} height={500} alt={post.alt} placeholder='blur' blurDataURL={post.image} />
+                                            <Image className='' src={post.image} width={500} height={500} alt={post.alt} placeholder='blur' blurDataURL={post.blur} />
                                             <h1>{post.title}</h1>
                                         </Link>
                                     </div >}

@@ -8,6 +8,8 @@ import intro2 from '/public/intro/2.svg'
 import intro3 from '/public/intro/3.svg'
 import logo from '/public/logo.png'
 import { UilMultiply } from '@iconscout/react-unicons'
+import Footer from '../components/footer';
+import Logo from '../components/menu/logo';
 
 // App component with animations
 const App = () => {
@@ -87,6 +89,7 @@ const App = () => {
                         transition={{ duration: 1, delay: 1.2 }}
                     >
                         <h1>Baroque</h1>
+
                     </motion.div>}
                 </AnimatePresence>
 
@@ -147,31 +150,7 @@ const App = () => {
                                 <h1 className=''>Enter</h1>
                             </motion.button>
 
-                            <motion.div
-                                initial={{ y: 100 }}
-                                animate={{ y: 0 }}
-                                transition={{ duration: 1, type: "spring", stiffness: 25, damping: 10, delay: 1 }}
-                                className='absolute text-sm bottom-5 px-24 grid justify-center items-center gap-12 text-white grid-cols-3 font-bold w-full'>
-                                <div className='flex gap-1'>
-                                    <h1>Navigation:</h1>
-                                    <ul className='flex gap-2 justify-start'>
-                                        {links.map((link) =>
-                                        (
-                                            <Link href={link.url} key={link.key}>
-                                                <li className='text-zinc-400 hover:text-primary duration-300'>{link.name}</li>
-                                            </Link>
-                                        )
-                                        )}
-                                    </ul>
-                                </div>
-                                <div className='flex gap-4 justify-center'>
-
-                                </div>
-                                <div className='flex gap-4 justify-end'>
-                                    <p>Made with 🤍 In <a href='https://khatoonadvertising.ir/' className='text-zinc-400 hover:text-primary duration-300'>Khatoon Advertising</a> By <a href='https://emjayi.ir/' className='text-zinc-400 hover:text-primary duration-300'>Emjayi</a></p>
-                                </div>
-
-                            </motion.div>
+                            <Footer />
                         </motion.div></>)}
                 </AnimatePresence>
             </div ></>}</>

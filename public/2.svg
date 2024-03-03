@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 5463.35 3168.75">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #aa8f71;
+      }
+
+      .cls-2 {
+        clip-path: url(#clippath-2);
+      }
+
+      .cls-3 {
+        clip-path: url(#clippath-1);
+      }
+
+      .cls-4 {
+        clip-path: url(#clippath-4);
+      }
+
+      .cls-5 {
+        clip-path: url(#clippath);
+      }
+
+      .cls-6 {
+        fill: none;
+      }
+
+      .cls-7 {
+        clip-path: url(#clippath-3);
+      }
+
+      .cls-8 {
+        clip-path: url(#clippath-5);
+	  }
+
+      #line{display:none}
+      #line-2{display:none}
+      #line-3{display:none}
+      #line-4{display:none}
+      #line-5{display:none}
+      #line-6{display:none}
+      #line-7{display:none}
+    </style>
+    <clipPath id="clippath">
+      <rect class="cls-6" width="5463.35" height="3168.75"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="cls-6" width="5463.35" height="3168.75"/>
+    </clipPath>
+    <clipPath id="clippath-2">
+      <rect class="cls-6" width="5463.35" height="3168.75"/>
+    </clipPath>
+    <clipPath id="clippath-3">
+      <rect class="cls-6" width="5463.35" height="3168.75"/>
+    </clipPath>
+    <clipPath id="clippath-4">
+      <rect class="cls-6" width="5463.35" height="3168.75"/>
+    </clipPath>
+    <clipPath id="clippath-5">
+      <rect class="cls-6" width="5463.35" height="3168.75"/>
+    </clipPath>
+  </defs>
+  <path class="cls-1" d="m2583.21,1462.07v-206.1h-233.2l-114.4,114.4v542.4h336.3l114.4-114.4v-336.3h-103.1Zm64.6,320.35l-91.85,91.85h-281.9v-488l91.85-91.85h178.85v206.1h103.05v281.9Z"/>
+  <path class="cls-1" d="m2480.16,1397.47v-38.45h-141.5v450.65h244.55v-244.55h-103.05v-167.65m64.6,373.75h-167.65v-373.75h64.6v206.1h103.05v167.65Z"/>
+  <g id="line">
+    <g class="cls-5">
+      <polygon class="cls-1" points="2263 1912.75 2366.05 1809.7 2338.85 1782.5 2235.8 1885.55 2235.8 1912.75 2263 1912.75"/>
+    </g>
+  </g>
+  <polygon id="line-2" data-name="line" class="cls-1" points="2572.15 1603.6 2672.4 1503.35 2645.2 1476.15 2544.95 1576.4 2544.95 1603.6 2572.15 1603.6"/>
+  <g id="line-3" data-name="line">
+    <g class="cls-3">
+      <polygon class="cls-1" points="2469.1 1397.5 2569.35 1297.25 2542.15 1270.05 2441.9 1370.3 2441.9 1397.5 2469.1 1397.5"/>
+    </g>
+  </g>
+  <g id="line-4" data-name="line">
+    <g class="cls-2">
+      <polygon class="cls-1" points="2469.1 1603.6 2569.35 1503.35 2542.15 1476.15 2441.9 1576.4 2441.9 1603.6 2469.1 1603.6"/>
+    </g>
+  </g>
+  <g id="line-5" data-name="line">
+    <g class="cls-7">
+      <polygon class="cls-1" points="2480.2 1592.5 2580.5 1492.2 2553.3 1465 2453 1565.3 2453 1592.5 2480.2 1592.5"/>
+    </g>
+  </g>
+  <g id="line-6" data-name="line">
+    <g class="cls-4">
+      <polygon class="cls-1" points="2544.95 1725.7 2544.95 1897.65 2583.4 1897.65 2583.4 1725.7 2564.2 1703.05 2544.95 1725.7"/>
+    </g>
+  </g>
+  <g id="line-7" data-name="line">
+    <g class="cls-8">
+      <polygon class="cls-1" points="2401.6 1359.05 2255.85 1359.05 2255.85 1397.5 2401.6 1397.5 2420.8 1378.3 2401.6 1359.05"/>
+    </g>
+  </g>
+</svg>

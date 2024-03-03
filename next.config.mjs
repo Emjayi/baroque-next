@@ -3,15 +3,10 @@
 const nextConfig = {
 
     images: {
-        remotePatterns: [
-            {
-                protocol: 'http',
-                hostname: 'localhost:3000',
-
-            },
-        ],
-    },
+        domains: ['cdn.sanity.io']
+    }
 
 }
+
 
 export default nextConfig;

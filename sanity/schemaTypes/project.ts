@@ -26,6 +26,73 @@ export default defineType({
             to: { type: 'architect' },
         }),
         defineField({
+            title: "Status",
+            name: "status",
+            type: "array",
+            of: [{ type: "string" }],
+            options: {
+                list: [
+                    { title: "Completed", value: "Completed" },
+                    { title: "In progress", value: "In progress" },
+                    { title: "Concept", value: "Concept" }
+                ],
+                layout: "radio",
+                direction: "horizontal"
+            }
+        }),
+        defineField({
+            title: "Type",
+            name: "type",
+            type: "string"
+        }),
+        defineField({
+            name: 'gallery',
+            type: 'array',
+            of: [
+                { type: 'image' }
+            ],
+            options: {
+                layout: 'grid'
+            }
+        })
+        ,
+        defineField({
+            name: 'date',
+            title: 'Date',
+            type: 'number',
+        }),
+        defineField({
+            name: 'area',
+            title: 'Built area',
+            type: 'number',
+        }),
+        defineField({
+            name: 'location',
+            title: 'Location',
+            type: 'string',
+        }),
+        defineField({
+            name: 'client',
+            title: 'Client',
+            type: 'string',
+        }),
+        defineField({
+            name: 'team',
+            title: 'Team',
+            type: 'array',
+            of: [
+                {
+                    type: "object",
+                    name: "inline",
+                    fields: [
+                        { type: "string", name: "title" },
+                        { type: "array", name: "body", of: [{ type: "string" }] }
+                    ]
+                }
+            ],
+
+        }),
+        defineField({
             name: 'mainImage',
             title: 'Main image',
             type: 'image',
@@ -39,23 +106,7 @@ export default defineType({
                     title: 'Alternative Text',
                 }
             ]
-        }),
-        defineField({
-            name: 'categories',
-            title: 'Categories',
-            type: 'array',
-            of: [{ type: 'reference', to: { type: 'category' } }],
-        }),
-        defineField({
-            name: 'publishedAt',
-            title: 'Published at',
-            type: 'datetime',
-        }),
-        defineField({
-            name: 'body',
-            title: 'Body',
-            type: 'blockContent',
-        }),
+        })
     ],
 
     preview: {

@@ -16,10 +16,14 @@ const Projects = () => {
                 *[_type == "project"] {
                     _id,
                     title,
+                    status,
+                    gallery,
                     slug,
                     "mainImage": mainImage.asset->url,
+                    "blur": mainImage.asset->metadata.lqip,
                     alt,
-                    categories
+                    date,
+                    type
                 }
             `;
             try {
@@ -38,7 +42,7 @@ const Projects = () => {
 
             <div className=' h-full'>
                 <HorizontalScroll>
-                    <div className='grid grid-flow-col grid-rows-1'>
+                    <div className='grid items-end grid-flow-col gap-10 min-h-64 grid-rows-1 pr-20'>
                         {projects.map(project => (
                             <Project key={project.id} {...project} />
                         ))}
