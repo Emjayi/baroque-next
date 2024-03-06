@@ -10,6 +10,7 @@ import logo from '/public/logo.png'
 import { UilMultiply } from '@iconscout/react-unicons'
 import Footer from '../components/footer';
 import Logo from '../components/menu/logo';
+import Intro from '../components/layout/Intro';
 
 // App component with animations
 const App = () => {
@@ -48,47 +49,30 @@ const App = () => {
 
     // Render the App component
     return (
-        <>
+        <div className='home'>
             {/* Intro animation */}
             <AnimatePresence>
                 {intro && <motion.div exit={{ opacity: 0 }} className='grid grid-cols-3 grid-rows-3 gap-0 place-items-center h-screen'>
-                    <AnimatePresence>
-                        {intro && (<><motion.div exit={{ opacity: 0 }} className='grid grid-cols-3 grid-rows-3 row-start-2 col-start-2'>
-                            <motion.div
-                                animate={{ backgroundColor: ["#D2AC72", "#ffffff", "#D2AC72"], opacity: [1, .5, 1] }}
-                                transition={{ times: [0, .2, .6], duration: 1, repeat: Infinity, repeatDelay: .1 }}
-                                className='col-start-1 bg-primary w-[50px] h-[50px]'></motion.div>
-                            <motion.div animate={{ backgroundColor: ["#D2AC72", "#ffffff", "#D2AC72"], opacity: [1, .5, 1] }} transition={{ times: [0, .4, .8], duration: 1, repeat: Infinity, repeatDelay: .1 }} className='col-start-3 bg-primary w-[50px] h-[50px]'></motion.div>
-                            <motion.div initial={{ y: 0 }} animate={{ y: [-50, 50, 0, 0, 0, -50], x: [0, 0, 0, 50, -50, 0, 0] }} transition={{ times: [0, .5, 1], duration: 2, repeat: Infinity, repeatDelay: 1 }} className='col-start-2 row-start-2 bg-primary w-[25px] h-full'></motion.div>
-                            <motion.div initial={{ y: 0 }} animate={{ y: [50, -50, 0, 0, 0, 50], x: [0, 0, 0, -50, 50, 0, 0] }} transition={{ times: [0, .5, 1], duration: 2, repeat: Infinity, repeatDelay: 1 }} className='col-start-2 row-start-2 bg-primary ml-[25px] w-[25px] h-full'></motion.div>
-                            <motion.div animate={{ backgroundColor: ["#D2AC72", "#ffffff", "#D2AC72"], opacity: [1, .5, 1] }} transition={{ times: [0, .3, .6], duration: 1, repeat: Infinity, repeatDelay: .1 }} className='col-start-1 row-start-3 bg-primary w-full h-full'></motion.div>
-                            <motion.div animate={{ backgroundColor: ["#D2AC72", "#ffffff", "#D2AC72"], opacity: [1, .5, 1] }} transition={{ times: [0, .3, .7], duration: 1, repeat: Infinity, repeatDelay: .1 }} className='col-start-3 row-start-3 bg-primary w-full h-full'></motion.div>
-                        </motion.div>
-                            <div className='row-start-3 col-start-2'><h1 className=' text-zinc-300 text-lg'>Loading...</h1></div></>)}
-                    </AnimatePresence>
-                    <AnimatePresence>
-                        {!intro && <motion.div
-                            className='row-start-2 col-start-2 h-screen w-screen'
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 1, ease: "easeInOut" }}
-                        >
 
-                        </motion.div>}
+                    <AnimatePresence>
+
+                        <Intro isIntro={intro} />
+
                     </AnimatePresence>
                 </motion.div>}
             </AnimatePresence>
             {!intro && <><div className='bg'></div><div className=' overflow-hidden flex flex-col h-screen items-center gap-5 px-8 text-white text-6xl relative'>
 
-                <AnimatePresence>
+                <AnimatePresence mode="wait">
                     {!open && <motion.div
-                        className='text-primary text-6xl mt-16'
+                        className='text-primary text-center text-6xl mt-16'
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 1, delay: 1.2 }}
                     >
                         <h1>Baroque</h1>
+                        <p className='text-lg mt-2 text-zinc-400'>architecture. design.</p>
 
                     </motion.div>}
                 </AnimatePresence>
@@ -109,11 +93,8 @@ const App = () => {
                 <AnimatePresence>
                     {open && (
                         <><motion.div
-                            className="fixed top-0 left-0 w-full bg- h-full z-50"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0, y: 1500 }}
-                            transition={{ duration: 1, stiffness: 90, damping: 15, ease: "easeIn", delay: .8 }}
+                            className="fixed top-0 left-0 w-full bg- h-full z-50 bg-secondary"
+
                         >
                             {/* Menu component */}
                             <Menu isOpen={open} />
@@ -121,7 +102,7 @@ const App = () => {
                             {/* Exit button */}
                             <motion.button
                                 onClick={toggleMenu}
-                                className='text-white text-xl absolute top-10 right-10'
+                                className='text-white text-xl absolute z-50 top-10 right-10'
                                 initial={{ opacity: 0, scale: 0.5 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.5 }}
@@ -153,7 +134,7 @@ const App = () => {
                             <Footer />
                         </motion.div></>)}
                 </AnimatePresence>
-            </div ></>}</>
+            </div ></>}</div>
     );
 };
 

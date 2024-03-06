@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import Image from 'next/image'
 
-const Project = ({ id, title, alt, slug, blur, mainImage, status, gallery, type, date }: any) => {
+const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, year }: any) => {
     const [hovered, setHovered] = useState(false);
     const [active, setActive] = useState(false);
 
@@ -19,14 +19,14 @@ const Project = ({ id, title, alt, slug, blur, mainImage, status, gallery, type,
     const velocityFactor = useTransform(
         smoothVelocity,
         [-1000, 1000],
-        [-8, 8]);
+        [-4, 4]);
 
     // parallax effect
-    const parallax = useTransform(smoothVelocity, [-1000, 1000], [-100, 100]);
+    const parallax = useTransform(smoothVelocity, [-1000, 1000], [10, -10]);
 
     return (
         <div key={id} className=' text-white duration-300 hover:text-primary text-center' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
-            <Link href={`/projects/${slug.current}`}>
+            <Link href={`/projects/${url}`}>
                 <motion.div
                     style={{ skewX: velocityFactor, x: parallax }}
                     whileHover={{ y: -20 }}
@@ -35,7 +35,7 @@ const Project = ({ id, title, alt, slug, blur, mainImage, status, gallery, type,
                     onMouseEnter={() => setActive(true)}
                     onMouseLeave={() => setActive(false)}
                 >
-                    <Image src={mainImage} width={1500} height={1000} alt={alt} placeholder='blur' blurDataURL={blur} className='object-contain grayscale hover:grayscale-0 duration-1000' />
+                    <Image src={mainImage} width={1500} height={1000} alt={alt} className='object-contain h-96 grayscale hover:grayscale-0 duration-1000' />
 
                 </motion.div>
             </Link >
@@ -45,7 +45,7 @@ const Project = ({ id, title, alt, slug, blur, mainImage, status, gallery, type,
                 transition={{ duration: 1 }}
                 className='w-[300px]'
             >
-                <Image src={mainImage} width={300} height={100} alt='shadow' placeholder='blur' blurDataURL={blur} className='absolute scale-x-[-1] rotate-180 blur-sm opacity-5 grayscale object-contain' />
+                <Image src={mainImage} width={300} height={100} alt='shadow' className='absolute scale-x-[-1] rotate-180 blur-sm opacity-5 grayscale object-contain' />
             </motion.div>
             <div className=''>
 
@@ -57,7 +57,7 @@ const Project = ({ id, title, alt, slug, blur, mainImage, status, gallery, type,
                         style={{ x: parallax }}
                         transition={{ duration: 0.2 }}
                         className='pt-5'
-                    >{title}</motion.h1>
+                    >{name}</motion.h1>
                 </AnimatePresence>
 
 
@@ -98,13 +98,13 @@ const Project = ({ id, title, alt, slug, blur, mainImage, status, gallery, type,
                             {hovered ? <motion.span initial={{ opacity: 0, x: 0 }}
                                 animate={{ opacity: 1, x: -35 }}
                                 exit={{ opacity: 0, x: 0 }}
-                                transition={{ duration: .7, delay: .2 }} className='absolute text-zinc-600'>Date: </motion.span> : null}
+                                transition={{ duration: .7, delay: .2 }} className='absolute text-zinc-600'>Year: </motion.span> : null}
                         </AnimatePresence>
                         <motion.span
                             animate={hovered ? { paddingRight: 30 } : { paddingRight: 0 }}
                             style={hovered && {}}
                             exit={{ opacity: 0, paddingLeft: 0 }}
-                            transition={{ duration: .5, delay: .2 }} className='relative text-zinc-400'>{date}</motion.span></h1>
+                            transition={{ duration: .5, delay: .2 }} className='relative text-zinc-400'>{year}</motion.span></h1>
                     <h1>
                         <AnimatePresence>
                             {hovered ? <motion.span initial={{ opacity: 0, x: 0 }}

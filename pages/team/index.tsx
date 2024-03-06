@@ -6,6 +6,7 @@ import bg from '/public/fg-1.jpg'
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
 import { transform } from 'next/dist/build/swc';
 import PageWrapper from '../../components/PageWrapper';
+import Link from 'next/link';
 
 const Team = () => {
     const container = useRef()
@@ -33,12 +34,12 @@ const Team = () => {
                         </HorizantalScroll>
 
                         <div className='flex flex-col w-[96vw]' ref={container}>
-                            <motion.h1
+                            <Link href="/"><motion.h1
                                 className='text-4xl text-white'
                                 style={{ opacity }}
                             >
                                 Hello world
-                            </motion.h1>
+                            </motion.h1></Link>
                             <motion.h1
                                 className='text-xl text-white'
                                 style={{ x: transformX }}

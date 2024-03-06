@@ -2,15 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    @font-face {
+      font-family: Eurostile;
+      font-weight: 400;
+      src: url(./fonts/eurostile.ttf);
+    }
+  }
+
 
 html , body {
     margin: 0;
     padding: 0;
+    display: table;
+}
+.home{
+    display: block !important;
+    width: 100vw;
 }
 body {
     background-color: #1E2337;
     margin: 0;
-    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: Eurostile !important;
+}
+::selection{
+    background: #D2AC72;
+    color: white;
 }
 
 .bg {
@@ -43,8 +61,10 @@ body {
   }
 ::-webkit-scrollbar-track
 {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,1);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
 	transform: translateY();
+    width: 50%;
+    height: 50%;
 }
 
 ::-webkit-scrollbar
@@ -56,20 +76,7 @@ body {
 
 ::-webkit-scrollbar-thumb
 {
-	background-color: rgb(255, 255, 255);
+	background-color: #D2AC72;
     border-radius: 35px;
-}
-.home-svg > * {
-    margin: auto;
-    width: 70vm;
-    width: 200vmin;
-    height: auto;
-    fill: none;
-    stroke: #dadada;
-    stroke-width: .5px;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-miterlimit: 10;
-    stroke-dasharray: 20;
 }
 

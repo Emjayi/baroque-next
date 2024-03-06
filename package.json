@@ -11,6 +11,7 @@
   "dependencies": {
     "@gsap/react": "^2.1.0",
     "@iconscout/react-unicons": "^2.0.2",
+    "@next/font": "^14.1.2",
     "@plaiceholder/next": "^3.0.0",
     "@react-three/drei": "^9.99.4",
     "@react-three/fiber": "^8.15.16",

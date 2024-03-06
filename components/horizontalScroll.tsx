@@ -8,7 +8,7 @@ const HorizontalScroll = ({ children }: any) => {
             options={{ orientation: "horizontal", gestureOrientataion: "both" }}
             classname=""
         >
-            <div className='table'>{children}</div>
+            <div className=''>{children}</div>
         </ReactLenis>
     )
 }
