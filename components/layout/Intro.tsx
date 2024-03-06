@@ -10,7 +10,7 @@ const Intro = ({ isIntro }: { isIntro: boolean }) => {
                         <motion.svg
                             initial={{ y: 0, opacity: 0 }}
                             animate={{ y: 0, opacity: .8 }}
-                            transition={{ duration: .5, repeat: 1, repeatDelay: .4, repeatType: "reverse" }}
+                            transition={{ duration: 1.8, repeat: 1, repeatDelay: .4, repeatType: "reverse" }}
                             version="1.1" id="Layer_1" className='fixed w-[600px] h-[600px]'
                             viewBox="0 0 5463.4 3168.8">
                             <g>

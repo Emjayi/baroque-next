@@ -227,7 +227,7 @@ const PageWrapper = ({ pageName, children }: any) => {
             <motion.div className='fixed z-0 flex h-screen w-screen justify-center items-center left-auto top-auto'>
                 <motion.svg
                     initial={{ scale: 1, opacity: 1 }}
-                    animate={{ scale: [1, 1, 1, 10], opacity: .02 }}
+                    animate={open ? { scale: [10, 8, 6, 1], opacity: [.02, .1, 1, 1] } : { scale: [1, 6, 8, 10], opacity: .02 }}
                     exit={{ scale: [10, 10, 1, 1], opacity: [.02, .1, 1, 1] }}
                     transition={{ duration: 1.6, times: [0, .5, .8, 1], ease: "easeInOut" }}
                     version="1.1" id="Layer_1" className='w-[600px] h-[600px]'
@@ -276,7 +276,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                         <AnimatePresence>
                             {open &&
                                 <motion.div
-                                    className='h-screen w-screen bg-secondary fixed top-0 left-0 flex flex-col justify-center items-center z-40'>
+                                    className='h-screen w-screen fixed top-0 left-0 flex flex-col justify-center items-center z-40'>
                                     <Menu isOpen={open} />
                                 </motion.div>}
                         </AnimatePresence>

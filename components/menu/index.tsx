@@ -188,11 +188,11 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
 
     // List of menu links
     const links = [
-        { name: 'Team', url: '/team', speed: 0.3, length: +50 },
-        { name: 'Projects', url: '/projects', speed: 0.2, length: +50 },
-        { name: 'Construction', url: '/construction', speed: 0.1, length: 0 },
-        { name: 'About', url: '/about', speed: 0.2, length: -50 },
-        { name: 'Press', url: '/press', speed: 0.3, length: -50 }
+        { name: 'Team', url: '/team', speed: 1.3, length: +50 },
+        { name: 'Projects', url: '/projects', speed: 1.2, length: +50 },
+        { name: 'Construction', url: '/construction', speed: 1.1, length: 0 },
+        { name: 'About', url: '/about', speed: 1.2, length: -50 },
+        { name: 'Press', url: '/press', speed: 1.3, length: -50 }
     ];
 
     // Render the menu component
@@ -202,14 +202,14 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
         >
             <motion.div
                 initial={{ opacity: .7, y: -15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                exit={{ opacity: .7, y: -150 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: .7, y: -15 }}
                 transition={{
                     delay: 0.3,
                     duration: 0.8,
                     ease: "easeInOut",
                 }}
-                className=" bg-gradient-to-br from-slate-300 to-slate-500  bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+                className="mt-0 md:mt-8 bg-gradient-to-br from-slate-300 to-slate-500  bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
             >
                 <ul className='header text-xl flex flex-col md:flex-row gap-2 justify-between items-center font-bold'>
                     {isMounted && // Only render links when the component is mounted
@@ -217,8 +217,9 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
                             // Animated link item
                             <motion.div
                                 key={index}
-                                initial={{ x: link.length, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
+                                initial={{ x: link.length, y: 50, opacity: 0 }}
+                                animate={{ x: 0, y: 0, opacity: 1 }}
+                                exit={{ x: link.length, y: 50, opacity: 0 }}
                                 transition={{ duration: 0.5, delay: link.speed }}
                                 className='flex justify-center items-center w-44'
                             >
