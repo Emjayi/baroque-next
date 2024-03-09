@@ -8,37 +8,6 @@ import { client } from '../../sanity/lib/client';
 
 const Projects = () => {
 
-
-
-
-    //Sanity Data
-    // useEffect(() => {
-    //     const getPosts = async () => {
-    //         const query = `
-    //             *[_type == "project"] {
-    //                 _id,
-    //                 title,
-    //                 status,
-    //                 gallery,
-    //                 slug,
-    //                 "mainImage": mainImage.asset->url,
-    //                 "blur": mainImage.asset->metadata.lqip,
-    //                 alt,
-    //                 date,
-    //                 type
-    //             }
-    //         `;
-    //         try {
-    //             const data = await client.fetch(query);
-    //             setProjects(data);
-    //         } catch (error) {
-    //             console.error('Error fetching posts:', error);
-    //         }
-    //     };
-
-    //     getPosts();
-    // }, []);
-
     return (
         <PageWrapper pageName="Projects">
 
