@@ -7,6 +7,7 @@ import intro1 from '/public/intro/1.svg'
 import intro2 from '/public/intro/2.svg'
 import intro3 from '/public/intro/3.svg'
 import logo from '/public/logo.png'
+import title from '/public/title.svg'
 import { UilMultiply } from '@iconscout/react-unicons'
 import Footer from '../components/footer';
 import Logo from '../components/menu/logo';
@@ -54,9 +55,9 @@ const App = () => {
             <motion.div className='fixed z-0 flex h-screen w-screen justify-center items-center left-auto top-auto'>
                 <motion.svg
                     initial={{ scale: 1, opacity: 1 }}
-                    animate={open ? { scale: [10, 10, 1, 1], opacity: [.02, .1, 1, 1] } : { scale: [1, 1, 1, 10], opacity: [1, 1, .2, .02] }}
-                    exit={!intro ? { scale: [10, 10, 1, 1], opacity: [.02, .2, .2, 1] } : { scale: [10, 10, 1, 1], opacity: [.02, .2, .2, 1] }}
-                    transition={!intro ? { duration: 1.4, times: [0, .5, .8, 1], ease: "easeInOut" } : { duration: 4.2, times: [0, .5, .8, 1], ease: "easeInOut" }}
+                    animate={open ? { scale: [10, 8, 6, 4, 2, 1], opacity: [.02, .02, .02, .02, .02, 1] } : { scale: [1, 2, 4, 6, 8, 10], opacity: [1, .02, .02, .02, .02, .02] }}
+                    exit={!intro ? (open ? { scale: [1, 1, 1, 1, 1, 1], opacity: [1, .8, 1, 1, .8, 1] } : { scale: [10, 8, 6, 4, 2, 1], opacity: [.02, .02, .02, .02, .02, 1] }) : { scale: [10, 8, 6, 4, 2, 1], opacity: [.02, .02, .02, .02, .02, 1] }}
+                    transition={!intro ? { duration: 1.4, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut" } : { duration: 1.4, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut", delay: 3 }}
                     version="1.1" id="Layer_1" className='w-[600px] h-[600px]'
                     viewBox="0 0 5463.4 3168.8">
                     <g>
@@ -66,8 +67,8 @@ const App = () => {
  M3223.8,2106l-241.9,241.9h-742.4V1062.6l241.9-241.9h471v542.8h271.4L3223.8,2106L3223.8,2106z"/>
                         <motion.path
                             initial={{ scale: 1, opacity: 0 }}
-                            animate={open ? { scale: [1, 1, 1, 1], opacity: [.02, .1, 1, 1] } : {}}
-                            exit={!intro ? { scale: [10, 10, 1, 1], opacity: [.02, .2, .2, 0] } : { scale: [10, 10, 1, 1], opacity: [.02, .1, 1, 1] }}
+                            animate={open ? { scale: [1, 1, 1, 1], opacity: [.02, .05, 1, 1] } : { scale: [1, 1, 1, 1], opacity: [0, 0, 0, .02] }}
+                            exit={!intro ? (open ? { scale: [1, 1, 1, 1, 1, .5], opacity: [1, 1, .5, 1, .5, 0] } : { scale: [10, 10, 1, 1], opacity: [0, 0, 0, .02] }) : { scale: [10, 10, 1, 1], opacity: [0, 0, 0, .02] }}
                             transition={{ duration: 1.6, times: [0, .5, .8, 1], ease: "easeInOut" }}
                             fill='#D2AC72'
                             strokeWidth={10}
@@ -89,17 +90,7 @@ const App = () => {
             {!intro && <><div className='bg'></div><div className=' overflow-hidden flex flex-col h-screen items-center gap-5 px-8 text-white text-6xl relative'>
 
                 <AnimatePresence mode="wait">
-                    <motion.div
-                        className='text-primary text-center text-6xl mt-16'
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={open ? { opacity: 1, y: -20 } : { opacity: 1, y: 0 }}
-                        exit={{ opacity: 1, y: -40 }}
-                        transition={{ duration: 1, delay: 1.2 }}
-                    >
-                        <h1>Baroque</h1>
-                        <p className='text-lg mt-2 text-zinc-400'>architecture. design.</p>
 
-                    </motion.div>
                 </AnimatePresence>
 
                 {/* Overlay animation for the background */}
@@ -144,13 +135,14 @@ const App = () => {
                         <motion.div
                             className='flex flex-col items-center justify-center gap-5 px-8 text-white text-6xl'
                             exit={{ opacity: 0 }}
-                            transition={{ duration: 1.2, ease: "easeIn" }}>
+                            transition={{ duration: .2, ease: "easeIn", delay: 1 }}>
                             <motion.button
                                 onClick={toggleMenu}
                                 className='text-white flex tracking-widest hover:tracking-normal justify-center items-end text-center h-96 w-64 text-2xl duration-200 absolute bottom-24'
                                 initial={{ opacity: 0, y: 40 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 1, delay: 1 }}
+                                exit={{ y: 40 }}
+                                transition={{ duration: 1, delay: .2 }}
 
                             >
                                 <h1 className=''>Enter</h1>

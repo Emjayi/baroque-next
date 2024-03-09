@@ -152,7 +152,8 @@ import { motion, useAnimation } from 'framer-motion'
 import Spline from '@splinetool/react-spline';
 import Logo from './logo';
 import { LampContainer } from '../ui/lamp';
-
+import Image from 'next/image';
+import title from '/public/title.svg'
 
 // Menu component with animations
 const Menu = ({ isOpen }: { isOpen: boolean }) => {
@@ -198,8 +199,17 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
     // Render the menu component
     return (
         <motion.div
-            className='flex p-32 h-screen w-screen justify-center'
+            className='flex flex-col px-32 h-screen w-screen items-center'
         >
+            <motion.div
+                className='text-primary text-center text-6xl mt-16'
+                initial={{ opacity: 0, y: 0 }}
+                animate={open ? { opacity: [0, 0, 1], y: [0, -20, -40] } : { opacity: [0, 0, 1], y: [0, 0, 0] }}
+                exit={{ opacity: [1, 1, 0], y: [-40, 0, -250] }}
+                transition={{ duration: 2.1, times: [0, .5, 1] }}
+            >
+                <Link href="/"><Image src={title} width={200} height={200} alt='logo'></Image></Link>
+            </motion.div>
             <motion.div
                 initial={{ opacity: .7, y: -15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -209,7 +219,7 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
                     duration: 0.8,
                     ease: "easeInOut",
                 }}
-                className="mt-0 md:mt-8 bg-gradient-to-br from-slate-300 to-slate-500  bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+                className=" bg-gradient-to-br from-slate-300 to-slate-500  bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
             >
                 <ul className='header text-xl flex flex-col md:flex-row gap-2 justify-between items-center font-bold'>
                     {isMounted && // Only render links when the component is mounted

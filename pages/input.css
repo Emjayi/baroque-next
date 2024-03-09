@@ -9,8 +9,6 @@
       src: url(./fonts/eurostile.ttf);
     }
   }
-
-
 html , body {
     margin: 0;
     padding: 0;
@@ -80,3 +78,17 @@ body {
     border-radius: 35px;
 }
 
+.image-container {
+    overflow: hidden;
+    background-color: black;
+  }
+  
+  .team {
+    width: 100%;
+    scale: 1.3;
+  }
+
+
+  .humb {
+    clip-path: polygon(30% 0, 100% 0, 100% 70%, 70% 100%, 0 100%, 0% 60%, 0 30%);
+  }

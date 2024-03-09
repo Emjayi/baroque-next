@@ -2,6 +2,7 @@ import { AnimatePresence, motion, useScroll, useSpring, useTransform, useVelocit
 import Link from 'next/link'
 import React, { useState } from 'react'
 import Image from 'next/image'
+import project from '../sanity/schemaTypes/project'
 
 const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, year }: any) => {
     const [hovered, setHovered] = useState(false);
@@ -20,9 +21,14 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
         smoothVelocity,
         [-1000, 1000],
         [-4, 4]);
+    const revVelocityFactor = useTransform(
+        smoothVelocity,
+        [-1000, 1000],
+        [4, -4]);
 
     // parallax effect
     const parallax = useTransform(smoothVelocity, [-1000, 1000], [10, -10]);
+    const revParallax = useTransform(smoothVelocity, [-1000, 1000], [-10, 10]);
 
     return (
         <div key={id} className=' text-white duration-300 hover:text-primary text-center' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
@@ -35,17 +41,17 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                     onMouseEnter={() => setActive(true)}
                     onMouseLeave={() => setActive(false)}
                 >
-                    <Image src={mainImage} width={1500} height={1000} alt={alt} className='object-contain h-96 grayscale hover:grayscale-0 duration-1000' />
+                    <Image src={mainImage} width={1500} height={1000} alt={alt} className='object-contain grayscale hover:grayscale-0 duration-1000' />
 
                 </motion.div>
             </Link >
             <motion.div
-                style={{ skewX: velocityFactor, x: parallax }}
+                style={{ skewX: revVelocityFactor, x: revParallax }}
                 animate={active ? { y: 20 } : { y: 0 }}
                 transition={{ duration: 1 }}
                 className='w-[300px]'
             >
-                <Image src={mainImage} width={300} height={100} alt='shadow' className='absolute scale-x-[-1] rotate-180 blur-sm opacity-5 grayscale object-contain' />
+                <Image src={mainImage} width={300} height={100} alt='shadow' className='absolute scale-x-[-1] rotate-180 blur-sm opacity-25 grayscale object-contain' />
             </motion.div>
             <div className=''>
 
@@ -86,33 +92,33 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                             {hovered ? <motion.span initial={{ opacity: 0, x: 0 }}
                                 animate={{ opacity: 1, x: -35 }}
                                 exit={{ opacity: 0, x: 0 }}
-                                transition={{ duration: .5, delay: .2 }} className='absolute text-zinc-600'>Type:</motion.span> : null}
+                                transition={{ duration: .5, delay: .2 }} className='absolute text-zinc-600 font-bold'>Type:</motion.span> : null}
                         </AnimatePresence>
                         <motion.span
                             animate={hovered ? { paddingRight: 25 } : { paddingRight: 0 }}
                             style={hovered && {}}
                             exit={{ opacity: 0, paddingLeft: 0 }}
-                            transition={{ duration: .5, delay: .2 }} className='relative text-zinc-400'>{type}</motion.span></h1>
+                            transition={{ duration: .5, delay: .2 }} className='relative text-zinc-400 font-bold'>{type}</motion.span></h1>
                     <h1>
                         <AnimatePresence>
                             {hovered ? <motion.span initial={{ opacity: 0, x: 0 }}
                                 animate={{ opacity: 1, x: -35 }}
                                 exit={{ opacity: 0, x: 0 }}
-                                transition={{ duration: .7, delay: .2 }} className='absolute text-zinc-600'>Year: </motion.span> : null}
+                                transition={{ duration: .7, delay: .2 }} className='absolute text-zinc-600 font-bold'>Year: </motion.span> : null}
                         </AnimatePresence>
                         <motion.span
                             animate={hovered ? { paddingRight: 30 } : { paddingRight: 0 }}
                             style={hovered && {}}
                             exit={{ opacity: 0, paddingLeft: 0 }}
-                            transition={{ duration: .5, delay: .2 }} className='relative text-zinc-400'>{year}</motion.span></h1>
+                            transition={{ duration: .5, delay: .2 }} className='relative text-zinc-400 font-bold'>{year}</motion.span></h1>
                     <h1>
                         <AnimatePresence>
                             {hovered ? <motion.span initial={{ opacity: 0, x: 0 }}
                                 animate={{ opacity: 1, x: -42 }}
                                 exit={{ opacity: 0, x: 0 }}
-                                transition={{ duration: .75, delay: .2 }} className='absolute text-zinc-600'>Status: </motion.span> : null}
+                                transition={{ duration: .75, delay: .2 }} className='absolute text-zinc-600 font-bold'>Status: </motion.span> : null}
                         </AnimatePresence>
-                        {status}</h1>
+                        <span className='relative text-zinc-400 font-bold'>{status}</span></h1>
                 </motion.div>
 
 

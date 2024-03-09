@@ -6,7 +6,7 @@ const Intro = ({ isIntro }: { isIntro: boolean }) => {
         <>
             {isIntro &&
                 (<>
-                    <div className='w-screen h-screen fixed top-0 left-0 z-50 flex items-center justify-center'>
+                    <div className='w-screen h-screen fixed top-0 left-0 flex items-center justify-center'>
                         <motion.svg
                             initial={{ y: 0, opacity: 0 }}
                             animate={{ y: 0, opacity: .8 }}
@@ -24,12 +24,11 @@ const Intro = ({ isIntro }: { isIntro: boolean }) => {
                                     className="" d="M3053.6,1262.3V719.5h-614.2l-301.3,301.3v1428.5h885.7l301.3-301.3v-885.7L3053.6,1262.3L3053.6,1262.3z
 		 M3223.8,2106l-241.9,241.9h-742.4V1062.6l241.9-241.9h471v542.8h271.4L3223.8,2106L3223.8,2106z"/>
                                 <motion.path
-                                    initial={{ scale: .6, opacity: .5, strokeDasharray: 20, pathLength: 0, pathOffset: 0, pathSpacing: 0 }}
-                                    animate={{ scale: .8, opacity: 1, strokeDasharray: 1, pathLength: .5, pathOffset: .6, pathSpacing: .7 }}
+                                    initial={{ scale: .8, opacity: .5, strokeDasharray: 20, pathLength: 0, pathOffset: 0, pathSpacing: 0 }}
+                                    animate={{ scale: 1, opacity: 1, strokeDasharray: 1, pathLength: .5, pathOffset: .6, pathSpacing: .7 }}
                                     transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
                                     fill='#D2AC72'
                                     strokeWidth={10}
-
                                     className="" d="M2782.2,1092.2V990.9h-372.7v1186.9h644.1v-644.1h-271.4V1092.2 M2952.4,2076.5h-441.5v-984.3H2681V1635h271.4
 		L2952.4,2076.5L2952.4,2076.5z" />
                             </g>
