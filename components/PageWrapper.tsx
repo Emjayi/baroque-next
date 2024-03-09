@@ -268,7 +268,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                 >
                     {!intro && <div className=' h-screen flex items-center'>
                         <motion.h1
-                            className='text-white text-xl w-36 ml-32 pr-4'>{pageName}</motion.h1>
+                            className='text-white text-xl w-36 ml-8 md:ml-32 pr-4'>{pageName}</motion.h1>
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
