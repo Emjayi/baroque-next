@@ -140,7 +140,7 @@ const Team = () => {
                             <div className=' items-center rounded-md image-container' ref={ref}>
                                 {team.map((t) => (
 
-                                    <motion.div className='flex image w-full' style={{ translateX }}>
+                                    <motion.div className='flex image w-full' style={{ translateX }} key={t.id}>
                                         <Image src={t.mainImg} width={1600} height={1600} alt={"team Picture"} className='h-[100vh] w-full object-cover scale-125' />
                                     </motion.div>
 
