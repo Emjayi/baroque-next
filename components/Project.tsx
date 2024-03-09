@@ -2,7 +2,6 @@ import { AnimatePresence, motion, useScroll, useSpring, useTransform, useVelocit
 import Link from 'next/link'
 import React, { useState } from 'react'
 import Image from 'next/image'
-import project from '../sanity/schemaTypes/project'
 
 const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, year }: any) => {
     const [hovered, setHovered] = useState(false);
