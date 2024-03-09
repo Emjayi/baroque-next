@@ -3,7 +3,6 @@ import PageWrapper from '../../components/PageWrapper';
 import projects from '../../lib/projectData'
 import HorizontalScroll from '../../components/horizontalScroll';
 import Project from '../../components/Project';
-import { client } from '../../sanity/lib/client';
 
 
 const Projects = () => {
