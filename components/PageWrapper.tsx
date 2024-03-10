@@ -223,7 +223,7 @@ const PageWrapper = ({ pageName, children }: any) => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className=''>
+        <div className='h-screen flex items-center'>
             <div className='bg'></div>
             <HorizontalScroll></HorizontalScroll>
             <motion.div className='fixed z-0 flex h-screen w-screen justify-center items-center'>
@@ -287,7 +287,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                             animate={{ opacity: [0, .2, .4, .6, .8, 1] }}
                             transition={{ duration: 2, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut" }}
                             exit={{ opacity: [1, .8, .6, .4, .2, 0] }}
-                            className='grid grid-cols-auto grid-rows-1'
+                            className='grid grid-rows-1 grid-flow-col gap-10 text-zinc-200'
                         >
                             {children}
                         </motion.div>
