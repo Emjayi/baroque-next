@@ -226,7 +226,7 @@ const PageWrapper = ({ pageName, children }: any) => {
         <div className='pagewrapper'>
             <div className='bg'></div>
             <HorizontalScroll></HorizontalScroll>
-            <motion.div className='fixed z-0 flex h-screen w-screen justify-center items-center left-auto top-auto'>
+            <motion.div className='fixed z-0 flex h-screen w-screen justify-center items-center'>
                 <motion.svg
                     initial={{ scale: 1, opacity: 1 }}
                     animate={open ? { scale: [10, 8, 6, 4, 2, 1], opacity: [.02, .02, .02, .02, .02, 1] } : { scale: [1, 2, 4, 6, 8, 10], opacity: [1, .02, .02, .02, .02, .02] }}
@@ -264,9 +264,9 @@ const PageWrapper = ({ pageName, children }: any) => {
                 </motion.div>}
 
                 <motion.div
-                    className='flex'
+                    className='h-screen flex'
                 >
-                    {!intro && <div className=' h-screen flex items-center'>
+                    {!intro && <div className='md:h-screen md: flex items-center'>
                         <motion.h1
                             className='text-white text-xl w-36 ml-8 md:ml-32 pr-4'>{pageName}</motion.h1>
                         <motion.div
