@@ -78,7 +78,7 @@ const App = () => {
                 </motion.svg>
             </motion.div>
             <AnimatePresence>
-                {intro && <motion.div exit={{ opacity: 0 }} className='grid grid-cols-3 grid-rows-3 gap-0 place-items-center md:h-screen h-[calc(100vh - constant(safe-area-inset-top))]'>
+                {intro && <motion.div exit={{ opacity: 0 }} className='grid grid-cols-3 grid-rows-3 gap-0 place-items-center md:h-screen h-full'>
 
                     <AnimatePresence>
 
@@ -87,7 +87,7 @@ const App = () => {
                     </AnimatePresence>
                 </motion.div>}
             </AnimatePresence>
-            {!intro && <><div className='bg'></div><div className=' overflow-hidden flex flex-col h-[calc(100vh - constant(safe-area-inset-top))] md:h-screen items-center gap-5 px-8 text-white text-6xl relative'>
+            {!intro && <><div className='bg hidden md:block'></div><div className='overflow-hidden flex flex-col h-[90vh] md:h-screen items-center gap-5 px-8 text-white text-6xl relative'>
 
                 <AnimatePresence mode="wait">
 
