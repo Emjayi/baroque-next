@@ -20,7 +20,6 @@ html , body {
 }
 body {
     background-color: #1b1b1b;
-    height: calc(100vh - constant(safe-area-inset-top)) !important;
     /* background-color: #1E2337; */
     margin: 0;
     overflow-y: hidden;
