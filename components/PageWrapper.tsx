@@ -223,8 +223,8 @@ const PageWrapper = ({ pageName, children }: any) => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className='h-screen flex items-center'>
-            <div className='bg'></div>
+        <div className='flex items-center'>
+            {/* <div className='bg'></div> */}
             <HorizontalScroll></HorizontalScroll>
             <motion.div className='fixed z-0 flex h-screen w-screen justify-center items-center'>
                 <motion.svg
