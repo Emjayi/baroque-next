@@ -19,7 +19,8 @@ html , body {
     width: 100vw;
 }
 body {
-    background-color: #1E2337;
+    background-color: #1b1b1b;
+    /* background-color: #1E2337; */
     margin: 0;
     overflow-y: hidden;
     font-family: Eurostile !important;
