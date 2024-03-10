@@ -30,13 +30,13 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
     const revParallax = useTransform(smoothVelocity, [-1000, 1000], [-10, 10]);
 
     return (
-        <div key={id} className=' text-white duration-300 hover:text-primary text-center' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+        <div key={id} className=' max-h-[70vh] h-[600px] text-white duration-300 hover:text-primary text-center' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
             <Link href={`/projects/${url}`}>
                 <motion.div
                     style={{ skewX: velocityFactor, x: parallax }}
                     whileHover={{ y: -20 }}
                     transition={{ duration: 1 }}
-                    className='w-[300px]'
+                    className='w-[150px] md:w-[300px]'
                     onMouseEnter={() => setActive(true)}
                     onMouseLeave={() => setActive(false)}
                 >
@@ -48,7 +48,7 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                 style={{ skewX: revVelocityFactor, x: revParallax }}
                 animate={active ? { y: 20 } : { y: 0 }}
                 transition={{ duration: 1 }}
-                className='w-[300px]'
+                className='w-[150px] md:w-[300px]'
             >
                 <Image src={mainImage} width={300} height={100} alt='shadow' className='absolute scale-x-[-1] rotate-180 blur-sm opacity-25 grayscale object-contain' />
             </motion.div>
