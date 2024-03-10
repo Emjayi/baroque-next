@@ -25,6 +25,7 @@ body {
     overflow-y: hidden;
     font-family: Eurostile !important;
 }
+.page
 ::selection{
     background: #D2AC72;
     color: white;

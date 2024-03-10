@@ -27,7 +27,6 @@ const Press = () => {
             <div className='w-24'><h1>Hello world</h1></div>
             <div className='w-24'><h1>Hello world</h1></div>
             <div className='w-24'><h1>Hello world</h1></div>
-
         </PageWrapper >
     );
 };
