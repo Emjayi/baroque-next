@@ -13,6 +13,22 @@ const Press = () => {
     return (
 
         <PageWrapper pageName="Press">
+            <div className='grid grid-rows-1 grid-flow-col gap-10 text-white'>
+                <div><h1>Hello world</h1></div>
+                <div><h1>Hello world</h1></div>
+                <div><h1>Hello world</h1></div>
+                <div><h1>Hello world</h1></div>
+                <div><h1>Hello world</h1></div>
+                <div><h1>Hello world</h1></div>
+                <div><h1>Hello world</h1></div>
+                <div><h1>Hello world</h1></div>
+                <div><h1>Hello world</h1></div>
+                <div><h1>Hello world</h1></div>
+                <div><h1>Hello world</h1></div>
+                <div><h1>Hello world</h1></div>
+                <div><h1>Hello world</h1></div>
+                <div><h1>Hello world</h1></div>
+            </div>
 
         </PageWrapper >
     );
