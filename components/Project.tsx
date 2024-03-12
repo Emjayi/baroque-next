@@ -30,13 +30,13 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
     const revParallax = useTransform(smoothVelocity, [-1000, 1000], [-10, 10]);
 
     return (
-        <div key={id} className=' max-h-[70vh] h-[600px] text-white duration-300 hover:text-primary text-center' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+        <div key={id} className='text-white duration-300 hover:text-primary text-center' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
             <Link href={`/projects/${url}`}>
                 <motion.div
                     style={{ skewX: velocityFactor, x: parallax }}
                     whileHover={{ y: -20 }}
                     transition={{ duration: 1 }}
-                    className='w-[300px] md:w-[300px]'
+                    className='w-[150px] md:w-[300px]'
                     onMouseEnter={() => setActive(true)}
                     onMouseLeave={() => setActive(false)}
                 >
@@ -48,7 +48,7 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                 style={{ skewX: revVelocityFactor, x: revParallax }}
                 animate={active ? { y: 20 } : { y: 0 }}
                 transition={{ duration: 1 }}
-                className='w-[300px] md:w-[300px]'
+                className='w-[150px] md:w-[300px]'
             >
                 <Image src={mainImage} width={300} height={100} alt='shadow' className='absolute scale-x-[-1] rotate-180 blur-sm opacity-25 grayscale object-contain' />
             </motion.div>
@@ -85,39 +85,80 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                     exit={{ opacity: 0 }}
                     style={{ x: parallax }}
                     transition={{ duration: .5 }}
-                    className='flex absolute w-[300px] text-zinc-400 text-sm justify-center gap-4'>
+                    className='md:flex hidden absolute w-[300px] text-zinc-400 text-sm justify-center gap-4'>
                     <h1>
                         <AnimatePresence>
                             {hovered ? <motion.span initial={{ opacity: 0, x: 0 }}
                                 animate={{ opacity: 1, x: -35 }}
                                 exit={{ opacity: 0, x: 0 }}
-                                transition={{ duration: .5, delay: .2 }} className='absolute text-zinc-600 font-bold'>Type:</motion.span> : null}
+                                transition={{ duration: .5, delay: .2 }} className='text-zinc-400 font-bold'>Type:</motion.span> : null}
                         </AnimatePresence>
                         <motion.span
                             animate={hovered ? { paddingRight: 25 } : { paddingRight: 0 }}
                             style={hovered && {}}
                             exit={{ opacity: 0, paddingLeft: 0 }}
-                            transition={{ duration: .5, delay: .2 }} className='relative text-zinc-400 font-bold'>{type}</motion.span></h1>
+                            transition={{ duration: .5, delay: .2 }} className='text-zinc-200 font-bold'>{type}</motion.span></h1>
                     <h1>
                         <AnimatePresence>
                             {hovered ? <motion.span initial={{ opacity: 0, x: 0 }}
                                 animate={{ opacity: 1, x: -35 }}
                                 exit={{ opacity: 0, x: 0 }}
-                                transition={{ duration: .7, delay: .2 }} className='absolute text-zinc-600 font-bold'>Year: </motion.span> : null}
+                                transition={{ duration: .7, delay: .2 }} className='text-zinc-400 font-bold'>Year: </motion.span> : null}
                         </AnimatePresence>
                         <motion.span
                             animate={hovered ? { paddingRight: 30 } : { paddingRight: 0 }}
                             style={hovered && {}}
                             exit={{ opacity: 0, paddingLeft: 0 }}
-                            transition={{ duration: .5, delay: .2 }} className='relative text-zinc-400 font-bold'>{year}</motion.span></h1>
+                            transition={{ duration: .5, delay: .2 }} className='text-zinc-200 font-bold'>{year}</motion.span></h1>
                     <h1>
                         <AnimatePresence>
                             {hovered ? <motion.span initial={{ opacity: 0, x: 0 }}
                                 animate={{ opacity: 1, x: -42 }}
                                 exit={{ opacity: 0, x: 0 }}
-                                transition={{ duration: .75, delay: .2 }} className='absolute text-zinc-600 font-bold'>Status: </motion.span> : null}
+                                transition={{ duration: .75, delay: .2 }} className='text-zinc-400 font-bold'>Status: </motion.span> : null}
                         </AnimatePresence>
-                        <span className='relative text-zinc-400 font-bold'>{status}</span></h1>
+                        <span className='text-zinc-200 font-bold'>{status}</span></h1>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    style={{ x: parallax }}
+                    transition={{ duration: .5 }}
+                    className='flex-col md:hidden w-full md:w-[300px] text-zinc-400 text-sm justify-center gap-4'>
+                    <h1>
+
+                        <motion.span initial={{ opacity: 0, x: 0 }}
+                            animate={{ opacity: 1, }}
+                            exit={{ opacity: 0, x: 0 }}
+                            transition={{ duration: .5, delay: .2 }} className='text-zinc-400 font-bold'>Type:</motion.span>
+
+                        <motion.span
+                            animate={hovered ? { paddingRight: 25 } : { paddingRight: 0 }}
+                            style={hovered && {}}
+                            exit={{ opacity: 0, paddingLeft: 0 }}
+                            transition={{ duration: .5, delay: .2 }} className='text-zinc-200 font-bold'> {type}</motion.span></h1>
+                    <h1>
+                        <AnimatePresence>
+                            <motion.span initial={{ opacity: 0, x: 0 }}
+                                animate={{ opacity: 1, x: -35 }}
+                                exit={{ opacity: 0, x: 0 }}
+                                transition={{ duration: .7, delay: .2 }} className='text-zinc-400 font-bold'>Year: </motion.span>
+                        </AnimatePresence>
+                        <motion.span
+                            animate={hovered ? { paddingRight: 30 } : { paddingRight: 0 }}
+                            style={hovered && {}}
+                            exit={{ opacity: 0, paddingLeft: 0 }}
+                            transition={{ duration: .5, delay: .2 }} className='text-zinc-200 font-bold'> {year}</motion.span></h1>
+                    <h1>
+                        <AnimatePresence>
+                            <motion.span initial={{ opacity: 0, x: 0 }}
+                                animate={{ opacity: 1, x: -42 }}
+                                exit={{ opacity: 0, x: 0 }}
+                                transition={{ duration: .75, delay: .2 }} className='text-zinc-400 font-bold'>Status: </motion.span>
+                        </AnimatePresence>
+                        <span className='text-zinc-200 font-bold'> {status}</span></h1>
                 </motion.div>
 
 
