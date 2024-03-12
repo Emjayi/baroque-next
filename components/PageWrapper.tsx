@@ -223,16 +223,16 @@ const PageWrapper = ({ pageName, children }: any) => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className='flex items-center h-screen'>
+        <div className='flex items-center h-[90vh] md:h-screen'>
             {/* <div className='bg'></div> */}
             <HorizontalScroll></HorizontalScroll>
-            <motion.div className='fixed z-0 flex h-screen w-screen justify-center items-center'>
+            <motion.div className='fixed z-0 flex left-0 right-0 justify-center items-center'>
                 <motion.svg
                     initial={{ scale: 1, opacity: 1 }}
                     animate={open ? { scale: [10, 8, 6, 4, 2, 1], opacity: [.02, .02, .02, .02, .02, 1] } : { scale: [1, 2, 4, 6, 8, 10], opacity: [1, .02, .02, .02, .02, .02] }}
                     exit={!intro ? (open ? { scale: [1, 1, 1, 1, 1, 1], opacity: [1, 1, .2, 1, .5, 1] } : { scale: [10, 8, 6, 4, 2, 1], opacity: [.02, .02, .02, .02, .02, 1] }) : { scale: [10, 8, 6, 4, 2, 1], opacity: [.02, .02, .02, .02, .02, 1] }}
                     transition={!intro ? { duration: 1.4, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut" } : { duration: 1.4, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut", delay: 3 }}
-                    version="1.1" id="Layer_1" className='w-[600px] h-[600px]'
+                    version="1.1" id="Layer_1" className='fixed w-[600px] h-[600px]'
                     viewBox="0 0 5463.4 3168.8">
                     <g>
                         <motion.path
@@ -298,12 +298,22 @@ const PageWrapper = ({ pageName, children }: any) => {
             {!intro && <motion.button
                 initial={{ width: 60, opacity: 0 }}
                 animate={menuHover ? { width: 110, opacity: 1 } : { opacity: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: .5, ease: "easeInOut", delay: .2 }}
                 onClick={() => setOpen(!open)}
                 onMouseEnter={() => setMenuHover(true)}
                 onMouseLeave={() => setMenuHover(false)}
-                className='humb fixed flex top-10 left-5 px-[16px] py-[16px] bg-primary/70 hover:bg-primary/90 duration-150 text-white z-50'>
-                <motion.div initial={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 1 }}>{!open && <UilBars />}{open && <UilMultiply />}</motion.div>{menuHover && <motion.p className='fixed' initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 40 }} exit={{ opacity: 0, x: 0 }} transition={{ duration: .5, ease: "easeInOut", delay: .4 }}>{!open ? "Menu" : "Close"}</motion.p>}
+                className='humb hidden fixed md:flex top-10 left-5 px-[16px] py-[16px] bg-primary/70 hover:bg-primary/90 duration-150 text-white z-50'>
+                <motion.div>{!open && <UilBars />}{open && <UilMultiply />}</motion.div>{menuHover && <motion.p className='fixed hidden md:block' initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 40 }} exit={{ opacity: 0, x: 0 }} transition={{ duration: .5, ease: "easeInOut", delay: .4 }}>{!open ? "Menu" : "Close"}</motion.p>}
+            </motion.button>}
+            {!intro && <motion.button
+                initial={{ width: 60, opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: .5, ease: "easeInOut", delay: .5 }}
+                onClick={() => setOpen(!open)}
+                className='humb md:hidden fixed flex top-10 left-5 px-[16px] py-[16px] bg-primary/70 text-white z-50'>
+                <motion.div>{!open && <UilBars />}{open && <UilMultiply />}</motion.div>
             </motion.button>}
             {open &&
                 <motion.div

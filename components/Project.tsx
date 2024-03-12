@@ -40,7 +40,7 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                     onMouseEnter={() => setActive(true)}
                     onMouseLeave={() => setActive(false)}
                 >
-                    <Image src={mainImage} width={1500} height={1000} alt={alt} className='object-contain grayscale hover:grayscale-0 duration-1000' />
+                    <Image src={mainImage} width={150} height={100} alt={alt} className='object-contain grayscale hover:grayscale-0 duration-1000' />
 
                 </motion.div>
             </Link >
@@ -50,7 +50,7 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                 transition={{ duration: 1 }}
                 className='w-[150px] md:w-[300px]'
             >
-                <Image src={mainImage} width={300} height={100} alt='shadow' className='absolute scale-x-[-1] rotate-180 blur-sm opacity-25 grayscale object-contain' />
+                <Image src={mainImage} width={150} height={100} alt='shadow' className='absolute rotate-180 blur-sm opacity-25 grayscale object-contain' />
             </motion.div>
             <div className=''>
 
@@ -61,7 +61,7 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                         exit={{ opacity: 0 }}
                         style={{ x: parallax }}
                         transition={{ duration: 0.2 }}
-                        className='pt-5'
+                        className='pt-5 font-bold text'
                     >{name}</motion.h1>
                 </AnimatePresence>
 
