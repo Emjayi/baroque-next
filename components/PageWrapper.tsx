@@ -224,9 +224,9 @@ const PageWrapper = ({ pageName, children }: any) => {
 
     return (
         <div className='flex items-center h-[90vh] md:h-screen'>
-            {/* <div className='bg'></div> */}
+            <div className='bg hidden md:block'></div>
             <HorizontalScroll></HorizontalScroll>
-            <motion.div className='fixed z-0 flex left-0 right-0 justify-center items-center'>
+            <motion.div className={!intro ? 'fixed z-0 flex left-0 right-0 justify-center items-center opacity-45 md:opacity-100' : 'fixed z-0 flex left-0 right-0 justify-center items-center opacity-55 md:opacity-100'}>
                 <motion.svg
                     initial={{ scale: 1, opacity: 1 }}
                     animate={open ? { scale: [10, 8, 6, 4, 2, 1], opacity: [.02, .02, .02, .02, .02, 1] } : { scale: [1, 2, 4, 6, 8, 10], opacity: [1, .02, .02, .02, .02, .02] }}
@@ -258,15 +258,13 @@ const PageWrapper = ({ pageName, children }: any) => {
                 transition={{ duration: 1 }}
             >
                 {intro && <motion.div exit={{ opacity: 0 }} className='grid grid-cols-3 grid-rows-3 gap-0 place-items-center h-screen'>
-
                     <Intro isIntro={intro} />
-
                 </motion.div>}
 
                 <motion.div
                     className='flex'
                 >
-                    {!intro && <div className='md:h-screen md: flex items-center'>
+                    {!intro && <div className='md:h-screen flex items-center'>
                         <motion.h1
                             className='text-white text-xl w-36 ml-8 md:ml-32 pr-4'>{pageName}</motion.h1>
                         <motion.div
@@ -276,8 +274,8 @@ const PageWrapper = ({ pageName, children }: any) => {
                             className=' min-w-48 mr-4'>
                             <motion.div
                                 className='h-[2px] w-20 bg-primary'
-                                initial={{ opacity: 0, x: 100 }}
-                                animate={{ opacity: [0, .3, .3, 0], x: 0 }}
+                                initial={{ opacity: 0, x: 100, scaleX: 1 }}
+                                animate={{ opacity: [0, .3, .3, 0], x: 0, scaleX: [.6, 1, 1, 1] }}
                                 transition={{ times: [0, .3, .7, 1], ease: "easeInOut", duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
                             ></motion.div>
                         </motion.div>
@@ -287,7 +285,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                             animate={{ opacity: [0, .2, .4, .6, .8, 1] }}
                             transition={{ duration: 2, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut" }}
                             exit={{ opacity: [1, .8, .6, .4, .2, 0] }}
-                            className='grid grid-rows-1 grid-flow-col gap-10 text-zinc-200'
+                            className='grid grid-rows-1 grid-flow-col gap-10 text-zinc-200 z-50'
                         >
                             {children}
                         </motion.div>
@@ -296,14 +294,15 @@ const PageWrapper = ({ pageName, children }: any) => {
                 </motion.div>
             </motion.div>}
             {!intro && <motion.button
-                initial={{ width: 60, opacity: 0 }}
-                animate={menuHover ? { width: 110, opacity: 1 } : { opacity: 1 }}
-                exit={{ opacity: 0 }}
+                initial={{ width: 50, opacity: 0, y: -10 }}
+                animate={menuHover ? { width: 100, opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+                style={menuHover && { clipPath: 'polygon(100% 0, 100% 40%, 100% 40%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px, 12px 0)' }}
+                exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: .5, ease: "easeInOut", delay: .2 }}
                 onClick={() => setOpen(!open)}
                 onMouseEnter={() => setMenuHover(true)}
                 onMouseLeave={() => setMenuHover(false)}
-                className='humb hidden fixed md:flex top-10 left-5 px-[16px] py-[16px] bg-primary/70 hover:bg-primary/90 duration-150 text-white z-50'>
+                className='humb hidden fixed md:flex top-10 left-5 px-[6px] py-[16px] bg-primary/70 hover:bg-primary/90 duration-150 text-white z-50'>
                 <motion.div>{!open && <UilBars />}{open && <UilMultiply />}</motion.div>{menuHover && <motion.p className='fixed hidden md:block' initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 40 }} exit={{ opacity: 0, x: 0 }} transition={{ duration: .5, ease: "easeInOut", delay: .4 }}>{!open ? "Menu" : "Close"}</motion.p>}
             </motion.button>}
             {!intro && <motion.button

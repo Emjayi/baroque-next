@@ -1,16 +1,29 @@
 import { AnimatePresence, motion, useScroll, useSpring, useTransform, useVelocity } from 'framer-motion'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Image from 'next/image'
 
-const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, year }: any) => {
+const Construction = ({ id, name, alt, url, blur, mainImage, status, gallery, type, year }: any) => {
+
     const [hovered, setHovered] = useState(false);
     const [active, setActive] = useState(false);
 
-    // get scroll pos
-    const { scrollX } = useScroll();
+    const ref = useRef(null);
+    const { scrollXProgress } = useScroll({
+        target: ref,
+        offset: ["start end", "end start"]
+    });
+    const translateX = useTransform(
+        scrollXProgress,
+        // Map x from these values:
+        [0, 1],
+        // Into these values:
+        ["15%", "-15%"]
+    );
 
     // skew animation
+    const { scrollX } = useScroll();
+
     const scrollVelocity = useVelocity(scrollX);
     const smoothVelocity = useSpring(scrollVelocity, {
         damping: 180,
@@ -19,43 +32,33 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
     const velocityFactor = useTransform(
         smoothVelocity,
         [-1000, 1000],
-        [-4, 4]);
+        [-20, 20]);
     const revVelocityFactor = useTransform(
         smoothVelocity,
         [-1000, 1000],
         [4, -4]);
 
-    // parallax effect
-    const parallax = useTransform(smoothVelocity, [-1000, 1000], [10, -10]);
-    const revParallax = useTransform(smoothVelocity, [-1000, 1000], [-5, 5]);
 
     return (
-        <div key={id} className='text-white duration-300 w-[150px] md:w-[280px] hover:text-primary text-center' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+        <div key={id} className='text-white duration-300 w-[150px] md:w-[380px] hover:text-primary text-center' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
             <Link href={`/projects/${url}`} className='hidden md:block'>
-                <motion.div
-                    style={{ skewX: velocityFactor, x: parallax }}
-                    whileHover={{ y: -20 }}
-                    transition={{ duration: 1 }}
-                    className='hidden md:block w-[280px] h-[400px]'
-                    onMouseEnter={() => setActive(true)}
-                    onMouseLeave={() => setActive(false)}
-                >
-                    <Image src={mainImage} width={280} height={400} alt={alt} className='w-[280px] h-[400px] object-cover grayscale hover:grayscale-0 duration-1000' />
-                </motion.div>
+                <div className='hidden md:block w-[380px] h-screen'>
+                    <motion.div
+                        className='image-container hidden md:block w-[380px] h-screen'
+                        ref={ref}
+                    >
+                        <motion.img
+                            style={{ translateX: velocityFactor }}
+                            whileHover={{ scaleX: .8, scaleY: .8 }}
+                            transition={{ duration: .5 }}
+                            src={mainImage} width={280} height={400} alt={alt} className='const-img h-screen object-cover grayscale hover:grayscale-0 duration-1000' />
+                    </motion.div>
+                </div>
             </Link >
-            <motion.div
-                style={{ skewX: revVelocityFactor, x: revParallax }}
-                animate={active ? { y: 20 } : { y: 0 }}
-                transition={{ duration: 1 }}
-                className='hidden md:block w-[280px]'
-            >
-                <Image src={mainImage} width={280} height={100} alt='shadow' className='absolute rotate-180 blur-sm opacity-5 grayscale object-contain' />
-            </motion.div>
 
             {/* Mobile View */}
             <Link href={`/projects/${url}`} className='md:hidden'>
                 <motion.div
-                    style={{ skewX: velocityFactor, x: parallax }}
                     whileHover={{ y: -20 }}
                     transition={{ duration: 1 }}
                     className='w-[150px] md:hidden'
@@ -66,32 +69,31 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
 
                 </motion.div>
             </Link >
-            <motion.div
-                style={{ skewX: revVelocityFactor, x: revParallax }}
-                animate={active ? { y: 20 } : { y: 0 }}
-                transition={{ duration: 1 }}
-                className='w-[150px] md:hidden'
-            >
-                <Image src={mainImage} width={150} height={100} alt='shadow' className='absolute rotate-180 blur-sm opacity-5 grayscale object-contain' />
-            </motion.div>
+
             <div className=''>
 
-                <AnimatePresence>
-                    <motion.h1
-                        initial={{ opacity: 0 }}
-                        animate={hovered ? { y: -10, opacity: 1 } : { opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        style={{ x: parallax }}
-                        transition={{ duration: 0.2 }}
-                        className='pt-5 font-bold text'
-                    >{name}</motion.h1>
-                </AnimatePresence>
+                <motion.div
+                    initial={{ opacity: 0, y: 120 }}
+                    animate={hovered ? { y: 0, opacity: 1 } : { opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: .7, delay: .3 }}
+                    className='bg-[#212121] absolute bottom-0 z-50 py-6 text-center w-[380px] font-bold text '>
+                    <motion.h1>{year}</motion.h1>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: -120 }}
+                    animate={hovered ? { y: 0, opacity: 1 } : { opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                    className='bg-[#212121]/60 absolute top-0 z-50 py-12 text-center w-[380px] font-bold text '>
+                    <motion.h1>{name}</motion.h1>
+                </motion.div>
 
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    style={{ x: parallax }}
+
                     transition={{ duration: .5 }}
                     className='md:flex hidden w-[280px] text-zinc-400 text-sm justify-center gap-4'>
                     <h1>
@@ -133,7 +135,7 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    style={{ x: parallax }}
+
                     transition={{ duration: .5 }}
                     className='flex-col md:hidden w-full md:w-[300px] text-zinc-400 text-sm justify-center gap-4'>
                     <h1>
@@ -176,4 +178,4 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
     )
 }
 
-export default Project
+export default Construction

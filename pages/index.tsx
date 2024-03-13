@@ -77,33 +77,22 @@ const App = () => {
                     </g>
                 </motion.svg>
             </motion.div>
-            <AnimatePresence>
-                {intro && <motion.div exit={{ opacity: 0 }} className='grid grid-cols-3 grid-rows-3 gap-0 place-items-center md:h-screen h-full'>
 
-                    <AnimatePresence>
+            {intro && <motion.div exit={{ opacity: 0 }} className='grid grid-cols-3 grid-rows-3 gap-0 place-items-center md:h-screen h-full'>
+                <div className='bg hidden md:block'></div><Intro isIntro={intro} />
+            </motion.div>}
 
-                        <Intro isIntro={intro} />
-
-                    </AnimatePresence>
-                </motion.div>}
-            </AnimatePresence>
             {!intro && <><div className='bg hidden md:block'></div><div className='overflow-hidden flex flex-col h-[90vh] md:h-screen items-center gap-5 px-8 text-white text-6xl relative'>
 
-                <AnimatePresence mode="wait">
-
-                </AnimatePresence>
-
                 {/* Overlay animation for the background */}
-                <AnimatePresence>
-                    {open && (
-                        <motion.div
-                            className="fixed top-0 left-0 bg w-full h-full z-50"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 0 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.3 }} />
-                    )}
-                </AnimatePresence>
+                {open && (
+                    <motion.div
+                        className="fixed top-0 left-0 bg w-full h-full z-50"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 0 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }} />
+                )}
 
                 {/* Menu animation */}
                 <AnimatePresence>

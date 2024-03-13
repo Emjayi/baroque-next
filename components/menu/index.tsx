@@ -221,7 +221,7 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
                 }}
                 className=" bg-gradient-to-br from-slate-300 to-slate-500  bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
             >
-                <ul className='header text-xl flex flex-col md:flex-row gap-2 justify-between items-center font-bold'>
+                <ul className='header h-[60vh] md:h-auto text-xl flex flex-col md:flex-row gap-2 justify-between items-center font-bold'>
                     {isMounted && // Only render links when the component is mounted
                         links.map((link, index) => (
                             // Animated link item
@@ -231,9 +231,9 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
                                 animate={{ x: 0, y: 0, opacity: 1 }}
                                 exit={{ x: link.length, y: 50, opacity: 0 }}
                                 transition={{ duration: 0.5, delay: link.speed }}
-                                className='flex justify-center items-center w-44'
+                                className='flex justify-center items-center w-44 humb'
                             >
-                                <li className='flex flex-col gap-3 justify-center text-center'>
+                                <li className='flex flex-col gap-3 font-thin md:bg-white/0 md:hover:bg-white/0 bg-black/10 hover:bg-primary/80 py-6 justify-center text-center'>
                                     <Link
                                         href={link.url}
                                         className='duration-200 text-xl text-center w-44 hover:text-white text-zinc-200 tracking-[.2em] hover:tracking-normal'
