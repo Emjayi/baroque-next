@@ -1,16 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Menu from '../components/menu';
-import Link from 'next/link';
-import Image from 'next/image';
-import intro1 from '/public/intro/1.svg'
-import intro2 from '/public/intro/2.svg'
-import intro3 from '/public/intro/3.svg'
-import logo from '/public/logo.png'
-import title from '/public/title.svg'
 import { UilMultiply } from '@iconscout/react-unicons'
 import Footer from '../components/footer';
-import Logo from '../components/menu/logo';
 import Intro from '../components/layout/Intro';
 
 // App component with animations
