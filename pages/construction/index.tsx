@@ -8,7 +8,7 @@ import Construction from '../../components/Construction';
 const Constructions = () => {
 
     return (
-        <PageWrapper pageName="Projects">
+        <PageWrapper pageName="Constructions">
 
             <div className=' h-full'>
 

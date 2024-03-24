@@ -229,8 +229,8 @@ const PageWrapper = ({ pageName, children }: any) => {
             <motion.div className={!intro ? 'fixed z-0 flex left-0 right-0 justify-center items-center opacity-45 md:opacity-100' : 'fixed z-0 flex left-0 right-0 justify-center items-center opacity-55 md:opacity-100'}>
                 <motion.svg
                     initial={{ scale: 1, opacity: 1 }}
-                    animate={open ? { scale: [10, 8, 6, 4, 2, 1], opacity: [.02, .02, .02, .02, .02, 1] } : { scale: [1, 2, 4, 6, 8, 10], opacity: [1, .02, .02, .02, .02, .02] }}
-                    exit={!intro ? (open ? { scale: [1, 1, 1, 1, 1, 1], opacity: [1, 1, .2, 1, .5, 1] } : { scale: [10, 8, 6, 4, 2, 1], opacity: [.02, .02, .02, .02, .02, 1] }) : { scale: [10, 8, 6, 4, 2, 1], opacity: [.02, .02, .02, .02, .02, 1] }}
+                    animate={open ? { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] } : { scale: 10, opacity: [1, .02, .02, .02, .02, .02] }}
+                    exit={!intro ? (open ? { scale: [1, 1, 1, 1, 1, 1], opacity: [1, 1, .2, 1, .5, 1] } : { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] }) : { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] }}
                     transition={!intro ? { duration: 1.4, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut" } : { duration: 1.4, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut", delay: 3 }}
                     version="1.1" id="Layer_1" className='fixed w-[600px] h-[600px]'
                     viewBox="0 0 5463.4 3168.8">
@@ -251,48 +251,50 @@ const PageWrapper = ({ pageName, children }: any) => {
                     </g>
                 </motion.svg>
             </motion.div>
-            {!open && <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1 }}
-            >
-                {intro && <motion.div exit={{ opacity: 0 }} className='grid grid-cols-3 grid-rows-3 gap-0 place-items-center h-screen'>
-                    <Intro isIntro={intro} />
-                </motion.div>}
-
-                <motion.div
-                    className='flex'
+            <AnimatePresence mode='wait'>
+                {!open && <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1 }}
                 >
-                    {!intro && <div className='md:h-screen flex items-center'>
-                        <motion.h1
-                            className='text-white text-xl w-36 ml-8 md:ml-32 pr-4'>{pageName}</motion.h1>
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 1.5, ease: "easeInOut" }}
-                            className=' min-w-48 mr-4'>
+                    {intro && <motion.div exit={{ opacity: 0 }} className='grid grid-cols-3 grid-rows-3 gap-0 place-items-center h-screen'>
+                        <Intro isIntro={intro} />
+                    </motion.div>}
+
+                    <motion.div
+                        className='flex'
+                    >
+                        {!intro && <motion.div className='md:h-screen flex items-center'>
+                            <motion.h1
+                                className='text-white text-xl w-36 ml-8 md:ml-32 pr-4'>{pageName}</motion.h1>
                             <motion.div
-                                className='h-[2px] w-20 bg-primary'
-                                initial={{ opacity: 0, x: 100, scaleX: 1 }}
-                                animate={{ opacity: [0, .3, .3, 0], x: 0, scaleX: [.6, 1, 1, 1] }}
-                                transition={{ times: [0, .3, .7, 1], ease: "easeInOut", duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
-                            ></motion.div>
-                        </motion.div>
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 1.5, ease: "easeInOut" }}
+                                className=' min-w-48 mr-4'>
+                                <motion.div
+                                    className='h-[2px] w-20 bg-primary'
+                                    initial={{ opacity: 0, x: 100, scaleX: 1 }}
+                                    animate={{ opacity: [0, .3, .3, 0], x: 0, scaleX: [.6, 1, 1, 1] }}
+                                    transition={{ times: [0, .3, .7, 1], ease: "easeInOut", duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
+                                ></motion.div>
+                            </motion.div>
 
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: [0, .2, .4, .6, .8, 1] }}
-                            transition={{ duration: 2, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut" }}
-                            exit={{ opacity: [1, .8, .6, .4, .2, 0] }}
-                            className='grid grid-rows-1 grid-flow-col gap-10 text-zinc-200 z-50'
-                        >
-                            {children}
-                        </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: [0, .2, .4, .6, .8, 1] }}
+                                transition={{ duration: 2, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut" }}
+                                exit={{ opacity: [1, .8, .6, .4, .2, 0] }}
+                                className='flex min-w-fit items-center gap-10 text-zinc-200 z-50'
+                            >
+                                {children}
+                            </motion.div>
 
-                    </div>}
-                </motion.div>
-            </motion.div>}
+                        </motion.div>}
+                    </motion.div>
+                </motion.div>}
+            </AnimatePresence>
             {!intro && <motion.button
                 initial={{ width: 50, opacity: 0, y: -10 }}
                 animate={menuHover ? { width: 100, opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
@@ -316,6 +318,9 @@ const PageWrapper = ({ pageName, children }: any) => {
             </motion.button>}
             {open &&
                 <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 2 }}
                     className='h-screen w-screen fixed top-0 left-0 flex flex-col justify-center items-center z-40'>
                     <Menu isOpen={open} />
                 </motion.div>}

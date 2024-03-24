@@ -62,7 +62,7 @@ body {
   }
 ::-webkit-scrollbar-track
 {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.2);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.05);
 	transform: translateY();
     width: 50%;
     height: 50%;
@@ -71,13 +71,13 @@ body {
 ::-webkit-scrollbar
 {
 	width: 0px;
-    height: 5px;
+    height: 3px;
 	background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb
 {
-	background-color: #D2AC72;
+	background-color: #D2AC7280;
     border-radius: 35px;
 }
 
