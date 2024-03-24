@@ -1,15 +1,14 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 
-const [intro, setIntro] = useState(true);
-useEffect(() => {
-    const timer = setTimeout(() => {
-        setIntro(false)
-    }, 3400);
-    return () => clearTimeout(timer);
-}, []);
-
 const Logo = () => {
+    const [intro, setIntro] = useState(true);
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIntro(false)
+        }, 3400);
+        return () => clearTimeout(timer);
+    }, []);
     return (
         <motion.div className={!intro ? 'fixed z-0 flex left-0 right-0 justify-center items-center opacity-45 md:opacity-100' : 'fixed z-0 flex left-0 right-0 justify-center items-center opacity-55 md:opacity-100'}>
             <motion.svg
