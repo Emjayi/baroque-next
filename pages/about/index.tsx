@@ -7,7 +7,7 @@ import img2 from '../../public/about/2.jpg';
 import img1 from '../../public/about/1.jpg';
 import map from './map.js'
 
-const about = () => {
+const About = () => {
     const aboutText = "Here is the land of new opportunities and even a home where you can experience, learn, be supported, and in a word a place where you can live architecture. Doing professional and researching projects of architecture. Teaching architecture to young people, considering the lack of proper academic area in the north of Iran. Studying and providing innovative models to settle the shantytown and those who have been hurt by natural disasters. Designing fast-to-build houses for the times of emergency.Reviving and researching in architecture and local building techniques and preventing the local architecture from being faded into oblivion.".split(" ");
 
     const ref = useRef(null);
@@ -128,5 +128,5 @@ const about = () => {
     )
 }
 
-export default about
+export default About
 
