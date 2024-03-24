@@ -150,7 +150,6 @@ import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 import Spline from '@splinetool/react-spline';
-import Logo from './logo';
 import { LampContainer } from '../ui/lamp';
 import Image from 'next/image';
 import title from '/public/title.svg'
