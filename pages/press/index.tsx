@@ -5,7 +5,6 @@ import Project from '../../components/Project';
 import HorizontalScroll from '../../components/horizontalScroll';
 import projects from '../projects';
 import Image from 'next/image';
-import SanityImage from '../../components/sanityImage';
 
 const Press = () => {
 
