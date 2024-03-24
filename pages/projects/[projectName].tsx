@@ -44,7 +44,7 @@ const ProjectPage = () => {
                         </button></Link>
                         <div className='flex'>
                             <div className='pro-image  h-screen flex'>
-                                <Image src={`../../public/projects/${project.name}/1.jpg`} width={1500} height={1200} alt='Main Image' className='object-cover w-[6000px]' />
+                                <Image src={project.firstImage} width={1500} height={1200} alt='Main Image' className='object-cover w-[6000px]' />
                             </div>
                             <div className='text-white text-xl items-center justify-between w-[1500px] flex'>
 

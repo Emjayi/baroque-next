@@ -10,7 +10,6 @@ const App = () => {
     // State to track if the menu is open or closed
     const [open, setOpen] = useState(false);
     const [intro, setIntro] = useState(true);
-
     setTimeout(() => {
         setIntro(false)
     }, 3400);
