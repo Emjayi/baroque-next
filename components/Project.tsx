@@ -56,13 +56,12 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
             <Link href={`/projects/${url}`} className='md:hidden'>
                 <motion.div
                     style={{ skewX: velocityFactor, x: parallax }}
-                    whileHover={{ y: -20 }}
                     transition={{ duration: 1 }}
-                    className='w-[150px] md:hidden'
+                    className='w-[150px] md:hidden h-[200px]'
                     onMouseEnter={() => setActive(true)}
                     onMouseLeave={() => setActive(false)}
                 >
-                    <Image src={mainImage} width={150} height={100} alt={alt} className='object-contain grayscale hover:grayscale-0 duration-1000' />
+                    <Image src={mainImage} width={150} height={100} alt={alt} className='object-contain w-[150px] h-[200px] grayscale hover:grayscale-0 duration-1000' />
 
                 </motion.div>
             </Link >
