@@ -12,7 +12,7 @@ const Constructions = () => {
 
             <div className=' h-full'>
 
-                <div className='grid items-end grid-flow-col min-h-64 grid-rows-1 pr-20'>
+                <div className='flex'>
                     {constructions.map(construction => (
                         <Construction key={construction.id} {...construction} />
                     ))}

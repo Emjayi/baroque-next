@@ -44,26 +44,25 @@ const About = () => {
 
     return (
         <PageWrapper pageName='about'>
+
             <div className=' w-[1000px] h-screen'>
                 <motion.div
                     className='overflow-hidden w-[1000px] h-screen'
                     ref={ref}
                 >
                     <motion.div
-
                         style={{ translateX: velocityFactor }}
-
                         className='h-screen object-cover'><Image src={img3} className='-ml-16 h-screen scale-110 min-w-[1000px] object-cover' alt='about baroque'></Image></motion.div>
                 </motion.div>
             </div>
-
 
             <motion.h1
                 initial={{ opacity: 0.2 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: .25, delay: .2 }}
                 className='absolute -rotate-90 left-[1350px] text-white w-52 text-2xl '>Where is Baroque?</motion.h1>
-            <div className='min-w-[800px] ml-28'>
+            <div className='w-[800px] ml-28'>
+                <h1 className='text-3xl uppercase'>Your description. <span className='text-primary text-xl'>BELOW IS FROM MRK</span></h1>
                 {aboutText.map((el, i) => (
                     <motion.span
                         initial={{ x: -50, opacity: 0.2 }}
@@ -80,28 +79,26 @@ const About = () => {
                 ))}
             </div>
 
-
             <div className=' w-[1000px] h-screen'>
                 <motion.div
                     className='overflow-hidden w-[1000px] h-screen'
                     ref={ref}
                 >
                     <motion.div
-
                         style={{ translateX: velocityFactor }}
-
-                        className='h-screen'><Image src={img1} className='-ml-16 h-screen scale-125 min-w-[1000px] object-cover' alt='about baroque'></Image></motion.div>
+                        className='h-screen'>
+                        <Image src={img1} className='-ml-16 h-screen scale-125 min-w-[1000px] object-cover' alt='about baroque'></Image>
+                    </motion.div>
                 </motion.div>
             </div>
-
-            <div className='flex text-white text-lg flex-col items-center justify-center h-screen'>
+            <div className='flex text-white text-lg w-[500px] flex-col items-center justify-center h-screen'>
                 <motion.h1
                     initial={{ opacity: 0, y: -30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: .5 }}
-                >Hello</motion.h1>
-                <motion.h1>World</motion.h1>
-                <motion.h1>Bye</motion.h1>
+                    className='text-2xl'
+                >Your Information
+                </motion.h1>
             </div>
 
             <div className=' w-[1000px] h-screen'>
@@ -110,20 +107,22 @@ const About = () => {
                     ref={ref}
                 >
                     <motion.div
-
                         style={{ translateX: velocityFactor }}
-
-                        className='h-screen object-cover'><Image src={img2} className='-ml-16 h-screen scale-125 min-w-[1000px] object-cover' alt='about baroque'></Image></motion.div>
+                        className='h-screen object-cover'>
+                        <Image src={img2} className='-ml-16 h-screen scale-125 min-w-[1000px] object-cover' alt='about baroque'></Image>
+                    </motion.div>
                 </motion.div>
             </div>
 
-            <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 1.5 }}
-                className='text-white ml-32 min-w-[400px]'>Here is the land of new opportunities and even a home where you can experience, learn, be supported, and in a word a place where you can live architecture. Doing professional and researching projects of architecture. Teaching architecture to young people, considering the lack of proper academic area in the north of Iran. Studying and providing innovative models to settle the shantytown and those who have been hurt by natural disasters. Designing fast-to-build houses for the times of emergency.Reviving and researching in architecture and local building techniques and preventing the local architecture from being faded into oblivion.</motion.p>
-
-
+            <div className='flex text-white text-lg w-[800px] flex-col items-center justify-center h-screen'>
+                <motion.h1
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: .5 }}
+                    className='text-2xl'
+                >Your Awards and map
+                </motion.h1>
+            </div>
         </PageWrapper>
     )
 }

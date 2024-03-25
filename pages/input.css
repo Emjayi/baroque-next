@@ -96,11 +96,11 @@ body {
     /* clip-path: polygon(30% 0, 100% 0, 100% 70%, 70% 100%, 0 100%, 0% 60%, 0 30%); */
     clip-path: polygon(calc(100% - 12px) 0, calc(100% - 12px) 40%, 100% 40%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px, 12px 0);
   }
-
-
-
-  
   .const-img {
     width: 100%;
     scale: 1.3;
+  }
+  .swiper-button-next ,.swiper-button-prev{
+    color: #D2AC72 !important;
+    padding: 40px 20px;
   }

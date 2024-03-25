@@ -36,11 +36,11 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, gallery, ty
 
 
     return (
-        <div key={id} className='text-white duration-300 w-[150px] md:w-[380px] hover:text-primary text-center' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+        <div key={id} className='text-white duration-300 w-[250px] md:w-[380px] hover:text-primary text-center' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
             <Link href={`/projects/${url}`} className='hidden md:block'>
-                <div className='hidden md:block w-[380px] h-[60vh]'>
+                <div className='hidden md:block md:w-[380px] h-[80vh]'>
                     <motion.div
-                        className='image-container hidden md:block w-[380px] h-[60vh]'
+                        className='image-container hidden md:block w-[380px] h-[80vh]'
                         ref={ref}
                     >
                         <motion.img
@@ -55,78 +55,34 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, gallery, ty
             {/* Mobile View */}
             <Link href={`/projects/${url}`} className='md:hidden'>
                 <motion.div
-                    whileHover={{ y: -20 }}
                     transition={{ duration: 1 }}
-                    className='w-[150px] md:hidden'
+                    className='w-[250px] h-[400px] md:hidden'
                     onMouseEnter={() => setActive(true)}
                     onMouseLeave={() => setActive(false)}
                 >
-                    <Image src={mainImage} width={150} height={100} alt={alt} className='object-contain grayscale hover:grayscale-0 duration-1000' />
+                    <Image src={mainImage} width={250} height={400} alt={alt} className='object-cover w-[250px] h-[400px] grayscale hover:grayscale-0 duration-1000' />
 
                 </motion.div>
             </Link >
 
             <div className=''>
-
+                {/*'#1E2337'*/}
                 <motion.div
-                    initial={{ opacity: 1, y: -70 }}
-                    animate={hovered ? { y: -60, opacity: 1 } : { opacity: 1 }}
+                    initial={{ opacity: 1, y: 50 }}
+                    animate={hovered ? { y: 30, opacity: 1, backgroundColor: ['#D2AC72', '#D2AC72', '#333333'] } : { opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: .7, delay: .3 }}
-                    className='bg-primary absolute bottom-0 z-50 py-6 text-center w-[380px] font-bold text-white border-b-4 border-t-4 border-zinc-900'>
-                    <motion.h1>{year}</motion.h1>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 1, y: 40 }}
-                    animate={hovered ? { y: 20, opacity: 1 } : { opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                    className='bg-primary absolute top-0 z-50 py-12 text-center w-[380px] font-bold text-white  border-b-4 border-zinc-900'>
+                    transition={{ duration: 0.5, times: [0, 0.6, 1] }}
+                    className='bg-primary absolute top-0 z-50 py-2 text-center md:w-[380px] w-[250px] font-bold text-white border-b-4 border-white/20'>
                     <motion.h1>{name}</motion.h1>
                 </motion.div>
-
-                {/* Mobile View Details */}
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    initial={{ opacity: 1, y: -60 }}
+                    animate={hovered ? { y: -40, opacity: 1, backgroundColor: ['#D2AC72', '#D2AC72', '#333333'] } : { opacity: 1 }}
                     exit={{ opacity: 0 }}
-
-                    transition={{ duration: .5 }}
-                    className='flex-col md:hidden w-full md:w-[300px] text-zinc-400 text-sm justify-center gap-4'>
-                    <h1>
-                        <motion.span initial={{ opacity: 0, x: 0 }}
-                            animate={{ opacity: 1, }}
-                            exit={{ opacity: 0, x: 0 }}
-                            transition={{ duration: .5, delay: .2 }} className='text-zinc-400 font-bold'>Type:</motion.span>
-
-                        <motion.span
-                            animate={hovered ? { paddingRight: 25 } : { paddingRight: 0 }}
-                            style={hovered && {}}
-                            exit={{ opacity: 0, paddingLeft: 0 }}
-                            transition={{ duration: .5, delay: .2 }} className='text-zinc-200 font-bold'> {type}</motion.span></h1>
-                    <h1>
-                        <AnimatePresence>
-                            <motion.span initial={{ opacity: 0, x: 0 }}
-                                animate={{ opacity: 1, x: -35 }}
-                                exit={{ opacity: 0, x: 0 }}
-                                transition={{ duration: .7, delay: .2 }} className='text-zinc-400 font-bold'>Year:</motion.span>
-                        </AnimatePresence>
-                        <motion.span
-                            animate={hovered ? { paddingRight: 30 } : { paddingRight: 0 }}
-                            style={hovered && {}}
-                            exit={{ opacity: 0, paddingLeft: 0 }}
-                            transition={{ duration: .5, delay: .2 }} className='text-zinc-200 font-bold'> {year}</motion.span></h1>
-                    <h1>
-                        <AnimatePresence>
-                            <motion.span initial={{ opacity: 0, x: 0 }}
-                                animate={{ opacity: 1, x: -42 }}
-                                exit={{ opacity: 0, x: 0 }}
-                                transition={{ duration: .75, delay: .2 }} className='text-zinc-400 font-bold'>Status:</motion.span>
-                        </AnimatePresence>
-                        <span className='text-zinc-200 font-bold'> {status}</span></h1>
+                    transition={{ duration: .5, times: [0, 0.7, 1] }}
+                    className='bg-primary absolute bottom-0 z-50 py-1 text-center md:w-[380px] w-[250px] font-bold text-white border-t-4 border-white/20 ring-4xl ring-white'>
+                    <motion.h1>{year}</motion.h1>
                 </motion.div>
-
-
 
             </div>
         </div >
