@@ -149,8 +149,6 @@
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion'
-import Spline from '@splinetool/react-spline';
-import { LampContainer } from '../ui/lamp';
 import Image from 'next/image';
 import title from '/public/title.svg'
 
@@ -191,8 +189,7 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
         { name: 'Team', url: '/team', speed: 1.3, length: +50 },
         { name: 'Projects', url: '/projects', speed: 1.2, length: +50 },
         { name: 'Construction', url: '/construction', speed: 1.1, length: 0 },
-        { name: 'About', url: '/about', speed: 1.2, length: -50 },
-        { name: 'Press', url: '/press', speed: 1.3, length: -50 }
+        { name: 'About', url: '/about', speed: 1.2, length: -50 }
     ];
 
     // Render the menu component

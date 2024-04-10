@@ -6,7 +6,7 @@
     @font-face {
       font-family: Eurostile;
       font-weight: 400;
-      src: url(./fonts/Eurostile.ttf);
+      src: url(../public/fonts/Eurostile.ttf);
     }
   }
 html , body {
@@ -19,7 +19,7 @@ html , body {
     width: 100vw;
 }
 body {
-    background-color: #1b1b1b;
+    background-color: #101010;
     /* background-color: #1E2337; */
     margin: 0;
     overflow-y: hidden;

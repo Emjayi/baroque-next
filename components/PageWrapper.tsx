@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import Menu from './menu';
 import HorizontalScroll from './horizontalScroll';
 import { UilBars } from '@iconscout/react-unicons'
@@ -67,7 +67,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1 }}
             >
-                {intro && <motion.div exit={{ opacity: 0 }} className='grid grid-cols-3 grid-rows-3 gap-0 place-items-center h-screen'>
+                {intro && <motion.div className='grid grid-cols-3 grid-rows-3 gap-0 place-items-center h-screen'>
                     <Intro isIntro={intro} />
                 </motion.div>}
 

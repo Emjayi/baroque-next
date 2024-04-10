@@ -120,7 +120,7 @@ const About = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: .5 }}
                     className='text-2xl'
-                >Your Awards and map
+                >MAP
                 </motion.h1>
             </div>
         </PageWrapper>

@@ -94,7 +94,7 @@ const Team = () => {
         <>
             {/* Intro animation */}
             <PageWrapper pageName='Team'>
-                <div className='bg'></div><div className='flex h-[99vh] items-center -z-10'>
+                {/* <div className='bg'></div><div className='flex h-[99vh] items-center -z-10'>
                     <div className='flex h-[90vh] items-center gap-5 border-r-0 border-l-0 text-white text-6xl'>
                         <HorizantalScroll>
                             <div className=' flex items-center justify-start'>
@@ -149,7 +149,7 @@ const Team = () => {
                         </div>
 
                     </div>
-                </div >
+                </div > */}
             </PageWrapper></>
     )
 }
