@@ -7,7 +7,7 @@ const Intro = ({ isIntro }: { isIntro: boolean }) => {
             {isIntro &&
                 (<>
                     <AnimatePresence>
-                        <div className='w-screen h-[90vh] md:h-screen fixed top-0 left-0 flex items-center justify-center'>
+                        <div className='w-screen h-[90vh]  md:h-screen fixed top-0 left-0 flex items-center justify-center'>
                             <motion.svg
                                 initial={{ y: 0, opacity: 0 }}
                                 animate={{ y: 0, opacity: .8 }}

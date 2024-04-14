@@ -60,8 +60,8 @@ const About = () => {
                 initial={{ opacity: 0.2 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: .25, delay: .2 }}
-                className='absolute -rotate-90 left-[1350px] text-white w-52 text-2xl '>Where is Baroque?</motion.h1>
-            <div className='w-[800px] ml-28'>
+                className='absolute -rotate-90 md:left-[1350px] left-[1250px] text-white w-52 text-2xl '>Where is Baroque?</motion.h1>
+            <div className='md:w-[800px] w-[300px] md:ml-28 ml-32'>
                 <h1 className='text-3xl uppercase'>Your description. <span className='text-primary text-xl'>BELOW IS FROM MRK</span></h1>
                 {aboutText.map((el, i) => (
                     <motion.span

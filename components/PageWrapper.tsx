@@ -34,7 +34,10 @@ const PageWrapper = ({ pageName, children }: any) => {
     return (
         <div className='flex items-center h-[90vh] md:h-screen'>
             <div className='bg hidden md:block'></div>
+
             <HorizontalScroll></HorizontalScroll>
+
+            {/*Logo Animation*/}
             <motion.div className={!intro ? 'fixed z-0 flex left-0 right-0 justify-center items-center opacity-45 md:opacity-100' : 'fixed z-0 flex left-0 right-0 justify-center items-center opacity-55 md:opacity-100'}>
                 <motion.svg
                     initial={{ scale: 1, opacity: 1 }}
@@ -61,48 +64,54 @@ const PageWrapper = ({ pageName, children }: any) => {
                 </motion.svg>
             </motion.div>
 
-            {!open && <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 1 }}
-            >
-                {intro && <motion.div className='grid grid-cols-3 grid-rows-3 gap-0 place-items-center h-screen'>
-                    <Intro isIntro={intro} />
-                </motion.div>}
-
-                <motion.div
-                    className='flex'
+            {/*Page content*/}
+            <AnimatePresence>
+                {!open && <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 1 }}
                 >
-                    {!intro && <motion.div className='md:h-screen flex items-center'>
-                        <motion.h1
-                            className='text-white text-xl w-54 ml-8 md:ml-32 pr-4'>{pageName}</motion.h1>
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 1.5, ease: "easeInOut" }}
-                            className=' min-w-48 mr-4'>
-                            <motion.div
-                                className='h-[2px] w-20 bg-primary'
-                                initial={{ opacity: 0, x: 100, scaleX: 1 }}
-                                animate={{ opacity: [0, .3, .3, 0], x: 0, scaleX: [.6, 1, 1, 1] }}
-                                transition={{ times: [0, .3, .7, 1], ease: "easeInOut", duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
-                            ></motion.div>
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: [0, .2, .4, .6, .8, 1] }}
-                            transition={{ duration: 2, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut" }}
-                            exit={{ opacity: [1, .8, .6, .4, .2, 0] }}
-                            className='flex min-w-fit items-center gap-10 text-zinc-200 z-50'
-                        >
-                            {children}
-                        </motion.div>
-
+                    {intro && <motion.div className='grid grid-cols-3 grid-rows-3 gap-0 place-items-center h-screen'>
+                        <Intro isIntro={intro} />
                     </motion.div>}
-                </motion.div>
-            </motion.div>}
+
+                    <motion.div
+                        className='flex'
+                    >
+                        {!intro && <motion.div className='md:h-screen flex items-center'>
+                            <motion.h1
+                                className='text-white uppercase text-xl w-54 ml-8 md:ml-32 pr-4'>{pageName}</motion.h1>
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 1.5, ease: "easeInOut" }}
+                                className=' min-w-48 mr-4'>
+                                <motion.div
+                                    className='h-[2px] w-20 bg-primary'
+                                    initial={{ opacity: 0, x: 100, scaleX: 1 }}
+                                    animate={{ opacity: [0, .3, .3, 0], x: 0, scaleX: [.6, 1, 1, 1] }}
+                                    transition={{ times: [0, .3, .7, 1], ease: "easeInOut", duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
+                                ></motion.div>
+                            </motion.div>
+
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: [0, .2, .4, .6, .8, 1] }}
+                                transition={{ duration: 2, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut" }}
+                                exit={{ opacity: [1, .8, .6, .4, .2, 0] }}
+                                className='flex min-w-fit items-center gap-10 text-zinc-200 z-50'
+                            >
+                                {children}
+                            </motion.div>
+                        </motion.div>}
+                    </motion.div>
+                </motion.div>}
+            </AnimatePresence>
+
+
+
+
 
             {!intro && <motion.button
                 initial={{ width: 50, opacity: 0, y: -10 }}
@@ -114,8 +123,12 @@ const PageWrapper = ({ pageName, children }: any) => {
                 onMouseEnter={() => setMenuHover(true)}
                 onMouseLeave={() => setMenuHover(false)}
                 className='humb hidden fixed md:flex top-10 left-5 px-[6px] py-[16px] bg-primary/70 hover:bg-primary/90 duration-150 text-white z-50'>
-                <motion.div>{!open && <UilBars />}{open && <UilMultiply />}</motion.div>{menuHover && <motion.p className='fixed hidden md:block' initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 40 }} exit={{ opacity: 0, x: 0 }} transition={{ duration: .5, ease: "easeInOut", delay: .4 }}>{!open ? "Menu" : "Close"}</motion.p>}
+                <motion.div>{!open && <UilBars />}{open && <UilMultiply />}</motion.div>
+                <AnimatePresence>
+                    {menuHover && <motion.p className='fixed hidden md:block' initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 40 }} exit={{ opacity: 0, x: 20 }} transition={{ duration: .5, ease: "easeInOut", delay: .4 }}>{!open ? "Menu" : "Close"}</motion.p>}
+                </AnimatePresence>
             </motion.button>}
+
             {!intro && <motion.button
                 initial={{ width: 60, opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -133,7 +146,6 @@ const PageWrapper = ({ pageName, children }: any) => {
                     className='h-screen w-screen fixed top-0 left-0 flex flex-col justify-center items-center z-40'>
                     <Menu isOpen={open} />
                 </motion.div>}
-
         </div >
     )
 }
