@@ -30,15 +30,15 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
     const revParallax = useTransform(smoothVelocity, [-1000, 1000], [-5, 5]);
 
     return (
-        <div key={id} className='text-white duration-300 w-[150px] md:w-[280px] hover:text-primary text-center' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+        <div key={id} className='text-white duration-300 w-[150px] md:w-[280px] hover:text-primary text-center'>
             <Link href={`/projects/${url}`} className='hidden md:block'>
                 <motion.div
                     style={{ skewX: velocityFactor, x: parallax }}
                     whileHover={{ y: -20 }}
                     transition={{ duration: 1 }}
                     className='hidden md:block w-[280px] h-[400px]'
-                    onMouseEnter={() => setActive(true)}
-                    onMouseLeave={() => setActive(false)}
+                    onMouseEnter={() => { setActive(true), setHovered(true) }}
+                    onMouseLeave={() => { setActive(false), setHovered(false) }}
                 >
                     <Image src={mainImage} width={280} height={400} alt={alt} className='w-[280px] h-[400px] object-cover grayscale hover:grayscale-0 duration-1000' />
                 </motion.div>

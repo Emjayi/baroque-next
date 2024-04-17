@@ -53,10 +53,10 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
                 className='text-primary text-center text-6xl mt-16'
                 initial={{ opacity: 0, y: 0 }}
                 animate={open ? { opacity: [0, 0, 1], y: [0, -20, -40] } : { opacity: [0, 0, 1], y: [0, 0, 0] }}
-                exit={{ opacity: [1, 1, 0], y: [-40, 0, -250] }}
+                exit={{ opacity: [1, 1, 0], y: [-40, -20, -150] }}
                 transition={{ duration: 2.1, times: [0, .5, 1] }}
             >
-                <Link href="/"><Image src={title} width={200} height={200} alt='logo'></Image></Link>
+                <Link href="/"><Image src={title} width={200} height={200} className='w-64' alt='logo'></Image></Link>
             </motion.div>
             <motion.div
                 initial={{ opacity: .7, y: -15 }}
@@ -69,7 +69,7 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
                 }}
                 className=" bg-gradient-to-br from-slate-300 to-slate-500  bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
             >
-                <ul className='header h-[60vh] md:h-auto text-xl flex flex-col md:flex-row gap-2 justify-between items-center font-bold'>
+                <ul className='header mt-0 md:-mt-16 h-[60vh] md:h-auto text-xl flex flex-col md:flex-row gap-2 justify-between items-center font-bold'>
                     {isMounted && // Only render links when the component is mounted
                         links.map((link, index) => (
                             // Animated link item

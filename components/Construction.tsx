@@ -68,12 +68,22 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, gallery, ty
             <div className=''>
 
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={hovered ? { y: -50, opacity: 1, backgroundColor: '#33333360', paddingBottom: "50px", color: "#999999" } : { opacity: 1 }}
+                    initial={{ height: "40px" }}
+                    animate={hovered ? { y: 0, opacity: 1, backgroundColor: '#000', height: "100px", color: "#999999" } : { height: "40px" }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5, times: [0, 0.6, 1] }}
-                    className='bg-black/20 absolute top-auto z-50 py-2 text-center md:w-[380px] w-[250px] font-bold text-white border-b-4 border-white/20'>
-                    <motion.h1>{name}</motion.h1>
+                    className='bg-black/50 absolute top-[10vh] z-50 py-2 text-center md:w-[380px] w-[250px] font-bold text-white border-b-4 border-white/20'>
+                    <motion.h1 className={hovered && "text-primary"}>{name}</motion.h1>
+
+                    {hovered &&
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 1, delay: .2 }}
+                        >
+                            <motion.h1>{year}</motion.h1>
+                            <motion.h1>{status}</motion.h1>
+                        </motion.div>}
                 </motion.div>
             </div>
         </div >
