@@ -61,7 +61,7 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                     onMouseEnter={() => setActive(true)}
                     onMouseLeave={() => setActive(false)}
                 >
-                    <Image src={mainImage} width={150} height={100} alt={alt} className='object-contain w-[150px] h-[200px] grayscale hover:grayscale-0 duration-1000' />
+                    <Image src={mainImage} width={150} height={100} alt={alt} className='object-cover w-[150px] h-[200px] grayscale hover:grayscale-0 duration-1000' />
 
                 </motion.div>
             </Link >

@@ -72,7 +72,7 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, gallery, ty
                     animate={hovered ? { y: 0, opacity: 1, backgroundColor: '#000', height: "100px", color: "#999999" } : { height: "40px" }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.5, times: [0, 0.6, 1] }}
-                    className='bg-black/50 absolute top-[10vh] z-50 py-2 text-center md:w-[380px] w-[250px] font-bold text-white border-b-4 border-white/20'>
+                    className='bg-black/50 absolute md:top-[10vh] top-[20vh] z-50 py-2 text-center md:w-[380px] w-[250px] font-bold text-white border-b-4 border-white/20'>
                     <motion.h1 className={hovered && "text-primary"}>{name}</motion.h1>
 
                     {hovered &&
