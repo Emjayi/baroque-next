@@ -100,7 +100,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                                 animate={{ opacity: [0, .2, .4, .6, .8, 1] }}
                                 transition={{ duration: 2, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut" }}
                                 exit={{ opacity: [1, .8, .6, .4, .2, 0] }}
-                                className='flex min-w-fit items-center gap-10 text-zinc-200 z-50'
+                                className=''
                             >
                                 {children}
                             </motion.div>

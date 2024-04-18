@@ -6,15 +6,35 @@ import projects from '../../lib/projectData'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // import required modules
-import { Keyboard, Pagination } from 'swiper/modules';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Autoplay, Keyboard, Pagination, Scrollbar } from 'swiper/modules';
+import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { UilArrowLeft } from '@iconscout/react-unicons'
 import Link from 'next/link';
+import { Link as ScrollLink } from 'react-scroll';
 
 
 const ProjectPage = () => {
+
+    const [isAtEnd, setIsAtEnd] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => {
+            const isEnd = window.innerWidth + window.scrollX >= document.body.offsetWidth;
+            setIsAtEnd(isEnd);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+    const buttonVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+    };
+    const buttonControls = useAnimation();
 
     const [mousePosition, setMousePosition] = useState({
         x: 0,
@@ -53,20 +73,26 @@ const ProjectPage = () => {
     return (
         <PageWrapper pageName={project.name}>
             <div>
-                <Link href="./"><button
-                    className='fixed flex bottom-10 left-0 px-4 py-6 rounded-r-md bg-primary duration-150 text-white z-50'>
-                    <UilArrowLeft /><p>Back to Projects</p>
-                </button></Link>
+                <ScrollLink to="info" smooth={true} duration={500} offset={1} horizontal={true}>
+                    <motion.button
+                        variants={buttonVariants}
+                        animate={isAtEnd ? 'visible' : 'hidden'}
+                        initial='hidden'
+                        transition={{ duration: 0.3 }}
+                        className='fixed flex bottom-10 left-0 px-4 py-6 bg-primary/20 duration-150 text-white z-50'>
+                        <p>Project info</p>
+                    </motion.button>
+                </ScrollLink>
                 <div className='flex'>
-                    <div className='pro-image  h-screen flex'>
+                    <div className='pro-image h-screen flex'>
                         <Image src={project.firstImage} width={1500} height={1200} alt='Main Image' className='object-cover w-[6000px]' />
                     </div>
-                    <div className='text-white text-xl items-center justify-between w-[1500px] flex'>
+                    <div id='info' className='px-8 text-white text-xl items-center justify-between w-[1500px] flex bg-black/30'>
 
-                        <div>
-                            {project.area && <><h1 className='text-zinc-500 font-bold'>Built area:</h1><p>{project.area}</p></>}
-                            {project.location && <div className='my-5'><h1 className='text-zinc-500 font-bold'>Location:</h1><p>{project.location}</p></div>}
-                            {project.client && <><h1 className='text-zinc-500 font-bold'>Client:</h1><p>{project.client}</p></>}
+                        <div className='w-screen md:w-auto'>
+                            {project.area && <><h1 className='text-zinc-500 font-bold'>Built area:</h1><p className='text-sm w-24'>{project.area}</p></>}
+                            {project.location && <div className='my-5'><h1 className='text-zinc-500 font-bold'>Location:</h1><p className='text-sm w-24'>{project.location}</p></div>}
+                            {project.client && <><h1 className='text-zinc-500 font-bold'>Client:</h1><p className='text-sm w-24'>{project.client}</p></>}
                         </div>
                         <div>
                             {/* {project.team && project.team.map((t) => (
@@ -93,12 +119,12 @@ const ProjectPage = () => {
                             pagination={{
                                 clickable: true,
                             }}
-                            navigation={true}
-                            modules={[Keyboard, Pagination]} className=" cursor-default w-screen h-screen">
+
+                            modules={[Keyboard, Pagination, Autoplay, Scrollbar]} className=" cursor-default w-screen h-screen bg-black/30">
                             {
                                 project.allImages.map((image: any, index: number) => (
-                                    <SwiperSlide key={index + 1}>
-                                        <Image src={`/projects/${project.name}/${image}`} width={1500} height={1500} alt={`Image ${index + 1}`} className='max-h-screen min-h-screen md:object-contain '></Image>
+                                    <SwiperSlide key={index}>
+                                        <Image src={`/projects/${project.name}/${image}`} width={1500} height={1500} alt={`Image ${index + 1}`} className='items-center flex h-screen object-contain'></Image>
                                     </SwiperSlide>
                                 ))
                             }

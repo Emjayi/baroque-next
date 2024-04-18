@@ -10,7 +10,7 @@ const Projects = () => {
     return (
         <PageWrapper pageName="Projects">
 
-            <div className='h-full'>
+            <div className='h-full flex items-center'>
 
                 <div className='grid items-end grid-flow-col gap-10 min-h-64 grid-rows-1 pr-20'>
                     {projects.map(project => (
