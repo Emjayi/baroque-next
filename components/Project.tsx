@@ -30,19 +30,22 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
     const revParallax = useTransform(smoothVelocity, [-1000, 1000], [-5, 5]);
 
     return (
-        <div key={id} className='text-white duration-300 w-[150px] md:w-[280px] hover:text-primary text-center'>
-            <Link href={`/projects/${url}`} className='hidden md:block'>
-                <motion.div
-                    style={{ skewX: velocityFactor, x: parallax }}
-                    whileHover={{ y: -20 }}
-                    transition={{ duration: 1 }}
-                    className='hidden md:block w-[280px] h-[400px]'
-                    onMouseEnter={() => { setActive(true), setHovered(true) }}
-                    onMouseLeave={() => { setActive(false), setHovered(false) }}
-                >
-                    <Image src={mainImage} width={280} height={400} alt={alt} className='w-[280px] h-[400px] object-cover grayscale hover:grayscale-0 duration-1000' />
-                </motion.div>
-            </Link >
+        <motion.div key={id} className='text-white duration-300 w-[150px] md:w-[280px] hover:text-primary text-center'>
+            <AnimatePresence>
+                <Link href={`/projects/${url}`} className='hidden md:block'>
+                    <motion.div
+                        style={{ skewX: velocityFactor, x: parallax }}
+                        whileHover={{ y: -20 }}
+                        transition={{ duration: 1 }}
+                        exit={{ opacity: 0 }}
+                        className='hidden md:block w-[280px] h-[400px]'
+                        onMouseEnter={() => { setActive(true), setHovered(true) }}
+                        onMouseLeave={() => { setActive(false), setHovered(false) }}
+                    >
+                        <Image src={mainImage} width={280} height={400} alt={alt} className='w-[280px] h-[400px] object-cover grayscale hover:grayscale-0 duration-1000' />
+                    </motion.div>
+                </Link >
+            </AnimatePresence>
             <motion.div
                 style={{ skewX: revVelocityFactor, x: revParallax }}
                 animate={active ? { y: 20 } : { y: 0 }}
@@ -73,7 +76,7 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
             >
                 <Image src={mainImage} width={150} height={100} alt='shadow' className='absolute rotate-180 blur-sm opacity-5 grayscale object-contain' />
             </motion.div>
-            <div className=''>
+            <motion.div className=''>
 
                 <AnimatePresence>
                     <motion.h1
@@ -170,8 +173,8 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
 
 
 
-            </div>
-        </div >
+            </motion.div>
+        </motion.div >
     )
 }
 

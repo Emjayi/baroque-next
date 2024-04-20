@@ -90,9 +90,9 @@ const ProjectPage = () => {
                     <div id='info' className='px-8 text-white text-xl items-center justify-between w-[1500px] flex bg-black/30'>
 
                         <div className='w-screen md:w-auto'>
-                            {project.area && <><h1 className='text-zinc-500 font-bold'>Built area:</h1><p className='text-sm w-24'>{project.area}</p></>}
-                            {project.location && <div className='my-5'><h1 className='text-zinc-500 font-bold'>Location:</h1><p className='text-sm w-24'>{project.location}</p></div>}
-                            {project.client && <><h1 className='text-zinc-500 font-bold'>Client:</h1><p className='text-sm w-24'>{project.client}</p></>}
+                            {project.area && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .4 }}><h1 className='text-zinc-500 font-bold'>Built area:</h1><p className='text-[16px] w-36'>{project.area} m2</p></motion.div>}
+                            {project.location && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .6 }} className='my-5 pl-8'><h1 className='text-zinc-500 font-bold'>Location:</h1><p className='text-[16px] w-36'>{project.location}</p></motion.div>}
+                            {project.client && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .8 }} className='pl-16'><h1 className='text-zinc-500 font-bold'>Client:</h1><p className='text-[16px] w-36'>{project.client}</p></motion.div>}
                         </div>
                         <div>
                             {/* {project.team && project.team.map((t) => (
