@@ -67,7 +67,7 @@ const Team = () => {
                                 <div className='bg-white p-4 rounded-md'>
                                     {/* Description of the man */}
                                     {/* Replace this with your actual description content */}
-                                    <h2 className='text-lg font-bold'>Man's Description</h2>
+                                    <h2 className='text-lg font-bold'>Man Description</h2>
                                     <p>Additional details about the man...</p>
                                 </div>
                             </div>
