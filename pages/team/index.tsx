@@ -1,83 +1,78 @@
 'use client'
-import React, { useRef, useState } from 'react'
-import HorizantalScroll from '../../components/horizontalScroll';
-import Image from 'next/image';
-import bg from '/public/background.jpg'
-import test from '/public/team/amir.png'
-import test2 from '/public/team/pedar.png'
-import test4 from '/public/team/pedarAlone.png'
-import test3 from '/public/team/amin.png'
-import { AnimatePresence, m, motion, useScroll, useTransform } from 'framer-motion';
-import { transform } from 'next/dist/build/swc';
-import PageWrapper from '../../components/PageWrapper';
-import Link from 'next/link';
+import React, { useRef } from 'react'
+import Image from 'next/image'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import PageWrapper from '../../components/PageWrapper'
 
+// Import team images
+import bg from '/public/background.jpg'
+import amir from '/public/team/amir.png'
+import amin from '/public/team/amin.png'
+import pedar from '/public/team/pedar.png'
+import architecter1 from '/public/team/architecter-1.png'
+import architecter2 from '/public/team/architecter-2.png'
+import backgroundLogo from '/public/team/background-logo.png'
+import behnam from '/public/team/behnam.png'
+import behzad from '/public/team/behzad.png'
+import edari1 from '/public/team/edari-1.png'
+import edari2 from '/public/team/edari-2.png'
+import farid from '/public/team/farid.png'
+import mali from '/public/team/mali.png'
+import media1 from '/public/team/media-1.png'
+import media2 from '/public/team/media-2.png'
+import media3 from '/public/team/media-3.png'
+import refaei from '/public/team/refaei.png'
+import vesal from '/public/team/vesal.png'
+
+const imageComponents = [
+    { src: bg, translateX: 'sMinus3' },
+    { src: amin, translateX: 'sMinus1' },
+    { src: farid, translateX: 's1' },
+    { src: behnam, translateX: 'sMinus2' },
+    { src: mali, translateX: 'sMinus1' },
+    { src: architecter2, translateX: 's2' },
+    { src: edari2, translateX: 's2' },
+    { src: amir, translateX: 'sMinus1' },
+    { src: pedar, translateX: 's1' },
+    { src: architecter1, translateX: 's3' },
+    { src: backgroundLogo, translateX: 'sMinus2' },
+    { src: edari1, translateX: 's1' },
+    { src: media3, translateX: 's1' },
+    { src: media2, translateX: 's2' },
+    { src: refaei, translateX: 's3' },
+    { src: behzad, translateX: 's2' },
+    { src: vesal, translateX: 's1' },
+    { src: media1, translateX: 's3' },
+];
 
 const Team = () => {
-    const container = useRef()
-    // const { scrollXProgress } = useScroll();
-
     const ref = useRef(null);
     const { scrollXProgress } = useScroll({
         target: ref,
         offset: ["start end", "end start"]
     });
-    const translateX = useTransform(
-        scrollXProgress,
-        // Map x from these values:
-        [0, 1],
-        // Into these values:
-        ["2%", "-2%"]
-    );
 
+    const translateXValues = {
+        s1: useTransform(scrollXProgress, [0, 1], [0, 20]),
+        s2: useTransform(scrollXProgress, [0, 1], [0, 40]),
+        s3: useTransform(scrollXProgress, [0, 1], [0, 60]),
+        sMinus1: useTransform(scrollXProgress, [0, 1], [0, -10]),
+        sMinus2: useTransform(scrollXProgress, [0, 1], [0, -20]),
+        sMinus3: useTransform(scrollXProgress, [0, 1], [0, -60]),
+    };
 
-    const opacity = useTransform(scrollXProgress, [0, 1], [0, 1]);
-    const color = useTransform(scrollXProgress, [0, 1], ["#ffffff", "#000000"]);
-    const s1 = useTransform(scrollXProgress, [0, 1], [0, 10]);
-    const s2 = useTransform(scrollXProgress, [0, 1], [0, 20]);
-    const s3 = useTransform(scrollXProgress, [0, 1], [0, 30]);
-    const sMinus1 = useTransform(scrollXProgress, [0, 1], [0, -5]);
-    const sMinus2 = useTransform(scrollXProgress, [0, 1], [0, -10]);
     return (
         <PageWrapper pageName='Team'>
-            <motion.div
-
-                className='h-[100vh] w-screen absolute top-0'>
-                <Image src={bg} alt='background' className='h-[100vh] w-screen object-cover' />
-            </motion.div>
-            <motion.div
-                style={{ translateX: sMinus1 }}
-                className='h-[100vh] w-screen absolute top-0'>
-                <Image src={test3} alt='background' className='h-[100vh] w-screen object-cover' />
-            </motion.div>
-            <motion.div
-                style={{ translateX: s1 }}
-                className='h-[100vh] w-screen absolute top-0'>
-                <Image src={test} alt='background' className='h-[100vh] w-screen object-cover' />
-            </motion.div>
-            <div className='relative h-[100vh] w-screen'>
-                <div className='relative'>
-                    {/* Main image */}
-                    <Image src={test2} alt='pedar' className='h-[100vh] w-screen object-cover' />
-                    {/* Image overlay for hover effect */}
-                    <div className='absolute top-0 left-12 w-full h-full flex items-center justify-center'>
-                        <div className='absolute w-[200px] h-1/3 bg-transparent hover:bg-opacity-20' style={{ top: '60%', left: '0' }}>
-                            {/* Hover effect */}
-                            <div className='absolute top-0 left-0 w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100'>
-                                <div className='bg-white p-4 rounded-md'>
-                                    {/* Description of the man */}
-                                    {/* Replace this with your actual description content */}
-                                    <h2 className='text-lg font-bold'>Man Description</h2>
-                                    <p>Additional details about the man...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <motion.div className='h-full bg-black w-[1800px] flex top-0 bottom-auto'></motion.div>
+            {imageComponents.map(({ src, translateX }, index) => (
+                <motion.div
+                    key={index}
+                    className='h-screen w-[1800px] absolute -top-[50vh] bottom-auto'>
+                    <Image src={src} alt='background' className='h-screen w-[1800px] object-cover' />
+                </motion.div>
+            ))}
         </PageWrapper>
-    )
+    );
 }
 
 export default Team

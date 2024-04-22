@@ -42,7 +42,7 @@ const App = () => {
     return (
         <div className='flex flex-col justify-center h-[90vh] md:h-screen'>
             {/* Intro animation */}
-            <motion.div className='fixed opacity-25 md:opacity-100 z-0 flex md:h-screen h-[calc(100vh - constant(safe-area-inset-top))] w-screen justify-center items-center left-auto top-auto'>
+            <motion.div className='fixed opacity-45 md:opacity-100 z-0 flex md:h-screen h-[calc(100vh - constant(safe-area-inset-top))] w-screen justify-center items-center left-auto top-auto'>
                 <motion.svg
                     initial={{ scale: 1, opacity: 1 }}
                     animate={open ? { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] } : { scale: 10, opacity: [1, .02, .02, .02, .02, .02] }}
