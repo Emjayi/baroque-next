@@ -42,7 +42,7 @@ const App = () => {
     return (
         <div className='flex flex-col justify-center h-[90vh] md:h-screen'>
             {/* Intro animation */}
-            <motion.div className='fixed opacity-45 md:opacity-100 z-0 flex md:h-screen h-[calc(100vh - constant(safe-area-inset-top))] w-screen justify-center items-center left-auto top-auto'>
+            <motion.div className='fixed z-0 flex md:h-screen h-[calc(100vh - constant(safe-area-inset-top))] w-screen justify-center items-center left-auto top-auto'>
                 <motion.svg
                     initial={{ scale: 1, opacity: 1 }}
                     animate={open ? { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] } : { scale: 10, opacity: [1, .02, .02, .02, .02, .02] }}
@@ -69,10 +69,10 @@ const App = () => {
             </motion.div>
 
             {intro && <motion.div exit={{ opacity: 0 }} className='grid grid-cols-3 grid-rows-3 gap-0 place-items-center md:h-screen h-full'>
-                <div className='bg hidden md:block'></div><Intro isIntro={intro} />
+                <Intro isIntro={intro} />
             </motion.div>}
 
-            {!intro && <><div className='bg hidden md:block'></div><div className='overflow-hidden flex flex-col h-[90vh] md:h-screen items-center gap-5 text-white text-6xl'>
+            {!intro && <><div className='overflow-hidden flex flex-col h-[90vh] md:h-screen items-center gap-5 text-white text-6xl'>
 
 
 

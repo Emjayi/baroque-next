@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import Menu from './menu';
 import HorizontalScroll from './horizontalScroll';
 import { UilBars } from '@iconscout/react-unicons'
@@ -23,14 +23,15 @@ const PageWrapper = ({ pageName, children }: any) => {
 
     const [open, setOpen] = useState(false);
 
+
     return (
         <div className='flex items-center h-[90vh] md:h-screen'>
-            <div className='bg hidden md:block'></div>
+
 
             <HorizontalScroll></HorizontalScroll>
 
             {/*Logo Animation*/}
-            <motion.div className={!intro ? 'fixed z-0 flex left-0 right-0 justify-center items-center opacity-45 md:opacity-100' : 'fixed z-0 flex left-0 right-0 justify-center items-center opacity-55 md:opacity-100'}>
+            <motion.div className={!intro ? 'fixed z-0 flex left-0 right-0 justify-center items-center' : 'fixed z-0 flex left-0 right-0 justify-center items-center'}>
                 <motion.svg
                     initial={{ scale: 1, opacity: 1 }}
                     animate={open ? { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] } : { scale: 10, opacity: [1, .02, .02, .02, .02, .02] }}
@@ -103,7 +104,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                         {children}
                     </motion.div>
 
-                    <Footer />
+                    {/* <Footer /> */}
 
                 </motion.div>}
 

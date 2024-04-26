@@ -11,7 +11,8 @@ export default function App({ Component, pageProps, router }) {
         <AnimatePresence mode='wait'>
             <Head>
                 <title>Baroque</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
             </Head>
             <Script src="https://polyfill.io/v3/polyfill.min.js?features=default" />
             <Component {...pageProps} key={router.route} />
