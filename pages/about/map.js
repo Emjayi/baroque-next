@@ -9,7 +9,6 @@ const Map = () => {
             console.error("Google Maps JavaScript API is not loaded.");
             return;
         }
-
         const newMap = new window.google.maps.Map(mapContainerRef.current, {
             center: { lat: 40.7128, lng: -74.006 },
             zoom: 10,

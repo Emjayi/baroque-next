@@ -30,7 +30,7 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
     const revParallax = useTransform(smoothVelocity, [-1000, 1000], [-5, 5]);
 
     return (
-        <motion.div key={id} className='text-white duration-300 w-[150px] md:w-[280px] hover:text-primary text-center'>
+        <motion.div key={id} className='text-white duration-300 w-[250px] md:w-[280px] hover:text-primary text-center'>
             <AnimatePresence>
                 <Link href={`/projects/${url}`} className='hidden md:block'>
                     <motion.div
@@ -60,11 +60,11 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                 <motion.div
                     style={{ skewX: velocityFactor, x: parallax }}
                     transition={{ duration: 1 }}
-                    className='w-[150px] md:hidden h-[200px]'
+                    className='w-[250px] md:hidden h-[400px]'
                     onMouseEnter={() => setActive(true)}
                     onMouseLeave={() => setActive(false)}
                 >
-                    <Image src={mainImage} width={150} height={100} alt={alt} className='object-cover w-[150px] h-[200px] grayscale hover:grayscale-0 duration-1000' />
+                    <Image src={mainImage} width={250} height={200} alt={alt} className='object-cover w-[250px] h-[400px] grayscale hover:grayscale-0 duration-1000' />
 
                 </motion.div>
             </Link >
@@ -72,9 +72,9 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                 style={{ skewX: revVelocityFactor, x: revParallax }}
                 animate={active ? { y: 20 } : { y: 0 }}
                 transition={{ duration: 1 }}
-                className='w-[150px] md:hidden'
+                className='w-[250px] md:hidden'
             >
-                <Image src={mainImage} width={150} height={100} alt='shadow' className='absolute rotate-180 blur-sm opacity-5 grayscale object-contain' />
+                <Image src={mainImage} width={250} height={100} alt='shadow' className='absolute rotate-180 h-[200px] blur-sm opacity-5 grayscale object-cover' />
             </motion.div>
             <motion.div className=''>
 

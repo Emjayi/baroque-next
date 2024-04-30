@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import PageWrapper from '../../components/PageWrapper';
 import { motion, useScroll, useSpring, useTransform, useVelocity } from 'framer-motion';
 import Image from 'next/image';
-import img3 from '../../public/about/3.jpg';
 import img2 from '../../public/about/2.jpg';
 import img1 from '../../public/about/1.jpg';
 import map from './map.js'
@@ -44,84 +43,85 @@ const About = () => {
 
     return (
         <PageWrapper pageName='about'>
-
-            <div className=' w-[1000px] h-screen'>
-                <motion.div
-                    className='overflow-hidden w-[1000px] h-screen'
-                    ref={ref}
-                >
+            <div className='flex'>
+                <div className=' w-[1000px] h-screen'>
                     <motion.div
-                        style={{ translateX: velocityFactor }}
-                        className='h-screen object-cover'><Image src={img3} className='-ml-16 h-screen scale-110 min-w-[1000px] object-cover' alt='about baroque'></Image></motion.div>
-                </motion.div>
-            </div>
-
-            <motion.h1
-                initial={{ opacity: 0.2 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: .25, delay: .2 }}
-                className='absolute -rotate-90 md:left-[1350px] left-[1250px] text-white w-52 text-2xl '>Where is Baroque?</motion.h1>
-            <div className='md:w-[800px] w-[300px] md:ml-28 ml-32'>
-                <h1 className='text-3xl uppercase'>Your description. <span className='text-primary text-xl'>BELOW IS FROM MRK</span></h1>
-                {aboutText.map((el, i) => (
-                    <motion.span
-                        initial={{ x: -50, opacity: 0.2 }}
-                        whileInView={{ x: 0, opacity: 1 }}
-                        transition={{
-                            duration: 0.25,
-                            delay: i / 100
-                        }}
-                        key={i}
-                        className='text-white'
+                        className='overflow-hidden w-[1000px] h-screen'
+                        ref={ref}
                     >
-                        {el}{" "}
-                    </motion.span>
-                ))}
-            </div>
-
-            <div className=' w-[1000px] h-screen'>
-                <motion.div
-                    className='overflow-hidden w-[1000px] h-screen'
-                    ref={ref}
-                >
-                    <motion.div
-                        style={{ translateX: velocityFactor }}
-                        className='h-screen'>
-                        <Image src={img1} className='-ml-16 h-screen scale-125 min-w-[1000px] object-cover' alt='about baroque'></Image>
+                        <motion.div
+                            style={{ translateX: velocityFactor }}
+                            className='h-screen object-cover'><Image src={img2} className='-ml-16 h-screen scale-110 min-w-[1000px] object-cover' alt='about baroque'></Image></motion.div>
                     </motion.div>
-                </motion.div>
-            </div>
-            <div className='flex text-white text-lg w-[500px] flex-col items-center justify-center h-screen'>
-                <motion.h1
-                    initial={{ opacity: 0, y: -30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: .5 }}
-                    className='text-2xl'
-                >Your Information
-                </motion.h1>
-            </div>
+                </div>
 
-            <div className=' w-[1000px] h-screen'>
-                <motion.div
-                    className='overflow-hidden w-[1000px] h-screen'
-                    ref={ref}
-                >
+                <motion.h1
+                    initial={{ opacity: 0.2 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: .25, delay: .2 }}
+                    className='absolute -rotate-90 md:left-[1350px] left-[1250px] text-white w-52 text-2xl '>Where is Baroque?</motion.h1>
+                <div className='md:w-[800px] w-[300px] md:ml-28 ml-32'>
+                    <h1 className='text-3xl uppercase'>Your description. <span className='text-primary text-xl'>BELOW IS FROM MRK</span></h1>
+                    {aboutText.map((el, i) => (
+                        <motion.span
+                            initial={{ x: -50, opacity: 0.2 }}
+                            whileInView={{ x: 0, opacity: 1 }}
+                            transition={{
+                                duration: 0.25,
+                                delay: i / 100
+                            }}
+                            key={i}
+                            className='text-white'
+                        >
+                            {el}{" "}
+                        </motion.span>
+                    ))}
+                </div>
+
+                <div className=' w-[1000px] h-screen'>
                     <motion.div
-                        style={{ translateX: velocityFactor }}
-                        className='h-screen object-cover'>
-                        <Image src={img2} className='-ml-16 h-screen scale-125 min-w-[1000px] object-cover' alt='about baroque'></Image>
+                        className='overflow-hidden w-[1000px] h-screen'
+                        ref={ref}
+                    >
+                        <motion.div
+                            style={{ translateX: velocityFactor }}
+                            className='h-screen'>
+                            <Image src={img1} className='-ml-16 h-screen scale-125 min-w-[1000px] object-cover' alt='about baroque'></Image>
+                        </motion.div>
                     </motion.div>
-                </motion.div>
-            </div>
+                </div>
+                <div className='flex text-white text-lg w-[500px] flex-col items-center justify-center h-screen'>
+                    <motion.h1
+                        initial={{ opacity: 0, y: -30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: .5 }}
+                        className='text-2xl'
+                    >Your Information
+                    </motion.h1>
+                </div>
 
-            <div className='flex text-white text-lg w-[800px] flex-col items-center justify-center h-screen'>
-                <motion.h1
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: .5 }}
-                    className='text-2xl'
-                >MAP
-                </motion.h1>
+                <div className=' w-[1000px] h-screen'>
+                    <motion.div
+                        className='overflow-hidden w-[1000px] h-screen'
+                        ref={ref}
+                    >
+                        <motion.div
+                            style={{ translateX: velocityFactor }}
+                            className='h-screen object-cover'>
+                            <Image src={img2} className='-ml-16 h-screen scale-125 min-w-[1000px] object-cover' alt='about baroque'></Image>
+                        </motion.div>
+                    </motion.div>
+                </div>
+
+                <div className='flex text-white text-lg w-[800px] flex-col items-center justify-center h-screen'>
+                    <motion.h1
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: .5 }}
+                        className='text-2xl'
+                    >MAP
+                    </motion.h1>
+                </div>
             </div>
         </PageWrapper>
     )
