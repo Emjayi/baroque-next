@@ -4,6 +4,8 @@ import { gsap } from 'gsap';
 import Image from 'next/image';
 import PageWrapper from '../../components/PageWrapper';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { url } from 'inspector';
+import Member from '../../components/team/Member';
 
 
 // Import team images
@@ -52,13 +54,28 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 // ];
 const imageComponents = [
     { src: "/background.jpg", translateX: null, space: null },
-    { src: '/team/back.png', translateX: 'sMinus1', space: 'left-[20vw]' },
-    { src: '/team/middle.png', translateX: 'sMinus2', space: null },
-    { src: "/team/top.png", translateX: 's1', space: null },
+    { src: '/team/back.png', translateX: 'sMinus2', space: 'left-[20vw]' },
+    { src: '/team/middle.png', translateX: 'sMinus3', space: null },
+    { src: "/team/top.png", translateX: 's3', space: null },
 ];
+
+const team = [
+    { name: "Pedar", pos: "CEO", year: 2008, img: "/team/pedar.jpg" },
+    { name: "Sahar", pos: "Architect", year: 2012, img: "/team/1.jpg" },
+    { name: "Elham", pos: "Social", year: 2015, img: "/team/2.jpg" },
+    { name: "Behnoosh", pos: "Architect", year: 2020, img: "/team/3.jpg" },
+    { name: "Mehrsa", pos: "Media", year: 2018, img: "/team/4.jpg" },
+    { name: "Amin", pos: "Architect", year: 2014, img: "/team/5.jpg" },
+    { name: "Amir", pos: "Architect", year: 2015, img: "/team/6.jpg" },
+    { name: "Reza", pos: "Architect", year: 2009, img: "/team/7.jpg" },
+    { name: "Iman", pos: "Architect", year: 2013, img: "/team/8.jpg" },
+    { name: "Alireza", pos: "Architect", year: 2012, img: "/team/9.jpg" },
+]
 
 
 const Team = () => {
+
+    const [hovered, setHovered] = useState(false)
 
     const ref = useRef(null);
     const { scrollXProgress } = useScroll({
@@ -77,21 +94,36 @@ const Team = () => {
 
     return (
         <PageWrapper pageName='Team'>
-            <div className='flex w-[480vw] md:w-[120vw] h-full'>
-                <div className='stack object-fill' ref={ref}>
-                    {imageComponents.map(({ src, translateX, space }, index) => (
+            <div className='flex'>
+                <div className='flex w-[480vw] md:w-[140vw] h-full mr-24' ref={ref}>
+                    <div className='stack object-fill'>
                         <>
+                            {imageComponents.map(({ src, translateX, space }, index) => (
+                                <>
+                                    <motion.div
+                                        key={index}
+                                        style={{ translateX: translateXValues[translateX] }}
+                                        className='stack h-full w-full '
+                                    >
+                                        <img alt="alternative" src={src} width={4500} height={1844} className='h-screen object-cover' loading='eager' />
+                                    </motion.div>
+                                </>
+                            ))}
+                            {/* {team.map(({ name, pos }) => (
+
                             <motion.div
-                                key={index}
-                                style={{ translateX: translateXValues[translateX] }}
-                                className='stack h-full w-full '
-                            >
-                                <img alt="alternative" src={src} width={4500} height={1844} className='h-screen object-cover' loading='eager' />
-                            </motion.div>
+                                initial={{ x: pos, y: "50vh" }}
+                                whileHover={{ width: 300 }}
+                                className='w-[200px] hidden uppercase bg-primary duration-700 h-[50vh] md:flex flex-col items-center z-50'>{name}</motion.div>
+                        ))} */}
                         </>
+                    </div>
+                </div>
+                <div className='h-screen flex'>
+                    {team.map(({ name, pos, img, year }) => (
+                        <Member name={name} img={img} year={year} pos={pos} />
                     ))}
                 </div>
-                <div className='w-64'>Hello world</div>
             </div>
         </PageWrapper>
     );

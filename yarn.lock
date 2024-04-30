@@ -2238,6 +2238,11 @@ raw-loader@^0.5:
   resolved "https://registry.npmjs.org/raw-loader/-/raw-loader-0.5.1.tgz"
   integrity sha512-sf7oGoLuaYAScB4VGr0tzetsYlS8EJH6qnTCfQ/WVEa89hALQ4RQfCKt5xCyPQKPDUbVUAIP1QsxAwfAjlDp7Q==
 
+react-animated-cursor@^2.11.2:
+  version "2.11.2"
+  resolved "https://registry.npmjs.org/react-animated-cursor/-/react-animated-cursor-2.11.2.tgz"
+  integrity sha512-LV0PtST61tdeW/chCqFt1JLp6i0d5fD9v2uradBcPAkKKCi2Iw7sAcD11ADS1TjXPPj9MOoD9YubEt++/IbZ+g==
+
 react-background-noise@^0.1.6:
   version "0.1.6"
   resolved "https://registry.npmjs.org/react-background-noise/-/react-background-noise-0.1.6.tgz"
