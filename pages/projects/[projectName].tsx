@@ -16,7 +16,7 @@ import Link from 'next/link';
 import { Link as ScrollLink } from 'react-scroll';
 
 
-const ProjectPage = async () => {
+const ProjectPage = () => {
 
     const [isAtEnd, setIsAtEnd] = useState(false);
     useEffect(() => {
