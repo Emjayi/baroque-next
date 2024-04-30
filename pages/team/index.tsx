@@ -120,8 +120,8 @@ const Team = () => {
                     </div>
                 </div>
                 <div className='h-screen flex'>
-                    {team.map(({ name, pos, img, year }) => (
-                        <Member name={name} img={img} year={year} pos={pos} />
+                    {team.map(({ name, pos, img, year }, index) => (
+                        <Member name={name} key={index + 1} img={img} year={year} pos={pos} />
                     ))}
                 </div>
             </div>
