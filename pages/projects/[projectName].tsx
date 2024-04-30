@@ -1,3 +1,5 @@
+import { promises as fs } from 'fs'
+import path from 'path'
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -14,6 +16,9 @@ import Link from 'next/link';
 import { Link as ScrollLink } from 'react-scroll';
 
 const ProjectPage = () => {
+
+const ProjectPage = async () => {
+
     const [isAtEnd, setIsAtEnd] = useState(false);
 
     useEffect(() => {
@@ -61,6 +66,11 @@ const ProjectPage = () => {
 
     // Find the project data based on the projectName from the URL
     const project = projects.find(project => project.url === projectName);
+
+
+    const imageDirectory = path.join(process.cwd(), `/public/projects/${project.name}`);
+    const imageFilenames = await fs.readdir(imageDirectory)
+    console.log(imageFilenames)
 
     if (!project) {
         return (

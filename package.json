@@ -27,7 +27,7 @@
     "react-dom": "^18",
     "react-scroll": "^1.9.0",
     "styled-components": "^6.1.8",
-    "swiper": "^11.0.6",
+    "swiper": "^11.1.1",
     "tailwind-merge": "^2.2.1",
     "three": "^0.162.0"
   },
