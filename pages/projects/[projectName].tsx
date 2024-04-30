@@ -1,4 +1,3 @@
-import { promises as fs } from 'fs'
 import path from 'path'
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
