@@ -5,7 +5,6 @@ import Image from 'next/image';
 import img3 from '../../public/about/3.jpg';
 import img2 from '../../public/about/2.jpg';
 import img1 from '../../public/about/1.jpg';
-import GoogleMap from './map'
 import Contact from '../../components/layout/about/Contact';
 import { CircleFadingPlus, Linkedin, PhoneCall, Pin, PinIcon } from 'lucide-react';
 
