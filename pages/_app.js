@@ -1,4 +1,5 @@
 import "./input.css"
+import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from 'framer-motion'
 import React from 'react'
 import Head from 'next/head';
@@ -7,11 +8,25 @@ import AnimatedCursor from "react-animated-cursor"
 
 
 export default function App({ Component, pageProps, router }) {
-
+    // Check if the client is Mobile or not
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768); // Adjust the threshold as per your requirements
+        };
+        // Initial check
+        handleResize();
+        // Event listener for window resize
+        window.addEventListener('resize', handleResize);
+        // Cleanup
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
     return (
         <>
-            <AnimatedCursor
-                showSystemCursor={false}
+            {!isMobile && (<AnimatedCursor
+                showSystemCursor={true}
                 innerSize={10}
                 outerSize={35}
                 innerScale={1.2}
@@ -22,7 +37,7 @@ export default function App({ Component, pageProps, router }) {
                 }}
                 innerStyle={{
                     backgroundColor: '#D2AC7250'
-                }} />
+                }} />)}
             <AnimatePresence mode='wait'>
                 <Head>
                     <title>Baroque</title>

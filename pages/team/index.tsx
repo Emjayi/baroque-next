@@ -1,3 +1,4 @@
+"use client"
 import React, { useRef, useEffect, useState } from 'react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
@@ -5,7 +6,7 @@ import Image from 'next/image';
 import PageWrapper from '../../components/PageWrapper';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { url } from 'inspector';
-import Member from '../../components/team/Member';
+import Member from '../../components/layout/team/Member';
 
 
 // Import team images
@@ -53,14 +54,15 @@ import Member from '../../components/team/Member';
 //     { src: media1, translateX: 'sMinus1', space: 500 },
 // ];
 const imageComponents = [
-    { src: "/background.jpg", translateX: null, space: null },
-    { src: '/team/back.png', translateX: 'sMinus2', space: 'left-[20vw]' },
-    { src: '/team/middle.png', translateX: 'sMinus3', space: null },
-    { src: "/team/top.png", translateX: 's3', space: null },
+    { src: "/background1.png", translateX: "s0", space: null },
+    { src: "/background.png", translateX: "sMinus0", space: null },
+    { src: '/team/back.png', translateX: 's3', space: 'left-[20vw]' },
+    { src: '/team/middle.png', translateX: "s0", space: null },
+    { src: "/team/top.png", translateX: 'sMinus1', space: null },
 ];
 
 const team = [
-    { name: "Pedar", pos: "CEO", year: 2008, img: "/team/pedar.jpg" },
+    { name: "Pedar", pos: "CEO", year: 2008, img: "/team/0.jpg" },
     { name: "Sahar", pos: "Architect", year: 2012, img: "/team/1.jpg" },
     { name: "Elham", pos: "Social", year: 2015, img: "/team/2.jpg" },
     { name: "Behnoosh", pos: "Architect", year: 2020, img: "/team/3.jpg" },
@@ -70,6 +72,13 @@ const team = [
     { name: "Reza", pos: "Architect", year: 2009, img: "/team/7.jpg" },
     { name: "Iman", pos: "Architect", year: 2013, img: "/team/8.jpg" },
     { name: "Alireza", pos: "Architect", year: 2012, img: "/team/9.jpg" },
+    { name: "Alireza", pos: "Architect", year: 2012, img: "/team/10.jpg" },
+    { name: "Alireza", pos: "Architect", year: 2012, img: "/team/11.jpg" },
+    { name: "Alireza", pos: "Architect", year: 2012, img: "/team/12.jpg" },
+    { name: "Alireza", pos: "Architect", year: 2012, img: "/team/13.jpg" },
+    { name: "Alireza", pos: "Architect", year: 2012, img: "/team/14.jpg" },
+    { name: "Alireza", pos: "Architect", year: 2012, img: "/team/15.jpg" },
+    { name: "Alireza", pos: "Architect", year: 2012, img: "/team/16.jpg" },
 ]
 
 
@@ -84,12 +93,14 @@ const Team = () => {
     });
 
     const translateXValues = {
-        s1: useTransform(scrollXProgress, [0, 1], [0, 20]),
-        s2: useTransform(scrollXProgress, [0, 1], [0, 40]),
-        s3: useTransform(scrollXProgress, [0, 1], [0, 60]),
-        sMinus1: useTransform(scrollXProgress, [0, 1], [0, -10]),
-        sMinus2: useTransform(scrollXProgress, [0, 1], [0, -20]),
-        sMinus3: useTransform(scrollXProgress, [0, 1], [0, -60]),
+        s0: useTransform(scrollXProgress, [0, 1], [-30, 40]),
+        s1: useTransform(scrollXProgress, [0, 1], [0, 80]),
+        s2: useTransform(scrollXProgress, [0, 1], [0, 140]),
+        s3: useTransform(scrollXProgress, [0, 1], [0, 180]),
+        sMinus0: useTransform(scrollXProgress, [0, 1], [10, -30]),
+        sMinus1: useTransform(scrollXProgress, [0, 1], [0, -60]),
+        sMinus2: useTransform(scrollXProgress, [0, 1], [0, -90]),
+        sMinus3: useTransform(scrollXProgress, [0, 1], [0, -120]),
     };
 
     return (
@@ -102,10 +113,11 @@ const Team = () => {
                                 <>
                                     <motion.div
                                         key={index}
+                                        initial={{ translateX: translateXValues[translateX] }}
                                         style={{ translateX: translateXValues[translateX] }}
-                                        className='stack h-full w-full '
+                                        className='stack h-full w-full saturate-150'
                                     >
-                                        <img alt="alternative" src={src} width={4500} height={1844} className='h-screen object-cover' loading='eager' />
+                                        <Image alt="alternative" src={src} width={4500} height={1844} className='h-screen object-cover' loading='eager' />
                                     </motion.div>
                                 </>
                             ))}

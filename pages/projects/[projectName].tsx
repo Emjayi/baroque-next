@@ -1,3 +1,4 @@
+"use client"
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -93,8 +94,8 @@ const ProjectPage = () => {
 
                         <div className='w-screen md:w-auto'>
                             {project.area && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .4 }}><h1 className='text-zinc-500 font-bold'>Built area:</h1><p className='text-[16px] w-36'>{project.area} m2</p></motion.div>}
-                            {project.location && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .6 }} className='my-5 pl-8'><h1 className='text-zinc-500 font-bold'>Location:</h1><p className='text-[16px] w-36'>{project.location}</p></motion.div>}
-                            {project.client && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .8 }} className='pl-16'><h1 className='text-zinc-500 font-bold'>Client:</h1><p className='text-[16px] w-36'>{project.client}</p></motion.div>}
+                            {project.location && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .6 }} className='my-5'><h1 className='text-zinc-500 font-bold'>Location:</h1><p className='text-[16px] w-36'>{project.location}</p></motion.div>}
+                            {project.client && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .8 }} className=''><h1 className='text-zinc-500 font-bold'>Client:</h1><p className='text-[16px] w-36'>{project.client}</p></motion.div>}
                         </div>
                         <div>
                             {/* {project.team && project.team.map((t) => (
@@ -113,6 +114,7 @@ const ProjectPage = () => {
                                 delay: 2500,
                                 disableOnInteraction: false,
                             }}
+                            scrollbar={true}
                             keyboard={{
                                 enabled: true,
                             }}
@@ -126,7 +128,7 @@ const ProjectPage = () => {
                             {
                                 project.allImages.map((image: any, index: number) => (
                                     <SwiperSlide key={index}>
-                                        <Image src={`/projects/${project.name}/${image}`} width={1500} height={1500} alt={`Image ${index + 1}`} className='items-center flex h-screen object-contain'></Image>
+                                        <img src={`/projects/${project.name}/${image}`} width={1500} height={1500} alt={`Image ${index + 1}`} className='items-center flex h-screen object-contain'></img>
                                     </SwiperSlide>
                                 ))
                             }

@@ -40,11 +40,11 @@ const Intro = ({ isIntro }: { isIntro: boolean }) => {
                                     {/* Motion path element */}
                                     <motion.path
                                         // Initial animation setup
-                                        initial={{ scale: .8, opacity: .5, strokeDasharray: 20, pathLength: 0, pathOffset: 0, pathSpacing: 0 }}
+                                        initial={{ scale: .8, opacity: .02, strokeDasharray: 20, pathLength: 0, pathOffset: 0, pathSpacing: 0 }}
                                         // Animation when element is present
                                         animate={{ scale: 1, opacity: 1, strokeDasharray: 1, pathLength: .5, pathOffset: .6, pathSpacing: .7 }}
                                         // Animation transition settings
-                                        transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
+                                        transition={{ duration: .9, repeat: Infinity, repeatType: "reverse" }}
                                         fill='#D2AC72'
                                         strokeWidth={10}
                                         className=""
@@ -56,12 +56,12 @@ const Intro = ({ isIntro }: { isIntro: boolean }) => {
                             {/* Text element */}
                             <motion.div
                                 // Initial animation setup
-                                initial={{ y: 220, opacity: 0 }}
+                                // initial={{ y: [180, 220, 220, 220, 220, 180], opacity: [0, 1, 1, 1, 1, 0] }}
                                 // Animation when element is present
-                                animate={{ y: 180, opacity: 1 }}
+                                animate={{ y: [220, 180, 180, 180, 180, 180, 180, 220], opacity: [0, 1, 1, 1, 1, 0] }}
                                 // Animation transition settings
                                 transition={{
-                                    duration: .5, repeat: 1,
+                                    duration: 3, times: [0, .25, .5, .75, 1, 1.25, 1.5], repeat: 1,
                                     repeatDelay: .8, repeatType: "reverse"
                                 }}
                                 className='row-start-3 col-start-2'>

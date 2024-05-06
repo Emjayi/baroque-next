@@ -76,10 +76,10 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
                 // Initial animation setup
                 initial={{ opacity: 0, y: 0 }}
                 // Animation for opening and closing menu
-                animate={open ? { opacity: [0, 0, 1], y: [0, -20, -40] } : { opacity: [0, 0, 1], y: [0, 0, 0] }}
+                animate={open ? { opacity: [0, 0, 0, 0, 1, 1], y: ["0vh", "15vh", "15vh"], x: [0, 0, 0, 100, 100] } : { opacity: [0, 0, 0, 0, 1, 1], y: [0, 0, 0] }}
                 // Exit animation
-                exit={{ opacity: [1, 1, 0], y: [-40, -20, -150] }}
-                transition={{ duration: 2.1, times: [0, .5, 1] }}
+                exit={{ opacity: [1, 1, 1, 1, 0], y: "15vh", x: [100, 100, 100, 60, 60], transition: { delay: 0 } }}
+                transition={{ duration: 2.1, times: [0, .2, .5, .8, 1], delay: .8, exitdelay: 0 }}
             >
                 {/* Link to Home */}
                 <Link href="/"><Image src={title} width={200} height={200} className='w-64' alt='logo'></Image></Link>
@@ -87,11 +87,11 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
             {/* Menu Links */}
             <motion.div
                 // Initial animation setup
-                initial={{ opacity: .7, y: -15 }}
+                initial={{ opacity: .7, y: "0vh" }}
                 // Animation for opening and closing menu
-                animate={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: "40vh" }}
                 // Exit animation
-                exit={{ opacity: .7, y: -15 }}
+                exit={{ opacity: .7, y: "50vh" }}
                 transition={{
                     delay: 0.3,
                     duration: 0.8,
@@ -106,11 +106,11 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
                             <motion.div
                                 key={index}
                                 // Initial animation setup
-                                initial={{ x: link.length, y: 50, opacity: 0 }}
+                                initial={{ x: link.length, y: -50, opacity: 0 }}
                                 // Animation for opening and closing menu
                                 animate={{ x: 0, y: 0, opacity: 1 }}
                                 // Exit animation
-                                exit={{ x: link.length, y: 50, opacity: 0 }}
+                                exit={{ x: link.length, y: -50, opacity: 0 }}
                                 transition={{ duration: 0.5, delay: link.speed }}
                                 className='flex justify-center items-center w-44 '
                             >
@@ -118,7 +118,7 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
                                     {/* Menu Link */}
                                     <Link
                                         href={link.url}
-                                        className='duration-200 text-xl text-center w-44 py-6 hover:text-white text-zinc-200 tracking-[.2em] hover:tracking-normal'
+                                        className='duration-500 text-xl text-center w-44 py-6 hover:text-white text-zinc-400 tracking-[.2em] hover:tracking-normal'
                                     >
                                         {link.name}
                                     </Link>

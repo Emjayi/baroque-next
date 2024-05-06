@@ -34,9 +34,9 @@ const PageWrapper = ({ pageName, children }: any) => {
             <motion.div className={!intro ? 'fixed z-0 flex left-0 right-0 justify-center items-center' : 'fixed z-0 flex left-0 right-0 justify-center items-center'}>
                 <motion.svg
                     initial={{ scale: 1, opacity: 1 }}
-                    animate={open ? { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] } : { scale: 10, opacity: [1, .02, .02, .02, .02, .02] }}
-                    exit={!intro ? (open ? { scale: [1, 1, 1, 1, 1, 1], opacity: [1, 1, .2, 1, .5, 1] } : { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] }) : { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] }}
-                    transition={!intro ? { duration: 1.4, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut" } : { duration: 1.4, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut", delay: 3 }}
+                    animate={!intro ? (open ? { scale: [10, 1, 1, 1], opacity: [.02, .02, 1, 1, 1, 1], y: ["0vh", "0vh", "0vh", "-20vh", "-20vh", "-20vh"], x: [0, 0, 0, 0, 0, -100] } : { scale: [1, 1, 10, 10], opacity: [1, 1, 1, .02, .02, .02], x: 0, y: 0 }) : (open ? { scale: [10, 1, 1, 1], opacity: [.02, .02, 1, 1, 1, 1], y: [0, 0, 0, -200, -200, -200], x: [0, 0, 0, 0, 0, 0] } : { scale: [1, 1, 1, 10], opacity: [1, 1, 1, 1, 1, 1], x: [0, 0, 0, 0, 0, 0], y: [0, 0, 0, 0, 0, 0] })}
+                    exit={!intro ? (open ? { scale: [1, 1, 1, 1, 1, 1], opacity: [1, 1, .2, 1, .5, 1], x: [-100, -100, 0, 0, 0, 0], y: ["-20vh", "-20vh", "-20vh", "-20vh", "0vh", "0vh"] } : { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] }) : { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] }}
+                    transition={!intro ? { duration: 2.4, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut" } : { duration: .8, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut", delay: 3 }}
                     version="1.1" id="Layer_1" className='fixed w-[600px] h-[600px]'
                     viewBox="0 0 5463.4 3168.8">
                     <g>
@@ -110,7 +110,7 @@ const PageWrapper = ({ pageName, children }: any) => {
 
             {
                 !intro && <motion.button
-                    initial={{ width: 50, opacity: 0, y: -10 }}
+                    initial={{ width: 45, opacity: 0, y: -10 }}
                     animate={menuHover ? { width: 100, opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                     style={menuHover && { clipPath: 'polygon(100% 0, 100% 40%, 100% 40%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px, 12px 0)' }}
                     exit={{ opacity: 0, y: -20 }}
@@ -118,7 +118,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                     onClick={() => setOpen(!open)}
                     onMouseEnter={() => setMenuHover(true)}
                     onMouseLeave={() => setMenuHover(false)}
-                    className='humb hidden fixed md:flex top-10 left-5 px-[6px] py-[16px] bg-primary/70 hover:bg-primary/90 duration-150 text-white z-50'>
+                    className='humb hidden fixed md:flex top-10 left-5 px-[4px] py-[12px] bg-primary/70 hover:bg-primary/90 duration-150 text-white z-50'>
                     <motion.div>{!open && <UilBars />}{open && <UilMultiply />}</motion.div>
                     <AnimatePresence>
                         {menuHover && <motion.p className='fixed hidden md:block' initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 40 }} exit={{ opacity: 0, x: 20 }} transition={{ duration: .5, ease: "easeInOut", delay: .4 }}>{!open ? "Menu" : "Close"}</motion.p>}

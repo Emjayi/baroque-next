@@ -4,11 +4,17 @@ import Menu from '../components/menu';
 import { UilMultiply } from '@iconscout/react-unicons'
 import Footer from '../components/footer';
 import Intro from '../components/layout/Intro';
+import Transition from '../components/menu/Transition';
 
 // App component with animations
 const App = () => {
     // State to track if the menu is open or closed
     const [open, setOpen] = useState(false);
+    // Function to toggle the menu
+    const toggleMenu = () => {
+        setOpen(!open);
+    };
+    // Check intro
     const [intro, setIntro] = useState(true);
     setTimeout(() => {
         setIntro(false)
@@ -33,21 +39,31 @@ const App = () => {
         { key: 4, name: 'About', url: '/about', speed: 0.2, length: -50 },
     ];
 
-    // Function to toggle the menu
-    const toggleMenu = () => {
-        setOpen(!open);
-    };
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768); // Adjust the threshold as per your requirements
+        };
+        // Initial check
+        handleResize();
+        // Event listener for window resize
+        window.addEventListener('resize', handleResize);
+        // Cleanup
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     // Render the App component
     return (
         <div className='flex flex-col justify-center h-[90vh] md:h-screen'>
             {/* Intro animation */}
-            <motion.div className='fixed z-0 flex md:h-screen h-[calc(100vh - constant(safe-area-inset-top))] w-screen justify-center items-center left-auto top-auto'>
+            <motion.div className={!intro ? 'fixed z-0 flex left-0 right-0 justify-center items-center' : 'fixed z-0 flex left-0 right-0 justify-center items-center'}>
                 <motion.svg
                     initial={{ scale: 1, opacity: 1 }}
-                    animate={open ? { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] } : { scale: 10, opacity: [1, .02, .02, .02, .02, .02] }}
-                    exit={!intro ? (open ? { scale: [1, 1, 1, 1, 1, 1], opacity: [1, 1, .2, 1, .5, 1] } : { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] }) : { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] }}
-                    transition={!intro ? { duration: 1.4, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut" } : { duration: 1.4, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut", delay: 3 }}
+                    animate={!isMobile ? (!intro ? (open ? { scale: [10, 1, 1, 1], opacity: [.02, .02, 1, 1, 1, 1], y: ["0vh", "0vh", "0vh", "-20vh", "-20vh", "-20vh"], x: [0, 0, 0, 0, 0, -100] } : { scale: [1, 1, 10, 10], opacity: [1, 1, 1, .02, .02, .02], x: 0, y: 0 }) : (open ? { scale: [10, 1, 1, 1], opacity: [.02, .02, 1, 1, 1, 1], y: [0, 0, 0, -200, -200, -200], x: [0, 0, 0, 0, 0, 0] } : { scale: [1, 1, 1, 10], opacity: [1, 1, 1, 1, 1, 1], x: [0, 0, 0, 0, 0, 0], y: [0, 0, 0, 0, 0, 0] })) : (!intro ? (open ? { scale: [10, 1, 1, 1], opacity: [.02, .02, 1, 1, 1, 1], y: ["0vh", "0vh", "0vh", "-20vh", "-20vh", "-20vh"], x: [0, 0, 0, 0, 0, -100] } : { scale: [1, 1, 10, 10], opacity: [1, 1, 1, .02, .02, .02], x: 0, y: 0 }) : (open ? { scale: [10, 1, 1, .5], opacity: [.02, .02, 1, 1, 1, 1], y: [0, 0, 0, -200, -200, -200], x: [0, 0, 0, 0, 0, 0] } : { scale: [1, 1, 1, 10], opacity: [1, 1, 1, 1, 1, 1], x: [0, 0, 0, 0, 0, 0], y: [0, 0, 0, 0, 0, 0] }))}
+                    exit={!intro ? (open ? { scale: [1, 1, 1, 1, 1, 1], opacity: [1, 1, .2, 1, .5, 1], x: [-100, -100, 0, 0, 0, 0], y: ["-20vh", "-20vh", "-20vh", "-20vh", "0vh", "0vh"] } : { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] }) : { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] }}
+                    transition={!intro ? { duration: 2.4, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut" } : { duration: .8, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut", delay: 3 }}
                     version="1.1" id="Layer_1" className='fixed w-[600px] h-[600px]'
                     viewBox="0 0 5463.4 3168.8">
                     <g>
@@ -58,7 +74,7 @@ const App = () => {
                         <motion.path
                             initial={{ scale: 1, opacity: 0 }}
                             animate={open ? { scale: [1, 1, 1, 1], opacity: [.02, .05, 1, 1] } : { scale: [1, 1, 1, 1], opacity: [0, 0, 0, .02] }}
-                            exit={!intro ? (open ? { scale: [1, .9, 1, 1, 1, .5], opacity: [1, .4, 1, .3, .6, 0] } : { scale: [10, 10, 1, 1], opacity: [0, 0, 0, .02] }) : { scale: [10, 10, 1, 1], opacity: [0, 0, 0, .02] }}
+                            exit={!intro ? (open ? { scale: [1, .9, 1, 1, 1, .5], opacity: [1, .4, 1, .3, .6, 0] } : { scale: [10, 10, 1, 1], opacity: [0, 0, 0, 0] }) : { scale: [10, 10, 1, 1], opacity: [0, 0, 0, 0] }}
                             transition={{ duration: 1.6, times: [0, .5, .8, 1], ease: "easeInOut" }}
                             fill='#D2AC72'
                             strokeWidth={10}

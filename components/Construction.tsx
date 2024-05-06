@@ -37,7 +37,8 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, gallery, ty
         [-40, 40]);
 
     return (
-        <div key={id} className='text-white duration-300 w-[300px] md:w-[380px] hover:text-primary text-center' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+        <motion.div
+            key={id} className='text-white duration-300 w-[300px] md:w-[380px] hover:text-primary text-center' onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
 
             {/* Desktop View */}
             <div className='hidden md:block md:w-[380px] h-[80vh]'>
@@ -67,7 +68,7 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, gallery, ty
                 {/* Animated info box */}
                 <motion.div
                     initial={{ height: "40px" }}
-                    animate={hovered ? { y: 0, opacity: 1, backgroundColor: '#000', height: "100px", color: "#999999" } : { height: "40px" }}
+                    animate={hovered ? { y: 0, opacity: 1, backgroundColor: '#00000090', height: "100px", color: "#999999" } : { height: "40px" }}
                     transition={{ duration: 0.5, times: [0, 0.6, 1] }}
                     className='bg-black/50 absolute top-0 z-50 py-2 text-center md:w-[380px] w-[300px] font-bold text-white border-b-4 border-white/20'>
                     <motion.h1 className={hovered && "text-primary"}>{name}</motion.h1>
@@ -78,13 +79,14 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, gallery, ty
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 1, delay: .2 }}
+                            className='text-white/80'
                         >
                             <motion.h1>{year}</motion.h1>
                             <motion.h1>{status}</motion.h1>
                         </motion.div>}
                 </motion.div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 
