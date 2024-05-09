@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import PageWrapper from '../../components/PageWrapper';
-import constructions from '../../lib/constructionsData'
-import HorizontalScroll from '../../components/horizontalScroll';
-import Construction from '../../components/Construction';
+import React from 'react';
+import PageWrapper from '../../components/layout/PageWrapper';
+import constructions from '../../lib/constructionsData';
+import Construction from '../../components/pages/construction/Construction';
 
 
 const Constructions = () => {
 
     return (
         <PageWrapper pageName="Constructions">
-
-            <div className=' h-full'>
-
-                <div className='flex'>
-                    {constructions.map(construction => (
-                        <Construction key={construction.id} {...construction} />
-                    ))}
-                </div>
-
-            </div>
+            {constructions.map(construction => (
+                <Construction key={construction.id} {...construction} />
+            ))}
         </PageWrapper >
     );
 };

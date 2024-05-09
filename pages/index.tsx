@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Menu from '../components/menu';
+import Menu from '../components/layout/menu';
 import { UilMultiply } from '@iconscout/react-unicons'
-import Footer from '../components/footer';
+import Footer from '../components/layout/Footer';
 import Intro from '../components/layout/Intro';
-import Transition from '../components/menu/Transition';
+import Transition from '../components/layout/menu/Transition';
 
 // App component with animations
 const App = () => {

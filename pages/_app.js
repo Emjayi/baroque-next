@@ -5,6 +5,7 @@ import React from 'react'
 import Head from 'next/head';
 import Script from 'next/script'
 import AnimatedCursor from "react-animated-cursor"
+import { LanguageProvider } from '../components/layout/LanguageContext';
 
 
 export default function App({ Component, pageProps, router }) {
@@ -24,31 +25,33 @@ export default function App({ Component, pageProps, router }) {
         };
     }, []);
     return (
-        <>
-            {!isMobile && (<AnimatedCursor
-                showSystemCursor={true}
-                innerSize={10}
-                outerSize={35}
-                innerScale={1.2}
-                outerScale={1.4}
-                outerAlpha={0}
-                outerStyle={{
-                    border: '3px solid #D2AC72'
-                }}
-                innerStyle={{
-                    backgroundColor: '#D2AC7250'
-                }} />)}
-            <AnimatePresence mode='wait'>
-                <Head>
-                    <title>Baroque</title>
-                    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-                </Head>
+        <React.StrictMode>
+            <LanguageProvider>
+                {!isMobile && (<AnimatedCursor
+                    showSystemCursor={true}
+                    innerSize={10}
+                    outerSize={35}
+                    innerScale={1.2}
+                    outerScale={1.4}
+                    outerAlpha={0}
+                    outerStyle={{
+                        border: '3px solid #D2AC72'
+                    }}
+                    innerStyle={{
+                        backgroundColor: '#D2AC7250'
+                    }} />)}
+                <AnimatePresence mode='wait'>
+                    <Head>
+                        <title>Baroque</title>
+                        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+                    </Head>
 
-                <Script src="https://polyfill.io/v3/polyfill.min.js?features=default" />
-                <Component {...pageProps} key={router.route} />
+                    <Script src="https://polyfill.io/v3/polyfill.min.js?features=default" />
+                    <Component {...pageProps} key={router.route} />
 
-            </AnimatePresence>
-        </>
+                </AnimatePresence>
+            </LanguageProvider>
+        </React.StrictMode>
     )
 }
 

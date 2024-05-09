@@ -2,10 +2,12 @@ import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import Link from 'next/link'
 
-const Contact = ({ icon, title, desc, url }: { title: string, desc: string, url: any, icon: any }) => {
+const Contact = ({ icon, title, desc, url, id }: { title: string, desc: string, url: any, icon: any, id: number }) => {
     const [isHover, setHover] = useState(false)
     return (
-        <Link href={url}>
+        <Link
+            key={id}
+            href={url}>
             <motion.div
                 initial={{ opacity: .1, x: 0 }}
                 whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .4 }} className='m-1 gap-4 cursor-pointer duration-200 px-2 py-4 flex justify-start items-center'
