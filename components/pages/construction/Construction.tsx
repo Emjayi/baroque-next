@@ -104,6 +104,8 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, allImages, 
             </motion.div>
 
 
+            C:\Users\e\Desktop\Work\My repos\baroque-next - Copy (2)\components\pages\construction\Construction.tsx
+            C:\Users\e\Desktop\Work\My repos\baroque-next - Copy (2)\components\pages\construction\Construction.tsx
 
             {/* Mobile View */}
             <motion.div
