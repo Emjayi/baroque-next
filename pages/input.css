@@ -8,6 +8,11 @@
       font-weight: 400;
       src: url(../public/fonts/Eurostile.ttf);
     }
+    @font-face {
+      font-family: Persian;
+      font-weight: 400;
+      src: url(../public/fonts/BHoma.ttf);
+    }
   }
 html , body {
     margin: 0;
@@ -24,7 +29,17 @@ body {
     margin: 0;
     max-height: 100vh !important;
     overflow-y: hidden !important;
-    font-family: Eurostile !important;
+    font-family: Eurostile;
+}
+.persian{
+  font-family: Persian !important;
+}
+.page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 .page
 ::selection{

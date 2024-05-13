@@ -11,7 +11,7 @@ const Member = ({ firstName, lastName, img, pos, year }) => {
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             style={{ backgroundImage: `url(${img})` }}
-            className='w-[200px] grayscale hover:grayscale-0 uppercase bg-cover bg-center bg-primary duration-700 h-screen flex flex-col items-start mt-4'>
+            className='w-[200px] grayscale hover:grayscale-0 uppercase bg-cover bg-center bg-primary duration-700 h-screen flex flex-col items-start'>
             <AnimatePresence>
                 {hovered &&
                     <motion.div

@@ -48,13 +48,13 @@ const AboutDesc = () => {
                         initial={{ opacity: 0.2 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.25, delay: 0.2 }}
-                        className='absolute -rotate-90 md:left-[950px] left-[1250px] text-white w-52 text-2xl '
+                        className='absolute rotate-90 md:left-[1430px] persian mt-24 left-[1250px] text-white w-52 text-2xl '
                     >
-                        Where is Baroque?
+                        باروک کجاست؟
                     </motion.h1>
-                    <div className='md:w-[800px] w-[300px] md:ml-28 ml-32 text-right text-pretty'>
+                    <div className='md:w-[800px] w-[300px] md:mr-16 mr-16 ml-8 persian text-right'>
                         <h1 className='text-3xl uppercase text-zinc-500'>
-                            <span className='text-primary text-xl'>متن زیر ترجمه ماشینی است</span>
+                            <span className='text-primary text-xl'>متن زیر از سایت ام ار کی است</span>
                         </h1>
                         {aboutText[lang].split(' ').map((el, i) => (
                             <motion.span
@@ -76,13 +76,13 @@ const AboutDesc = () => {
                         initial={{ opacity: 0.2 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.25, delay: 0.2 }}
-                        className='absolute -rotate-90 md:left-[950px] left-[1250px] text-white w-52 text-2xl '
+                        className='absolute rotate-90 md:left-[1430px] persian mt-24 left-[1250px] text-white w-52 text-2xl '
                     >
-                        Where is Baroque?
+                        باروک کجاست؟
                     </motion.h1>
-                    <div className='md:w-[800px] w-[300px] md:ml-28 ml-32 text-right'>
+                    <div className='md:w-[800px] w-[300px] md:mr-16 mr-16 ml-8 persian text-right'>
                         <h1 className='text-3xl uppercase text-zinc-500'>
-                            <span className='text-primary text-xl'>متن زیر ترجمه ماشینی است</span>
+                            <span className='text-primary text-xl'>متن زیر از سایت ام ار کی است</span>
                         </h1>
                         {aboutText[lang].split(' ').map((el, i) => (
                             <motion.span
@@ -98,7 +98,7 @@ const AboutDesc = () => {
                     </div>
                 </>
             )}
-            <div className={(lang === 'en') ? 'flex p-1 justify-center items-center bg-black/20 absolute top-5' : 'flex p-1 items-center bg-black/20 absolute top-5 text-right'}>{(lang === 'en') && <p className='text-white mx-2'>Langauage </p>}{(lang === 'ar') && <p className='text-white mx-2 order-1'>زبان </p>}{(lang === 'fa') && <p className='text-white mx-2 order-1'>زبان </p>}<LangChanger /></div>
+            <div className={(lang === 'en') ? 'flex p-1 justify-center items-center bg-primary/10 absolute top-12' : 'flex p-1 items-center bg-primary/10 absolute top-12 text-right'}>{(lang === 'en') && <p className='text-white mx-2'>Langauage </p>}{(lang === 'ar') && <p className='text-white mx-2 order-1 persian'>زبان </p>}{(lang === 'fa') && <p className='text-white mx-2 order-1 persian'>زبان </p>}<LangChanger /></div>
         </div>
     );
 };

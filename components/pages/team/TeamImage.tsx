@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import Image from 'next/image'
 
 const imageComponents = [
@@ -34,27 +34,16 @@ const TeamImage = () => {
     return (
         <div className='flex w-[480vw] md:w-[140vw] h-full mr-24' ref={ref}>
             <div className='stack object-fill'>
-                <>
-                    {imageComponents.map(({ src, translateX }, index) => (
-                        <>
-                            <motion.div
-                                key={index}
-                                initial={{ translateX: translateXValues[translateX] }}
-                                style={{ translateX: translateXValues[translateX] }}
-                                className='stack h-full w-full saturate-150'
-                            >
-                                <Image alt="alternative" src={src} width={2500} height={1044} className='h-screen object-cover' loading='eager' />
-                            </motion.div>
-                        </>
-                    ))}
-                    {/* {team.map(({ name, pos }) => (
-
-                            <motion.div
-                                initial={{ x: pos, y: "50vh" }}
-                                whileHover={{ width: 300 }}
-                                className='w-[200px] hidden uppercase bg-primary duration-700 h-[50vh] md:flex flex-col items-center z-50'>{name}</motion.div>
-                        ))} */}
-                </>
+                {imageComponents.map(({ src, translateX }, index) => (
+                    <motion.div
+                        key={index}
+                        initial={{ translateX: translateXValues[translateX] }}
+                        style={{ translateX: translateXValues[translateX] }}
+                        className='stack h-full w-full saturate-150'
+                    >
+                        <Image alt="alternative" src={src} width={2500} height={1044} className='h-screen object-cover' loading='eager' />
+                    </motion.div>
+                ))}
             </div>
         </div>
     )

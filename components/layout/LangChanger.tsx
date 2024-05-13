@@ -14,19 +14,19 @@ const LangChanger: React.FC = () => {
                 className='text-white hover:bg-primary/40 py-2 px-4 focus:bg-primary duration-300'
                 onClick={() => handleLangChange('en')}
             >
-                en
+                En
             </button>
             <button
                 className='text-white hover:bg-primary/40 py-2 px-4 focus:bg-primary duration-300'
                 onClick={() => handleLangChange('fa')}
             >
-                فا
+                Fa
             </button>
             <button
                 className='text-white hover:bg-primary/40 py-2 px-4 focus:bg-primary duration-300'
                 onClick={() => handleLangChange('ar')}
             >
-                ar
+                Ar
             </button>
         </div>
     );

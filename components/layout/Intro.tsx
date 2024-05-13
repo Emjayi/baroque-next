@@ -65,7 +65,7 @@ const Intro = ({ isIntro }: { isIntro: boolean }) => {
                                     repeatDelay: .8, repeatType: "reverse"
                                 }}
                                 className='row-start-3 col-start-2'>
-                                <h1 className=' text-zinc-300 text-lg'>Loading...</h1>
+                                <h1 className='text-lg uppercase text-zinc-400'>Loading...</h1>
                             </motion.div>
                         </div>
                     </AnimatePresence>
