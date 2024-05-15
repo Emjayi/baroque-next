@@ -24,9 +24,9 @@ const ProjectPage = () => {
         <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
             <linearGradient id="g">
-              <stop stop-color="#00000020" offset="20%" />
-              <stop stop-color="#55555540" offset="50%" />
-              <stop stop-color="#00000020" offset="70%" />
+              <stop stop-color="#00000030" offset="20%" />
+              <stop stop-color="#44444430" offset="50%" />
+              <stop stop-color="#00000030" offset="70%" />
             </linearGradient>
           </defs>
           <rect width="${w}" height="${h}" fill="#00000020" />
