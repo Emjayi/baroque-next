@@ -91,7 +91,7 @@ const ProjectPage = () => {
                     </ScrollLink>
                     <div className='flex'>
                         <div className='pro-image h-screen flex'>
-                            <Image src={project.firstImage} width={1500} height={1200} alt='Main Image' className='object-cover w-[6000px]' />
+                            <Image src={project.firstImage} width={1500} priority={true} height={1200} alt='Main Image' className='object-cover w-[6000px]' />
                         </div>
                         <div id='info' className='px-8 text-white text-xl items-center justify-between w-[1500px] flex bg-black/30'>
 
