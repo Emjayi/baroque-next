@@ -35,7 +35,7 @@ const Footer = () => {
             </div>
             <motion.div className='w-full  lg:static absolute bottom-2 left-0 text-center lg:flex gap-4 justify-end'>
                 <p>Handcrafted with <span className='text-primary'>❤</span> at <a href='https://khatoonadvertising.ir/' className='text-zinc-400 hover:text-primary duration-300'>Khatoon Advertising</a></p>
-                <p>by <a href='https://emjay.liara.run/' className='text-zinc-400 hover:text-primary duration-300'>Emjayi</a></p>
+                <p>by <a href='https://emjayi.liara.run/' className='text-zinc-400 hover:text-primary duration-300'>Emjayi</a></p>
             </motion.div>
         </motion.div>
     )

@@ -118,7 +118,7 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
                                     {/* Menu Link */}
                                     <Link
                                         href={link.url}
-                                        className='duration-500 text-xl text-center w-44 py-6 hover:text-white text-zinc-400 tracking-[.2em] hover:tracking-normal'
+                                        className='duration-500 text-xl text-center w-44 py-6 hover:text-white hover:-translate-y-2 text-zinc-400 tracking-[.2em] hover:tracking-normal'
                                     >
                                         {link.name}
                                     </Link>

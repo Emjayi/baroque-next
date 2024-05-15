@@ -26,19 +26,6 @@ export default function App({ Component, pageProps, router }) {
     }, []);
     return (
         <React.StrictMode>
-            {!isMobile && (<AnimatedCursor
-                showSystemCursor={true}
-                innerSize={10}
-                outerSize={35}
-                innerScale={1.2}
-                outerScale={1.4}
-                outerAlpha={0}
-                outerStyle={{
-                    border: '3px solid #D2AC72'
-                }}
-                innerStyle={{
-                    backgroundColor: '#D2AC7250'
-                }} />)}
             <LanguageProvider>
                 <AnimatePresence mode='wait'>
                     <Head>
@@ -51,6 +38,23 @@ export default function App({ Component, pageProps, router }) {
 
                 </AnimatePresence>
             </LanguageProvider>
+            {!isMobile && (<AnimatedCursor
+                showSystemCursor={true}
+                innerSize={10}
+                outerSize={34}
+                innerScale={3}
+                outerScale={1.5}
+                outerAlpha={0}
+                hasBlendMode={true}
+                outerStyle={{
+                    border: '3px solid #D2AC72',
+                    borderRadius: "0%"
+                }}
+                innerStyle={{
+                    backgroundColor: '#D2AC7250',
+                    borderRadius: "0%",
+                    mixBlendMode: 'revert'
+                }} />)}
         </React.StrictMode>
     )
 }
