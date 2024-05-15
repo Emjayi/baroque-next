@@ -1,46 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Menu from '../components/layout/menu';
-import { UilMultiply } from '@iconscout/react-unicons'
 import Footer from '../components/layout/Footer';
-import Intro from '../components/layout/Intro';
-import Transition from '../components/layout/menu/Transition';
 import PageTransition from '../components/layout/PageTransition';
+import AnimatedText from '../components/layout/AnimatedText';
+import TextLoop from '../components/layout/TextLoop';
 
 // App component with animations
 const App = () => {
-    // State to track if the menu is open or closed
+
+    // DATA
+    const aboutText = "Baroque, your lovely company."
+    const aboutTitles = ["Architecture", "Simplicity", "Elegance", "Greatness", "Shining"]
+
+    // Menu shits
     const [open, setOpen] = useState(false);
-    // Function to toggle the menu
     const toggleMenu = () => {
         setOpen(!open);
     };
-    // Check intro
     const [intro, setIntro] = useState(true);
     setTimeout(() => {
         setIntro(false)
     }, 3400);
-
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-    useEffect(() => {
-        const updateMousePosition = (e: any) => {
-            setMousePosition({ x: e.clientX, y: e.clientY })
-        }
-        window.addEventListener("mousemove", updateMousePosition)
-        return () => {
-            window.removeEventListener("mousemove", updateMousePosition)
-        }
-    })
-    // List of menu links
-    const links = [
-        { key: 1, name: 'Team', url: '/team', speed: 0.1, length: -50 },
-        { key: 2, name: 'Construction', url: '/construction', speed: 0.2, length: -10 },
-        { key: 3, name: 'Projects', url: '/projects', speed: 0.1, length: +50 },
-        { key: 4, name: 'About', url: '/about', speed: 0.2, length: -50 },
-    ];
-
-    const aboutText = "Baroque, Your Lovely company."
 
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
@@ -91,22 +72,25 @@ const App = () => {
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0, transition: { delay: 0 } }}
                                     transition={{ duration: .2, delay: 1 }}
-                                    className='text-4xl absolute uppercase w-screen top-64 text-center'>
-                                    {aboutText.split(' ').map((el, i) => (
-                                        <motion.span
-                                            key={i}
-                                            initial={{ x: -50, opacity: 0.2 }}
-                                            animate={{ x: 0, opacity: 1 }}
-                                            transition={{ duration: 1, delay: i / 100 }}
-                                            className='text-white'
-                                        >
-                                            {el}{' '}
-                                        </motion.span>
-                                    ))}</motion.h1>
-                                <p className='text-xl absolute uppercase w-screen top-96 text-center'>Architecture</p>
+                                    className='text-xl md:text-3xl absolute w-screen uppercase top-64 text-center'>
+                                    <AnimatedText delay={1} duration={2} text={aboutText} className='' />
+                                </motion.h1>
+                                {/* {aboutTitles.map(() => (
+                                    < motion.h2
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0, transition: { delay: 0 } }}
+                                        transition={{ duration: .2, delay: .2 }}
+                                        className='text-xl text-zinc-400 absolute uppercase w-screen top-80 text-center'>
+                                        <AnimatedText delay={.2} duration={1} className='' text={aboutTitles} />
+                                    </motion.h2>
+                                ))} */}
+                                <TextLoop className='text-sm md:text-xl text-zinc-400 absolute w-screen top-80 text-center' titles={aboutTitles} />
+
+
                                 <motion.button
                                     onClick={toggleMenu}
-                                    className='text-white flex tracking-widest hover:tracking-normal justify-center items-end text-center h-96 w-64 text-2xl duration-200 absolute bottom-24'
+                                    className='text-white flex tracking-widest hover:tracking-normal justify-center items-end text-center h-96 w-[50vw] text-2xl duration-200 absolute bottom-24'
                                     initial={{ opacity: 0, y: 40 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ y: 40 }}
@@ -121,7 +105,7 @@ const App = () => {
                     </AnimatePresence>
                 </div>
             </div ></>}
-        </div>
+        </div >
     );
 };
 

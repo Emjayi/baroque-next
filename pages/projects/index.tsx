@@ -8,8 +8,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 
 const Projects = () => {
-
-
     return (
         <PageWrapper pageName="Projects">
             <motion.div className='h-full flex items-center'>

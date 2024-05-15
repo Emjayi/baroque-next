@@ -34,42 +34,50 @@ const PageWrapper = ({ pageName, children }: any) => {
             {/*Logo Animation*/}
             <PageTransition intro={intro} open={open} />
 
-            {!open && !intro &&
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: .5, ease: "easeInOut" }}
-                    exit={{ opacity: 0 }}
-                    className='md:h-screen flex items-center'>
 
-                    <motion.h1 className='text-white uppercase text-xl min-w-36 ml-8 md:ml-32 pr-4'>{pageName}</motion.h1>
-
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 1.5, ease: "easeInOut" }}
-                        className=' min-w-48 mr-4'>
-
+            <motion.div
+                exit={{ opacity: 0, transition: { duration: .3 } }}
+                transition={{ duration: .5, ease: "easeInOut" }}>
+                <AnimatePresence mode='wait'>
+                    {!open && !intro &&
                         <motion.div
-                            className='h-[2px] w-20 bg-primary'
-                            initial={{ opacity: 0, x: 100, scaleX: 1 }}
-                            animate={{ opacity: [0, .3, .3, 0], x: 0, scaleX: [.6, 1, 1, 1] }}
-                            transition={{ times: [0, .3, .7, 1], ease: "easeInOut", duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
-                        ></motion.div>
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: .5, ease: "easeInOut" }}
+                            exit={{ opacity: 0, transition: { duration: .3 } }}
+                            className='md:h-screen flex items-center'>
 
-                    </motion.div>
+                            <motion.h1 className='text-white uppercase text-xl min-w-36 ml-8 md:ml-32 pr-4'>{pageName}</motion.h1>
 
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 1, ease: "easeInOut" }}
-                        className='z-20 relative flex'
-                    >
-                        {children}
-                    </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 1.5, ease: "easeInOut" }}
+                                className=' min-w-48 mr-4'>
 
-                    {/* <Footer /> */}
-                </motion.div>}
+                                <motion.div
+                                    className='h-[2px] w-20 bg-primary'
+                                    initial={{ opacity: 0, x: 100, scaleX: 1 }}
+                                    animate={{ opacity: [0, .3, .3, 0], x: 0, scaleX: [.6, 1, 1, 1] }}
+                                    transition={{ times: [0, .3, .7, 1], ease: "easeInOut", duration: 1.5, repeat: Infinity, repeatDelay: 1 }}
+                                ></motion.div>
+
+                            </motion.div>
+
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 1, ease: "easeInOut" }}
+                                className='z-20 relative flex'
+                            >
+                                {children}
+                            </motion.div>
+
+                            {/* <Footer /> */}
+                        </motion.div>}
+                </AnimatePresence>
+            </motion.div>
+
             {
                 !intro && <motion.button
                     initial={{ width: 45, opacity: 0, y: -10 }}

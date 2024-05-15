@@ -98,15 +98,6 @@ const ProjectPage = () => {
                                 {project.location && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .6 }} className='my-5'><h1 className='text-zinc-500 font-bold'>Location:</h1><p className='text-[16px] w-36'>{project.location}</p></motion.div>}
                                 {project.client && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .8 }} className=''><h1 className='text-zinc-500 font-bold'>Client:</h1><p className='text-[16px] w-36'>{project.client}</p></motion.div>}
                             </div>
-                            <div>
-                                {/* {project.team && project.team.map((t) => (
-                            <div className='my-4'>
-                                <h1 className='text-zinc-500 font-bold'>{t.name}</h1>
-                                {t.body.map((b) => (<p>{b}</p>))}
-                            </div>
-                        ))} */}
-                            </div>
-
                         </div>
 
                         <div className=''>
@@ -142,38 +133,4 @@ const ProjectPage = () => {
         </PageWrapper>
     );
 };
-
-
-//Sanity Data
-// useEffect(() => {
-//     const getPosts = async () => {
-//         const query = `
-//         *[_type == "project"] {
-//             _id,
-//             name,
-//             status,
-//             "gallery": gallery[].asset->url,
-//             "galleryBlur": gallery[].asset->metadata.lqip,
-//             slug,
-//             "mainImage": mainImage.asset->url,
-//             "blur": mainImage.asset->metadata.lqip,
-//             alt,
-//             type,
-//             client,
-//             area,
-//             location,
-//             team
-//         }
-//         `;
-//         try {
-//             const data = await client.fetch(query);
-//             setProjects(data);
-//         } catch (error) {
-//             console.error('Error fetching posts:', error);
-//         }
-//     };
-
-//     getPosts();
-// }, []);
-
 export default ProjectPage;
