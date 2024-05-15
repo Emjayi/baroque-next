@@ -7,7 +7,7 @@ import projects from '../../../lib/projectData'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // import required modules
-import { Autoplay, Keyboard, Pagination, Scrollbar } from 'swiper/modules';
+import { Autoplay, Keyboard, Navigation, Pagination, Scrollbar, Thumbs } from 'swiper/modules';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css';
@@ -18,6 +18,8 @@ import { Link as ScrollLink } from 'react-scroll';
 
 
 const ProjectPage = () => {
+
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
     const [isAtEnd, setIsAtEnd] = useState(false);
     useEffect(() => {
@@ -93,7 +95,7 @@ const ProjectPage = () => {
                         </div>
                         <div id='info' className='px-8 text-white text-xl items-center justify-between w-[1500px] flex bg-black/30'>
 
-                            <div className='w-screen md:w-auto'>
+                            <div className='w-screen md:w-[28vw]'>
                                 {project.area && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .4 }}><h1 className='text-zinc-500 font-bold'>Built area:</h1><p className='text-[16px] w-36'>{project.area} m2</p></motion.div>}
                                 {project.location && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .6 }} className='my-5'><h1 className='text-zinc-500 font-bold'>Location:</h1><p className='text-[16px] w-36'>{project.location}</p></motion.div>}
                                 {project.client && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .8 }} className=''><h1 className='text-zinc-500 font-bold'>Client:</h1><p className='text-[16px] w-36'>{project.client}</p></motion.div>}
@@ -101,26 +103,21 @@ const ProjectPage = () => {
                         </div>
 
                         <div className=''>
-                            <Swiper
-                                autoplay={{
-                                    delay: 2500,
-                                    disableOnInteraction: false,
-                                }}
-                                scrollbar={true}
-                                keyboard={{
-                                    enabled: true,
-                                }}
-                                spaceBetween={0}
-                                loop={true}
-                                pagination={{
-                                    clickable: true,
-                                }}
 
-                                modules={[Keyboard, Pagination, Autoplay, Scrollbar]} className=" cursor-default w-screen h-screen bg-black/30">
+                            <Swiper
+                                navigation={true}
+                                keyboard={true}
+                                thumbs={{ swiper: thumbsSwiper }}
+                                modules={[Keyboard, Navigation, Thumbs]} className="w-[68vw] flex h-full bg-black/30">
                                 {
-                                    project.allImages.map((image: any, index: number) => (
+                                    project.allImages.map((image: any, index) => (
                                         <SwiperSlide key={index}>
-                                            <img src={`/projects/${project.name}/${image}`} width={1500} height={1500} alt={`Image ${index + 1}`} className='items-center flex h-screen object-contain'></img>
+                                            <Image
+                                                src={`/projects/${project.name}/${image}`}
+                                                layout='fill'
+                                                alt={`Image ${index}`}
+                                                className='items-center flex object-cover'
+                                            />
                                         </SwiperSlide>
                                     ))
                                 }

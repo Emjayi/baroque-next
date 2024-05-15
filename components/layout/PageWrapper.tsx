@@ -40,7 +40,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                 transition={{ duration: .5, ease: "easeInOut" }}>
                 <AnimatePresence mode='wait'>
                     {!open && !intro &&
-                        <motion.div
+                        <><motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: .5, ease: "easeInOut" }}
@@ -73,8 +73,8 @@ const PageWrapper = ({ pageName, children }: any) => {
                                 {children}
                             </motion.div>
 
-                            {/* <Footer /> */}
-                        </motion.div>}
+                        </motion.div><Footer /></>
+                    }
                 </AnimatePresence>
             </motion.div>
 
@@ -89,9 +89,9 @@ const PageWrapper = ({ pageName, children }: any) => {
                     onMouseEnter={() => setMenuHover(true)}
                     onMouseLeave={() => setMenuHover(false)}
                     className='humb hidden fixed md:flex top-10 left-5 px-[4px] py-[12px] bg-primary/70 hover:bg-primary/90 duration-150 text-white z-50'>
-                    <motion.div>{!open && <UilBars />}{open && <UilMultiply />}</motion.div>
+                    <motion.div className='relative top-1'>{!open && <UilBars />}{open && <UilMultiply />}</motion.div>
                     <AnimatePresence>
-                        {menuHover && <motion.p className='fixed hidden md:block' initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 40 }} exit={{ opacity: 0, x: 20 }} transition={{ duration: .5, ease: "easeInOut", delay: .4 }}>{!open ? "Menu" : "Close"}</motion.p>}
+                        {menuHover && <motion.p className=' hidden md:block relative top-1 -left-7' initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 40 }} exit={{ opacity: 0, x: 20 }} transition={{ duration: .5, ease: "easeInOut", delay: .4 }}>{!open ? "Menu" : "Close"}</motion.p>}
                     </AnimatePresence>
                 </motion.button>
             }
@@ -107,6 +107,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                     <motion.div>{!open && <UilBars />}{open && <UilMultiply />}</motion.div>
                 </motion.button>
             }
+
             {
                 open &&
                 <motion.div

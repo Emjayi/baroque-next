@@ -8,8 +8,8 @@ const PageTransition = ({ intro, open }) => {
             <motion.div className={!intro ? 'fixed z-0 flex left-0 right-0 justify-center items-center' : 'fixed z-0 flex left-0 right-0 justify-center items-center'}>
                 <motion.svg
                     initial={{ scale: 1, opacity: 1 }}
-                    animate={!intro ? (open ? { scale: [10, 1, 1, 1], opacity: [.02, .02, 1, 1, 1, 1], y: ["0vh", "0vh", "0vh", "-20vh", "-20vh", "-20vh"], x: [0, 0, 0, 0, 0, -100] } : { scale: [1, 1, 10, 10], opacity: [1, 0.1, 0.02, .02, .02, .1], x: 0, y: 0 }) : (open ? { scale: [10, 1, 1, 1], opacity: [.02, .02, 1, 1, 1, 1], y: [0, 0, 0, -200, -200, -200], x: [0, 0, 0, 0, 0, 0] } : { scale: [1], opacity: [1], x: [0], y: [0] })}
-                    exit={!intro ? (open ? { scale: [1, 1, 1, 1, 1, 1], opacity: [1, 1, .2, 1, .5, 1], x: [-100, -100, 0, 0, 0, 0], y: ["-20vh", "-20vh", "-20vh", "-20vh", "0vh", "0vh"] } : { scale: [10, 1, 1], opacity: [.02, .5, .8, 0.5, .2, 1] }) : { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] }}
+                    animate={!intro ? (open ? { scale: [null, 1, 1, 1], opacity: [null, .1, 1, 1, 1, 1], y: [null, "0vh", "0vh", "-20vh", "-20vh", "-20vh"], x: [null, 0, 0, 0, 0, -100] } : { scale: [null, null, 10, 10, 10, 10], opacity: [null, 0.1, .1, .1, .1, .1], x: [null, 0, 0, 0, 0, 0], y: [null, null, null, "0vh"] }) : (open ? { scale: [null, 1, 1, 1, 1, 1, 1, 1], opacity: [null, null, 1, 1, 1, 1], y: [0, 0, 0, -200, -200, -200], x: [0, 0, 0, 0, 0, 0] } : { scale: [1], opacity: [1], x: [0], y: [0] })}
+                    exit={!intro ? (open ? { scale: [null, 1, 1, 1, 1, 1], opacity: [null, 1], x: [null, -100, 0, 0, 0, 0], y: [null, null, null, null, "0vh", "0vh"] } : { scale: [null, 1, 1, 1, 1], opacity: [.1, .5, .8, 0.5, .2, 1] }) : { scale: 1, opacity: [.02, .02, .02, .02, .02, 1] }}
                     transition={!intro ? { duration: 2.4, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut" } : { duration: .8, times: [0, .2, .4, .6, .8, 1], ease: "easeInOut", delay: 3 }}
                     version="1.1" id="Layer_1" className='fixed w-[600px] h-[600px]'
                     viewBox="0 0 5463.4 3168.8">
@@ -21,7 +21,7 @@ const PageTransition = ({ intro, open }) => {
                         <motion.path
                             initial={{ scale: 1, opacity: 0 }}
                             animate={open ? { scale: [1, 1, 1, 1], opacity: [.02, .05, 1, 1] } : { scale: [1, 1, 1, 1], opacity: [0, 0, 0, .02] }}
-                            exit={!intro ? (open ? { scale: [1, .9, 1, 1, 1, .5], opacity: [1, .4, 1, .3, .6, 0] } : { scale: [1, 1, 1, 1], opacity: [0, 0, 0, 0, .2, 0] }) : { scale: [10, 10, 1, 1], opacity: [0, 0, 0, 0] }}
+                            exit={!intro ? (open ? { scale: [1, .9, 1, 1, 1, .5], opacity: [1, .4, 1, .3, .6, 0] } : { scale: [1, .8, .8, 1, 1, .8], opacity: [0, 0, .2, .2, .2, 0] }) : { scale: [10, 10, 1, 1], opacity: [0, 0, 0, 0] }}
                             transition={{ duration: 1.6, times: [0, .5, .8, 1], ease: "easeInOut" }}
                             fill='#D2AC72'
                             strokeWidth={10}
