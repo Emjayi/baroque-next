@@ -103,7 +103,7 @@ const App = () => {
 
                                 <motion.button
                                     onClick={toggleMenu}
-                                    className='text-white flex tracking-widest hover:tracking-normal justify-center items-end text-center h-96 w-[50vw] text-2xl duration-200 absolute bottom-24'
+                                    className='text-white flex tracking-widest hover:tracking-normal justify-center items-end text-center h-[60vh] w-[50vw] text-2xl duration-200 absolute bottom-36'
                                     initial={{ opacity: 0, y: 40 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ y: 40, opacity: 0, transition: { duration: .5, delay: 0 } }}
@@ -133,9 +133,9 @@ const App = () => {
                                     <div className='flex gap-4 justify-center'>
 
                                     </div>
-                                    <motion.div className='w-full  lg:static absolute bottom-2 left-0 text-center lg:flex gap-4 justify-end'>
+                                    <motion.div className='w-full  lg:static absolute bottom-2 left-0 text-center lg:flex gap-2 justify-end'>
                                         <p>Made with <span className='text-primary'>❤</span> at <a href='https://khatoonadvertising.ir/' className='text-zinc-400 hover:text-primary duration-300'>Khatoon Advertising</a></p>
-                                        {/* <p><a href='https://emjay.liara.run/' className='text-zinc-400 hover:text-primary duration-300'>Emjayi</a>'s HandCraft</p> */}
+                                        <p>by <a href='https://emjayi.liara.run/' className='text-zinc-400 hover:text-primary duration-300'>Emjayi</a></p>
                                     </motion.div>
                                 </motion.div>
                             </motion.div>

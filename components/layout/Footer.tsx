@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import React from 'react'
+import { usePathname } from 'next/navigation';
 
 // List of menu links
 const links = [
@@ -11,6 +12,9 @@ const links = [
     { key: 5, name: 'About', url: '/about', speed: 0.2, length: -50 }
 ];
 const Footer = () => {
+
+    const path = usePathname()
+
     return (
 
         <motion.div
@@ -23,8 +27,8 @@ const Footer = () => {
                 <ul className='flex gap-2 justify-start'>
                     {links.map((link) =>
                     (
-                        <Link href={link.url} key={link.key}>
-                            <li className='text-zinc-400 hover:text-primary duration-300'>{link.name}</li>
+                        <Link href={link.url} key={link.key} className={(link.url === path) ? 'text-primary' : 'text-zinc-400'}>
+                            <li className=' hover:text-primary hover:-translate-y-1 duration-300'>{link.name}</li>
                         </Link>
                     )
                     )}
@@ -33,11 +37,11 @@ const Footer = () => {
             <div className='flex gap-4 justify-center'>
 
             </div>
-            <motion.div className='w-full  lg:static absolute bottom-2 left-0 text-center lg:flex gap-4 justify-end'>
+            <motion.div className='w-full  lg:static absolute bottom-2 left-0 text-center lg:flex gap-2 justify-end'>
                 <p>Handcrafted with <span className='text-primary'>❤</span> at <a href='https://khatoonadvertising.ir/' className='text-zinc-400 hover:text-primary duration-300'>Khatoon Advertising</a></p>
                 <p>by <a href='https://emjayi.liara.run/' className='text-zinc-400 hover:text-primary duration-300'>Emjayi</a></p>
             </motion.div>
-        </motion.div>
+        </motion.div >
     )
 }
 //  by <a href='https://emjayi.ir/' className='text-zinc-400 hover:text-primary duration-300'>Emjayi</a>

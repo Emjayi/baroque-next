@@ -67,6 +67,7 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                         width={280}
                         height={400}
                         alt={alt}
+                        quality={50}
                         className='w-[280px] h-[400px] object-cover grayscale hover:grayscale-0 duration-1000' />
                 </motion.div>
             </Link >
