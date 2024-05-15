@@ -112,7 +112,7 @@ const ProjectPage = () => {
                         <div className='pro-image h-screen flex'>
                             <Image
                                 placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                src={project.firstImage} width={1500} priority={true} height={1200} alt='Main Image' className='object-cover w-[6000px]' />
+                                src={project.firstImage} width={1500} priority={true} height={1200} alt='Main Image' className='object-cover w-[6000px] bg-black/10' />
                         </div>
                         <div id='info' className='px-8 text-white text-xl items-center justify-between w-[1500px] flex bg-black/30'>
 
@@ -129,7 +129,7 @@ const ProjectPage = () => {
                                 navigation={true}
                                 keyboard={true}
                                 thumbs={{ swiper: thumbsSwiper }}
-                                modules={[Keyboard, Navigation, Thumbs]} className="w-[68vw] flex h-full bg-black/30">
+                                modules={[Keyboard, Navigation, Thumbs]} className="w-[68vw] flex h-full bg-black/10">
                                 {
                                     project.allImages.map((image: any, index) => (
                                         <SwiperSlide key={index}>

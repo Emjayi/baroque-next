@@ -26,20 +26,20 @@ export default function App({ Component, pageProps, router }) {
     }, []);
     return (
         <React.StrictMode>
+            {!isMobile && (<AnimatedCursor
+                showSystemCursor={true}
+                innerSize={10}
+                outerSize={35}
+                innerScale={1.2}
+                outerScale={1.4}
+                outerAlpha={0}
+                outerStyle={{
+                    border: '3px solid #D2AC72'
+                }}
+                innerStyle={{
+                    backgroundColor: '#D2AC7250'
+                }} />)}
             <LanguageProvider>
-                {!isMobile && (<AnimatedCursor
-                    showSystemCursor={true}
-                    innerSize={10}
-                    outerSize={35}
-                    innerScale={1.2}
-                    outerScale={1.4}
-                    outerAlpha={0}
-                    outerStyle={{
-                        border: '3px solid #D2AC72'
-                    }}
-                    innerStyle={{
-                        backgroundColor: '#D2AC7250'
-                    }} />)}
                 <AnimatePresence mode='wait'>
                     <Head>
                         <title>Baroque</title>
