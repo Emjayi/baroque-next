@@ -40,6 +40,8 @@ const App = () => {
         { key: 4, name: 'About', url: '/about', speed: 0.2, length: -50 },
     ];
 
+    const aboutText = "Baroque, Your Lovely company."
+
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
         const handleResize = () => {
@@ -84,6 +86,24 @@ const App = () => {
                                 className='flex flex-col w-screen items-center justify-center gap-5 px-8 text-white text-6xl'
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: .2, ease: "easeIn", delay: 1 }}>
+                                <motion.h1
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0, transition: { delay: 0 } }}
+                                    transition={{ duration: .2, delay: 1 }}
+                                    className='text-4xl absolute uppercase w-screen top-64 text-center'>
+                                    {aboutText.split(' ').map((el, i) => (
+                                        <motion.span
+                                            key={i}
+                                            initial={{ x: -50, opacity: 0.2 }}
+                                            animate={{ x: 0, opacity: 1 }}
+                                            transition={{ duration: 1, delay: i / 100 }}
+                                            className='text-white'
+                                        >
+                                            {el}{' '}
+                                        </motion.span>
+                                    ))}</motion.h1>
+                                <p className='text-xl absolute uppercase w-screen top-96 text-center'>Architecture</p>
                                 <motion.button
                                     onClick={toggleMenu}
                                     className='text-white flex tracking-widest hover:tracking-normal justify-center items-end text-center h-96 w-64 text-2xl duration-200 absolute bottom-24'
