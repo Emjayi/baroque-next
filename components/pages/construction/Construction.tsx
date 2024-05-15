@@ -60,7 +60,7 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, allImages, 
                             allImages.map((image: any, index) => (
                                 <SwiperSlide key={index}>
                                     <Image
-                                        src={`/projects/${name}/${image}`}
+                                        src={`/projects/${url}/${image}`}
                                         layout='fill'
                                         alt={`Image ${index}`}
                                         className='items-center flex object-cover'

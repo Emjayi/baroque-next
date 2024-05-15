@@ -113,7 +113,7 @@ const ProjectPage = () => {
                                     project.allImages.map((image: any, index) => (
                                         <SwiperSlide key={index}>
                                             <Image
-                                                src={`/projects/${project.name}/${image}`}
+                                                src={`/projects/${project.url}/${image}`}
                                                 layout='fill'
                                                 alt={`Image ${index}`}
                                                 className='items-center flex object-cover'
