@@ -19,6 +19,25 @@ import { Link as ScrollLink } from 'react-scroll';
 
 const ProjectPage = () => {
 
+    // Image loading effect
+    const shimmer = (w: number, h: number) => `
+        <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <defs>
+            <linearGradient id="g">
+              <stop stop-color="#00000020" offset="20%" />
+              <stop stop-color="#55555540" offset="50%" />
+              <stop stop-color="#00000020" offset="70%" />
+            </linearGradient>
+          </defs>
+          <rect width="${w}" height="${h}" fill="#00000020" />
+          <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
+          <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
+        </svg>`;
+    const toBase64 = (str: string) =>
+        typeof window === "undefined"
+            ? Buffer.from(str).toString("base64")
+            : window.btoa(str);
+
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
     const [isAtEnd, setIsAtEnd] = useState(false);
@@ -91,7 +110,9 @@ const ProjectPage = () => {
                     </ScrollLink>
                     <div className='flex'>
                         <div className='pro-image h-screen flex'>
-                            <Image src={project.firstImage} width={1500} priority={true} height={1200} alt='Main Image' className='object-cover w-[6000px]' />
+                            <Image
+                                placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                                src={project.firstImage} width={1500} priority={true} height={1200} alt='Main Image' className='object-cover w-[6000px]' />
                         </div>
                         <div id='info' className='px-8 text-white text-xl items-center justify-between w-[1500px] flex bg-black/30'>
 
@@ -113,6 +134,7 @@ const ProjectPage = () => {
                                     project.allImages.map((image: any, index) => (
                                         <SwiperSlide key={index}>
                                             <Image
+                                                placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                                                 src={`/projects/${project.url}/${image}`}
                                                 layout='fill'
                                                 alt={`Image ${index}`}
