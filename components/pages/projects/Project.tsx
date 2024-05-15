@@ -4,6 +4,25 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 
 const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, year }: any) => {
+    const shimmer = (w: number, h: number) => `
+    <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs>
+        <linearGradient id="g">
+          <stop stop-color="#333" offset="20%" />
+          <stop stop-color="#222" offset="50%" />
+          <stop stop-color="#333" offset="70%" />
+        </linearGradient>
+      </defs>
+      <rect width="${w}" height="${h}" fill="#333" />
+      <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
+      <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
+    </svg>`;
+
+    const toBase64 = (str: string) =>
+        typeof window === "undefined"
+            ? Buffer.from(str).toString("base64")
+            : window.btoa(str);
+
     const [hovered, setHovered] = useState(false);
     const [active, setActive] = useState(false);
 
@@ -42,7 +61,13 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                     onMouseEnter={() => { setActive(true), setHovered(true) }}
                     onMouseLeave={() => { setActive(false), setHovered(false) }}
                 >
-                    <Image src={mainImage} width={280} height={400} alt={alt} className='w-[280px] h-[400px] object-cover grayscale hover:grayscale-0 duration-1000' />
+                    <Image
+                        placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                        src={mainImage}
+                        width={280}
+                        height={400}
+                        alt={alt}
+                        className='w-[280px] h-[400px] object-cover grayscale hover:grayscale-0 duration-1000' />
                 </motion.div>
             </Link >
 
