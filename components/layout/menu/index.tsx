@@ -76,10 +76,10 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
                 // Initial animation setup
                 initial={{ opacity: 0, y: 0 }}
                 // Animation for opening and closing menu
-                animate={open ? { opacity: [0, 0, 0, 0, 1, 1], y: ["0vh", "15vh", "15vh"], x: [0, 0, 0, 100, 100] } : { opacity: [0, 0, 0, 0, 1, 1], y: [0, 0, 0] }}
+                animate={isOpen ? { opacity: [0, 0, 0, 0, 1, 1], y: ["0vh", "15vh", "15vh"], x: [0, 0, 0, 100, 100] } : { opacity: [null, 0, 0, 0, 0, 0], y: ["15vh", "15vh", "15vh"], x: [null, 60, 0, 0, 0, 0] }}
                 // Exit animation
-                exit={{ opacity: [1, 1, 1, 1, 0], y: "15vh", x: [100, 100, 100, 60, 60], transition: { delay: 0 } }}
-                transition={{ duration: 2.1, times: [0, .2, .5, .8, 1], delay: .8, exitdelay: 0 }}
+                exit={isOpen && { opacity: [1, 1, 1, 1, 0], y: "15vh", x: [100, 100, 100, 60, 60], transition: { delay: 0 } }}
+                transition={isOpen ? { duration: 2.1, times: [0, .2, .5, .8, 1], delay: .8, exitdelay: 0 } : { duration: 2.1, times: [0, .2, .5, .8, 1], delay: 0 }}
             >
                 {/* Link to Home */}
                 <Link href="/"><Image src={title} width={200} height={200} className='w-64' alt='logo'></Image></Link>
@@ -100,33 +100,32 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
                 className=" bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
             >
                 <ul className='header mt-0 md:-mt-16 h-[60vh] md:h-auto text-xl  flex flex-col md:flex-row gap-2 justify-between items-center font-bold'>
-                    {isMounted && // Only render links when the component is mounted
-                        links.map((link, index) => (
-                            // Animated link item
-                            <motion.div
-                                key={index}
-                                // Initial animation setup
-                                initial={{ x: link.length, y: -50, opacity: 0 }}
-                                // Animation for opening and closing menu
-                                animate={{ x: 0, y: 0, opacity: 1 }}
-                                // Exit animation
-                                exit={{ x: link.length, y: -50, opacity: 0 }}
-                                transition={{ duration: 0.5, delay: link.speed }}
-                                className='flex justify-center items-center w-44 '
-                            >
-                                <li className='flex flex-col gap-3 font-thin justify-center text-center'>
-                                    {/* Menu Link */}
-                                    <Link
-                                        href={link.url}
-                                        className='duration-500 text-xl text-center w-44 py-6 hover:text-white hover:-translate-y-2 text-zinc-400 tracking-[.2em] hover:tracking-normal'
-                                    >
-                                        {link.name}
-                                    </Link>
-                                </li>
-                            </motion.div>
-                        ))}
+                    {links.map((link, index) => (
+                        // Animated link item
+                        <motion.div
+                            key={index}
+                            // Initial animation setup
+                            initial={{ x: link.length, y: -50, opacity: 0 }}
+                            // Animation for opening and closing menu
+                            animate={isOpen ? { x: 0, y: 0, opacity: 1 } : { x: link.length, y: -50, opacity: 0 }}
+                            // Exit animation
+                            exit={{ x: link.length, y: -50, opacity: 0 }}
+                            transition={isOpen ? { duration: 0.5, delay: link.speed } : { duration: 0.5, delay: link.speed / 100 }}
+                            className='flex justify-center items-center w-44 '
+                        >
+                            <li className='flex flex-col gap-3 font-thin justify-center text-center'>
+                                {/* Menu Link */}
+                                <Link
+                                    href={link.url}
+                                    className='duration-500 text-xl text-center w-44 py-6 hover:text-white hover:-translate-y-2 text-zinc-400 tracking-[.2em] hover:tracking-normal'
+                                >
+                                    {link.name}
+                                </Link>
+                            </li>
+                        </motion.div>
+                    ))}
                 </ul>
-            </motion.div>
+            </motion.div >
         </motion.div >
     );
 }

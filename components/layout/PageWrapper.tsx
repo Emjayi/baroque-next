@@ -108,16 +108,14 @@ const PageWrapper = ({ pageName, children }: any) => {
                 </motion.button>
             }
 
-            {
-                open &&
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 2 }}
-                    className='h-screen w-screen fixed top-0 left-0 flex flex-col justify-center items-center z-40'>
-                    <Menu isOpen={open} />
-                </motion.div>
-            }
+
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 2 }}
+                className='h-screen w-screen fixed top-0 left-0 flex flex-col justify-center items-center'>
+                <Menu isOpen={open} />
+            </motion.div>
         </div >
     )
 }
