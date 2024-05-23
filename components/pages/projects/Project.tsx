@@ -122,7 +122,7 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                     style={{ x: parallax }}
                     transition={{ duration: .5 }}
                     className='md:flex hidden w-[280px] text-zinc-400 text-sm justify-center gap-4'>
-                    <h1>
+                    {type && <h1>
                         <AnimatePresence>
                             {hovered ? <motion.span initial={{ opacity: 0, x: 0 }}
                                 animate={{ opacity: 1, x: -29 }}
@@ -133,8 +133,8 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                             animate={hovered ? { paddingRight: 25 } : { paddingRight: 0 }}
                             style={hovered && {}}
                             exit={{ opacity: 0, paddingLeft: 0 }}
-                            transition={{ duration: .5, delay: .2 }} className=' font-bold'>{type}</motion.span></h1>
-                    <h1>
+                            transition={{ duration: .5, delay: .2 }} className=' font-bold'>{type}</motion.span></h1>}
+                    {year && <h1>
                         <AnimatePresence>
                             {hovered ? <motion.span initial={{ opacity: 0, x: 0 }}
                                 animate={{ opacity: 1, x: -30 }}
@@ -145,15 +145,15 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                             animate={hovered ? { paddingRight: 30 } : { paddingRight: 0 }}
                             style={hovered && {}}
                             exit={{ opacity: 0, paddingLeft: 0 }}
-                            transition={{ duration: .5, delay: .2 }} className=' font-bold'>{year}</motion.span></h1>
-                    <h1>
+                            transition={{ duration: .5, delay: .2 }} className=' font-bold'>{year}</motion.span></h1>}
+                    {status && <h1>
                         <AnimatePresence>
                             {hovered ? <motion.span initial={{ opacity: 0, x: 0 }}
                                 animate={{ opacity: 1, x: -40 }}
                                 exit={{ opacity: 0, x: 0 }}
                                 transition={{ duration: .5, delay: .2 }} className='absolute text-primary/80 font-bold'>Status</motion.span> : null}
                         </AnimatePresence>
-                        <span className='font-bold'> {status}</span></h1>
+                        <span className='font-bold'> {status}</span></h1>}
                 </motion.div>
 
                 {/* Mobile View Details */}

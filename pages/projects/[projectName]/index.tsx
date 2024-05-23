@@ -97,8 +97,8 @@ const ProjectPage = () => {
     return (
         <PageWrapper pageName={project && project.name}>
             {project &&
-                <motion.div>
-                    <ScrollLink to="info" smooth={true} duration={500} offset={1} horizontal={true}>
+                <motion.div className='flex'>
+                    {/* <ScrollLink to="info" smooth={true} duration={500} offset={1} horizontal={true}>
                         <motion.button
                             variants={buttonVariants}
                             animate={isAtEnd ? 'visible' : 'hidden'}
@@ -107,45 +107,49 @@ const ProjectPage = () => {
                             className='fixed flex bottom-10 left-0 px-4 py-6 bg-primary/20 duration-150 text-white z-50'>
                             <p>Project info</p>
                         </motion.button>
-                    </ScrollLink>
-                    <div className='flex'>
-                        <div className='pro-image h-screen flex'>
-                            <Image
-                                placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                src={project.firstImage} width={1500} priority={true} height={1200} alt='Main Image' className='object-cover w-[6000px] bg-black/10' />
+                    </ScrollLink> */}
+
+                    <div className='pro-image h-screen flex w-[1600px]'>
+                        <Image
+                            placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                            src={project.firstImage} width={1500} priority={true} height={1200} alt='Main Image' className='object-cover w-[1600px] bg-black/10' />
+                    </div>
+                    <div id='info' className='px-8 text-white text-xl items-center justify-between w-[600px] flex bg-black/30'>
+
+                        <div className='w-screen md:w-[28vw]'>
+                            {project.area && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .4 }}><h1 className='text-zinc-500 font-bold'>Built area:</h1><p className='text-[16px] w-36'>{project.area}</p></motion.div>}
+                            {project.location && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .6 }} className='my-5'><h1 className='text-zinc-500 font-bold'>Location:</h1><p className='text-[16px] w-36'>{project.location}</p></motion.div>}
+                            {project.year && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .8 }} className=''><h1 className='text-zinc-500 font-bold'>Year:</h1><p className='text-[16px] w-36'>{project.year}</p></motion.div>}
                         </div>
-                        <div id='info' className='px-8 text-white text-xl items-center justify-between w-[1500px] flex bg-black/30'>
-
-                            <div className='w-screen md:w-[28vw]'>
-                                {project.area && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .4 }}><h1 className='text-zinc-500 font-bold'>Built area:</h1><p className='text-[16px] w-36'>{project.area} m2</p></motion.div>}
-                                {project.location && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .6 }} className='my-5'><h1 className='text-zinc-500 font-bold'>Location:</h1><p className='text-[16px] w-36'>{project.location}</p></motion.div>}
-                                {project.client && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .8 }} className=''><h1 className='text-zinc-500 font-bold'>Client:</h1><p className='text-[16px] w-36'>{project.client}</p></motion.div>}
-                            </div>
+                        <div className='w-screen md:w-[28vw]'>
+                            {project.area && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: 1 }}><h1 className='text-zinc-500 font-bold'>Client:</h1><p className='text-[16px] w-36'>{project.client}</p></motion.div>}
+                            {project.location && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: 1.2 }} className='my-5'><h1 className='text-zinc-500 font-bold'>Type:</h1><p className='text-[16px] w-36'>{project.type}</p></motion.div>}
+                            {project.year && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: 1.4 }} className=''><h1 className='text-zinc-500 font-bold'>Architect:</h1><p className='text-[16px] w-36'>{project.architect}</p></motion.div>}
                         </div>
+                    </div>
 
-                        <div className=''>
+                    <div className=''>
 
-                            <Swiper
-                                navigation={true}
-                                keyboard={true}
-                                thumbs={{ swiper: thumbsSwiper }}
-                                modules={[Keyboard, Navigation, Thumbs]} className="w-[68vw] flex h-full bg-black/10">
-                                {
-                                    project.allImages.map((image: any, index) => (
-                                        <SwiperSlide key={index}>
-                                            <Image
-                                                placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                                src={`/projects/${project.url}/${image}`}
-                                                layout='fill'
-                                                alt={`Image ${index}`}
-                                                className='items-center flex object-cover'
-                                            />
-                                        </SwiperSlide>
-                                    ))
-                                }
-                            </Swiper>
+                        <Swiper
+                            navigation={true}
+                            keyboard={true}
+                            thumbs={{ swiper: thumbsSwiper }}
+                            modules={[Keyboard, Navigation, Thumbs]} className="w-[68vw] flex h-full bg-black/10">
+                            {
+                                project.allImages.map((image: any, index) => (
+                                    <SwiperSlide key={index}>
+                                        <Image
+                                            placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                                            src={`/projects/${project.url}/${image}`}
+                                            layout='fill'
+                                            alt={`Image ${index}`}
+                                            className='items-center flex object-cover'
+                                        />
+                                    </SwiperSlide>
+                                ))
+                            }
+                        </Swiper>
 
-                        </div>
                     </div>
                 </motion.div>}
 
