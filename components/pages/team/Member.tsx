@@ -36,13 +36,6 @@ const Member = ({ firstName, lastName, img, pos, year }) => {
                             className='text-zinc-600'
                             transition={{ delay: .2 }}
                         >{pos}</motion.h2>
-                        <motion.h2
-                            initial={{ x: 50, opacity: 0 }}
-                            animate={{ x: 0, opacity: 1 }}
-                            exit={{ x: 50, opacity: 0 }}
-                            transition={{ delay: .4 }}
-                            className='text-zinc-600'
-                        >{year}</motion.h2>
                     </motion.div>
                 }
             </AnimatePresence>

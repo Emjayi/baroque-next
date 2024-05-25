@@ -40,9 +40,9 @@ export default function App({ Component, pageProps, router }) {
             </LanguageProvider>
             {!isMobile && (<AnimatedCursor
                 showSystemCursor={true}
-                innerSize={10}
-                outerSize={34}
-                innerScale={3}
+                innerSize={8}
+                outerSize={24}
+                innerScale={2}
                 outerScale={1.5}
                 outerAlpha={0}
                 hasBlendMode={true}
@@ -52,7 +52,7 @@ export default function App({ Component, pageProps, router }) {
                 }}
                 innerStyle={{
                     backgroundColor: '#D2AC7250',
-                    borderRadius: "0%",
+                    borderRadius: "50%",
                     mixBlendMode: 'revert'
                 }} />)}
         </React.StrictMode>

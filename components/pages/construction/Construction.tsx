@@ -81,7 +81,7 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, allImages, 
                                 <SwiperSlide key={index}>
                                     <Image
                                         placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                        src={`/projects/${url}/${image}`}
+                                        src={`/construction/${image}`}
                                         layout='fill'
                                         alt={`Image ${index}`}
                                         className='items-center flex object-cover'

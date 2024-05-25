@@ -5,7 +5,7 @@ import Image from 'next/image';
 import title from '/public/title.svg'
 
 // Menu component with animations
-const Menu = ({ isOpen }: { isOpen: boolean }) => {
+const Menu = ({ isOpen, intro }: { isOpen: boolean, intro: boolean }) => {
     // State to track if the component is mounted
     const [isMounted, setIsMounted] = useState(false);
 
@@ -61,73 +61,75 @@ const Menu = ({ isOpen }: { isOpen: boolean }) => {
     }, []);
 
     // Render the menu component
-    return (
-        <motion.div
-            className='flex flex-col px-32 h-screen w-screen items-center'
-            // Apply background color animation for mobile devices
-            animate={isMobile && { backgroundColor: "#11111199" }}
-            transition={{ duration: 1.5 }}
-            // Apply exit background color animation for mobile devices
-            exit={isMobile && { backgroundColor: "#11111100" }}
-        >
-            {/* Logo Animation */}
+    if (!intro) {
+        return (
             <motion.div
-                className='text-primary text-center text-6xl mt-16'
-                // Initial animation setup
-                initial={{ opacity: 0, y: 0 }}
-                // Animation for opening and closing menu
-                animate={isOpen ? { opacity: [0, 0, 0, 0, 1, 1], y: ["0vh", "15vh", "15vh"], x: [0, 0, 0, 100, 100] } : { opacity: [null, 0, 0, 0, 0, 0], y: ["15vh", "15vh", "15vh"], x: [null, 60, 0, 0, 0, 0] }}
-                // Exit animation
-                exit={isOpen && { opacity: [1, 1, 1, 1, 0], y: "15vh", x: [100, 100, 100, 60, 60], transition: { delay: 0 } }}
-                transition={isOpen ? { duration: 2.1, times: [0, .2, .5, .8, 1], delay: .8, exitdelay: 0 } : { duration: 2.1, times: [0, .2, .5, .8, 1], delay: 0 }}
+                className='flex flex-col px-32 h-screen w-screen items-center'
+                // Apply background color animation for mobile devices
+                animate={isMobile && { backgroundColor: "#11111199" }}
+                transition={{ duration: 1.5 }}
+                // Apply exit background color animation for mobile devices
+                exit={isMobile && { backgroundColor: "#11111100" }}
             >
-                {/* Link to Home */}
-                <Link href="/"><Image src={title} width={200} height={200} className='w-64' alt='logo'></Image></Link>
-            </motion.div>
-            {/* Menu Links */}
-            <motion.div
-                // Initial animation setup
-                initial={{ opacity: .7, y: "0vh" }}
-                // Animation for opening and closing menu
-                animate={{ opacity: 1, y: "40vh" }}
-                // Exit animation
-                exit={{ opacity: .7, y: "50vh" }}
-                transition={{
-                    delay: 0.3,
-                    duration: 0.8,
-                    ease: "easeInOut",
-                }}
-                className=" bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
-            >
-                <ul className='header mt-0 md:-mt-16 h-[60vh] md:h-auto text-xl  flex flex-col md:flex-row gap-2 justify-between items-center font-bold'>
-                    {links.map((link, index) => (
-                        // Animated link item
-                        <motion.div
-                            key={index}
-                            // Initial animation setup
-                            initial={{ x: link.length, y: -50, opacity: 0 }}
-                            // Animation for opening and closing menu
-                            animate={isOpen ? { x: 0, y: 0, opacity: 1 } : { x: link.length, y: -50, opacity: 0 }}
-                            // Exit animation
-                            exit={{ x: link.length, y: -50, opacity: 0 }}
-                            transition={isOpen ? { duration: 0.5, delay: link.speed } : { duration: 0.5, delay: link.speed / 100 }}
-                            className='flex justify-center items-center w-44 '
-                        >
-                            <li className='flex flex-col gap-3 font-thin justify-center text-center'>
-                                {/* Menu Link */}
-                                <Link
-                                    href={link.url}
-                                    className='duration-500 text-xl text-center w-44 py-6 hover:text-white hover:-translate-y-2 text-zinc-400 tracking-[.2em] hover:tracking-normal'
-                                >
-                                    {link.name}
-                                </Link>
-                            </li>
-                        </motion.div>
-                    ))}
-                </ul>
+                {/* Logo Animation */}
+                <motion.div
+                    className='text-primary text-center text-6xl mt-16'
+                    // Initial animation setup
+                    initial={{ opacity: 0, y: 0 }}
+                    // Animation for opening and closing menu
+                    animate={isOpen ? { opacity: [0, 0, 0, 0, 1, 1], y: ["0vh", "15vh", "15vh"], x: [0, 0, 0, 100, 100] } : { opacity: [null, 0, 0, 0, 0, 0], y: ["15vh", "15vh", "15vh"], x: [null, 60, 0, 0, 0, 0] }}
+                    // Exit animation
+                    exit={isOpen && { opacity: [1, 1, 1, 1, 0], y: "15vh", x: [100, 100, 100, 60, 60], transition: { delay: 0 } }}
+                    transition={isOpen ? { duration: 2.1, times: [0, .2, .5, .8, 1], delay: .8, exitdelay: 0 } : { duration: 2.1, times: [0, .2, .5, .8, 1], delay: 0 }}
+                >
+                    {/* Link to Home */}
+                    <Link href="/"><Image src={title} width={200} height={200} className='w-64' alt='logo'></Image></Link>
+                </motion.div>
+                {/* Menu Links */}
+                <motion.div
+                    // Initial animation setup
+                    initial={{ opacity: .7, y: "0vh" }}
+                    // Animation for opening and closing menu
+                    animate={{ opacity: 1, y: "40vh" }}
+                    // Exit animation
+                    exit={{ opacity: .7, y: "50vh" }}
+                    transition={{
+                        delay: 0.3,
+                        duration: 0.8,
+                        ease: "easeInOut",
+                    }}
+                    className=" bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
+                >
+                    <ul className='header mt-0 md:-mt-16 h-[60vh] md:h-auto text-xl  flex flex-col md:flex-row gap-2 justify-between items-center font-bold'>
+                        {links.map((link, index) => (
+                            // Animated link item
+                            <motion.div
+                                key={index}
+                                // Initial animation setup
+                                initial={{ x: link.length, y: -50, opacity: 0 }}
+                                // Animation for opening and closing menu
+                                animate={isOpen ? { x: 0, y: 0, opacity: 1 } : { x: link.length, y: -50, opacity: 0 }}
+                                // Exit animation
+                                exit={{ x: link.length, y: -50, opacity: 0 }}
+                                transition={isOpen ? { duration: 0.5, delay: link.speed } : { duration: 0.5, delay: link.speed / 100 }}
+                                className='flex justify-center items-center w-44 '
+                            >
+                                <li className='flex flex-col gap-3 font-thin justify-center text-center'>
+                                    {/* Menu Link */}
+                                    <Link
+                                        href={link.url}
+                                        className='duration-500 text-xl text-center w-44 py-6 hover:text-white hover:-translate-y-2 text-zinc-400 tracking-[.2em] hover:tracking-normal'
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            </motion.div>
+                        ))}
+                    </ul>
+                </motion.div >
             </motion.div >
-        </motion.div >
-    );
+        );
+    }
 }
 
 
