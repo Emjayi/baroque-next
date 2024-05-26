@@ -11,6 +11,21 @@ import PageTransition from './PageTransition';
 
 const PageWrapper = ({ pageName, children }: any) => {
 
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768); // Adjust the threshold as per your requirements
+        };
+        // Initial check
+        handleResize();
+        // Event listener for window resize
+        window.addEventListener('resize', handleResize);
+        // Cleanup
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     const [menuHover, setMenuHover] = useState(false)
 
     //Intro duration
@@ -98,12 +113,12 @@ const PageWrapper = ({ pageName, children }: any) => {
 
             {
                 !intro && <motion.button
-                    initial={{ width: 60, opacity: 0, y: -20 }}
+                    initial={!isMobile ? { width: 60, opacity: 0, y: -20 } : { opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: .5, ease: "easeInOut", delay: .5 }}
                     onClick={() => setOpen(!open)}
-                    className='humb md:hidden fixed flex top-10 left-5 px-[16px] py-[16px] bg-primary/70 text-white z-50'>
+                    className='md:humb md:hidden fixed flex top-14 rounded-lg md:rounded-none left-5 p-[8px] md:p-[16px] md:bg-primary/70 bg-black/30 text-white z-50'>
                     <motion.div>{!open && <UilBars />}{open && <UilMultiply />}</motion.div>
                 </motion.button>
             }

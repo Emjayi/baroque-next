@@ -22,7 +22,7 @@ const Footer = () => {
             animate={{ y: 0 }}
             exit={{ y: 100, transition: { delay: 0, duration: .9 } }}
             transition={{ duration: 1, type: "spring", stiffness: 25, damping: 10, delay: 2.2 }}
-            className='fixed py-4 bg-black/50 text-[12px] text-sm bottom-0 lg:px-16 flex items-stretch gap-12 text-white font-bold w-full z-20'>
+            className='fixed hidden md:flex py-4 bg-black/50 text-[12px] text-sm bottom-0 lg:px-16 items-stretch gap-12 text-white font-bold w-full z-20'>
             <div className='hidden lg:flex gap-3'>
                 <ul className='flex gap-2 justify-start'>
                     {links.map((link) =>

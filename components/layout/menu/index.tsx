@@ -38,7 +38,7 @@ const Menu = ({ isOpen, intro }: { isOpen: boolean, intro: boolean }) => {
 
     // List of menu links
     const links = [
-        { name: 'Team', url: '/team', speed: 1.3, length: +50 },
+        { name: 'Team', url: '/team', speed: 1.3, length: +100 },
         { name: 'Projects', url: '/projects', speed: 1.2, length: +50 },
         { name: 'Construction', url: '/construction', speed: 1.1, length: 0 },
         { name: 'About', url: '/about', speed: 1.2, length: -50 }
@@ -65,11 +65,6 @@ const Menu = ({ isOpen, intro }: { isOpen: boolean, intro: boolean }) => {
         return (
             <motion.div
                 className='flex flex-col px-32 h-screen w-screen items-center'
-                // Apply background color animation for mobile devices
-                animate={isMobile && { backgroundColor: "#11111199" }}
-                transition={{ duration: 1.5 }}
-                // Apply exit background color animation for mobile devices
-                exit={isMobile && { backgroundColor: "#11111100" }}
             >
                 {/* Logo Animation */}
                 <motion.div
@@ -77,7 +72,7 @@ const Menu = ({ isOpen, intro }: { isOpen: boolean, intro: boolean }) => {
                     // Initial animation setup
                     initial={{ opacity: 0, y: 0 }}
                     // Animation for opening and closing menu
-                    animate={isOpen ? { opacity: [0, 0, 0, 0, 1, 1], y: ["0vh", "15vh", "15vh"], x: [0, 0, 0, 100, 100] } : { opacity: [null, 0, 0, 0, 0, 0], y: ["15vh", "15vh", "15vh"], x: [null, 60, 0, 0, 0, 0] }}
+                    animate={!isMobile ? (isOpen ? { opacity: [0, 0, 0, 0, 1, 1], y: ["0vh", "15vh", "15vh"], x: [0, 0, 0, 100, 100] } : { opacity: [null, 0, 0, 0, 0, 0], y: ["15vh", "15vh", "15vh"], x: [null, 60, 0, 0, 0, 0] }) : (isOpen ? { opacity: [0, 0, 0, 0, 1, 1], y: ["0vh", "15vh", "15vh"], x: [0, 0, 0, 50, 50] } : { opacity: [null, 0, 0, 0, 0, 0], y: ["15vh", "15vh", "15vh"], x: [null, 20, 0, 0, 0, 0] })}
                     // Exit animation
                     exit={isOpen && { opacity: [1, 1, 1, 1, 0], y: "15vh", x: [100, 100, 100, 60, 60], transition: { delay: 0 } }}
                     transition={isOpen ? { duration: 2.1, times: [0, .2, .5, .8, 1], delay: .8, exitdelay: 0 } : { duration: 2.1, times: [0, .2, .5, .8, 1], delay: 0 }}
@@ -90,9 +85,9 @@ const Menu = ({ isOpen, intro }: { isOpen: boolean, intro: boolean }) => {
                     // Initial animation setup
                     initial={{ opacity: .7, y: "0vh" }}
                     // Animation for opening and closing menu
-                    animate={{ opacity: 1, y: "40vh" }}
+                    animate={!isMobile ? { opacity: 1, y: "40vh" } : { opacity: 1, y: "20vh" }}
                     // Exit animation
-                    exit={{ opacity: .7, y: "50vh" }}
+                    exit={!isMobile ? { opacity: .7, y: "50vh" } : { opacity: .7, y: "10vh" }}
                     transition={{
                         delay: 0.3,
                         duration: 0.8,
@@ -100,15 +95,15 @@ const Menu = ({ isOpen, intro }: { isOpen: boolean, intro: boolean }) => {
                     }}
                     className=" bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
                 >
-                    <ul className='header mt-0 md:-mt-16 h-[60vh] md:h-auto text-xl  flex flex-col md:flex-row gap-2 justify-between items-center font-bold'>
+                    <ul className='header mt-0 md:-mt-16 md:h-auto text-xl  flex flex-col md:flex-row gap-2 justify-between items-center font-bold'>
                         {links.map((link, index) => (
                             // Animated link item
                             <motion.div
                                 key={index}
                                 // Initial animation setup
-                                initial={{ x: link.length, y: -50, opacity: 0 }}
+                                initial={!isMobile ? { x: link.length, y: -50, opacity: 0 } : { y: link.length, opacity: 0 }}
                                 // Animation for opening and closing menu
-                                animate={isOpen ? { x: 0, y: 0, opacity: 1 } : { x: link.length, y: -50, opacity: 0 }}
+                                animate={isOpen ? { x: 0, y: 0, opacity: 1 } : (!isMobile ? { x: link.length, y: -50, opacity: 0 } : { y: link.length, opacity: 0 })}
                                 // Exit animation
                                 exit={{ x: link.length, y: -50, opacity: 0 }}
                                 transition={isOpen ? { duration: 0.5, delay: link.speed } : { duration: 0.5, delay: link.speed / 100 }}
