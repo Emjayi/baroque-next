@@ -63,7 +63,7 @@ const App = () => {
                         className="top-0 w-full h-full z-50 "
                     >
                         {/* Menu component */}
-                        <Menu isOpen={open} />
+                        <Menu isOpen={open} intro={intro} />
 
                     </motion.div>
                 )}
