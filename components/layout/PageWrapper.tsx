@@ -6,7 +6,7 @@ import { UilBars } from '@iconscout/react-unicons'
 import { UilMultiply } from '@iconscout/react-unicons'
 import Intro from './Intro';
 import Footer from './Footer';
-import PageTransition from './PageTransition';
+import PageTransition from './menu/PageTransition';
 
 
 const PageWrapper = ({ pageName, children }: any) => {
