@@ -10,7 +10,7 @@ const Intro = ({ isIntro }: { isIntro: boolean }) => {
                 <>
                     {/* AnimatePresence component to handle entering and exiting animations */}
                     <AnimatePresence>
-                        <div className='w-screen h-[90vh]  md:h-screen fixed top-0 left-0 flex items-center justify-center'>
+                        <div className='w-screen h-[100dvh]  md:h-screen fixed top-0 left-0 flex items-center justify-center'>
                             {/* Motion SVG element */}
                             <motion.svg
                                 // Initial animation setup

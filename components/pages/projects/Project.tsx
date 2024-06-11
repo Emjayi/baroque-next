@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import Image from 'next/image'
 
-const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, year }: any) => {
+const Project = ({ id, name, alt, url, mainImage, status, type, year }: any) => {
     // Image loading effect
     const shimmer = (w: number, h: number) => `
     <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -50,7 +50,6 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
 
     return (
         <motion.div key={id} className='text-white duration-300 w-[250px] md:w-[280px] hover:text-primary text-center'>
-
             <Link href={`/projects/${url}`} className='hidden md:block'>
                 <motion.div
                     style={{ skewX: velocityFactor, x: parallax }}
@@ -100,7 +99,7 @@ const Project = ({ id, name, alt, url, blur, mainImage, status, gallery, type, y
                 transition={{ duration: 1 }}
                 className='w-[250px] md:hidden'
             >
-                <Image src={mainImage} width={250} height={100} alt='shadow' className='absolute rotate-180 h-[200px] blur-sm opacity-5 grayscale object-cover' />
+                <Image src={mainImage} width={250} height={100} alt='shadow' className='absolute rotate-180 h-[25dvh] blur-sm opacity-5 grayscale object-cover' />
             </motion.div>
             <motion.div className=''>
 

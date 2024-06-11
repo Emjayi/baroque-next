@@ -72,9 +72,9 @@ const Menu = ({ isOpen, intro }: { isOpen: boolean, intro: boolean }) => {
                     // Initial animation setup
                     initial={{ opacity: 0, y: 0 }}
                     // Animation for opening and closing menu
-                    animate={!isMobile ? (isOpen ? { opacity: [0, 0, 0, 0, 1, 1], y: ["0vh", "15vh", "15vh"], x: [0, 0, 0, 100, 100] } : { opacity: [null, 0, 0, 0, 0, 0], y: ["15vh", "15vh", "15vh"], x: [null, 60, 0, 0, 0, 0] }) : (isOpen ? { opacity: [0, 0, 0, 0, 1, 1], y: ["0vh", "15vh", "15vh"], x: [0, 0, 0, 50, 50] } : { opacity: [null, 0, 0, 0, 0, 0], y: ["15vh", "15vh", "15vh"], x: [null, 20, 0, 0, 0, 0] })}
+                    animate={!isMobile ? (isOpen ? { opacity: [0, 0, 0, 0, 1, 1], y: ["0vh", "15vh", "15vh"], x: [0, 0, 0, 100, 100] } : { opacity: [null, 0, 0, 0, 0, 0], y: ["15vh", "15vh", "15vh"], x: [null, 60, 0, 0, 0, 0] }) : (isOpen ? { opacity: [0, 0, 0, 0, 1, 1], y: ["0vh", "15dvh", "15dvh"], x: [0, 0, 0, 50, 50] } : { opacity: [null, 0, 0, 0, 0, 0], y: ["15dvh", "15dvh", "15dvh"], x: [null, 20, 0, 0, 0, 0] })}
                     // Exit animation
-                    exit={!isMobile ? (isOpen && { opacity: [1, 1, 1, 1, 0], y: "15vh", x: [null, null, null, 60, 60], transition: { delay: 0 } }) : (isOpen && { opacity: [1, 1, 1, 1, 0], y: "15vh", x: [null, null, null, 30, 30], transition: { delay: 0 } })}
+                    exit={!isMobile ? (isOpen && { opacity: [1, 1, 1, 1, 0], y: "15dvh", x: [null, null, null, 60, 60], transition: { delay: 0 } }) : (isOpen && { opacity: [1, 1, 1, 1, 0], y: "15dvh", x: [null, null, null, 30, 30], transition: { delay: 0 } })}
                     transition={isOpen ? { duration: 2.1, times: [0, .2, .5, .8, 1], delay: .8, exitdelay: 0 } : { duration: 2.1, times: [0, .2, .5, .8, 1], delay: 0 }}
                 >
                     {/* Link to Home */}
@@ -95,7 +95,7 @@ const Menu = ({ isOpen, intro }: { isOpen: boolean, intro: boolean }) => {
                     }}
                     className="bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
                 >
-                    <ul className='header mt-0 md:-mt-16 md:h-auto text-xl  flex flex-col md:flex-row gap-2 justify-between items-center font-bold'>
+                    <ul className='header mt-0 md:-mt-16 md:h-auto text-xl  flex flex-col md:flex-row md:gap-2 justify-between items-center font-bold'>
                         {links.map((link, index) => (
                             // Animated link item
                             <motion.div
@@ -113,7 +113,7 @@ const Menu = ({ isOpen, intro }: { isOpen: boolean, intro: boolean }) => {
                                     {/* Menu Link */}
                                     <Link
                                         href={link.url}
-                                        className='duration-500 text-xl text-center w-44 py-6 hover:text-white hover:-translate-y-2 text-zinc-400 tracking-[.2em] hover:tracking-normal'
+                                        className='duration-500 text-xl text-center w-44 py-6 hover:text-white hover:-translate-y-2 text-zinc-400 tracking-normal md:tracking-[.2em] hover:tracking-normal'
                                     >
                                         {link.name}
                                     </Link>

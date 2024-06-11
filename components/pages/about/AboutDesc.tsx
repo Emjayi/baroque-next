@@ -13,18 +13,18 @@ const AboutDesc = () => {
     };
 
     return (
-        <div className='flex h-screen justify-center items-center w-[550px] mr-12'>
+        <div className='flex h-[100dvh] justify-center items-center w-[550px] mr-12'>
             {lang === 'en' && (
                 <>
                     <motion.h1
                         initial={{ opacity: 0.2 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.25, delay: 0.2 }}
-                        className='absolute -rotate-90 md:left-[950px] left-[1250px] text-white w-52 text-2xl '
+                        className='absolute text-primary -rotate-90 left-[960px] w-52 text-2xl '
                     >
                         Where is Baroque?
                     </motion.h1>
-                    <div className='md:w-[800px] w-[300px] md:ml-28 ml-32'>
+                    <div className='md:w-[400px] w-[300px] md:ml-16 md:text-justify text-center'>
                         <h1 className='text-3xl uppercase text-zinc-500'>
                             <span className='text-primary text-xl'>BELOW IS FROM MRK</span>
                         </h1>
@@ -76,7 +76,7 @@ const AboutDesc = () => {
                         initial={{ opacity: 0.2 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.25, delay: 0.2 }}
-                        className='absolute rotate-90 md:left-[1430px] persian mt-24 left-[1250px] text-white w-52 text-2xl '
+                        className='absolute rotate-90 md:left-[1430px] persian mt-24 left-[1450px] text-white w-52 text-2xl '
                     >
                         باروک کجاست؟
                     </motion.h1>
@@ -98,7 +98,7 @@ const AboutDesc = () => {
                     </div>
                 </>
             )}
-            <div className={(lang === 'en') ? 'flex p-1 justify-center items-center bg-primary/10 absolute top-12' : 'flex p-1 items-center bg-primary/10 absolute top-12 text-right'}>{(lang === 'en') && <p className='text-white mx-2'>Langauage </p>}{(lang === 'ar') && <p className='text-white mx-2 order-1 persian'>زبان </p>}{(lang === 'fa') && <p className='text-white mx-2 order-1 persian'>زبان </p>}<LangChanger /></div>
+            <div className={(lang === 'en') ? 'flex p-1 justify-center items-center bg-primary/10 absolute top-[8dvh]' : 'flex p-1 items-center bg-primary/10 absolute md:top-12 top-20 text-right'}>{(lang === 'en') && <p className='text-white mx-2'>Langauage </p>}{(lang === 'ar') && <p className='text-white mx-2 order-1 persian'>زبان </p>}{(lang === 'fa') && <p className='text-white mx-2 order-1 persian'>زبان </p>}<LangChanger /></div>
         </div>
     );
 };

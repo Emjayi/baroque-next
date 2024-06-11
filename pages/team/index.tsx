@@ -8,6 +8,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { url } from 'inspector';
 import Member from '../../components/pages/team/Member';
 import TeamImage from '../../components/pages/team/TeamImage';
+import { team } from '../../lib/data.js';
 
 
 // Import team images
@@ -55,43 +56,19 @@ import TeamImage from '../../components/pages/team/TeamImage';
 //     { src: media1, translateX: 'sMinus1', space: 500 },
 // ];
 
-const team = [
-    { lastName: "Roshanaee", firstName: "Hasan", pos: "CEO", year: 2008, img: "/team/0.jpg" },
-    { lastName: "Roshanaee", firstName: "Behzad", pos: "Architect", year: 2012, img: "/team/1.jpg" },
-    { lastName: "Roshanaee", firstName: "Behnam", pos: "Social", year: 2015, img: "/team/3.jpg" },
-    { lastName: "Bagherpour", firstName: "Amir", pos: "Architect", year: 2020, img: "/team/4.jpg" },
-    { lastName: "Motevali", firstName: "Amin", pos: "Media", year: 2018, img: "/team/2.jpg" },
-    { lastName: "Farid", firstName: "Amirreza", pos: "Architect", year: 2013, img: "/team/8.jpg" },
-    { lastName: "Moezi", firstName: "Vesal", pos: "Architect", year: 2014, img: "/team/5.jpg" },
-    { lastName: "Roshanaee", firstName: "Amir", pos: "Architect", year: 2015, img: "/team/6.jpg" },
-    { lastName: "Roshanaee", firstName: "Reza", pos: "Architect", year: 2009, img: "/team/7.jpg" },
-    { lastName: "Roshanaee", firstName: "Alireza", pos: "Architect", year: 2012, img: "/team/9.jpg" },
-    { lastName: "Roshanaee", firstName: "Alireza", pos: "Architect", year: 2012, img: "/team/10.jpg" },
-    { lastName: "Roshanaee", firstName: "Alireza", pos: "Architect", year: 2012, img: "/team/11.jpg" },
-    { lastName: "Roshanaee", firstName: "Alireza", pos: "Architect", year: 2012, img: "/team/12.jpg" },
-    { lastName: "Roshanaee", firstName: "Alireza", pos: "Architect", year: 2012, img: "/team/13.jpg" },
-    { lastName: "Roshanaee", firstName: "Alireza", pos: "Architect", year: 2012, img: "/team/14.jpg" },
-    { lastName: "Roshanaee", firstName: "Alireza", pos: "Architect", year: 2012, img: "/team/15.jpg" },
-    { lastName: "Roshanaee", firstName: "Alireza", pos: "Architect", year: 2012, img: "/team/16.jpg" },
-]
-
-
 const Team = () => {
-
-    const [hovered, setHovered] = useState(false)
 
     return (
         <PageWrapper pageName='Team'>
+            <TeamImage />
             <div className='flex'>
-                <TeamImage />
-                <div className='h-screen flex'>
-                    {team.map(({ firstName, lastName, pos, img, year }, index) => (
-                        <Member firstName={firstName} lastName={lastName} key={index + 1} img={img} year={year} pos={pos} />
-                    ))}
-                </div>
+                {team.map(({ firstName, lastName, pos, img, year }, index) => (
+                    <Member firstName={firstName} lastName={lastName} key={index + 1} img={img} year={year} pos={pos} />
+                ))}
             </div>
         </PageWrapper>
     );
+
 };
 
 export default Team;

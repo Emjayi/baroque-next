@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from './LanguageContext';
+import { motion } from 'framer-motion';
 
 const LangChanger: React.FC = () => {
     const { lang, changeLanguage } = useLanguage();
@@ -9,26 +10,39 @@ const LangChanger: React.FC = () => {
     };
 
     return (
-        <div className='flex justify-center items-center'>
-            <button
+        <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: 160 }}
+            transition={{ delay: 1 }}
+            className='flex justify-center items-center'>
+            <motion.button
+                initial={{ x: -10, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ delay: 1.1, duration: .3 }}
                 className='text-white hover:bg-primary/40 py-2 px-4 focus:bg-primary duration-300'
                 onClick={() => handleLangChange('en')}
             >
                 En
-            </button>
-            <button
+            </motion.button>
+            <motion.button
+                initial={{ x: -10, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ delay: 1.2, duration: .3 }}
                 className='text-white hover:bg-primary/40 py-2 px-4 focus:bg-primary duration-300'
                 onClick={() => handleLangChange('fa')}
             >
                 Fa
-            </button>
-            <button
+            </motion.button>
+            <motion.button
+                initial={{ x: -10, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ delay: 1.3, duration: .3 }}
                 className='text-white hover:bg-primary/40 py-2 px-4 focus:bg-primary duration-300'
                 onClick={() => handleLangChange('ar')}
             >
                 Ar
-            </button>
-        </div>
+            </motion.button>
+        </motion.div>
     );
 };
 

@@ -50,18 +50,18 @@ const TeamImage = () => {
     };
 
     return (
-        <div className='flex w-[480vw] md:w-[140vw] h-full mr-24' ref={ref}>
+        <div className='flex w-[480vw] md:w-[140vw] h-[100dvh] mr-24' ref={ref}>
             <div className='stack object-fill'>
                 {imageComponents.map(({ src, translateX, proiority, skew }, index) => (
                     <motion.div
                         key={index}
                         initial={{ translateX: translateXValues[translateX] }}
                         style={{ translateX: translateXValues[translateX], skewX: translateXValues[skew] }}
-                        className='stack h-full w-full saturate-150'
+                        className='stack h-[100dvh] w-full saturate-150'
                     >
                         <Image
                             placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                            alt="alternative" priority={proiority} src={src} width={2500} height={1044} className='h-screen object-cover' />
+                            alt="alternative" priority={proiority} src={src} width={2500} height={1044} className='h-[100dvh] object-cover' />
                     </motion.div>
                 ))}
             </div>

@@ -41,7 +41,7 @@ const PageWrapper = ({ pageName, children }: any) => {
 
 
     return (
-        <div className='flex items-center h-[90vh] md:h-screen'>
+        <div className='flex items-center h-[100dvh] md:h-screen'>
 
 
             <HorizontalScroll></HorizontalScroll>
@@ -118,7 +118,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: .5, ease: "easeInOut", delay: .5 }}
                     onClick={() => setOpen(!open)}
-                    className='md:humb md:hidden fixed flex top-14 rounded-lg md:rounded-none left-5 p-[8px] md:p-[16px] md:bg-primary/70 bg-black/30 text-white z-50'>
+                    className={open ? 'md:humb md:hidden fixed flex top-[8dvh] left-5 p-[12px] bg-primary/0 text-white z-50 rounded-3xl' : ' md:humb md:hidden fixed flex top-[8dvh] left-5 p-[12px] bg-primary/40 text-white z-50'}>
                     <motion.div>{!open && <UilBars />}{open && <UilMultiply />}</motion.div>
                 </motion.button>
             }

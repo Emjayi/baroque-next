@@ -15,7 +15,7 @@ const About = () => {
             <AboutPic src={img3} priority={true} />
             <AboutDesc />
             <AboutPic src={img1} priority={false} />
-            <Contacts />
+            {/* <Contacts /> */}
             <AboutPic src={img2} priority={false} />
             <AboutMap />
         </PageWrapper >

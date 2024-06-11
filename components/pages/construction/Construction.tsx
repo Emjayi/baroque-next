@@ -48,7 +48,7 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, allImages, 
                 // animate={hovered ? { y: 0, opacity: 1, backgroundColor: '#00000090', height: ["40px", "40px", "100px"], color: "#999999" } : { height: [null, "40px", "40px"] }}
                 // exit={{ height: "40px", transition: { delay: 0, duration: .2 } }}
                 // transition={{ duration: 1, times: [0, 0.5, 1], ease: "easeInOut" }}
-                className='bg-black/50 relative top-0 z-50 py-2 tracking-widest text-center md:w-full w-full font-bold text-white'>
+                className='bg-black/50 relative top-[2dvh] md:top-0 z-50 py-[10px] tracking-widest text-center md:w-full w-full font-bold text-white'>
                 <motion.h1 className={hovered && "text-primary"}>{name}</motion.h1>
                 {/* Show additional info on hover */}
                 {/* <AnimatePresence>
@@ -74,7 +74,7 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, allImages, 
                 >
 
                     <Swiper
-                        navigation={hovered && true}
+                        navigation={hovered}
                         modules={[Keyboard, Navigation]} className="w-[900px] flex h-full bg-black/50">
                         {
                             allImages.map((image: any, index) => (
@@ -99,15 +99,32 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, allImages, 
             <motion.div
                 transition={{ duration: 1 }}
                 className='w-[300px] h-[70vh] md:hidden'
-                onMouseEnter={() => setActive(true)}
-                onMouseLeave={() => setActive(false)}
+                onTap={() => setHovered(true)}
             >
-                <Image
-                    src={mainImage}
-                    width={250}
-                    height={400}
-                    alt={alt}
-                    className='object-cover w-[300px] h-[70vh] grayscale hover:grayscale-0 duration-1000' />
+                <motion.div
+                    className='image-container md:block w-full h-[80vh]'
+                >
+
+                    <Swiper
+                        navigation={hovered}
+                        touchMoveStopPropagation={true}
+                        modules={[Keyboard, Navigation]} className="w-[900px] flex h-full bg-black/50">
+                        {
+                            allImages.map((image: any, index) => (
+                                <SwiperSlide key={index}>
+                                    <Image
+                                        placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                                        src={`/construction/${image}`}
+                                        layout='fill'
+                                        alt={`Image ${index}`}
+                                        className='items-center flex object-cover'
+                                    />
+                                </SwiperSlide>
+                            ))
+                        }
+                    </Swiper>
+                    {/* Animated info box */}
+                </motion.div>
             </motion.div>
         </motion.div>
     );

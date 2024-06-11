@@ -6,6 +6,8 @@ import PageTransition from '../components/layout/menu/PageTransition';
 import AnimatedText from '../components/layout/AnimatedText';
 import TextLoop from '../components/layout/TextLoop';
 import Link from 'next/link'
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
 
 
 

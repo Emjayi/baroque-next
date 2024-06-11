@@ -15,6 +15,7 @@ import 'swiper/css/navigation';
 import { UilArrowLeft } from '@iconscout/react-unicons'
 import Link from 'next/link';
 import { Link as ScrollLink } from 'react-scroll';
+import GalleryType from './GalleryType';
 
 
 const ProjectPage = () => {
@@ -114,17 +115,15 @@ const ProjectPage = () => {
                             placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                             src={project.firstImage} width={1500} priority={true} height={1200} alt='Main Image' className='object-cover w-[1600px] bg-black/10' />
                     </div>
-                    <div id='info' className='px-8 text-white text-xl items-center justify-between w-[600px] flex bg-black/30'>
 
-                        <div className='w-screen md:w-[28vw]'>
-                            {project.area && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .4 }}><h1 className='text-zinc-500 font-bold'>Built area:</h1><p className='text-[16px] w-36'>{project.area}</p></motion.div>}
-                            {project.location && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .6 }} className='my-5'><h1 className='text-zinc-500 font-bold'>Location:</h1><p className='text-[16px] w-36'>{project.location}</p></motion.div>}
-                            {project.year && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .8 }} className=''><h1 className='text-zinc-500 font-bold'>Year:</h1><p className='text-[16px] w-36'>{project.year}</p></motion.div>}
-                        </div>
-                        <div className='w-screen md:w-[28vw]'>
-                            {project.area && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: 1 }}><h1 className='text-zinc-500 font-bold'>Client:</h1><p className='text-[16px] w-36'>{project.client}</p></motion.div>}
-                            {project.location && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: 1.2 }} className='my-5'><h1 className='text-zinc-500 font-bold'>Type:</h1><p className='text-[16px] w-36'>{project.type}</p></motion.div>}
-                            {project.year && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: 1.4 }} className=''><h1 className='text-zinc-500 font-bold'>Architect:</h1><p className='text-[16px] w-36'>{project.architect}</p></motion.div>}
+                    <div id='info' className='px-8 text-white text-xl items-center flex flex-col gap-5 justify-center flex-wrap bg-black/30 h-screen'>
+                        <div className='flex flex-col gap-5 justify-between flex-wrap h-[300px]'>
+                            {project.area && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .4 }}><h1 className='text-zinc-500 font-bold'>Built area:</h1><p className='text-[16px] w-72'>{project.area}</p></motion.div>}
+                            {project.location && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .6 }} className='my-5'><h1 className='text-zinc-500 font-bold'>Location:</h1><p className='text-[16px] w-72'>{project.location}</p></motion.div>}
+                            {project.year && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .8 }} className=''><h1 className='text-zinc-500 font-bold'>Year:</h1><p className='text-[16px] w-72'>{project.year}</p></motion.div>}
+                            {project.area && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: 1 }}><h1 className='text-zinc-500 font-bold'>Client:</h1>{(project.projectManager).map((manager) => (<p className='text-[16px] w-72'>{manager}</p>))}</motion.div>}
+                            {project.location && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: 1.2 }} className='my-5'><h1 className='text-zinc-500 font-bold'>Type:</h1><p className='text-[16px] w-72'>{project.type}</p></motion.div>}
+                            {project.year && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: 1.4 }} className=''><h1 className='text-zinc-500 font-bold'>Architect Group:</h1><p className='text-[16px] w-72'>{project.architect}</p></motion.div>}
                         </div>
                     </div>
 
@@ -149,7 +148,7 @@ const ProjectPage = () => {
                                 ))
                             }
                         </Swiper>
-
+                        <GalleryType />
                     </div>
                 </motion.div>}
 
