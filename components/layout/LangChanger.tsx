@@ -19,7 +19,7 @@ const LangChanger: React.FC = () => {
                 initial={{ x: -10, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ delay: 1.1, duration: .3 }}
-                className='text-white hover:bg-primary/40 py-2 px-4 focus:bg-primary duration-300'
+                className='text-white hover:bg-primary/40 py-2 px-4 duration-300'
                 onClick={() => handleLangChange('en')}
             >
                 En
@@ -28,7 +28,7 @@ const LangChanger: React.FC = () => {
                 initial={{ x: -10, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ delay: 1.2, duration: .3 }}
-                className='text-white hover:bg-primary/40 py-2 px-4 focus:bg-primary duration-300'
+                className='text-white hover:bg-primary/40 py-2 px-4 duration-300'
                 onClick={() => handleLangChange('fa')}
             >
                 Fa
@@ -37,7 +37,7 @@ const LangChanger: React.FC = () => {
                 initial={{ x: -10, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ delay: 1.3, duration: .3 }}
-                className='text-white hover:bg-primary/40 py-2 px-4 focus:bg-primary duration-300'
+                className='text-white hover:bg-primary/40 py-2 px-4 duration-300'
                 onClick={() => handleLangChange('ar')}
             >
                 Ar

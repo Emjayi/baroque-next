@@ -51,7 +51,7 @@ const App = () => {
 
     // Render the App component
     return (
-        <div className='flex flex-col justify-center h-[90vh] md:h-screen'>
+        <div className='flex flex-col justify-center h-[100dvh] md:h-screen'>
             {/* Intro animation */}
             <PageTransition intro={intro} open={open} />
 
@@ -61,13 +61,9 @@ const App = () => {
 
                 {/* Menu animation */}
                 {open && (
-                    <motion.div
-                        className="top-0 w-full h-full z-50 "
-                    >
-                        {/* Menu component */}
-                        <Menu isOpen={open} intro={intro} />
 
-                    </motion.div>
+                    <Menu isOpen={open} intro={intro} />
+
                 )}
 
                 <motion.div
@@ -105,7 +101,7 @@ const App = () => {
 
                                 <motion.button
                                     onClick={toggleMenu}
-                                    className='text-white flex md:tracking-widest md:hover:tracking-normal justify-center items-end text-center h-[60vh] w-[50vw] text-2xl duration-200 absolute bottom-36'
+                                    className='text-white flex md:tracking-widest md:hover:tracking-normal justify-center items-end text-center h-[60vh] w-[50vw] text-2xl md:duration-200 absolute bottom-36'
                                     initial={{ opacity: 0, y: 40 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ y: 40, opacity: 0, transition: { duration: 1.1, delay: 0 } }}

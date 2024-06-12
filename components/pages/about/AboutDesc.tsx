@@ -20,14 +20,11 @@ const AboutDesc = () => {
                         initial={{ opacity: 0.2 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.25, delay: 0.2 }}
-                        className='absolute text-primary -rotate-90 left-[960px] w-52 text-2xl '
+                        className='absolute text-primary -rotate-90 left-[980px] md:left-[960px] w-52 top-[46%] text-2xl '
                     >
                         Where is Baroque?
                     </motion.h1>
-                    <div className='md:w-[400px] w-[300px] md:ml-16 md:text-justify text-center'>
-                        <h1 className='text-3xl uppercase text-zinc-500'>
-                            <span className='text-primary text-xl'>BELOW IS FROM MRK</span>
-                        </h1>
+                    <div className='md:w-[400px] w-[300px] md:ml-16 md:text-justify text-justify'>
                         {aboutText[lang].split(' ').map((el, i) => (
                             <motion.span
                                 key={i}
@@ -48,14 +45,11 @@ const AboutDesc = () => {
                         initial={{ opacity: 0.2 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.25, delay: 0.2 }}
-                        className='absolute rotate-90 md:left-[1430px] persian mt-24 left-[1250px] text-white w-52 text-2xl '
+                        className='absolute rotate-90 md:left-[1430px] persian mt-24 left-[1250px] text-primary top-[42%] w-52 text-2xl '
                     >
-                        باروک کجاست؟
+                        عین الباروک؟
                     </motion.h1>
                     <div className='md:w-[800px] w-[300px] md:mr-16 mr-16 ml-8 persian text-right'>
-                        <h1 className='text-3xl uppercase text-zinc-500'>
-                            <span className='text-primary text-xl'>متن زیر از سایت ام ار کی است</span>
-                        </h1>
                         {aboutText[lang].split(' ').map((el, i) => (
                             <motion.span
                                 key={i}
@@ -76,14 +70,11 @@ const AboutDesc = () => {
                         initial={{ opacity: 0.2 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.25, delay: 0.2 }}
-                        className='absolute rotate-90 md:left-[1430px] persian mt-24 left-[1450px] text-white w-52 text-2xl '
+                        className='absolute rotate-90 md:left-[1430px] persian mt-24 left-[1250px] text-primary top-[40%] w-52 text-2xl '
                     >
                         باروک کجاست؟
                     </motion.h1>
                     <div className='md:w-[800px] w-[300px] md:mr-16 mr-16 ml-8 persian text-right'>
-                        <h1 className='text-3xl uppercase text-zinc-500'>
-                            <span className='text-primary text-xl'>متن زیر از سایت ام ار کی است</span>
-                        </h1>
                         {aboutText[lang].split(' ').map((el, i) => (
                             <motion.span
                                 key={i}
@@ -98,7 +89,7 @@ const AboutDesc = () => {
                     </div>
                 </>
             )}
-            <div className={(lang === 'en') ? 'flex p-1 justify-center items-center bg-primary/10 absolute top-[8dvh]' : 'flex p-1 items-center bg-primary/10 absolute md:top-12 top-20 text-right'}>{(lang === 'en') && <p className='text-white mx-2'>Langauage </p>}{(lang === 'ar') && <p className='text-white mx-2 order-1 persian'>زبان </p>}{(lang === 'fa') && <p className='text-white mx-2 order-1 persian'>زبان </p>}<LangChanger /></div>
+            <div className='flex p-1 justify-center items-center bg-primary/10 absolute top-[8dvh]'><p className='text-white mx-2'>Langauage </p><LangChanger /></div>
         </div>
     );
 };
