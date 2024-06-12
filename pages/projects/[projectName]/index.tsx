@@ -15,7 +15,6 @@ import 'swiper/css/navigation';
 import { UilArrowLeft } from '@iconscout/react-unicons'
 import Link from 'next/link';
 import { Link as ScrollLink } from 'react-scroll';
-import GalleryType from './GalleryType';
 
 
 const ProjectPage = () => {
@@ -121,7 +120,7 @@ const ProjectPage = () => {
                             {project.area && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .4 }}><h1 className='text-zinc-500 font-bold'>Built area:</h1><p className='text-[16px] w-72'>{project.area}</p></motion.div>}
                             {project.location && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .6 }} className='my-5'><h1 className='text-zinc-500 font-bold'>Location:</h1><p className='text-[16px] w-72'>{project.location}</p></motion.div>}
                             {project.year && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: .8 }} className=''><h1 className='text-zinc-500 font-bold'>Year:</h1><p className='text-[16px] w-72'>{project.year}</p></motion.div>}
-                            {project.area && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: 1 }}><h1 className='text-zinc-500 font-bold'>Client:</h1>{(project.projectManager).map((manager) => (<p className='text-[16px] w-72'>{manager}</p>))}</motion.div>}
+                            {project.area && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: 1 }}><h1 className='text-zinc-500 font-bold'>Client:</h1>{(project.projectManager).map((manager, index) => (<p className='text-[16px] w-72' key={index}>{manager}</p>))}</motion.div>}
                             {project.location && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: 1.2 }} className='my-5'><h1 className='text-zinc-500 font-bold'>Type:</h1><p className='text-[16px] w-72'>{project.type}</p></motion.div>}
                             {project.year && <motion.div initial={{ opacity: .1, x: 0 }} whileInView={{ opacity: 1, x: 10 }} transition={{ delay: 1.4 }} className=''><h1 className='text-zinc-500 font-bold'>Architect Group:</h1><p className='text-[16px] w-72'>{project.architect}</p></motion.div>}
                         </div>
@@ -148,7 +147,6 @@ const ProjectPage = () => {
                                 ))
                             }
                         </Swiper>
-                        <GalleryType />
                     </div>
                 </motion.div>}
 
