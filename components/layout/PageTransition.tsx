@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
-import Intro from '../Intro'
+import Intro from './Intro'
 
 const PageTransition = ({ intro, open }) => {
 

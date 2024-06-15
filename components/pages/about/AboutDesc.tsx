@@ -20,7 +20,7 @@ const AboutDesc = () => {
                         initial={{ opacity: 0.2 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.25, delay: 0.2 }}
-                        className='absolute text-primary -rotate-90 left-[980px] md:left-[960px] w-52 top-[46%] text-2xl '
+                        className='absolute text-primary -rotate-90 left-[990px] md:left-[960px] w-52 top-[46%] text-2xl '
                     >
                         Where is Baroque?
                     </motion.h1>
@@ -45,7 +45,7 @@ const AboutDesc = () => {
                         initial={{ opacity: 0.2 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.25, delay: 0.2 }}
-                        className='absolute rotate-90 md:left-[1430px] persian mt-24 left-[1250px] text-primary top-[42%] w-52 text-2xl '
+                        className='absolute rotate-90 md:left-[1430px] persian mt-24 left-[1330px] text-primary top-[42%] w-52 text-2xl '
                     >
                         عین الباروک؟
                     </motion.h1>
@@ -70,7 +70,7 @@ const AboutDesc = () => {
                         initial={{ opacity: 0.2 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.25, delay: 0.2 }}
-                        className='absolute rotate-90 md:left-[1430px] persian mt-24 left-[1250px] text-primary top-[40%] w-52 text-2xl '
+                        className='absolute rotate-90 md:left-[1430px] persian mt-24 left-[1330px] text-primary top-[40%] w-52 text-2xl '
                     >
                         باروک کجاست؟
                     </motion.h1>

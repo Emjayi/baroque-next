@@ -48,7 +48,7 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, allImages, 
                 // animate={hovered ? { y: 0, opacity: 1, backgroundColor: '#00000090', height: ["40px", "40px", "100px"], color: "#999999" } : { height: [null, "40px", "40px"] }}
                 // exit={{ height: "40px", transition: { delay: 0, duration: .2 } }}
                 // transition={{ duration: 1, times: [0, 0.5, 1], ease: "easeInOut" }}
-                className='bg-black/50 relative top-[2dvh] md:top-0 z-50 py-[10px] tracking-widest text-center md:w-full w-full font-bold text-white'>
+                className='bg-black/50 relative top-[25dvh] md:top-0 z-50 py-[10px] tracking-widest text-center md:w-full w-full font-bold text-white'>
                 <motion.h1 className={hovered && "text-primary"}>{name}</motion.h1>
                 {/* Show additional info on hover */}
                 {/* <AnimatePresence>
@@ -98,11 +98,12 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, allImages, 
             {/* Mobile View */}
             <motion.div
                 transition={{ duration: 1 }}
-                className='w-[300px] h-[70vh] md:hidden'
+                className='w-[300px]
+                 h-[50dvh] md:hidden'
                 onTap={() => setHovered(true)}
             >
                 <motion.div
-                    className='image-container md:block w-full h-[80vh]'
+                    className='image-container md:block w-full h-[50dvh]'
                 >
 
                     <Swiper

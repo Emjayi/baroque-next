@@ -44,14 +44,14 @@ const contacts = [
 ]
 const Contacts = () => {
     return (
-        <div className='flex text-white text-lg  flex-col w-[1000px] items-center justify-center h-screen'>
+        <div className='flex text-white text-lg  flex-col w-[100dvw] md:w-[1000px] items-center justify-center h-[100dvh]'>
             <motion.h1
                 initial={{ opacity: .5, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: .2 }}
                 className='text-zinc-200 mb-10 text-bold text-3xl'>Contact</motion.h1>
             <motion.div
-                className='grid grid-cols-2 w-[500px]'
+                className='grid md:grid-cols-2 md:w-[500px]'
             >
                 {
                     contacts.map(({ title, desc, url, icon, id }, index) => (

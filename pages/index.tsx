@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Menu from '../components/layout/menu';
 import Footer from '../components/layout/Footer';
-import PageTransition from '../components/layout/menu/PageTransition';
+import PageTransition from '../components/layout/PageTransition';
 import AnimatedText from '../components/layout/AnimatedText';
 import TextLoop from '../components/layout/TextLoop';
 import Link from 'next/link'

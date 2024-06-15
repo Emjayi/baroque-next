@@ -5,7 +5,7 @@ import HorizontalScroll from './HorizontalScroll';
 import { UilBars } from '@iconscout/react-unicons'
 import { UilMultiply } from '@iconscout/react-unicons'
 import Footer from './Footer';
-import PageTransition from './menu/PageTransition';
+import PageTransition from './PageTransition';
 
 
 const PageWrapper = ({ pageName, children }: any) => {
@@ -62,7 +62,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: .5, ease: "easeInOut" }}
                                 exit={{ opacity: 0, transition: { duration: .3 } }}
-                                className='md:h-screen flex items-center'>
+                                className='h-full md:h-screen flex items-center'>
 
                                 <motion.h1 className='text-white uppercase text-xl min-w-36 ml-8 md:ml-32 pr-4'>{pageName}</motion.h1>
 
@@ -83,7 +83,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ duration: 1, ease: "easeInOut" }}
-                                    className='z-20 relative flex'
+                                    className='h-[100dvh] z-20 relative flex'
                                 >
                                     {children}
                                 </motion.div>

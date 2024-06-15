@@ -22,9 +22,9 @@ const Footer = () => {
             animate={{ y: 0 }}
             exit={{ y: 100, transition: { delay: 0, duration: .9 } }}
             transition={{ duration: 1, type: "spring", stiffness: 25, damping: 10, delay: 2.2 }}
-            className='fixed hidden md:flex py-4 bg-black/50 text-[12px] text-sm bottom-0 lg:px-16 items-stretch gap-12 text-white font-bold w-full z-20'>
-            <div className='hidden lg:flex gap-3'>
-                <ul className='flex gap-2 justify-start'>
+            className='fixed flex py-4 justify-center bg-black/50 text-[12px] text-sm bottom-0 lg:px-16 items-stretch gap-12 text-white font-bold w-full z-20'>
+            <div className='flex gap-3'>
+                <ul className='flex gap-2 md:justify-start'>
                     {links.map((link) =>
                     (
                         <Link href={link.url} key={link.key} className={(link.url === path) ? 'text-primary' : 'text-zinc-400'}>
@@ -37,7 +37,7 @@ const Footer = () => {
             <div className='flex gap-4 justify-center'>
 
             </div>
-            <motion.div className='w-full  lg:static absolute bottom-2 left-0 text-center lg:flex gap-2 justify-end'>
+            <motion.div className='w-full hidden md:flex lg:static absolute bottom-2 left-0 text-center gap-2 justify-end'>
                 <p>Handcrafted with <span className='text-primary'>❤</span> at <a href='https://khatoonadvertising.ir/' className='text-zinc-400 hover:text-primary duration-300'>Khatoon Advertising</a></p>
                 <p>by <a href='https://emjayi.liara.run/' className='text-zinc-400 hover:text-primary duration-300'>Emjayi</a></p>
             </motion.div>

@@ -113,7 +113,7 @@ const Menu = ({ isOpen, intro }: { isOpen: boolean, intro: boolean }) => {
                                     {/* Menu Link */}
                                     <Link
                                         href={link.url}
-                                        className='duration-500 text-xl text-center w-44 py-6 md:hover:text-white active:text-white active:-translate-y-2 md:hover:-translate-y-2 text-zinc-400 tracking-normal md:tracking-[.2em] hover:tracking-normal'
+                                        className='md:duration-500 text-xl text-center w-44 py-6 md:hover:text-white active:text-white active:text-bold duration-150 md:hover:-translate-y-2 text-zinc-400 tracking-normal md:tracking-[.2em] hover:tracking-normal'
                                     >
                                         {link.name}
                                     </Link>

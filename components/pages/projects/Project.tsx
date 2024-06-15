@@ -74,7 +74,7 @@ const Project = ({ id, name, alt, url, mainImage, status, type, year }: any) => 
             <motion.div
                 style={{ skewX: revVelocityFactor, x: revParallax }}
                 animate={active ? { y: 20 } : { y: 0 }}
-                transition={{ duration: 1 }}
+                transition={{ duration: 1, ease: "easeInOut" }}
                 className='hidden md:block w-[280px]'
             >
                 <Image src={mainImage} width={280} height={100} alt='shadow' className='absolute rotate-180 blur-sm opacity-5 grayscale object-contain' />
@@ -83,7 +83,7 @@ const Project = ({ id, name, alt, url, mainImage, status, type, year }: any) => 
             {/* Mobile View */}
             <Link href={`/projects/${url}`} className='md:hidden'>
                 <motion.div
-                    style={{ skewX: velocityFactor, x: parallax }}
+                    whileHover={{ y: -20 }}
                     transition={{ duration: 1 }}
                     className='w-[250px] md:hidden h-[400px]'
                     onMouseEnter={() => setActive(true)}
@@ -94,9 +94,6 @@ const Project = ({ id, name, alt, url, mainImage, status, type, year }: any) => 
                 </motion.div>
             </Link >
             <motion.div
-                style={{ skewX: revVelocityFactor, x: revParallax }}
-                animate={active ? { y: 20 } : { y: 0 }}
-                transition={{ duration: 1 }}
                 className='w-[250px] md:hidden'
             >
                 <Image src={mainImage} width={250} height={100} alt='shadow' className='absolute rotate-180 h-[25dvh] blur-sm opacity-5 grayscale object-cover' />
@@ -108,9 +105,16 @@ const Project = ({ id, name, alt, url, mainImage, status, type, year }: any) => 
                         initial={{ opacity: 0 }}
                         animate={hovered ? { y: -10, opacity: 1 } : { opacity: 1 }}
                         exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className='pt-5 block md:hidden font-bold text'
+                    >{name}</motion.h1>
+                    <motion.h1
+                        initial={{ opacity: 0 }}
+                        animate={hovered ? { y: -10, opacity: 1 } : { opacity: 1 }}
+                        exit={{ opacity: 0 }}
                         style={{ x: parallax }}
                         transition={{ duration: 0.2 }}
-                        className='pt-5 font-bold text'
+                        className='pt-5 hidden md:block font-bold text'
                     >{name}</motion.h1>
                 </AnimatePresence>
 
@@ -160,7 +164,6 @@ const Project = ({ id, name, alt, url, mainImage, status, type, year }: any) => 
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    style={{ x: parallax }}
                     transition={{ duration: .5 }}
                     className='flex-col md:hidden w-full md:w-[300px] text-zinc-400 text-sm justify-center gap-4'>
                     <h1>
