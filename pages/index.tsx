@@ -55,14 +55,14 @@ const App = () => {
             {/* Intro animation */}
             <PageTransition intro={intro} open={open} />
 
-            {!intro && <><div className='overflow-hidden flex flex-col h-[90vh] md:h-screen items-center gap-5 text-white text-6xl'>
+            {!intro && <><div className='overflow-hidden flex flex-col h-[100dvh] md:h-screen items-center gap-5 text-white text-6xl'>
 
 
 
                 {/* Menu animation */}
                 {open && (
 
-                    <Menu isOpen={open} intro={intro} />
+                    <Menu isOpen={open} intro={intro} setIsOpen={setOpen} />
 
                 )}
 
@@ -101,7 +101,7 @@ const App = () => {
 
                                 <motion.button
                                     onClick={toggleMenu}
-                                    className='text-white flex md:tracking-widest md:hover:tracking-normal justify-center items-end text-center h-[60vh] w-[50vw] text-2xl md:duration-200 absolute bottom-36'
+                                    className='text-white flex md:tracking-widest md:hover:tracking-normal justify-center items-end text-center h-[60dvh] w-[50vw] text-2xl md:duration-200 absolute bottom-36'
                                     initial={{ opacity: 0, y: 40 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ y: 40, opacity: 0, transition: { duration: 1.1, delay: 0 } }}

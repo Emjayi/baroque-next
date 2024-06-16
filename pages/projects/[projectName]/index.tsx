@@ -7,8 +7,8 @@ import projects from '../../../lib/projectData'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // import required modules
-import { Autoplay, Keyboard, Navigation, Pagination, Scrollbar, Thumbs } from 'swiper/modules';
-import { motion, AnimatePresence, useAnimation } from 'framer-motion';
+import { Keyboard, Navigation } from 'swiper/modules';
+import { motion, useAnimation } from 'framer-motion';
 import 'swiper/css';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -16,6 +16,7 @@ import { UilArrowLeft } from '@iconscout/react-unicons'
 import Link from 'next/link';
 import { Link as ScrollLink } from 'react-scroll';
 import FirstImage from '../../../components/pages/projects/ProjectFirstImage';
+import Slider from '../../../components/pages/projects/Slider';
 
 
 const ProjectPage = () => {
@@ -105,7 +106,7 @@ const ProjectPage = () => {
                             animate={isAtEnd ? 'visible' : 'hidden'}
                             initial='hidden'
                             transition={{ duration: 0.3 }}
-                            className='fixed flex top-[7vh] left-[18vw] px-4 py-3 bg-primary/20 text-white z-50'>
+                            className='fixed flex top-[7dvh] left-[18vw] px-4 py-3 bg-primary/20 text-white z-50'>
                             <p>Project info</p>
                         </motion.button>
                     </ScrollLink>
@@ -128,37 +129,8 @@ const ProjectPage = () => {
                         </div>
                     </div>
 
-                    <div className='w-[100dvw] flex h-[100dvh]'>
+                    <Slider project={project} />
 
-                        <Swiper
-                            navigation={true}
-                            keyboard={true}
-                            thumbs={{ swiper: thumbsSwiper }}
-                            modules={[Keyboard, Navigation, Thumbs]} className="w-[100dvw] flex h-full">
-                            {
-                                project.allImages.map((image: any, index) => (
-                                    <SwiperSlide key={index}>
-                                        <div
-                                            className='w-full h-full bg-cover bg-blend-saturation'
-                                            style={{ backgroundImage: `url("/projects/${project.url}/${image}")` }}>
-                                            <div
-                                                className='h-full w-full bg-black bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60
-                                                '>
-                                                <Image
-                                                    placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                                    src={`/projects/${project.url}/${image}`}
-                                                    layout='fill'
-                                                    alt={`Image ${index}`}
-                                                    className='items-center flex object-contain'
-                                                />
-                                            </div>
-
-                                        </div>
-                                    </SwiperSlide>
-                                ))
-                            }
-                        </Swiper>
-                    </div>
                 </motion.div>}
 
         </PageWrapper>

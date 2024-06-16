@@ -31,9 +31,8 @@ export default function App({ Component, pageProps, router }) {
                 <AnimatePresence mode='wait'>
                     <Head>
                         <title>Baroque</title>
-                        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes" />
+                        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1, user-scalable=no" />
                     </Head>
-                    <Script src="https://polyfill.io/v3/polyfill.min.js?features=default" />
                     <Component {...pageProps} key={router.route} />
                 </AnimatePresence>
             </LanguageProvider>
@@ -56,12 +55,4 @@ export default function App({ Component, pageProps, router }) {
                 }} />)}
         </React.StrictMode>
     )
-}
-
-// Load Google Maps API script
-if (typeof window !== 'undefined') {
-    const googleMapScript = document.createElement('script');
-    googleMapScript.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places`;
-    googleMapScript.async = true;
-    window.document.body.appendChild(googleMapScript);
 }

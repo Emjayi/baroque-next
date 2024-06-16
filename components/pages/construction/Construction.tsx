@@ -37,42 +37,23 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, allImages, 
     return (
         <motion.div
             key={id}
-            className='text-white duration-300 w-[300px] md:w-[380px] hover:text-primary text-center'
+            className='text-white flex flex-col justify-center duration-300 w-[300px] md:w-[380px] hover:text-primary text-center'
             whileHover={{ width: 900 }}
             transition={{ duration: .4, ease: "easeInOut" }}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
         >
             <motion.div
-                // initial={{ height: "40px" }}
-                // animate={hovered ? { y: 0, opacity: 1, backgroundColor: '#00000090', height: ["40px", "40px", "100px"], color: "#999999" } : { height: [null, "40px", "40px"] }}
-                // exit={{ height: "40px", transition: { delay: 0, duration: .2 } }}
-                // transition={{ duration: 1, times: [0, 0.5, 1], ease: "easeInOut" }}
-                className='bg-black/50 relative top-[25dvh] md:top-0 z-50 py-[10px] tracking-widest text-center md:w-full w-full font-bold text-white'>
+                className='bg-black z-50 py-[10px] tracking-widest text-center w-full font-bold text-white'>
                 <motion.h1 className={hovered && "text-primary"}>{name}</motion.h1>
-                {/* Show additional info on hover */}
-                {/* <AnimatePresence>
-                    {hovered &&
-                        <motion.div
-                            initial={{ opacity: 0, y: -20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20, transition: { delay: .2 } }}
-                            transition={{ duration: .5, delay: .6 }}
-                            className='text-white/80'
-                        >
-                            <motion.h1>{status}</motion.h1>
-                            <motion.h1>{year}</motion.h1>
-                        </motion.div>}
-                </AnimatePresence> */}
             </motion.div>
 
             {/* Desktop View */}
             <motion.div
-                className='hidden md:block md:w-full h-[85vh]'>
+                className='hidden md:block md:w-full h-[85dvh]'>
                 <motion.div
-                    className='image-container hidden md:block w-full h-[80vh]'
+                    className='image-container hidden md:block w-full h-[80dvh]'
                 >
-
                     <Swiper
                         navigation={hovered}
                         modules={[Keyboard, Navigation]} className="w-[900px] flex h-full bg-black/50">
@@ -90,26 +71,22 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, allImages, 
                             ))
                         }
                     </Swiper>
-                    {/* Animated info box */}
                 </motion.div>
-
             </motion.div>
 
             {/* Mobile View */}
             <motion.div
                 transition={{ duration: 1 }}
-                className='w-[300px]
-                 h-[50dvh] md:hidden'
-                onTap={() => setHovered(true)}
+                className='w-[300px] md:hidden'
+                onTouchStart={() => setHovered(true)}
+                onViewportLeave={() => setHovered(false)}
             >
                 <motion.div
-                    className='image-container md:block w-full h-[50dvh]'
+                    className='image-container md:block w-full h-[30dvh]'
                 >
 
                     <Swiper
-                        navigation={hovered}
-                        touchMoveStopPropagation={true}
-                        modules={[Keyboard, Navigation]} className="w-[900px] flex h-full bg-black/50">
+                        className="w-[300px] flex h-full bg-black/50">
                         {
                             allImages.map((image: any, index) => (
                                 <SwiperSlide key={index}>
@@ -118,13 +95,12 @@ const Construction = ({ id, name, alt, url, blur, mainImage, status, allImages, 
                                         src={`/construction/${image}`}
                                         layout='fill'
                                         alt={`Image ${index}`}
-                                        className='items-center flex object-cover'
+                                        className='object-contain'
                                     />
                                 </SwiperSlide>
                             ))
                         }
                     </Swiper>
-                    {/* Animated info box */}
                 </motion.div>
             </motion.div>
         </motion.div>

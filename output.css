@@ -549,15 +549,15 @@ video {
 }
 
 .h-screen {
-  height: 100vh;
+  height: 100dvh;
 }
 
 .min-h-screen {
-  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .min-h-\[80vh\] {
-  min-height: 80vh;
+  min-height: 80dvh;
 }
 
 .cursor-pointer {

@@ -27,7 +27,7 @@ body {
     background-color: #101010;
     /* background-color: #1E2337; */
     margin: 0;
-    max-height: 100vh !important;
+    max-height: 100dvh !important;
     overflow-y: hidden !important;
     font-family: Eurostile;
 }
@@ -39,7 +39,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100dvh;
 }
 .page
 ::selection{
@@ -47,7 +47,7 @@ body {
     color: white;
 }
 
-/* .bg {
+.bg {
     position: fixed;
     top: -50%;
     left: -50%;
@@ -61,7 +61,7 @@ body {
     opacity: .8;
     visibility: visible;
     z-index: -100;
-  } */
+  }
 
   .stack{
     display: grid;
@@ -151,4 +151,11 @@ body {
     .swiper-button-next ,.swiper-button-prev{
       display: none !important;
     }
+  }
+  body{
+    max-width: 100dvw !important;
+    max-height: 100dvh !important;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
   }

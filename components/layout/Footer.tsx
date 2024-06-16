@@ -37,9 +37,9 @@ const Footer = () => {
             <div className='flex gap-4 justify-center'>
 
             </div>
-            <motion.div className='w-full hidden md:flex lg:static absolute bottom-2 left-0 text-center gap-2 justify-end'>
-                <p>Handcrafted with <span className='text-primary'>❤</span> at <a href='https://khatoonadvertising.ir/' className='text-zinc-400 hover:text-primary duration-300'>Khatoon Advertising</a></p>
-                <p>by <a href='https://emjayi.liara.run/' className='text-zinc-400 hover:text-primary duration-300'>Emjayi</a></p>
+            <motion.div className='w-full hidden md:flex lg:static absolute bottom-2 left-0 text-center gap-1 justify-end'>
+                <p>Developed by <a href='https://emjayi.liara.run/' className='text-zinc-400 hover:text-primary duration-300'>Emjayi</a></p>
+                <p>at <a href='https://khatoonadvertising.ir/' className='text-zinc-400 hover:text-primary duration-300'>Khatoon Advertising</a></p>
             </motion.div>
         </motion.div >
     )
