@@ -17,20 +17,20 @@ const Member = ({ firstName, lastName, img, pos }) => {
                 <AnimatePresence>
                     {hovered &&
                         <motion.div
-                            className='flex flex-col ml-10 mt-10 items-start justify-start'
+                            className='flex flex-col md:ml-10 mr-10 pr-6 mt-10 items-end md:items-start justify-start w-full'
                         >
                             <motion.h1
                                 initial={{ x: 50, opacity: 0 }}
                                 animate={{ x: 0, opacity: 1 }}
                                 exit={{ x: 50, opacity: 0 }}
-                                transition={{ delay: .5 }}
+                                transition={{ delay: .8 }}
                                 className='text-bold text-xl'
                             >{firstName}</motion.h1>
                             <motion.h1
                                 initial={{ x: 50, opacity: 0 }}
                                 animate={{ x: 0, opacity: 1 }}
                                 exit={{ x: 50, opacity: 0 }}
-                                transition={{ delay: .4 }}
+                                transition={{ delay: 1 }}
                                 className='text-bold text-3xl'
                             >{lastName}</motion.h1>
                             <motion.h2
@@ -38,7 +38,7 @@ const Member = ({ firstName, lastName, img, pos }) => {
                                 animate={{ x: 0, opacity: 1 }}
                                 exit={{ x: 50, opacity: 0 }}
                                 className='text-zinc-600'
-                                transition={{ delay: .7 }}
+                                transition={{ delay: .9 }}
                             >{pos}</motion.h2>
                         </motion.div>
                     }
@@ -49,6 +49,8 @@ const Member = ({ firstName, lastName, img, pos }) => {
             <motion.div
                 whileHover={{ width: 400 }}
                 // whileInView={{ width: 600, transition: { delay: .1, duration: .5 } }}
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
                 style={{ backgroundImage: `url(${img})` }}
                 className='hidden w-[200px] grayscale hover:grayscale-0 uppercase bg-cover bg-center bg-primary duration-700 h-[100dvh] md:flex flex-col items-start'>
                 <AnimatePresence>

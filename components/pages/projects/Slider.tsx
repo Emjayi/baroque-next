@@ -34,8 +34,6 @@ const Slider = ({ project }) => {
             <div className='w-[100dvw] z-40 flex h-[100dvh]'>
                 {(project.images.art || project.images.plan) &&
                     <motion.div
-                        onMouseEnter={() => setHovered(true)}
-                        onMouseLeave={() => setHovered(false)}
                         className=''>
                         <motion.div
                             className='hidden md:flex flex-col z-50 absolute top-[7dvh] right-0'

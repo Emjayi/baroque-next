@@ -42,7 +42,7 @@ const PageWrapper = ({ pageName, children }: any) => {
 
 
     return (
-        <div className='flex items-center h-[100dvh] md:h-screen'>
+        <motion.div className='flex items-center h-[100dvh] md:h-screen'>
 
 
             <HorizontalScroll></HorizontalScroll>
@@ -52,7 +52,8 @@ const PageWrapper = ({ pageName, children }: any) => {
 
 
             <motion.div
-                exit={{ opacity: 0, transition: { duration: .3 } }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0, transition: { duration: 0 } }}
                 transition={{ duration: .5, ease: "easeInOut" }}>
                 <AnimatePresence mode='wait'>
                     {!open && !intro &&
@@ -61,7 +62,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: .5, ease: "easeInOut" }}
-                                exit={{ opacity: 0, transition: { duration: .3 } }}
+                                exit={{ opacity: 0 }}
                                 className='h-full md:h-screen flex items-center'>
 
                                 <motion.h1 className='text-white uppercase text-xl min-w-36 ml-8 md:ml-32 pr-4'>{pageName}</motion.h1>
@@ -113,8 +114,8 @@ const PageWrapper = ({ pageName, children }: any) => {
             {!intro && <motion.button
                 initial={!isMobile ? { width: 60, opacity: 0, y: -20 } : { opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: .5, ease: "easeInOut", delay: .5 }}
+                exit={{ opacity: 0, y: -20, transition: { duration: .4 } }}
+                transition={{ duration: .5, ease: "easeInOut", delay: .2 }}
                 onClick={() => setOpen(!open)}
                 className={open ? 'md:humb md:hidden fixed flex top-[8dvh] left-5 p-[12px] bg-primary/0 text-white z-50 rounded-3xl' : ' md:humb md:hidden fixed flex top-[8dvh] left-5 p-[12px] bg-primary/40 text-white z-50'}>
                 <motion.div>{!open && <UilBars />}{open && <UilMultiply />}</motion.div>
@@ -128,7 +129,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                 className='h-screen w-screen fixed top-0 left-0 flex flex-col justify-center items-center'>
                 <Menu isOpen={open} intro={intro} setIsOpen={setOpen} />
             </motion.div>
-        </div >
+        </motion.div >
     )
 }
 
