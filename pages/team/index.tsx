@@ -62,8 +62,8 @@ const Team = () => {
         <PageWrapper pageName='Team'>
             <TeamImage />
             <div className='flex'>
-                {team.map(({ firstName, lastName, pos, img, year }, index) => (
-                    <Member firstName={firstName} lastName={lastName} key={index + 1} img={img} year={year} pos={pos} />
+                {team.map(({ firstName, lastName, pos, img }, index) => (
+                    <Member firstName={firstName} lastName={lastName} key={index + 1} img={img} pos={pos} />
                 ))}
             </div>
         </PageWrapper>
