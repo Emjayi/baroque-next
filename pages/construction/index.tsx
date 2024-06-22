@@ -1,6 +1,6 @@
 import React from 'react';
 import PageWrapper from '../../components/layout/PageWrapper';
-import projects from '../../lib/projectData';
+import { projects } from '../../lib/data';
 import Construction from '../../components/pages/construction/Construction';
 
 

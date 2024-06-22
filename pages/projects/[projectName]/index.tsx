@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import PageWrapper from '../../../components/layout/PageWrapper';
-import projects from '../../../lib/projectData'
+import { projects } from '../../../lib/data'
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // import required modules

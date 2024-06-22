@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import PageWrapper from '../../components/layout/PageWrapper';
-import projects from '../../lib/projectData'
+import { projects } from '../../lib/data'
 import HorizontalScroll from '../../components/layout/HorizontalScroll';
 import Project from '../../components/pages/projects/Project';
 import { AnimatePresence, motion } from 'framer-motion';

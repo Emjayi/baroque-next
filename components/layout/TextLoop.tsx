@@ -16,22 +16,18 @@ const TextLoop = ({ titles, className }) => {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, transition: { delay: 0 } }}
-            transition={{ delay: 2.5, duration: .5 }}
-            className='w-screen h-screen'
         >
             <AnimatePresence>
                 <motion.h2
                     key={titles[currentIndex]}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0, transition: { duration: .3, delay: 1 } }}
-                    transition={{ duration: 1, delay: 1 }}
-                    className={cn(' ', className)}
+                    initial={{ opacity: 0, x: 0, color: "#ffffff" }}
+                    animate={{ opacity: 1, x: 0, color: "#D2AC72" }}
+                    exit={{ opacity: [1, 1, 0, 0], color: "#ffffff50", x: 0, transition: { duration: 1.6 } }}
+                    transition={{ duration: 1, ease: "easeInOut" }}
+                    className={cn(' relative', className)}
                 >
-                    <AnimatedText delay={1} duration={1} text={titles[currentIndex]} className='' />
+                    <AnimatedText delay={1.6} duration={.6} text={titles[currentIndex]} className='' />
+                    {/* <h2>{titles[currentIndex]}</h2> */}
                 </motion.h2>
             </AnimatePresence>
         </motion.div>

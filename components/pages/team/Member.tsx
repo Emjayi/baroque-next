@@ -33,13 +33,7 @@ const Member = ({ firstName, lastName, img, pos }) => {
                                 transition={{ delay: 1 }}
                                 className='text-bold text-3xl'
                             >{lastName}</motion.h1>
-                            <motion.h2
-                                initial={{ x: 50, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                exit={{ x: 50, opacity: 0 }}
-                                className='text-zinc-600'
-                                transition={{ delay: .9 }}
-                            >{pos}</motion.h2>
+
                         </motion.div>
                     }
                 </AnimatePresence>
@@ -70,13 +64,6 @@ const Member = ({ firstName, lastName, img, pos }) => {
                                 exit={{ x: 50, opacity: 0 }}
                                 className='text-bold text-3xl'
                             >{lastName}</motion.h1>
-                            <motion.h2
-                                initial={{ x: 50, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                exit={{ x: 50, opacity: 0 }}
-                                className='text-zinc-600'
-                                transition={{ delay: .2 }}
-                            >{pos}</motion.h2>
                         </motion.div>
                     }
                 </AnimatePresence>

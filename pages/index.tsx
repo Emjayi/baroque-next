@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, delay } from 'framer-motion';
 import Menu from '../components/layout/menu';
 import Footer from '../components/layout/Footer';
 import PageTransition from '../components/layout/PageTransition';
@@ -8,15 +8,11 @@ import TextLoop from '../components/layout/TextLoop';
 import Link from 'next/link'
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-
-
+import { aboutTitlesDou } from "../lib/data"
 
 // App component with animations
 const App = () => {
 
-    // DATA
-    const aboutText = "Baroque, your lovely company."
-    const aboutTitles = ["Architecture", "Simplicity", "Elegance", "Greatness", "Shining"]
     const links = [
         { key: 1, name: 'Team', url: '/team', speed: 0.1, length: -50 },
         { key: 2, name: 'Construction', url: '/construction', speed: 0.2, length: -10 },
@@ -76,27 +72,34 @@ const App = () => {
                             {/* Enter button */}
                             <motion.div
                                 className='flex flex-col w-screen items-center justify-center gap-5 px-8 text-white text-6xl'
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: .2, ease: "easeIn", delay: 1 }}>
-                                <motion.h1
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0, transition: { delay: 0 } }}
-                                    transition={{ duration: .2, delay: 1 }}
-                                    className='text-xl md:text-3xl absolute w-screen uppercase top-64 text-center'>
-                                    <AnimatedText delay={1} duration={2} text={aboutText} className='' />
-                                </motion.h1>
-                                {/* {aboutTitles.map(() => (
-                                    < motion.h2
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        exit={{ opacity: 0, transition: { delay: 0 } }}
-                                        transition={{ duration: .2, delay: .2 }}
-                                        className='text-xl text-zinc-400 absolute uppercase w-screen top-80 text-center'>
-                                        <AnimatedText delay={.2} duration={1} className='' text={aboutTitles} />
-                                    </motion.h2>
-                                ))} */}
-                                <TextLoop className='text-sm md:text-xl text-zinc-400 absolute w-screen top-80 text-center' titles={aboutTitles} />
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0, transition: { delay: 0.2 } }}
+                                transition={{ duration: .8, ease: "easeIn", delay: 1 }}>
+
+                                <motion.div
+                                    className='grid grid-rows-2 -ml-12 absolute top-36 gap-2 text-2xl md:text-3xl text-white justify-center items-center'>
+                                    <motion.div className='grid -ml-36 grid-cols-2 gap-2'>
+                                        <TextLoop className='text-zinc-400 flex justify-end w-full' titles={aboutTitlesDou.first} />
+                                        <motion.h1
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ duration: .2, delay: 1 }}
+                                            className='flex justify-start w-full'>
+                                            <AnimatedText delay={1} duration={1} text=" Thinking," className='' />
+                                        </motion.h1>
+                                    </motion.div>
+                                    <motion.div className='grid pl-36 grid-cols-2 gap-2'>
+                                        <TextLoop className=' text-zinc-400 flex justify-end w-full' titles={aboutTitlesDou.second} />
+                                        <motion.h1
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ duration: .2, delay: 1 }}
+                                            className='flex justify-start w-full'>
+                                            <AnimatedText delay={1} duration={1} text=" Building." className='' />
+                                        </motion.h1>
+                                    </motion.div>
+                                </motion.div>
 
 
                                 <motion.button
