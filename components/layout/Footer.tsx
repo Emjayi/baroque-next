@@ -16,12 +16,11 @@ const Footer = () => {
     const path = usePathname()
 
     return (
-
         <motion.div
             initial={{ y: 100 }}
             animate={{ y: 0 }}
-            exit={{ y: 100, transition: { delay: 0, duration: .9 } }}
-            transition={{ duration: 1, type: "spring", stiffness: 25, damping: 10, delay: 2.2 }}
+            exit={{ y: 50, transition: { delay: .6, duration: .9 } }}
+            transition={{ duration: 1, type: "spring", stiffness: 25, damping: 10, delay: 3 }}
             className='fixed flex py-4 justify-center bg-black/50 text-[12px] text-sm bottom-0 lg:px-16 items-stretch gap-12 text-white font-bold w-full z-20'>
             <div className='flex gap-3'>
                 <ul className='flex gap-2 md:justify-start'>
@@ -38,8 +37,8 @@ const Footer = () => {
 
             </div>
             <motion.div className='w-full hidden md:flex lg:static absolute bottom-2 left-0 text-center gap-1 justify-end'>
-                <p>Developed by <a href='https://emjayi.liara.run/' className='text-zinc-400 hover:text-primary duration-300'>Emjayi</a></p>
-                <p>at <a href='https://khatoonadvertising.ir/' className='text-zinc-400 hover:text-primary duration-300'>Khatoon Advertising</a></p>
+                {/* <p>Developed by <a href='https://emjayi.liara.run/' className='text-zinc-400 hover:text-primary duration-300'>Emjayi</a></p> */}
+                <p>Developed at <a href='https://khatoonadvertising.ir/' className='text-zinc-400 hover:text-primary duration-300'>Khatoon Advertising</a></p>
             </motion.div>
         </motion.div >
     )

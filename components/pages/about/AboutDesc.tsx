@@ -7,9 +7,9 @@ const AboutDesc = () => {
     const { lang } = useLanguage();
 
     const aboutText = {
-        en: "Here is the land of new opportunities and even a home where you can experience, learn, be supported, and in a word a place where you can live architecture. Doing professional and researching projects of architecture. Teaching architecture to young people, considering the lack of proper academic area in the north of Iran. Studying and providing innovative models to settle the shantytown and those who have been hurt by natural disasters. Designing fast-to-build houses for the times of emergency.Reviving and researching in architecture and local building techniques and preventing the local architecture from being faded into oblivion.",
-        fa: "اینجا سرزمین فرصت های جدید و حتی خانه ای است که می توانید در آن تجربه کنید، یاد بگیرید، مورد حمایت قرار بگیرید و در یک کلام مکانی است که در آن می توانید معماری را زندگی کنید. انجام پروژه های تخصصی و پژوهشی معماری. آموزش معماری به جوانان با توجه به عدم وجود حوزه آکادمیک مناسب در شمال ایران. مطالعه و ارائه مدل های ابداعی برای اسکان در حلبی آباد و آسیب دیدگان بلایای طبیعی. طراحی خانه‌های سریع‌ساز برای مواقع اضطراری. احیاء و تحقیق در معماری و تکنیک‌های ساختمانی محلی و جلوگیری از فراموشی معماری بومی.",
-        ar: "هنا هي أرض الفرص الجديدة وحتى منزل حيث يمكنك الاستمتاع والتعلم والحصول على الدعم، وفي كلمة مكان حيث يمكنك أن تعيش الهندسة المعمارية. إنجاز وبحث مشاريع هندسية. تدريس الهندسة المعمارية للشباب، مع مراعاة نقص المنطقة الأكاديمية المناسبة في شمال إيران. دراسة وتقديم نماذج مبتكرة لتسوية المناطق الشعبية والمتضررين من الكوارث الطبيعية. تصميم منازل سريعة البناء لأوقات الطوارئ. إحياء والبحث في الهندسة المعمارية وتقنيات البناء المحلية ومنع الهندسة المعمارية المحلية من الذوبان في النسيان."
+        en: "The foundation of Baroque Company was laid in 1982 when Engineer Hasan Roshanayi Moghadam graduated from Ferdowsi University of Mashhad (Civil Engineering) and entered the construction field. After years of significant projects, in 2010, he established Baroque Company with reputable partners to harness modern techniques and new-generation specialists. Baroque aims to improve building standards, offer innovative residential and commercial designs, respect climate-based architecture, and promote sustainability. We focus on workforce development, global standards, and professional integrity. At Baroque, we strive to elevate building quality and transform construction culture through the latest knowledge, top-tier software and hardware, and a strong professional conscience.",
+        fa: "می‌توان گفت که سنگ بنای شرکت باروک در سال ۱۳۶۱ همزمان با فارغ التحصیلی جناب مهندس حسن روشنایی مقدم از دانشگاه دولتی فردوسی مشهد (در رشته ی راه و ساختمان) و ورود ایشان به عرصه فعالیت‌های عمرانی و ساختمانی گذاشته شد. ایشان پس از سال‌ها فعالیت مستمر در صنعت ساختمان و ساخت پروژه‌های بزرگ و مهم در سال ۱۳۸۹ و با همکاری با شرکای خوش‌نام و معتبر در این صنعت و با هدف بهره گیری از نسل جدید متخصصین و دانش و تکنیک‌های  به روز علمی و انجام مدرن فعالیت ساخت و ساز، اقدام به تاسیس شرکت باروک کردند. ایجاد ساز و کار هدفمند و تشکیلات هوشمند و به روز، ارتقای استانداردهای فنی و کیفی ساختمان‌ها، ارائه الگوهای نوآورانه به منظور بهبود کیفیت زیستی منازل مسکونی و محیط‌های تجاری، احترام به معماری مبتنی بر اقلیم و محیط زیست و توسعه ی پایدار، از جمله اهدافی هستند که باروک با ارتقا و توسعه ی فردی نیروهای خود و همچنین مسئولیت پذیری فراوان، توجه به استانداردهای جهانی و وفاداری حرفه ای، دنبال می‌کند. ما در باروک همواره تلاش کردیم با بهره گیری از دانش روز، استفاده از بهترین نرم افزار و سخت افزار و وجدان حرفه ای بیدار، هم سطح کیفی ساختمان ها را ارتقا بدهیم و هم فرهنگ ساخت و ساز را در جغرافیای خودمان متحول کنیم.",
+        ar: "يمكن القول أن حجر الأساس لشركة باروك وُضع في عام 1982، بالتزامن مع تخرج المهندس حسن روشنائي مقدم من جامعة فردوسي مشهد(في مجال الهندسة المدنية) ودخوله إلى مجال الأنشطة الإنشائية والبنائية.بعد سنوات من النشاط المستمر في صناعة البناء وتنفيذ المشاريع الكبيرة والمهمة، قام في عام 2010، بالتعاون مع شركاء مرموقين ومعروفين في هذه الصناعة وبهدف الاستفادة من الجيل الجديد من المتخصصين والمعرفة العلمية الحديثة والتقنيات الحديثة للأنشطة الإنشائية الحديثة، بتأسيس شركة باروك.إنشاء آلية هادفة وتنظيم حديث وذكي، تحسين المعايير الفنية والجودة للمباني، تقديم نماذج مبتكرة لتحسين جودة المنازل السكنية والبيئات التجارية، احترام العمارة القائمة على المناخ والاستدامة البيئية، من بين الأهداف التي تسعى باروك لتحقيقها من خلال تطوير فردي لقواها العاملة، والمسؤولية الكبيرة، والالتزام بالمعايير العالمية، والولاء المهني.في باروك، كنا دائماً نسعى لتحسين المستوى النوعي للمباني وتحويل ثقافة البناء في جغرافيتنا من خلال الاستفادة من المعرفة الحديثة، واستخدام أفضل البرمجيات والمعدات، والحفاظ على ضمير مهني يقظ."
     };
 
     return (
@@ -20,11 +20,11 @@ const AboutDesc = () => {
                         initial={{ opacity: 0.2 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.25, delay: 0.2 }}
-                        className='absolute text-primary -rotate-90 left-[990px] md:left-[960px] w-52 top-[46%] text-2xl '
+                        className='absolute text-primary -rotate-90 left-[990px] lg:left-[960px] w-52 top-[46%] text-2xl '
                     >
-                        Where is Baroque?
+                        About Baroque
                     </motion.h1>
-                    <div className='md:w-[400px] w-[300px] md:ml-16 md:text-justify text-justify'>
+                    <div className='lg:w-[400px] w-[300px]  leading-5 lg:ml-16 lg:text-justify text-justify'>
                         {aboutText[lang].split(' ').map((el, i) => (
                             <motion.span
                                 key={i}
@@ -45,11 +45,11 @@ const AboutDesc = () => {
                         initial={{ opacity: 0.2 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.25, delay: 0.2 }}
-                        className='absolute rotate-90 md:left-[1430px] persian mt-24 left-[1330px] text-primary top-[42%] w-52 text-2xl '
+                        className='absolute rotate-90 lg:left-[1430px] persian mt-24 left-[1330px] text-primary top-[42%] w-52 text-2xl '
                     >
-                        عین الباروک؟
+                        حول الباروك
                     </motion.h1>
-                    <div className='md:w-[800px] w-[300px] md:mr-16 mr-16 ml-8 persian text-right'>
+                    <div className='lg:w-[800px] w-[300px] lg:mr-16 mr-16 ml-8 persian text-right'>
                         {aboutText[lang].split(' ').map((el, i) => (
                             <motion.span
                                 key={i}
@@ -70,11 +70,11 @@ const AboutDesc = () => {
                         initial={{ opacity: 0.2 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.25, delay: 0.2 }}
-                        className='absolute rotate-90 md:left-[1430px] persian mt-24 left-[1330px] text-primary top-[40%] w-52 text-2xl '
+                        className='absolute rotate-90 lg:left-[1430px] persian mt-24 left-[1330px] text-primary top-[40%] w-52 text-2xl '
                     >
-                        باروک کجاست؟
+                        درباره باروک
                     </motion.h1>
-                    <div className='md:w-[800px] w-[300px] md:mr-16 mr-16 ml-8 persian text-right'>
+                    <div className='lg:w-[800px] w-[300px] lg:mr-16 mr-16 ml-8 persian text-right'>
                         {aboutText[lang].split(' ').map((el, i) => (
                             <motion.span
                                 key={i}

@@ -13,11 +13,13 @@ const LangChanger: React.FC = () => {
         <motion.div
             initial={{ width: 0 }}
             whileInView={{ width: 160 }}
+            viewport={{ once: true }}
             transition={{ delay: 1 }}
-            className='flex justify-center items-center'>
+            className='flex justify-center items-center' >
             <motion.button
                 initial={{ x: -10, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
                 transition={{ delay: 1.1, duration: .3 }}
                 className='text-white hover:bg-primary/40 py-2 px-4'
                 onClick={() => handleLangChange('en')}
@@ -27,6 +29,7 @@ const LangChanger: React.FC = () => {
             <motion.button
                 initial={{ x: -10, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
                 transition={{ delay: 1.2, duration: .3 }}
                 className='text-white hover:bg-primary/40 py-2 px-4'
                 onClick={() => handleLangChange('fa')}
@@ -36,13 +39,14 @@ const LangChanger: React.FC = () => {
             <motion.button
                 initial={{ x: -10, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
+                viewport={{ once: true }}
                 transition={{ delay: 1.3, duration: .3 }}
                 className='text-white hover:bg-primary/40 py-2 px-4'
                 onClick={() => handleLangChange('ar')}
             >
                 Ar
             </motion.button>
-        </motion.div>
+        </motion.div >
     );
 };
 

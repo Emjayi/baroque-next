@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import Image from 'next/image'
 
-const Project = ({ id, name, alt, url, mainImage, status, type, year }: any) => {
+const Project = ({ id, name, alt, url, mainImage, en }: any) => {
     // Image loading effect
     const shimmer = (w: number, h: number) => `
     <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -125,7 +125,7 @@ const Project = ({ id, name, alt, url, mainImage, status, type, year }: any) => 
                     style={{ x: parallax }}
                     transition={{ duration: .5 }}
                     className='md:flex hidden w-[280px] text-zinc-400 text-sm justify-center gap-4'>
-                    {type && <h1>
+                    {en.type && <h1>
                         <AnimatePresence>
                             {hovered ? <motion.span initial={{ opacity: 0, x: 0 }}
                                 animate={{ opacity: 1, x: -29 }}
@@ -136,8 +136,8 @@ const Project = ({ id, name, alt, url, mainImage, status, type, year }: any) => 
                             animate={hovered ? { paddingRight: 25 } : { paddingRight: 0 }}
                             style={hovered && {}}
                             exit={{ opacity: 0, paddingLeft: 0 }}
-                            transition={{ duration: .5, delay: .2 }} className=' font-bold'>{type}</motion.span></h1>}
-                    {year && <h1>
+                            transition={{ duration: .5, delay: .2 }} className=' font-bold'>{en.type}</motion.span></h1>}
+                    {en.year && <h1>
                         <AnimatePresence>
                             {hovered ? <motion.span initial={{ opacity: 0, x: 0 }}
                                 animate={{ opacity: 1, x: -30 }}
@@ -148,15 +148,15 @@ const Project = ({ id, name, alt, url, mainImage, status, type, year }: any) => 
                             animate={hovered ? { paddingRight: 30 } : { paddingRight: 0 }}
                             style={hovered && {}}
                             exit={{ opacity: 0, paddingLeft: 0 }}
-                            transition={{ duration: .5, delay: .2 }} className=' font-bold'>{year}</motion.span></h1>}
-                    {status && <h1>
+                            transition={{ duration: .5, delay: .2 }} className=' font-bold'>{en.year}</motion.span></h1>}
+                    {en.status && <h1>
                         <AnimatePresence>
                             {hovered ? <motion.span initial={{ opacity: 0, x: 0 }}
                                 animate={{ opacity: 1, x: -40 }}
                                 exit={{ opacity: 0, x: 0 }}
                                 transition={{ duration: .5, delay: .2 }} className='absolute text-primary/80 font-bold'>Status</motion.span> : null}
                         </AnimatePresence>
-                        <span className='font-bold'> {status}</span></h1>}
+                        <span className='font-bold'> {en.status}</span></h1>}
                 </motion.div>
 
                 {/* Mobile View Details */}
@@ -176,7 +176,7 @@ const Project = ({ id, name, alt, url, mainImage, status, type, year }: any) => 
                             animate={hovered ? { paddingRight: 25 } : { paddingRight: 0 }}
                             style={hovered && {}}
                             exit={{ opacity: 0, paddingLeft: 0 }}
-                            transition={{ duration: .5, delay: .2 }} className='text-zinc-200 font-bold'> {type}</motion.span></h1>
+                            transition={{ duration: .5, delay: .2 }} className='text-zinc-200 font-bold'> {en.type}</motion.span></h1>
                     <h1>
                         <AnimatePresence>
                             <motion.span initial={{ opacity: 0, x: 0 }}
@@ -188,7 +188,7 @@ const Project = ({ id, name, alt, url, mainImage, status, type, year }: any) => 
                             animate={hovered ? { paddingRight: 30 } : { paddingRight: 0 }}
                             style={hovered && {}}
                             exit={{ opacity: 0, paddingLeft: 0 }}
-                            transition={{ duration: .5, delay: .2 }} className='text-zinc-200 font-bold'> {year}</motion.span></h1>
+                            transition={{ duration: .5, delay: .2 }} className='text-zinc-200 font-bold'> {en.year}</motion.span></h1>
                     <h1>
                         <AnimatePresence>
                             <motion.span initial={{ opacity: 0, x: 0 }}
@@ -196,7 +196,7 @@ const Project = ({ id, name, alt, url, mainImage, status, type, year }: any) => 
                                 exit={{ opacity: 0, x: 0 }}
                                 transition={{ duration: .75, delay: .2 }} className='text-zinc-400 font-bold'>Status:</motion.span>
                         </AnimatePresence>
-                        <span className='text-zinc-200 font-bold'> {status}</span></h1>
+                        <span className='text-zinc-200 font-bold'> {en.status}</span></h1>
                 </motion.div>
             </motion.div>
         </motion.div >

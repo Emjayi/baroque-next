@@ -48,8 +48,8 @@ const Menu = ({ isOpen, setIsOpen, intro }: { isOpen: boolean, setIsOpen: React.
                 <motion.div
                     className='text-primary text-center text-6xl mt-16'
                     initial={{ opacity: 0, y: 0 }}
-                    animate={!isMobile ? (isOpen ? { opacity: [0, 0, 0, 0, 1, 1], y: [null, "20dvh", "20dvh"], x: [0, 0, 0, 100, 100] } : { opacity: [null, 0, 0, 0, 0, 0], y: null, x: [null, 60, 0, 0, 0, 0] }) : (isOpen ? { opacity: [0, 0, 0, 0, 1, 1], y: [null, "13dvh", "13dvh"], x: [0, 0, 0, 50, 50] } : { opacity: [null, 0, 0, 0, 0, 0], y: ["13dvh", "13dvh", "13dvh"], x: [null, 20, 0, 0, 0, 0] })}
-                    exit={!isMobile ? (isOpen && { opacity: [1, 1, 1, 1, 0], x: [null, null, null, 60, 60], transition: { delay: 0 } }) : (isOpen && { opacity: [1, 1, 1, 1, 0], x: [null, null, null, 30, 30], transition: { delay: 0 } })}
+                    animate={!isMobile ? (isOpen ? { opacity: [null, null, null, null, 1, 1], y: [null, "20dvh", "20dvh"], x: [null, null, null, 100, 100] } : { opacity: [null, 0, 0, 0, 0, 0], y: null, x: [null, 60, 0, 0, 0, 0] }) : (isOpen ? { opacity: [null, null, null, null, 1, 1], y: [null, "13dvh", "13dvh"], x: [null, null, null, 50, 50] } : { opacity: [null, 0, 0, 0, 0, 0], y: ["13dvh", "13dvh", "13dvh"], x: [null, 20, 0, 0, 0, 0] })}
+                    exit={!isMobile ? (isOpen && { opacity: [null, null, null, null, 0], x: [null, null, null, 60, 60], transition: { delay: 0 } }) : (isOpen && { opacity: [null, null, null, null, 0], x: [null, null, null, 30, 30], transition: { delay: 0 } })}
                     transition={isOpen ? { duration: 2.1, times: [0, .2, .5, .8, 1], delay: .8, exitdelay: 0 } : { duration: 2.1, times: [0, .2, .5, .8, 1], delay: 0 }}
                 >
                     <Link href="/" onClick={() => path === "/" && setIsOpen(false)}><Image src={title} width={200} height={200} className='w-64' alt='logo'></Image></Link>

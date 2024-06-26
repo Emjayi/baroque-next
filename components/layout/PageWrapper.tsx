@@ -89,7 +89,6 @@ const PageWrapper = ({ pageName, children }: any) => {
                                     {children}
                                 </motion.div>
                             </motion.div>
-                            <Footer />
                         </>
                     }
                 </AnimatePresence>
@@ -99,7 +98,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                 initial={{ width: 45, opacity: 0, y: -10 }}
                 animate={menuHover ? { width: 100, opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
                 style={menuHover && { clipPath: 'polygon(100% 0, 100% 40%, 100% 40%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px, 12px 0)' }}
-                exit={{ opacity: 0, y: -20 }}
+                exit={{ opacity: 0, y: -20, transition: { duration: .4, delay: .6 } }}
                 transition={{ duration: .5, ease: "easeInOut", delay: .2 }}
                 onClick={() => setOpen(!open)}
                 onMouseEnter={() => setMenuHover(true)}
@@ -114,7 +113,7 @@ const PageWrapper = ({ pageName, children }: any) => {
             {!intro && <motion.button
                 initial={!isMobile ? { width: 60, opacity: 0, y: -20 } : { opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20, transition: { duration: .4 } }}
+                exit={{ opacity: 0, y: -20, transition: { duration: .4, delay: .5 } }}
                 transition={{ duration: .5, ease: "easeInOut", delay: .2 }}
                 onClick={() => setOpen(!open)}
                 className={open ? 'md:humb md:hidden fixed flex top-[8dvh] left-5 p-[12px] bg-primary/0 text-white z-50 rounded-3xl' : ' md:humb md:hidden fixed flex top-[8dvh] left-5 p-[12px] bg-primary/40 text-white z-50'}>
@@ -129,6 +128,7 @@ const PageWrapper = ({ pageName, children }: any) => {
                 className='h-screen w-screen fixed top-0 left-0 flex flex-col justify-center items-center'>
                 <Menu isOpen={open} intro={intro} setIsOpen={setOpen} />
             </motion.div>
+            <Footer />
         </motion.div >
     )
 }
