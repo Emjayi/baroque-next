@@ -79,7 +79,7 @@ const App = () => {
 
                                 <motion.div
                                     className='grid grid-rows-2 lg:-ml-12 absolute top-36 gap-2 text-2xl md:text-3xl text-white justify-center items-center'>
-                                    <motion.div className='grid lg:-ml-36 grid-cols-2 gap-2'>
+                                    <motion.div className='grid -ml-36 grid-cols-2 gap-2'>
                                         <TextLoop className='text-zinc-400 flex justify-end w-full' titles={aboutTitlesDou.first} />
                                         <motion.h1
                                             initial={{ opacity: 0 }}
@@ -89,7 +89,7 @@ const App = () => {
                                             <AnimatedText delay={1} duration={1} text=" Thinking," className='' />
                                         </motion.h1>
                                     </motion.div>
-                                    <motion.div className='grid lg:pl-36 grid-cols-2 gap-2'>
+                                    <motion.div className='grid pl-36 grid-cols-2 gap-2'>
                                         <TextLoop className=' text-zinc-400 flex justify-end w-full' titles={aboutTitlesDou.second} />
                                         <motion.h1
                                             initial={{ opacity: 0 }}

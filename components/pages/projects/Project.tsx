@@ -83,14 +83,14 @@ const Project = ({ id, name, alt, url, mainImage, en }: any) => {
             {/* Mobile View */}
             <Link href={`/projects/${url}`} className='md:hidden'>
                 <motion.div
-                    whileHover={{ y: -20 }}
-                    transition={{ duration: 1 }}
+                    whileInView={{ filter: "grayScale(0)" }}
+                    initial={{ filter: "grayScale(100%)" }}
+                    transition={{ duration: 1, delay: .5, ease: "easeInOut" }}
                     className='w-[250px] md:hidden h-[400px]'
                     onMouseEnter={() => setActive(true)}
                     onMouseLeave={() => setActive(false)}
                 >
-                    <Image src={mainImage} width={250} height={200} alt={alt} className='object-cover w-[250px] h-[400px] grayscale hover:grayscale-0 duration-1000' />
-
+                    <Image src={mainImage} width={250} height={200} alt={alt} className='object-cover w-[250px] h-[400px] ' />
                 </motion.div>
             </Link >
             <motion.div
@@ -102,10 +102,10 @@ const Project = ({ id, name, alt, url, mainImage, en }: any) => {
 
                 <AnimatePresence>
                     <motion.h1
-                        initial={{ opacity: 0 }}
-                        animate={hovered ? { y: -10, opacity: 1 } : { opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
+                        initial={{ opacity: 1 }}
+                        whileInView={{ y: -5, opacity: 1, color: "#D2AC72" }}
+                        exit={{ opacity: 1 }}
+                        transition={{ duration: .4, delay: .8 }}
                         className='pt-5 block md:hidden font-bold text'
                     >{name}</motion.h1>
                     <motion.h1
