@@ -1,8 +1,9 @@
-import { AnimatePresence, motion, useAnimate, stagger } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Keyboard, Navigation, Zoom } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -88,6 +89,11 @@ const Construction = ({ images, id, name, url }: any) => {
                         transition={{ duration: 1 }}
                         className='w-[300px] block lg:hidden'
                     >
+                        <motion.button
+                            whileInView={{ backgroundColor: "#D2AC72" }}
+                            whileFocus={{ backgroundColor: "#000" }}
+                            transition={{ duration: .3, delay: .2 }}
+                            onClick={handleImageOpening} className='absolute bottom-14 ml-12 inline-block px-3 py-4 duration-300 hover:bg-black bg-black/60 text-white'>View more</motion.button>
                         <motion.div
                             className='w-[300px] max-h-[100dvh]'
                             onClick={handleImageOpening}
@@ -111,7 +117,9 @@ const Construction = ({ images, id, name, url }: any) => {
                                     <motion.button
                                         className='text-white bg-black/40 p-3 border-white right-4 fixed z-50 top-[8dvh] '
                                         onClick={handleImageOpening}
-                                    ><X width={25} height={25} /></motion.button>
+                                    >
+                                        <X width={25} height={25} />
+                                    </motion.button>
                                     <Swiper
                                         className=""
                                         zoom={true}
