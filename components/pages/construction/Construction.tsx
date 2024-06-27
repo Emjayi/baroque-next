@@ -86,7 +86,7 @@ const Construction = ({ images, id, name, url }: any) => {
                     {/* Mobile View */}
                     <motion.div
                         transition={{ duration: 1 }}
-                        className='w-[300px]'
+                        className='w-[300px] block lg:hidden'
                     >
                         <motion.div
                             className='w-[300px] max-h-[100dvh]'
