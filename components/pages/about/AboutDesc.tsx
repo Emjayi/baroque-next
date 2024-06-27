@@ -45,11 +45,11 @@ const AboutDesc = () => {
                         initial={{ opacity: 0.2 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.25, delay: 0.2 }}
-                        className='absolute rotate-90 lg:left-[1430px] persian mt-24 left-[1330px] text-primary top-[42%] w-52 text-2xl '
+                        className='absolute rotate-90 lg:left-[1430px] persian  mt-24 left-[1330px] text-primary top-[42%] w-52 text-2xl '
                     >
                         حول الباروك
                     </motion.h1>
-                    <div className='lg:w-[800px] w-[300px] lg:mr-16 mr-16 ml-8 persian text-right'>
+                    <div className='lg:w-[800px] w-[300px] lg:mr-16 mr-16 text-sm lg:text-md ml-8 persian text-right'>
                         {aboutText[lang].split(' ').map((el, i) => (
                             <motion.span
                                 key={i}
@@ -74,7 +74,7 @@ const AboutDesc = () => {
                     >
                         درباره باروک
                     </motion.h1>
-                    <div className='lg:w-[800px] w-[300px] lg:mr-16 mr-16 ml-8 persian text-right'>
+                    <div className='lg:w-[800px] w-[300px] lg:mr-16 text-sm lg:text-md mr-16 ml-8 persian text-right'>
                         {aboutText[lang].split(' ').map((el, i) => (
                             <motion.span
                                 key={i}
