@@ -73,9 +73,7 @@ const ProjectPage = () => {
                         </div>
 
                         <ProjectDesc project={project} />
-
                         <Slider project={project} />
-
                     </motion.div>}
             </AnimatePresence>
         </PageWrapper>

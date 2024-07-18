@@ -27,7 +27,7 @@ const Slider = ({ project }) => {
             ? Buffer.from(str).toString("base64")
             : window.btoa(str);
 
-    const [type, setType] = useState("real")
+    const [type, setType] = useState("all")
 
     return (
         <>
@@ -40,6 +40,7 @@ const Slider = ({ project }) => {
                             transition={{ duration: .6 }}
                         >
                             <div className='flex z-50 bg-black/50 text-white text-md'>
+                                {(project.images.plan || project.images.art) && <button onClick={() => setType("all")} className='w-16 text-center hover:bg-black/20 duration-300 p-2'>All</button>}
                                 <button onClick={() => setType("real")} className='w-16 text-center hover:bg-black/20 duration-300 p-2'>Real</button>
                                 {project.images.art && <button onClick={() => setType("art")} className='w-16 text-center hover:bg-black/20 duration-300 p-2'>3D</button>}
                                 {project.images.plan && <button onClick={() => setType("plan")} className='w-16 text-center hover:bg-black/20 duration-300 p-2'>Plan</button>}
@@ -62,6 +63,30 @@ const Slider = ({ project }) => {
                     navigation={true}
                     keyboard={true}
                     modules={[Keyboard, Navigation]} className="w-[100dvw] flex h-full">
+                    {(type === "all") &&
+                        project.images.all.map((image: any, index: number) => (
+                            <SwiperSlide key={100 + index}>
+                                <div
+                                    className='w-full h-full bg-cover'
+                                    style={{ backgroundImage: `url("/projects/${project.url}/${image}")` }}>
+                                    <div
+                                        className='h-full w-full bg-black bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60
+                                '>
+                                        <Image
+                                            placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                                            src={`/projects/${project.url}/${image}`}
+                                            layout='fill'
+                                            loading='lazy'
+                                            sizes='(max-width: 768px) 80vw, (max-width: 1200px) 60vw, 100vw'
+                                            alt={`Image ${index}`}
+                                            className='items-center flex object-contain'
+                                        />
+                                    </div>
+
+                                </div>
+                            </SwiperSlide>
+                        ))
+                    }
                     {(type === "real") &&
                         project.images.real.map((image: any, index: number) => (
                             <SwiperSlide key={100 + index}>
@@ -90,12 +115,12 @@ const Slider = ({ project }) => {
                         project.images.art.map((image: any, index: number) => (
                             <SwiperSlide key={200 + index}>
                                 <div
-                                    style={{ backgroundImage: `url("/projects/${project.url}/3d/${image}")` }}
+                                    style={{ backgroundImage: `url("/projects/${project.url}/${image}")` }}
                                     className='w-full h-full bg-cover'>
                                     <div className='h-full w-full bg-black/10 bg-clip-padding backdrop-filter backdrop-blur-lg'>
                                         <Image
                                             placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                            src={`/projects/${project.url}/3d/${image}`}
+                                            src={`/projects/${project.url}/${image}`}
                                             layout='fill'
                                             loading='lazy'
                                             sizes='(max-width: 768px) 80vw, (max-width: 1200px) 60vw, 100vw'
@@ -113,13 +138,13 @@ const Slider = ({ project }) => {
                             <SwiperSlide key={300 + index}>
                                 <div
                                     className='w-full h-full bg-cover bg-blend-saturation'
-                                    style={{ backgroundImage: `url("/projects/${project.url}/plan/${image}")` }}>
+                                    style={{ backgroundImage: `url("/projects/${project.url}/${image}")` }}>
                                     <div
                                         className='h-full w-full bg-black bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60
                                 '>
                                         <Image
                                             placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                            src={`/projects/${project.url}/plan/${image}`}
+                                            src={`/projects/${project.url}/${image}`}
                                             layout='fill'
                                             loading='lazy'
                                             sizes='(max-width: 768px) 80vw, (max-width: 1200px) 60vw, 100vw'
