@@ -12,11 +12,11 @@ const About = () => {
 
     return (
         <PageWrapper pageName='about'>
-            <AboutPic src={img3} priority={true} />
+            <AboutPic src={img1} priority={true} />
             <AboutDesc />
-            <AboutPic src={img1} priority={false} />
-            <Contacts />
             <AboutPic src={img2} priority={false} />
+            <Contacts />
+            <AboutPic src={img3} priority={false} />
             <AboutMap />
         </PageWrapper >
     )
