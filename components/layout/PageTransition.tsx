@@ -38,7 +38,7 @@ const PageTransition = ({ intro, open }) => {
                             initial={{ scale: 1, opacity: 0 }}
                             animate={open ? { scale: [1, 1, 1, 1], opacity: [null, null, 1, 1] } : { scale: [1, 1, 1, 1], opacity: [null, 0, 0, 0] }}
                             exit={!intro ? (open ? { scale: [1, .9, 1, 1, 1, .5], opacity: [1, .4, 1, .3, .6, 0] } : { scale: [1, .8, .8, .8, .8, 1] }) : { scale: [null, null, 1, 1], opacity: [0, 0, 0, 0] }}
-                            transition={{ duration: 1.2, times: [0, .5, .8, 1], ease: "easeInOut" }}
+                            transition={{ duration: 1.8, times: [0, .5, .8, 1], ease: "easeInOut" }}
                             fill='#D2AC72'
                             strokeWidth={10}
                             className="" d="M2782.2,1092.2V990.9h-372.7v1186.9h644.1v-644.1h-271.4V1092.2 M2952.4,2076.5h-441.5v-984.3H2681V1635h271.4
