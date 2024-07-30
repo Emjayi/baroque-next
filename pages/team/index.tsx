@@ -9,6 +9,7 @@ import { url } from 'inspector';
 import Member from '../../components/pages/team/Member';
 import TeamImage from '../../components/pages/team/TeamImage';
 import { team } from '../../lib/data.js';
+import Head from 'next/head';
 
 
 // Import team images
@@ -59,14 +60,29 @@ import { team } from '../../lib/data.js';
 const Team = () => {
 
     return (
-        <PageWrapper pageName='Team'>
-            <TeamImage />
-            <div className='flex'>
-                {team.map(({ firstName, lastName, pos, img }, index) => (
-                    <Member firstName={firstName} lastName={lastName} key={index + 1} img={img} pos={pos} />
-                ))}
-            </div>
-        </PageWrapper>
+        <>
+            <Head>
+                <title>Baroque - Team</title>
+                <meta name="description" content="Meet the dedicated team behind Baroque, the experts driving our construction projects." />
+                <meta name="keywords" content="Baroque, team, construction, experts" />
+                <meta name="author" content="Baroque Team" />
+                <meta property="og:title" content="Baroque - Team" />
+                <meta property="og:description" content="Meet the dedicated team behind Baroque, the experts driving our construction projects." />
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="Baroque" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Baroque - Team" />
+                <meta name="twitter:description" content="Meet the dedicated team behind Baroque, the experts driving our construction projects." />
+            </Head>
+            <PageWrapper pageName='Team'>
+                <TeamImage />
+                <div className='flex'>
+                    {team.map(({ firstName, lastName, pos, img }, index) => (
+                        <Member firstName={firstName} lastName={lastName} key={index + 1} img={img} pos={pos} />
+                    ))}
+                </div>
+            </PageWrapper>
+        </>
     );
 
 };

@@ -35,7 +35,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "pages/_app.ts",
+    "pages/_app.js",
     "pages/index.jsx",
     "pages/about/index.tsx",
     "pages/about/loading.js",

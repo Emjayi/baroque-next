@@ -9,6 +9,12 @@ import Link from 'next/link'
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { aboutTitlesDou } from "../lib/data"
+import type { Metadata } from 'next/types';
+
+export const metadata: Metadata = {
+    title: 'Baroque',
+    description: 'CGP',
+}
 
 // App component with animations
 const App = () => {
@@ -78,7 +84,7 @@ const App = () => {
                                 transition={{ duration: .8, ease: "easeIn", delay: 1 }}>
 
                                 <motion.div
-                                    className='grid grid-rows-2 lg:-ml-12 absolute top-36 gap-2 text-2xl md:text-3xl text-white justify-center items-center'>
+                                    className='grid grid-rows-2 lg:-ml-12 absolute top-72 gap-2 text-2xl md:text-3xl text-white justify-center items-center'>
                                     <motion.div className='grid -ml-36 grid-cols-2 gap-2'>
                                         <TextLoop className='text-zinc-400 flex justify-end w-full' titles={aboutTitlesDou.first} />
                                         <motion.h1

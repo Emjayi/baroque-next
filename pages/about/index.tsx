@@ -7,18 +7,36 @@ import Contacts from '../../components/pages/about/Contacts/index';
 import AboutMap from '../../components/pages/about/Map';
 import AboutPic from '../../components/pages/about/AboutPic';
 import AboutDesc from '../../components/pages/about/AboutDesc';
+import Head from 'next/head';
 
 const About = () => {
 
     return (
-        <PageWrapper pageName='about'>
-            <AboutPic src={img1} priority={true} />
-            <AboutDesc />
-            <AboutPic src={img2} priority={false} />
-            <Contacts />
-            <AboutPic src={img3} priority={false} />
-            <AboutMap />
-        </PageWrapper >
+        <>
+            <Head>
+                <title>Baroque - About</title>
+                <meta name="description" content="Learn more about Baroque, our mission, vision, and the history behind our construction projects." />
+                <meta name="keywords" content="Baroque, construction, mission, vision, history" />
+                <meta name="author" content="Baroque Team" />
+                <meta property="og:title" content="About Baroque" />
+                <meta property="og:description" content="Learn more about Baroque, our mission, vision, and the history behind our construction projects." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://yourdomain.com/about" />
+                <meta property="og:image" content="https://yourdomain.com/images/about.jpg" />
+                <meta property="og:site_name" content="Baroque" />
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="About Baroque" />
+                <meta name="twitter:description" content="Learn more about Baroque, our mission, vision, and the history behind our construction projects." />
+                <meta name="twitter:image" content="https://yourdomain.com/images/about.jpg" />
+            </Head>
+            <PageWrapper pageName='about'>
+                <AboutPic src={img1} priority={true} />
+                <AboutDesc />
+                <AboutPic src={img2} priority={false} />
+                <Contacts />
+                <AboutPic src={img3} priority={false} />
+                <AboutMap />
+            </PageWrapper></>
     )
 }
 

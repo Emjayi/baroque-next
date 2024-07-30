@@ -28,31 +28,35 @@ export default function App({ Component, pageProps, router }) {
 
         <React.StrictMode>
             <LanguageProvider>
-                <AnimatePresence mode='wait'>
+                <AnimatePresence mode='wait' >
                     <Head>
                         <title>Baroque</title>
-                        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1, user-scalable=no" />
+                        <meta name="description" content="In the name of games" />
+                        < meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1, user-scalable=no" />
                     </Head>
-                    <Component {...pageProps} key={router.route} />
+                    < Component {...pageProps} key={router.route} />
                 </AnimatePresence>
             </LanguageProvider>
-            {!isMobile && (<AnimatedCursor
-                showSystemCursor={true}
-                innerSize={8}
-                outerSize={24}
-                innerScale={2}
-                outerScale={1.5}
-                outerAlpha={0}
-                hasBlendMode={true}
-                outerStyle={{
-                    border: '3px solid #D2AC72',
-                    borderRadius: "0%"
-                }}
-                innerStyle={{
-                    backgroundColor: '#D2AC7250',
-                    borderRadius: "50%",
-                    mixBlendMode: 'revert'
-                }} />)}
+            {
+                !isMobile && (<AnimatedCursor
+                    showSystemCursor={true}
+                    innerSize={8}
+                    outerSize={24}
+                    innerScale={2}
+                    outerScale={1.5}
+                    outerAlpha={0}
+                    hasBlendMode={true}
+                    outerStyle={{
+                        border: '3px solid #D2AC72',
+                        borderRadius: "0%"
+                    }
+                    }
+                    innerStyle={{
+                        backgroundColor: '#D2AC7250',
+                        borderRadius: "50%",
+                        mixBlendMode: 'revert'
+                    }
+                    } />)}
         </React.StrictMode>
     )
 }
