@@ -55,13 +55,15 @@ const Member = ({ firstName, lastName, img, pos }) => {
                             <motion.h1
                                 initial={{ x: 50, opacity: 0 }}
                                 animate={{ x: 0, opacity: 1 }}
-                                exit={{ x: 50, opacity: 0 }}
+                                exit={{ x: 50, opacity: 0, transition: { delay: .1 } }}
+                                transition={{ delay: .2 }}
                                 className='text-bold text-xl'
                             >{firstName}</motion.h1>
                             <motion.h1
                                 initial={{ x: 50, opacity: 0 }}
                                 animate={{ x: 0, opacity: 1 }}
-                                exit={{ x: 50, opacity: 0 }}
+                                exit={{ x: 50, opacity: 0, transition: { delay: .2 } }}
+                                transition={{ delay: .1 }}
                                 className='text-bold text-3xl'
                             >{lastName}</motion.h1>
                         </motion.div>

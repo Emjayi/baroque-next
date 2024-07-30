@@ -65,7 +65,7 @@ const ProjectPage = () => {
                             </motion.button>
                         </ScrollLink>
 
-                        <div className='pro-image h-[100dvh] flex w-[1200px] md:w-[1400px]'>
+                        <div className='pro-image h-[100dvh] flex w-[1200px]'>
                             {/* <Image
                             placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                             src={project.firstImage} width={1500} priority={true} height={1200} alt='Main Image' className='object-cover w-[1600px] bg-black/10' /> */}

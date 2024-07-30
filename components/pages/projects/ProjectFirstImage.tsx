@@ -51,9 +51,9 @@ const FirstImage = ({ src, priority }: { src: string, priority: boolean }) => {
     //     [4, -4]);
 
     return (
-        <div className='w-[1200px] md:w-[1400px]'>
+        <div className='w-[1200px]'>
             <motion.div
-                className='overflow-hidden md:w-[1400px] h-[100dvh]'
+                className='overflow-hidden w-[1200px] h-[100dvh]'
                 ref={ref}
             >
                 <motion.div

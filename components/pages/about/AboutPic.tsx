@@ -58,17 +58,17 @@ const AboutPic = ({ src, priority }: { src: StaticImport, priority: boolean }) =
     //     [4, -4]);
 
     return (
-        <div className=' w-[1000px]'>
+        <div className=' w-[1000px] h-full'>
             <motion.div
                 className='overflow-hidden w-[1000px] h-[100dvh]'
                 ref={ref}
             >
                 <motion.div
                     style={{ translateX: velocityFactor }}
-                    className=' object-cover'>
+                    className=' object-cover h-full'>
                     <Image
                         placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                        src={src} priority={priority} className='-ml-16 scale-125 min-w-[1000px] object-cover' alt='about baroque'></Image>
+                        src={src} priority={priority} className='-ml-16 scale-125 min-w-[1000px] h-full object-cover' alt='about baroque'></Image>
                 </motion.div>
             </motion.div>
         </div>

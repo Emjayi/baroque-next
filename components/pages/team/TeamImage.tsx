@@ -50,7 +50,7 @@ const TeamImage = () => {
     };
 
     return (
-        <div className='flex w-[480vw] md:w-[140vw] h-[100dvh] mr-24' ref={ref}>
+        <div className='flex w-[480vw] md:w-[110vw] h-[100dvh] mr-24' ref={ref}>
             <div className='stack object-fill'>
                 {imageComponents.map(({ src, translateX, proiority, skew }, index) => (
                     <motion.div

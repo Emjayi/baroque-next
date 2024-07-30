@@ -7,8 +7,8 @@ import { usePathname } from 'next/navigation';
 const links = [
     { key: 1, name: 'Home', url: '/', speed: 0.1, length: -50 },
     { key: 2, name: 'Team', url: '/team', speed: 0.1, length: -50 },
-    { key: 3, name: 'Construction', url: '/construction', speed: 0.2, length: -10 },
     { key: 4, name: 'Projects', url: '/projects', speed: 0.1, length: +50 },
+    { key: 3, name: 'Construction', url: '/construction', speed: 0.2, length: -10 },
     { key: 5, name: 'About', url: '/about', speed: 0.2, length: -50 }
 ];
 const Footer = () => {
