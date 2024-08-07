@@ -64,6 +64,11 @@ const ProjectPage = () => {
                 <meta name="twitter:title" content={`Our Projects - ${project.name}`} />
                 <meta name="twitter:description" content={`Discover the details of ${project.name}.`} />
                 <meta name="twitter:image" content={project.firstImage} />
+                <link
+                    rel="preload"
+                    href={project.firstImage}
+                    as="image"
+                />
             </Head>}
             <PageWrapper pageName={project && project.name}>
                 <AnimatePresence>
@@ -82,7 +87,7 @@ const ProjectPage = () => {
                                 </motion.button>
                             </ScrollLink>
 
-                            <div className='pro-image h-[100dvh] flex w-[1200px]'>
+                            <div className='overflow-hidden h-[100dvh] flex w-[1100px]'>
                                 {/* <Image
             placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
             src={project.firstImage} width={1500} priority={true} height={1200} alt='Main Image' className='object-cover w-[1600px] bg-black/10' /> */}

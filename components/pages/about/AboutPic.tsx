@@ -51,27 +51,27 @@ const AboutPic = ({ src, priority }: { src: StaticImport, priority: boolean }) =
     const velocityFactor = useTransform(
         smoothVelocity,
         [-10000, 10000],
-        [-800, 800]);
+        [-500, 500]);
     // const revVelocityFactor = useTransform(
     //     smoothVelocity,
     //     [-1000, 1000],
     //     [4, -4]);
 
     return (
-        <div className=' w-[1000px] h-full'>
+        <div className='overflow-hidden w-[1000px] h-full'>
             <motion.div
-                className='overflow-hidden w-[1000px] h-[100dvh]'
-                ref={ref}
+                className='w-[1000px] h-[100dvh]'
             >
                 <motion.div
                     style={{ translateX: velocityFactor }}
                     className=' object-cover h-full'>
                     <Image
                         placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                        src={src} priority={priority} className='-ml-16 scale-125 min-w-[1000px] h-full object-cover' alt='about baroque'></Image>
+                        ref={ref}
+                        src={src} priority={priority} className='-ml-16 scale-[1.2] min-w-[1000px] h-full object-cover' alt='about baroque'></Image>
                 </motion.div>
             </motion.div>
-        </div>
+        </div >
     )
 }
 

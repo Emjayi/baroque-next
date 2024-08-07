@@ -9,14 +9,14 @@ import { ReactSocialMediaIcons } from 'react-social-media-icons';
 const contacts = [
     {
         id: 1,
-        icon: <Pin size={50} fill='#00000020' />,
+        icon: <Pin size={44} fill='#00000020' />,
         title: "Address",
         desc: "Armitaj Office Tower",
         url: "https://maps.app.goo.gl/WkzcqZ9Mxesh17uX6"
     },
     {
         id: 2,
-        icon: <PhoneCall size={48} fill='#00000020' />,
+        icon: <PhoneCall width={50} size={38} fill='#00000020' />,
         title: "Phone",
         desc: "051 - 3833 9271",
         url: "tel:+985138339271"
