@@ -100,7 +100,7 @@ const Construction = ({ images, id, name, url }: any) => {
                         >
                             <Image
                                 placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                src={`/projects/${url}/construction/${images.construction[0]}`}
+                                src={`/projects/${url}/${images.construction[0]}`}
                                 width={500}
                                 height={500}
                                 alt={`${name}'s construction`}

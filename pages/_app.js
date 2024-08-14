@@ -37,7 +37,7 @@ export default function App({ Component, pageProps, router }) {
                     < Component {...pageProps} key={router.route} />
                 </AnimatePresence>
             </LanguageProvider>
-            {
+            {/* {
                 !isMobile && (<AnimatedCursor
                     showSystemCursor={true}
                     innerSize={8}
@@ -56,7 +56,7 @@ export default function App({ Component, pageProps, router }) {
                         borderRadius: "50%",
                         mixBlendMode: 'revert'
                     }
-                    } />)}
+                    } />)} */}
         </React.StrictMode>
     )
 }
