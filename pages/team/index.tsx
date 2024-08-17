@@ -73,6 +73,18 @@ const Team = () => {
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Baroque - Team" />
                 <meta name="twitter:description" content="Meet the dedicated team behind Baroque, the experts driving our construction projects." />
+                <link
+                    rel="preload"
+                    href="/background1.avif"
+                />
+                <link
+                    rel="preload"
+                    href="/background.avif"
+                />
+                <link
+                    rel="preload"
+                    href="/team/middle.avif"
+                />
             </Head>
             <PageWrapper pageName='Team'>
                 <TeamImage />

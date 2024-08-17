@@ -9,21 +9,7 @@ import { LanguageProvider } from '../components/layout/LanguageContext';
 
 
 export default function App({ Component, pageProps, router }) {
-    // Check if the client is Mobile or not
-    const [isMobile, setIsMobile] = useState(false);
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768); // Adjust the threshold as per your requirements
-        };
-        // Initial check
-        handleResize();
-        // Event listener for window resize
-        window.addEventListener('resize', handleResize);
-        // Cleanup
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+
     return (
 
         <React.StrictMode>

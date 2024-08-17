@@ -3,11 +3,11 @@ import React, { useRef } from 'react'
 import Image from 'next/image'
 
 const imageComponents = [
-    { src: "/background1.png", translateX: "s1", proiority: true, skew: "skew1" },
-    { src: "/background.png", translateX: "sMinus1", proiority: true },
-    { src: '/team/back.png', translateX: 's3', proiority: false },
-    { src: '/team/middle.png', translateX: "s1", proiority: true },
-    { src: "/team/top.png", translateX: 'sMinus1', proiority: false },
+    { src: "/background1.avif", translateX: "s1", skew: "skew1" },
+    { src: "/background.avif", translateX: "sMinus1" },
+    { src: '/team/back.avif', translateX: 's3' },
+    { src: '/team/middle.avif', translateX: "s1" },
+    { src: "/team/top.avif", translateX: 'sMinus1' },
 ];
 
 const TeamImage = () => {
@@ -38,21 +38,17 @@ const TeamImage = () => {
     });
 
     const translateXValues = {
-        s0: useTransform(scrollXProgress, [-1, 1], [-200, 120]),
-        s1: useTransform(scrollXProgress, [0, 1], [0, 80]),
-        s2: useTransform(scrollXProgress, [0, 1], [0, 140]),
-        s3: useTransform(scrollXProgress, [0, 1], [0, 180]),
-        sMinus0: useTransform(scrollXProgress, [0, 1], [10, -30]),
-        sMinus1: useTransform(scrollXProgress, [0, 1], [0, -60]),
-        sMinus2: useTransform(scrollXProgress, [0, 1], [0, -90]),
-        sMinus3: useTransform(scrollXProgress, [0, 1], [0, -120]),
-        skew1: useTransform(scrollXProgress, [0, 1], [0, -8]),
+        s1: useTransform(scrollXProgress, [0, 1], [0, 60]),
+        sMinus1: useTransform(scrollXProgress, [0, 1], [0, -50]),
+        s3: useTransform(scrollXProgress, [0, 1], [0, 120]),
+        skew1: useTransform(scrollXProgress, [0, 1], [0, -5]),
     };
+
 
     return (
         <div className='flex w-[480vw] md:w-[110vw] h-[100dvh] mr-24' ref={ref}>
             <div className='stack object-fill'>
-                {imageComponents.map(({ src, translateX, proiority, skew }, index) => (
+                {imageComponents.map(({ src, translateX, skew }, index) => (
                     <motion.div
                         key={index}
                         initial={{ translateX: translateXValues[translateX] }}
@@ -61,7 +57,7 @@ const TeamImage = () => {
                     >
                         <Image
                             placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                            alt="alternative" priority={proiority} src={`https://img.gs/whgxrkkhwv/full/https://baroquegp.com${src}`} width={1600} height={1000} className='h-[100dvh] object-cover' />
+                            alt="alternative" src={src} width={1600} height={1000} className='h-[100dvh] w-full object-cover' />
                     </motion.div>
                 ))}
             </div>

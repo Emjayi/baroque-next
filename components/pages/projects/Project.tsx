@@ -49,25 +49,25 @@ const Project = ({ id, name, alt, url, mainImage, en }: any) => {
     const revParallax = useTransform(smoothVelocity, [-1000, 1000], [-5, 5]);
 
     return (
-        <motion.div key={id} className='text-white duration-300 w-[250px] md:w-[280px] hover:text-primary text-center'>
+        <motion.div key={id} className='text-white duration-300 w-[250px] md:w-[300px] hover:text-primary text-center'>
             <Link href={`/projects/${url}`} className='hidden md:block'>
                 <motion.div
                     style={{ skewX: velocityFactor, x: parallax }}
                     whileHover={{ y: -20 }}
                     transition={{ duration: 1 }}
                     exit={{ opacity: 0 }}
-                    className='hidden md:block w-[280px] h-[400px]'
+                    className='hidden md:block w-[300px] h-[400px]'
                     onMouseEnter={() => { setActive(true), setHovered(true) }}
                     onMouseLeave={() => { setActive(false), setHovered(false) }}
                 >
                     <Image
                         placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                         src={mainImage}
-                        width={280}
+                        width={300}
                         height={400}
                         alt={alt}
                         quality={50}
-                        className='w-[280px] h-[400px] object-cover grayscale hover:grayscale-0 duration-1000' />
+                        className='w-[300px] h-[400px] object-cover grayscale hover:grayscale-0 duration-1000' />
                 </motion.div>
             </Link >
 
@@ -75,9 +75,9 @@ const Project = ({ id, name, alt, url, mainImage, en }: any) => {
                 style={{ skewX: revVelocityFactor, x: revParallax }}
                 animate={active ? { y: 20 } : { y: 0 }}
                 transition={{ duration: 1, ease: "easeInOut" }}
-                className='hidden md:block w-[280px]'
+                className='hidden md:block w-[300px]'
             >
-                <Image src={mainImage} width={280} height={100} alt='shadow' className='absolute rotate-180 blur-sm opacity-5 grayscale object-contain' />
+                <Image src={mainImage} width={300} height={100} alt='shadow' className='absolute rotate-180 blur-sm opacity-5 grayscale object-contain' />
             </motion.div>
 
             {/* Mobile View */}
@@ -124,7 +124,7 @@ const Project = ({ id, name, alt, url, mainImage, en }: any) => {
                     exit={{ opacity: 0 }}
                     style={{ x: parallax }}
                     transition={{ duration: .5 }}
-                    className='md:flex hidden w-[280px] text-zinc-400 text-sm justify-center gap-4'>
+                    className='md:flex hidden w-[300px] text-zinc-400 text-sm justify-center gap-4'>
                     {en.type && <h1>
                         <AnimatePresence>
                             {hovered ? <motion.span initial={{ opacity: 0, x: 0 }}

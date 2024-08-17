@@ -8,10 +8,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import type { Metadata } from 'next/types';
 import Head from 'next/head';
 
-export const metadata: Metadata = {
-    title: 'Projects',
-    description: 'CGP',
-}
 const Projects = () => {
     return (
         <>

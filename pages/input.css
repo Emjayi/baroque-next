@@ -125,23 +125,17 @@ body {
     scale: 1.3;
   }
   .swiper-button-next ,.swiper-button-prev{
-    color: #C7AD8558 !important;
-    background-color: rgba(0, 0, 0, 0.356);
-    padding: 20px 20px;
-    font-size: 5px;
-    transition-duration: 300ms;
-    margin: 0px 15px;
-  }
-  .swiper-button-next:hover ,.swiper-button-prev:hover{
-    color: #C7AD85 !important;
-    background-color: rgba(0, 0, 0, 0.64);
-    z-index: 200;
-    padding: 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff80 !important;
+    background-color: #D2AC7280;
+    padding: 5px 25px 30px 12px;
     font-size: 5px;
     transition-duration: 300ms;
   }
   .swiper-button-disabled{
-    opacity: 0 !important;
+    opacity: "10%" !important;
   }
   :root {
     --swiper-navigation-size: 25px !important

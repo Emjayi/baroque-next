@@ -11,10 +11,6 @@ import { RootState } from '../store/store';
 import { aboutTitlesDou } from "../lib/data"
 import type { Metadata } from 'next/types';
 
-export const metadata: Metadata = {
-    title: 'Baroque',
-    description: 'CGP',
-}
 
 // App component with animations
 const App = () => {

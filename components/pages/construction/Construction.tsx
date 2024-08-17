@@ -72,7 +72,7 @@ const Construction = ({ images, id, name, url }: any) => {
                                         <SwiperSlide key={index}>
                                             <Image
                                                 placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                                src={`https://img.gs/whgxrkkhwv/full/https://baroquegp.com/projects/${url}/${image}`}
+                                                src={`/projects/${url}/${image}`}
                                                 layout='fill'
                                                 alt={`Image ${index}`}
                                                 className='items-center flex object-cover'
@@ -100,7 +100,7 @@ const Construction = ({ images, id, name, url }: any) => {
                         >
                             <Image
                                 placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                src={`https://img.gs/whgxrkkhwv/full/https://baroquegp.com/projects/${url}/${images.construction[0]}`}
+                                src={`/projects/${url}/${images.construction[0]}`}
                                 width={500}
                                 height={500}
                                 alt={`${name}'s construction`}
@@ -128,7 +128,7 @@ const Construction = ({ images, id, name, url }: any) => {
                                             <SwiperSlide key={index}>
                                                 <Image
                                                     placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                                    src={`https://img.gs/whgxrkkhwv/full/https://baroquegp.com/projects/${url}/construction/${image}`}
+                                                    src={`/projects/${url}/construction/${image}`}
                                                     width={500}
                                                     height={500}
                                                     alt={`Image ${index}`}
