@@ -68,11 +68,11 @@ const Construction = ({ images, id, name, url }: any) => {
                                 navigation={hovered}
                                 modules={[Keyboard, Navigation]} className="w-[900px] flex h-full bg-black/50">
                                 {
-                                    images.construction.map((image: any, index) => (
+                                    images.construction.map((image: any, index: number) => (
                                         <SwiperSlide key={index}>
                                             <Image
                                                 placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                                src={`/projects/${url}/${image}`}
+                                                src={`https://img.gs/whgxrkkhwv/full/https://baroquegp.com/projects/${url}/${image}`}
                                                 layout='fill'
                                                 alt={`Image ${index}`}
                                                 className='items-center flex object-cover'
@@ -100,7 +100,7 @@ const Construction = ({ images, id, name, url }: any) => {
                         >
                             <Image
                                 placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                src={`/projects/${url}/${images.construction[0]}`}
+                                src={`https://img.gs/whgxrkkhwv/full/https://baroquegp.com/projects/${url}/${images.construction[0]}`}
                                 width={500}
                                 height={500}
                                 alt={`${name}'s construction`}
@@ -124,11 +124,11 @@ const Construction = ({ images, id, name, url }: any) => {
                                         className=""
                                         zoom={true}
                                         modules={[Zoom, Keyboard, Navigation]}>
-                                        {images.construction.map((image: any, index) => (
+                                        {images.construction.map((image: any, index: number) => (
                                             <SwiperSlide key={index}>
                                                 <Image
                                                     placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                                    src={`/projects/${url}/construction/${image}`}
+                                                    src={`https://img.gs/whgxrkkhwv/full/https://baroquegp.com/projects/${url}/construction/${image}`}
                                                     width={500}
                                                     height={500}
                                                     alt={`Image ${index}`}
