@@ -62,19 +62,21 @@ const Slider = ({ project }) => {
                 <Swiper
                     navigation={true}
                     keyboard={true}
+                    watchSlidesProgress={true}
+                    lazyPreloadPrevNext={1}
                     modules={[Keyboard, Navigation]} className="w-[100dvw] flex h-full">
                     {(type === "all") &&
                         project.images.all.map((image: any, index: number) => (
                             <SwiperSlide key={100 + index}>
                                 <div
                                     className='w-full h-full bg-cover'
-                                    style={{ backgroundImage: `url("/projects/${project.url}/${image}")` }}>
+                                    style={{ backgroundImage: `url("https://img.gs/whgxrkkhwv/200x200,fit/https://baroquegp.com/projects/${project.url}/${image}")` }}>
                                     <div
                                         className='h-full w-full bg-black bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60
                                 '>
                                         <Image
                                             placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                            src={`/projects/${project.url}/${image}`}
+                                            src={`https://img.gs/whgxrkkhwv/full/https://baroquegp.com/projects/${project.url}/${image}`}
                                             layout='fill'
                                             loading='lazy'
                                             sizes='(max-width: 768px) 80vw, (max-width: 1200px) 60vw, 100vw'
@@ -92,13 +94,13 @@ const Slider = ({ project }) => {
                             <SwiperSlide key={100 + index}>
                                 <div
                                     className='w-full h-full bg-cover'
-                                    style={{ backgroundImage: `url("/projects/${project.url}/${image}")` }}>
+                                    style={{ backgroundImage: `url("https://img.gs/whgxrkkhwv/200x200,fit/https://baroquegp.com/projects/${project.url}/${image}")` }}>
                                     <div
                                         className='h-full w-full bg-black bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60
                                 '>
                                         <Image
                                             placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                            src={`/projects/${project.url}/${image}`}
+                                            src={`https://img.gs/whgxrkkhwv/full/https://baroquegp.com/projects/${project.url}/${image}`}
                                             layout='fill'
                                             loading='lazy'
                                             sizes='(max-width: 768px) 80vw, (max-width: 1200px) 60vw, 100vw'
@@ -115,12 +117,12 @@ const Slider = ({ project }) => {
                         project.images.art.map((image: any, index: number) => (
                             <SwiperSlide key={200 + index}>
                                 <div
-                                    style={{ backgroundImage: `url("/projects/${project.url}/${image}")` }}
+                                    style={{ backgroundImage: `url("https://img.gs/whgxrkkhwv/200x200,fit/https://baroquegp.com/projects/${project.url}/${image}")` }}
                                     className='w-full h-full bg-cover'>
                                     <div className='h-full w-full bg-black/10 bg-clip-padding backdrop-filter backdrop-blur-lg'>
                                         <Image
                                             placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                            src={`/projects/${project.url}/${image}`}
+                                            src={`https://img.gs/whgxrkkhwv/full/https://baroquegp.com/projects/${project.url}/${image}`}
                                             layout='fill'
                                             loading='lazy'
                                             sizes='(max-width: 768px) 80vw, (max-width: 1200px) 60vw, 100vw'
@@ -138,13 +140,13 @@ const Slider = ({ project }) => {
                             <SwiperSlide key={300 + index}>
                                 <div
                                     className='w-full h-full bg-cover bg-blend-saturation'
-                                    style={{ backgroundImage: `url("/projects/${project.url}/${image}")` }}>
+                                    style={{ backgroundImage: `url("https://img.gs/whgxrkkhwv/200x200,fit/https://baroquegp.com/projects/${project.url}/${image}")` }}>
                                     <div
                                         className='h-full w-full bg-black bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60
                                 '>
                                         <Image
                                             placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                                            src={`/projects/${project.url}/${image}`}
+                                            src={`https://img.gs/whgxrkkhwv/full/https://baroquegp.com/projects/${project.url}/${image}`}
                                             layout='fill'
                                             loading='lazy'
                                             sizes='(max-width: 768px) 80vw, (max-width: 1200px) 60vw, 100vw'

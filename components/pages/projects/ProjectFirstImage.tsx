@@ -63,7 +63,7 @@ const FirstImage = ({ src, priority }: { src: string, priority: boolean }) => {
                         placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                         width={3600}
                         height={2400}
-                        src={src} priority={priority} className='-ml-16 scale scale-115 object-cover ' alt='about baroque'></Image>
+                        src={src} priority={priority} className='-ml-16 scale scale-115 h-full ' alt='about baroque'></Image>
                 </motion.div>
             </motion.div>
         </div>

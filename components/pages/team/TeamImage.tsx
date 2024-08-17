@@ -61,7 +61,7 @@ const TeamImage = () => {
                     >
                         <Image
                             placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                            alt="alternative" priority={proiority} src={src} width={2500} height={1044} className='h-[100dvh] object-cover' />
+                            alt="alternative" priority={proiority} src={`https://img.gs/whgxrkkhwv/full/https://baroquegp.com${src}`} width={1600} height={1000} className='h-[100dvh] object-cover' />
                     </motion.div>
                 ))}
             </div>

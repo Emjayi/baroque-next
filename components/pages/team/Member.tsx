@@ -12,7 +12,7 @@ const Member = ({ firstName, lastName, img, pos }) => {
                 whileInView={{ filter: "grayScale(0)", transition: { delay: .5, duration: 1.2 } }}
                 onViewportEnter={() => setHovered(true)}
                 onViewportLeave={() => setHovered(false)}
-                style={{ backgroundImage: `url(${img})` }}
+                style={{ backgroundImage: `url(${`https://img.gs/whgxrkkhwv/full/https://baroquegp.com${img}`})` }}
                 className='md:hidden w-[100dvw] grayscale uppercase bg-cover bg-center bg-primary h-[100dvh] flex flex-col items-start'>
                 <AnimatePresence>
                     {hovered &&
@@ -45,7 +45,7 @@ const Member = ({ firstName, lastName, img, pos }) => {
                 // whileInView={{ width: 600, transition: { delay: .1, duration: .5 } }}
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
-                style={{ backgroundImage: `url(${img})` }}
+                style={{ backgroundImage: `url(${`https://img.gs/whgxrkkhwv/full/https://baroquegp.com${img}`})` }}
                 className='hidden w-[200px] grayscale hover:grayscale-0 uppercase bg-cover bg-center bg-primary duration-700 h-[100dvh] md:flex flex-col items-start'>
                 <AnimatePresence>
                     {hovered &&
