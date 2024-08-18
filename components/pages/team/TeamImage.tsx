@@ -52,6 +52,7 @@ const TeamImage = () => {
                 {hasPlaceholder && (
                     <div className='h-[100dvh] w-full saturate-150'>
                         <Image
+                            placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                             src={"/team/placeholder.png"}
                             alt="team"
                             width={1600} height={1000}
@@ -68,7 +69,6 @@ const TeamImage = () => {
                     >
                         <Image
                             onLoadingComplete={() => setHasPlaceholder(false)}
-                            placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                             alt="alternative" src={src} width={1600} height={1000} className='h-[100dvh] w-full object-cover' />
                     </motion.div>
                 ))}
