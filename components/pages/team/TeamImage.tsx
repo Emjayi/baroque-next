@@ -5,9 +5,9 @@ import Image from 'next/image'
 const imageComponents = [
     { src: "/background1.avif", translateX: "s1", skew: "skew1" },
     { src: "/background.avif", translateX: "sMinus1" },
-    { src: '/team/back.avif', translateX: 's3' },
-    { src: '/team/middle.avif', translateX: "s1" },
-    { src: "/team/top.avif", translateX: 'sMinus1' },
+    { src: '/team/back.png', translateX: 's3' },
+    { src: '/team/middle.png', translateX: "s1" },
+    { src: "/team/top.png", translateX: 'sMinus1' },
 ];
 
 const TeamImage = () => {
@@ -22,7 +22,7 @@ const TeamImage = () => {
         <stop stop-color="#00000000" offset="70%" />
       </linearGradient>
     </defs>
-    <rect width="${w}" height="${h}" fill="#00000020" />
+    <rect width="${w}" height="${h}" fill="#00000020" border-radius="8px" />
     <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
     <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
   </svg>`;
@@ -55,8 +55,9 @@ const TeamImage = () => {
                             placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                             src={"/team/placeholder.png"}
                             alt="team"
-                            width={1600} height={1000}
-                            className='object-cover'
+                            width={800} height={500}
+                            priority={true}
+                            className='h-[100dvh] object-cover'
                         />
                     </div>
                 )}
@@ -68,8 +69,7 @@ const TeamImage = () => {
                         className='stack h-[100dvh] w-full saturate-150'
                     >
                         <Image
-                            onLoadingComplete={() => setHasPlaceholder(false)}
-                            alt="alternative" src={src} width={1600} height={1000} className='h-[100dvh] w-full object-cover' />
+                            alt="alternative" priority={true} src={src} width={2200} height={1600} className='h-[100dvh] w-[480vw] z-1000 object-cover' />
                     </motion.div>
                 ))}
             </div>
