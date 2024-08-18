@@ -137,7 +137,7 @@ const App = () => {
 
                                     </div>
                                     <motion.div className='w-full hidden md:block lg:static absolute bottom-2 left-0 text-center lg:flex gap-2 justify-end'>
-                                        <p>Made with <span className='text-primary'>❤</span> at <a href='https://khatoonadvertising.ir/' className='text-zinc-400 hover:text-primary duration-300'>Khatoon Advertising</a></p>
+                                        <p>Developed at <a href='https://khatoonadvertising.ir/' className='text-zinc-400 hover:text-primary duration-300'>Khatoon Advertising</a></p>
                                         {/* <p>by <a href='https://emjayi.liara.run/' className='text-zinc-400 hover:text-primary duration-300'>Emjayi</a></p> */}
                                     </motion.div>
                                 </motion.div>

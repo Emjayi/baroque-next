@@ -1,18 +1,21 @@
 "use client"
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useState } from 'react'
+import Image from 'next/image'
 
 const Member = ({ firstName, lastName, img, pos }) => {
     const [hovered, setHovered] = useState(false)
+    const [hasPlaceholder, setHasPlaceholder] = useState(true)
 
     return (
         <>
             {/*Mobile*/}
             <motion.div
+                onLoadedData={() => setHasPlaceholder(false)}
                 whileInView={{ filter: "grayScale(0)", transition: { delay: .5, duration: 1.2 } }}
                 onViewportEnter={() => setHovered(true)}
                 onViewportLeave={() => setHovered(false)}
-                style={{ backgroundImage: `url(${img})` }}
+                style={hasPlaceholder ? { backgroundImage: "url('/team/member-placeholder.png)" } : { backgroundImage: `url(${img})` }}
                 className='md:hidden w-[100dvw] grayscale uppercase bg-cover bg-center bg-primary h-[100dvh] flex flex-col items-start'>
                 <AnimatePresence>
                     {hovered &&
@@ -41,6 +44,7 @@ const Member = ({ firstName, lastName, img, pos }) => {
 
             {/*Desktop*/}
             <motion.div
+                onLoadedData={() => setHasPlaceholder(false)}
                 whileHover={{ width: 400 }}
                 // whileInView={{ width: 600, transition: { delay: .1, duration: .5 } }}
                 onMouseEnter={() => setHovered(true)}

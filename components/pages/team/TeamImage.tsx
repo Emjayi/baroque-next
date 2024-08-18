@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import Image from 'next/image'
 
 const imageComponents = [
@@ -44,10 +44,21 @@ const TeamImage = () => {
         skew1: useTransform(scrollXProgress, [0, 1], [0, -5]),
     };
 
+    const [hasPlaceholder, setHasPlaceholder] = useState(true)
 
     return (
         <div className='flex w-[480vw] md:w-[110vw] h-[100dvh] mr-24' ref={ref}>
             <div className='stack object-fill'>
+                {hasPlaceholder && (
+                    <div className='h-[100dvh] w-full saturate-150'>
+                        <Image
+                            src={"/team/placeholder.png"}
+                            alt="team"
+                            width={1600} height={1000}
+                            className='object-cover'
+                        />
+                    </div>
+                )}
                 {imageComponents.map(({ src, translateX, skew }, index) => (
                     <motion.div
                         key={index}
@@ -56,6 +67,7 @@ const TeamImage = () => {
                         className='stack h-[100dvh] w-full saturate-150'
                     >
                         <Image
+                            onLoadingComplete={() => setHasPlaceholder(false)}
                             placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                             alt="alternative" src={src} width={1600} height={1000} className='h-[100dvh] w-full object-cover' />
                     </motion.div>
