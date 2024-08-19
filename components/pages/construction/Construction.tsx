@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Keyboard, Navigation, Zoom } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,6 +11,42 @@ import { X } from 'lucide-react';
 
 // Construction component
 const Construction = ({ images, id, name, url }: any) => {
+
+
+    const [hovered, setHovered] = useState(false)
+    const ref = useRef(null);
+    const prevRef = useRef(null); // Ref for the previous button
+    const nextRef = useRef(null); // Ref for the next button
+
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            const windowWidth = ref.current ? ref.current.offsetWidth : window.innerWidth;
+            const containerRect = ref.current?.getBoundingClientRect();
+
+            if (prevRef.current && nextRef.current && containerRect && hovered) {
+                if (mouseX < containerRect.left + windowWidth / 2) {
+                    prevRef.current.style.display = 'block';
+                    nextRef.current.style.display = 'none';
+                    prevRef.current.style.left = `${mouseX}px`;
+                    prevRef.current.style.top = `${mouseY}px`;
+                } else {
+                    prevRef.current.style.display = 'none';
+                    nextRef.current.style.display = 'block';
+                    nextRef.current.style.left = `${mouseX}px`;
+                    nextRef.current.style.top = `${mouseY}px`;
+                }
+            }
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, [hovered]);
 
     // Image loading effect
     const shimmer = (w: number, h: number) => `
@@ -32,7 +68,6 @@ const Construction = ({ images, id, name, url }: any) => {
             : window.btoa(str);
 
     // State for hover and active states
-    const [hovered, setHovered] = useState(false);
     const [active, setActive] = useState(false);
     const [imageIsOpen, setImageOpen] = useState(false)
     const handleImageOpening = () => {
@@ -40,15 +75,27 @@ const Construction = ({ images, id, name, url }: any) => {
     }
     return (
         <>
+
             {(images.construction) &&
                 <motion.div
                     key={id}
-                    className='text-white flex flex-col justify-center duration-300 w-[300px] md:w-[380px] text-center'
+                    className='text-white flex flex-col justify-center duration-300 w-[300px] md:w-[380px] text-center cursor-none'
                     whileHover={{ width: 900 }}
                     transition={{ duration: .4, ease: "easeInOut" }}
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}
+                    ref={ref}
                 >
+                    <div
+                        ref={prevRef}
+                        className='swiper-button-prev'
+                        style={hovered ? { position: 'fixed', display: 'none', transition: '0s', cursor: 'none' } : { opacity: 0, transition: '0s' }}
+                    />
+                    <div
+                        ref={nextRef}
+                        className='swiper-button-next'
+                        style={hovered ? { position: 'fixed', display: 'none', transition: '0s', cursor: 'none' } : { opacity: 0, transition: '0s' }}
+                    />
                     <motion.div
                         className='bg-black hidden lg:block z-40 py-[10px] tracking-widest text-center w-full font-bold text-white'>
                         <motion.h1 className={hovered && "text-primary"}>{name}</motion.h1>
@@ -65,7 +112,10 @@ const Construction = ({ images, id, name, url }: any) => {
                             className='image-container hidden md:block w-full h-[80dvh]'
                         >
                             <Swiper
-                                navigation={hovered}
+                                navigation={{
+                                    prevEl: prevRef.current,
+                                    nextEl: nextRef.current,
+                                }}
                                 modules={[Keyboard, Navigation]} className="w-[900px] flex h-full bg-black/50">
                                 {
                                     images.construction.map((image: any, index: number) => (
@@ -82,6 +132,7 @@ const Construction = ({ images, id, name, url }: any) => {
                                 }
                             </Swiper>
                         </motion.div>
+
                     </motion.div>
 
                     {/* Mobile View */}
@@ -141,6 +192,7 @@ const Construction = ({ images, id, name, url }: any) => {
                     </motion.div>
                 </motion.div>
             }
+
         </>
     );
 };

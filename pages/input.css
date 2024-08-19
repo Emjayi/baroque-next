@@ -96,14 +96,14 @@ body {
 ::-webkit-scrollbar
 {
 	width: 0px;
-    height: 4px;
+    height: 3px;
 	background-color: transparent;
 }
 
 ::-webkit-scrollbar-thumb
 {
-	background-color: #d3a15690;
-    border-radius: 35px;
+	background-color: #d3a156d7;
+    border-radius: rgba(211, 161, 86, 0.732)
 }
 
 .image-container {

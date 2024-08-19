@@ -4,10 +4,10 @@ import Image from 'next/image'
 
 const imageComponents = [
     { src: "/background1.avif", translateX: "s1", skew: "skew1" },
-    { src: "/background.avif", translateX: "sMinus1" },
-    { src: '/team/back.png', translateX: 's3' },
-    { src: '/team/middle.png', translateX: "s1" },
-    { src: "/team/top.png", translateX: 'sMinus1' },
+    { src: "/background.avif" },
+    { src: '/team/back.avif', translateX: 's3' },
+    { src: '/team/middle.avif', translateX: "s1" },
+    { src: "/team/top.avif", translateX: 'sMinus1' },
 ];
 
 const TeamImage = () => {
@@ -55,9 +55,9 @@ const TeamImage = () => {
                             placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                             src={"/team/placeholder.png"}
                             alt="team"
-                            width={800} height={500}
+                            width={2200} height={1600}
                             priority={true}
-                            className='h-[100dvh] object-cover'
+                            className='h-[100dvh] w-[480vw] object-cover'
                         />
                     </div>
                 )}

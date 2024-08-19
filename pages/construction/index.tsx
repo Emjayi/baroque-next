@@ -23,9 +23,11 @@ const Constructions = () => {
                 <meta name="twitter:description" content="Discover the construction techniques and innovations employed by Baroque in our various projects." />
             </Head>
             <PageWrapper pageName="Constructions">
-                {projects.map((project, index) => (
-                    <Construction key={index} {...project} />
-                ))}
+                <div className='h-full flex items-center z-[10000000]'>
+                    {projects.map((project, index) => (
+                        <Construction key={index} {...project} />
+                    ))}
+                </div>
             </PageWrapper>
         </>
     );
