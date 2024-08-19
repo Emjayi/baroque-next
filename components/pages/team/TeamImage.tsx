@@ -1,13 +1,18 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import React, { useRef, useState } from 'react'
 import Image from 'next/image'
+import backround1 from '/public/background1.avif'
+import backround from '/public/background.avif'
+import back from '/public/team/back.avif'
+import middle from '/public/team/middle.avif'
+import top from '/public/team/top.avif'
 
 const imageComponents = [
-    { src: "/background1.avif", translateX: "s1", skew: "skew1" },
-    { src: "/background.avif" },
-    { src: '/team/back.avif', translateX: 's3' },
-    { src: '/team/middle.avif', translateX: "s1" },
-    { src: "/team/top.avif", translateX: 'sMinus1' },
+    { src: backround1, translateX: "s1", skew: "skew1" },
+    { src: backround },
+    { src: back, translateX: 's3' },
+    { src: middle, translateX: "s1" },
+    { src: top, translateX: 'sMinus1' },
 ];
 
 const TeamImage = () => {
@@ -69,8 +74,8 @@ const TeamImage = () => {
                         className='stack h-[100dvh] w-full saturate-150'
                     >
                         <Image
-                            placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                            alt="alternative" priority={true} src={src} width={2200} height={1600} className='h-[100dvh] w-[480vw] z-1000 object-cover' />
+                            placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(200, 175))}`}
+                            alt="alternative" priority={true} src={src} className='h-[100dvh] w-[480vw] z-1000 object-cover' />
                     </motion.div>
                 ))}
             </div>
