@@ -69,6 +69,7 @@ const TeamImage = () => {
                         className='stack h-[100dvh] w-full saturate-150'
                     >
                         <Image
+                            placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                             alt="alternative" priority={true} src={src} width={2200} height={1600} className='h-[100dvh] w-[480vw] z-1000 object-cover' />
                     </motion.div>
                 ))}
