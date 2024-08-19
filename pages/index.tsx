@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence, delay } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Menu from '../components/layout/menu';
-import Footer from '../components/layout/Footer';
 import PageTransition from '../components/layout/PageTransition';
 import AnimatedText from '../components/layout/AnimatedText';
 import TextLoop from '../components/layout/TextLoop';
 import Link from 'next/link'
-import { useSelector } from 'react-redux';
-import { RootState } from '../store/store';
 import { aboutTitlesDou } from "../lib/data"
-import type { Metadata } from 'next/types';
 
 
 // App component with animations

@@ -21,6 +21,8 @@ const PageTransition = ({ intro, open }) => {
 
     return (
         <>
+            <div className="noise z-0">
+            </div>
             <motion.div className={!intro ? 'fixed z-0 flex left-0 right-0 justify-center items-center' : 'fixed z-0 flex left-0 right-0 justify-center items-center'}>
                 <motion.svg
                     initial={{ scale: 1, opacity: 1 }}

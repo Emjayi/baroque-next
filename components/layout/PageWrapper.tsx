@@ -8,6 +8,7 @@ import Footer from './Footer';
 import PageTransition from './PageTransition';
 
 
+
 const PageWrapper = ({ pageName, children }: any) => {
 
     const [isMobile, setIsMobile] = useState(false);
@@ -43,8 +44,6 @@ const PageWrapper = ({ pageName, children }: any) => {
 
     return (
         <motion.div className='flex items-center h-[100dvh] md:h-screen'>
-
-
             <HorizontalScroll></HorizontalScroll>
 
             {/*Logo Animation*/}

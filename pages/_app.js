@@ -20,6 +20,8 @@ export default function App({ Component, pageProps, router }) {
                         <meta name="description" content="In the name of games" />
                         < meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1, user-scalable=no" />
                     </Head>
+                    {/* <div className="noise z-0">
+                    </div> */}
                     < Component {...pageProps} key={router.route} />
                 </AnimatePresence>
             </LanguageProvider>
