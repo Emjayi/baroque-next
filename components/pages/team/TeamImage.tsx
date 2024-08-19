@@ -1,15 +1,15 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import React, { useRef, useState } from 'react'
 import Image from 'next/image'
-import backround1 from '/public/background1.avif'
-import backround from '/public/background.avif'
+import background1 from '/public/background1.avif'
+import background from '/public/background.avif'
 import back from '/public/team/back.avif'
 import middle from '/public/team/middle.avif'
 import top from '/public/team/top.avif'
 
 const imageComponents = [
-    { src: backround1, translateX: "s1", skew: "skew1" },
-    { src: backround },
+    { src: background1, translateX: "s1", skew: "skew1" },
+    { src: background },
     { src: back, translateX: 's3' },
     { src: middle, translateX: "s1" },
     { src: top, translateX: 'sMinus1' },
@@ -53,7 +53,9 @@ const TeamImage = () => {
 
     return (
         <div className='flex w-[480vw] md:w-[110vw] h-[100dvh] mr-24' ref={ref}>
+
             <div className='stack object-fill'>
+
                 {hasPlaceholder && (
                     <div className='h-[100dvh] w-full saturate-150'>
                         <Image
@@ -66,6 +68,14 @@ const TeamImage = () => {
                         />
                     </div>
                 )}
+
+                {/* Preload Team Images before loading parallax. I know it's kinda bad looking but trust me it works. */}
+                {imageComponents.map(({ src }, index) => (
+                    <div key={index} style={{ display: 'none' }}>
+                        <Image src={src} alt="preload" width={1} height={1} priority={true} />
+                    </div>
+                ))}
+
                 {imageComponents.map(({ src, translateX, skew }, index) => (
                     <motion.div
                         key={index}
@@ -78,7 +88,9 @@ const TeamImage = () => {
                             alt="alternative" priority={true} src={src} className='h-[100dvh] w-[480vw] z-1000 object-cover' />
                     </motion.div>
                 ))}
+
             </div>
+
         </div>
     )
 }
