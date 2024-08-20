@@ -123,7 +123,7 @@ const App = () => {
                                             {links.map((link) =>
                                             (
 
-                                                <li className='text-zinc-400 hover:text-primary duration-300'><Link href={link.url} key={link.key}>{link.name}</Link></li>
+                                                <li className='text-zinc-400 hover:text-primary duration-300' key={link.key}><Link href={link.url}>{link.name}</Link></li>
 
                                             )
                                             )}
