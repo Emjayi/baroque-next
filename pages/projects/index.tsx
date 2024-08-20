@@ -23,6 +23,8 @@ const Projects = () => {
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Baroque - Projects" />
                 <meta name="twitter:description" content="Explore the projects Constructed by Baroque." />
+                <meta name="robots" content="index, follow" />
+                <link rel="canonical" href="https://baroquegp.com/projects" />
             </Head>
             <PageWrapper pageName="Projects">
                 <motion.div className='h-full flex items-center'>

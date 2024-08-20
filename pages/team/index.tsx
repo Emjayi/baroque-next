@@ -85,6 +85,8 @@ const Team = () => {
                     rel="preload"
                     href="/team/middle.avif"
                 />
+                <meta name="robots" content="index, follow" />
+                <link rel="canonical" href="https://baroquegp.com/team" />
             </Head>
             <PageWrapper pageName='Team'>
                 <TeamImage />

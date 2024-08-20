@@ -17,9 +17,42 @@ export default function App({ Component, pageProps, router }) {
                 <AnimatePresence mode='wait' >
                     <Head>
                         <title>Baroque</title>
-                        <meta name="description" content="In the name of games" />
-                        < meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1, user-scalable=no" />
+                        <meta name="description" content="Modern Thinking, Quality Building." />
+                        <meta name="keywords" content="Baroque, architecture, design, team and vision." />
+                        <meta property="og:title" content="Baroque" />
+                        <meta property="og:description" content="Discover the team and vision that drive Baroque." />
+                        <meta property="og:type" content="website" />
+                        <meta property="og:url" content="https://baroquegp.com/" />
+                        <meta property="og:image" content="https://baroque.com/images/about-og-image.jpg" />
+                        <meta name="robots" content="index, follow" />
+                        <link rel="canonical" href="https://baroquegp.com/" />
                     </Head>
+                    <Script>
+                        {
+                            {
+                                "@context": "https://schema.org",
+                                "@type": "Organization",
+                                "name": "Baroque",
+                                "url": "https://baroquegp.com",
+                                "logo": "https://baroquegp.com/logo.png",
+                                "contactPoint": {
+                                    "@type": "ContactPoint",
+                                    "telephone": "+98-911-393-6140",
+                                    "contactType": "Customer Service"
+                                },
+                                "sameAs": [
+                                    "https://www.instagram.com/baroquecgp",
+                                ],
+                                "address": {
+                                    "@type": "PostalAddress",
+                                    "streetAddress": "Armitaj Tower, Mashhad",
+                                    "addressLocality": "Khorasan Razavi",
+                                    "postalCode": "4681863366",
+                                    "addressCountry": "IR"
+                                }
+                            }
+                        }
+                    </Script>
                     {/* <div className="noise z-0">
                     </div> */}
                     < Component {...pageProps} key={router.route} />

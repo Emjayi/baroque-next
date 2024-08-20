@@ -21,13 +21,13 @@ const About = () => {
                 <meta property="og:title" content="About Baroque" />
                 <meta property="og:description" content="Learn more about Baroque, our mission, vision, and the history behind our construction projects." />
                 <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://yourdomain.com/about" />
-                <meta property="og:image" content="https://yourdomain.com/images/about.jpg" />
+                <meta property="og:url" content="https://baroquegp.com/about" />
                 <meta property="og:site_name" content="Baroque" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="About Baroque" />
                 <meta name="twitter:description" content="Learn more about Baroque, our mission, vision, and the history behind our construction projects." />
-                <meta name="twitter:image" content="https://yourdomain.com/images/about.jpg" />
+                <meta name="robots" content="index, follow" />
+                <link rel="canonical" href="https://baroquegp.com/about" />
             </Head>
             <PageWrapper pageName='about'>
                 <AboutPic src={img1} priority={true} />

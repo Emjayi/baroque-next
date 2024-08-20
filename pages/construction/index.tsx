@@ -21,6 +21,8 @@ const Constructions = () => {
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content="Baroque - Construction" />
                 <meta name="twitter:description" content="Discover the construction techniques and innovations employed by Baroque in our various projects." />
+                <meta name="robots" content="index, follow" />
+                <link rel="canonical" href="https://baroquegp.com/construction" />
             </Head>
             <PageWrapper pageName="Constructions">
                 <div className='h-full flex items-center z-[10000000]'>

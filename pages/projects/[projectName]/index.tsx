@@ -64,6 +64,8 @@ const ProjectPage = () => {
                 <meta name="twitter:title" content={`Our Projects - ${project.name}`} />
                 <meta name="twitter:description" content={`Discover the details of ${project.name}.`} />
                 <meta name="twitter:image" content={project.firstImage} />
+                <meta name="robots" content="index, follow" />
+                <link rel="canonical" href={`https://baroquegp.com/${project.url}`} />
                 <link
                     rel="preload"
                     href={project.firstImage}
