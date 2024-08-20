@@ -27,7 +27,9 @@ export default function App({ Component, pageProps, router }) {
                         <meta name="robots" content="index, follow" />
                         <link rel="canonical" href="https://baroquegp.com/" />
                     </Head>
-                    <Script>
+
+                    {/* This needs some changes. Like the postal code and other stuff. */}
+                    <Script id="seo-scripts">
                         {
                             {
                                 "@context": "https://schema.org",
@@ -53,8 +55,6 @@ export default function App({ Component, pageProps, router }) {
                             }
                         }
                     </Script>
-                    {/* <div className="noise z-0">
-                    </div> */}
                     < Component {...pageProps} key={router.route} />
                 </AnimatePresence>
             </LanguageProvider>
