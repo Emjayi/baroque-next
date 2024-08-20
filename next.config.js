@@ -1,4 +1,7 @@
+/** @type {import('next-sitemap').IConfig} */
 module.exports = {
+    siteUrl: 'https://baroquegp.com',
+    generateRobotsTxt: true,
     output: "standalone",
     images: {
         remotePatterns: [
