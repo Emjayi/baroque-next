@@ -33,17 +33,17 @@ const toBase64 = (str: string) =>
 
 const TeamImage = () => {
     const ref = useRef(null);
-    const { scrollXProgress } = useScroll({
-        target: ref,
-        offset: ['start end', 'end start'],
-    });
+    // const { scrollXProgress } = useScroll({
+    //     target: ref,
+    //     offset: ['start end', 'end start'],
+    // });
 
-    const translateXValues = {
-        s1: useTransform(scrollXProgress, [0, 1], [0, 60]),
-        sMinus1: useTransform(scrollXProgress, [0, 1], [0, -50]),
-        s3: useTransform(scrollXProgress, [0, 1], [0, 120]),
-        skew1: useTransform(scrollXProgress, [0, 1], [0, -5]),
-    };
+    // const translateXValues = {
+    //     s1: useTransform(scrollXProgress, [0, 1], [0, 60]),
+    //     sMinus1: useTransform(scrollXProgress, [0, 1], [0, -50]),
+    //     s3: useTransform(scrollXProgress, [0, 1], [0, 120]),
+    //     skew1: useTransform(scrollXProgress, [0, 1], [0, -5]),
+    // };
 
     return (
         <div className="flex w-[480vw] md:w-[110vw] h-[100dvh] mr-24" ref={ref}>
@@ -63,8 +63,8 @@ const TeamImage = () => {
                 {imageComponents.map(({ src, translateX, skew }, index) => (
                     <motion.div
                         key={index}
-                        initial={{ translateX: translateXValues[translateX] }}
-                        style={{ translateX: translateXValues[translateX], skewX: translateXValues[skew] }}
+                        // initial={{ translateX: translateXValues[translateX] }}
+                        // style={{ translateX: translateXValues[translateX], skewX: translateXValues[skew] }}
                         className="stack h-[100dvh] w-full saturate-150"
                     >
                         <Image
