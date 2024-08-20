@@ -109,7 +109,7 @@ const App = () => {
                                     transition={{ duration: 1, delay: .2 }}
 
                                 >
-                                    <h1 className=''>Enter</h1>
+                                    <h1 className='text-white font-bold md:font-normal'>Enter</h1>
                                 </motion.button>
                                 <motion.div
                                     initial={{ y: 100 }}
@@ -122,9 +122,9 @@ const App = () => {
                                         <ul className='flex gap-2 justify-start'>
                                             {links.map((link) =>
                                             (
-                                                <Link href={link.url} key={link.key}>
-                                                    <li className='text-zinc-400 hover:text-primary duration-300'>{link.name}</li>
-                                                </Link>
+
+                                                <li className='text-zinc-400 hover:text-primary duration-300'><Link href={link.url} key={link.key}>{link.name}</Link></li>
+
                                             )
                                             )}
                                         </ul>
