@@ -15,7 +15,7 @@ const Member = ({ firstName, lastName, img, pos }) => {
                 whileInView={{ filter: "grayScale(0)", transition: { delay: .5, duration: 1.2 } }}
                 onViewportEnter={() => setHovered(true)}
                 onViewportLeave={() => setHovered(false)}
-                style={hasPlaceholder ? { backgroundImage: "url('/team/member-placeholder.png)" } : { backgroundImage: `url(${img})` }}
+                style={{ backgroundImage: `url(${img})` }}
                 className='md:hidden w-[100dvw] grayscale uppercase bg-cover bg-center bg-primary h-[100dvh] flex flex-col items-start'>
                 <AnimatePresence>
                     {hovered &&

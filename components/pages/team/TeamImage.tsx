@@ -1,15 +1,13 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import React, { useRef } from 'react';
 import Image from 'next/image';
-import background1 from '/public/background1.avif';
-import background from '/public/background.avif';
+import background from '/public/background.jpg';
 import back from '/public/team/back.avif';
 import middle from '/public/team/middle.avif';
 import top from '/public/team/top.avif';
+import placeholder from '/public/team/placeholder.png'
 
 const imageComponents = [
-    { src: background1, translateX: 's1', skew: 'skew1' },
-    { src: background },
     { src: back, translateX: 's3' },
     { src: middle, translateX: 's1' },
     { src: top, translateX: 'sMinus1' },
@@ -33,25 +31,35 @@ const toBase64 = (str: string) =>
 
 const TeamImage = () => {
     const ref = useRef(null);
-    // const { scrollXProgress } = useScroll({
-    //     target: ref,
-    //     offset: ['start end', 'end start'],
-    // });
+    // scroll animation
+    const { scrollX } = useScroll({
+        target: ref,
+        offset: ["start end", "end start"]
+    });
 
-    // const translateXValues = {
-    //     s1: useTransform(scrollXProgress, [0, 1], [0, 60]),
-    //     sMinus1: useTransform(scrollXProgress, [0, 1], [0, -50]),
-    //     s3: useTransform(scrollXProgress, [0, 1], [0, 120]),
-    //     skew1: useTransform(scrollXProgress, [0, 1], [0, -5]),
-    // };
+    // const scrollVelocity = useVelocity(scrollX);
+    const smoothVelocity = useSpring(scrollX, {
+        damping: 600,
+        stiffness: 1200
+    });
+    const velocityFactor = useTransform(
+        smoothVelocity,
+        [-10000, 9000],
+        [-400, 350]);
+    const translateXValues = {
+        s1: useTransform(smoothVelocity, [-10000, 8000], [200, -180]),
+        sMinus1: useTransform(smoothVelocity, [-10000, 8000], [400, -320]),
+        s3: useTransform(smoothVelocity, [-10000, 8000], [100, -110]),
+        skew1: useTransform(smoothVelocity, [-10000, 8000], [-700, 500]),
+    }
 
     return (
-        <div className="flex w-[480vw] md:w-[110vw] h-[100dvh] mr-24" ref={ref}>
-            <div className="stack object-fill">
+        <div className="flex overflow-hidden w-[420vw] md:w-[110vw] h-[100dvh] " ref={ref}>
+            <motion.div className="overflow-hidden stack w-full " style={{ translateX: velocityFactor, backgroundImage: `url(${placeholder})` }} ref={ref}>
                 {/* Preload critical images */}
                 <Image
                     placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
-                    src={background1}
+                    src={background}
                     alt="Background 1"
                     width={2200}
                     height={1600}
@@ -60,12 +68,12 @@ const TeamImage = () => {
                 />
 
                 {/* Load the parallax images */}
-                {imageComponents.map(({ src, translateX, skew }, index) => (
+                {imageComponents.map(({ src, translateX }, index) => (
                     <motion.div
                         key={index}
-                        // initial={{ translateX: translateXValues[translateX] }}
-                        // style={{ translateX: translateXValues[translateX], skewX: translateXValues[skew] }}
-                        className="stack h-[100dvh] w-full saturate-150"
+                        initial={{ translateX: translateXValues[translateX] }}
+                        style={{ translateX: translateXValues[translateX] }}
+                        className="stack h-[100dvh] w-full saturate-150 "
                     >
                         <Image
                             placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(200, 175))}`}
@@ -76,8 +84,8 @@ const TeamImage = () => {
                         />
                     </motion.div>
                 ))}
-            </div>
-        </div>
+            </motion.div>
+        </div >
     );
 };
 
