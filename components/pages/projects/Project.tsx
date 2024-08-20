@@ -66,7 +66,7 @@ const Project = ({ id, name, alt, url, mainImage, en }: any) => {
                         width={300}
                         height={400}
                         alt={alt}
-                        quality={50}
+                        priority
                         className='w-[300px] h-[400px] object-cover grayscale hover:grayscale-0 duration-1000' />
                 </motion.div>
             </Link >
@@ -90,7 +90,7 @@ const Project = ({ id, name, alt, url, mainImage, en }: any) => {
                     onMouseEnter={() => setActive(true)}
                     onMouseLeave={() => setActive(false)}
                 >
-                    <Image src={mainImage} width={250} height={200} alt={alt} className='object-cover w-[250px] h-[400px] ' />
+                    <Image src={mainImage} width={250} height={400} priority alt={alt} className='object-cover w-[250px] h-[400px] ' />
                 </motion.div>
             </Link >
             <motion.div
