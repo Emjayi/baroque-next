@@ -19,7 +19,7 @@ const Footer = () => {
         <motion.div
             initial={{ y: 100 }}
             animate={{ y: 0 }}
-            exit={{ y: 50, transition: { delay: .6, duration: .9 } }}
+            exit={{ y: 48, transition: { delay: .6, duration: .9 } }}
             transition={{ duration: 1, type: "spring", stiffness: 25, damping: 10, delay: 3 }}
             className='fixed flex py-4 justify-center bg-black/50 text-[12px] text-sm bottom-0 lg:px-16 items-stretch gap-12 text-white font-bold w-full z-20'>
             <div className='flex gap-3'>
@@ -36,9 +36,9 @@ const Footer = () => {
             <div className='flex gap-4 justify-center'>
 
             </div>
-            <motion.div className='w-full hidden md:flex lg:static absolute bottom-2 left-0 text-center gap-1 justify-end'>
+            <motion.div className='w-full hidden md:flex lg:static absolute text-zinc-400 bottom-2 left-0 text-center gap-1 justify-end'>
                 {/* <p>Developed by <a href='https://emjayi.liara.run/' className='text-zinc-400 hover:text-primary duration-300'>Emjayi</a></p> */}
-                <p>Developed at <a href='https://khatoonadvertising.ir/' className='text-zinc-400 hover:text-primary duration-300'>Khatoon Advertising</a></p>
+                <p className=' hover:text-purple-400'>by <a href='https://khatoonadvertising.ir/' className='duration-300'>Khatoon.</a></p>
             </motion.div>
         </motion.div >
     )

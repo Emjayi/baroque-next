@@ -124,6 +124,7 @@ const Construction = ({ images, id, name, url }: any) => {
                                                 placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                                                 src={`/projects/${url}/${image}`}
                                                 layout='fill'
+                                                loading='lazy'
                                                 alt={`Image ${index}`}
                                                 className='items-center flex object-cover'
                                             />
@@ -154,6 +155,7 @@ const Construction = ({ images, id, name, url }: any) => {
                                 src={`/projects/${url}/${images.construction[0]}`}
                                 width={500}
                                 height={500}
+                                loading='lazy'
                                 alt={`${name}'s construction`}
                                 className='object-cover w-[300px] h-[90dvh]'
                             ></Image>
@@ -182,6 +184,7 @@ const Construction = ({ images, id, name, url }: any) => {
                                                     src={`/projects/${url}/${image}`}
                                                     width={500}
                                                     height={500}
+                                                    loading='lazy'
                                                     alt={`Image ${index}`}
                                                     className='object-contain min-w-screen min-h-[100dvh]' />
                                             </SwiperSlide>

@@ -43,7 +43,8 @@ const PageWrapper = ({ pageName, children }: any) => {
 
 
     return (
-        <motion.div className='flex items-center h-[100dvh] md:h-screen'>
+        <motion.div
+            className='flex items-center h-[100dvh] md:h-screen'>
             <HorizontalScroll></HorizontalScroll>
 
             {/*Logo Animation*/}
@@ -51,8 +52,9 @@ const PageWrapper = ({ pageName, children }: any) => {
 
 
             <motion.div
+                initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit={{ opacity: 0, transition: { duration: 0 } }}
+                exit={{ opacity: -100, scale: .8, x: "-80%", transition: { duration: .6, ease: "easeInOut" } }}
                 transition={{ duration: .5, ease: "easeInOut" }}>
                 <AnimatePresence mode='wait'>
                     {!open && !intro &&

@@ -129,7 +129,7 @@ const Slider = ({ project }) => {
                     }
                     {(type === "real") &&
                         project.images.real.map((image: any, index: number) => (
-                            <SwiperSlide key={100 + index}>
+                            <SwiperSlide key={10 + index}>
                                 <div
                                     className='w-full h-full bg-cover'
                                 // style={{ backgroundImage: `url("/projects/${project.url}/${image}")` }}

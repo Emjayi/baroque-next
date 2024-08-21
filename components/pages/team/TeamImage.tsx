@@ -54,8 +54,8 @@ const TeamImage = () => {
     }
 
     return (
-        <div className="flex overflow-hidden w-[420vw] sm:w-[220vw] md:w-[180vw] lg:w-[130vw] xl:w-[110vw] h-[100dvh] " ref={ref}>
-            <motion.div className="stack w-full object-cover" style={{ translateX: velocityFactor, backgroundImage: `url(${placeholder})` }} ref={ref}>
+        <div className="flex overflow-hidden w-[420vw] sm:w-[220vw] md:w-[180vw] lg:w-[130vw] h-[100dvh] " ref={ref}>
+            <motion.div className="overflow-hidden stack w-full object-cover" style={{ translateX: velocityFactor, backgroundImage: `url(${placeholder})` }} ref={ref}>
                 {/* Preload critical images */}
                 <Image
                     placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}

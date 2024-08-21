@@ -49,7 +49,7 @@ const Project = ({ id, name, alt, url, mainImage, en }: any) => {
     const revParallax = useTransform(smoothVelocity, [-1000, 1000], [-5, 5]);
 
     return (
-        <motion.div key={id} className='text-white duration-300 w-[250px] md:w-[300px] hover:text-primary text-center'>
+        <motion.div className='text-white duration-300 w-[250px] md:w-[300px] hover:text-primary text-center'>
             <Link href={`/projects/${url}`} className='hidden md:block'>
                 <motion.div
                     style={{ skewX: velocityFactor, x: parallax }}

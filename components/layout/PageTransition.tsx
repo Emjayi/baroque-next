@@ -23,7 +23,8 @@ const PageTransition = ({ intro, open }) => {
         <>
             <div className="noise z-0">
             </div>
-            <motion.div className={!intro ? 'fixed z-0 flex left-0 right-0 justify-center items-center' : 'fixed z-0 flex left-0 right-0 justify-center items-center'}>
+            <motion.div
+                className={!intro ? 'fixed z-0 flex left-0 right-0 justify-center items-center' : 'fixed z-0 flex left-0 right-0 justify-center items-center'}>
                 <motion.svg
                     initial={{ scale: 1, opacity: 1 }}
                     animate={!isMobile ? (!intro ? (open ? { scale: [null, 1, 1, 1], opacity: [null, .1, 1, 1, 1, 1], y: [null, "0dvh", "0dvh", "-15dvh", "-15dvh", "-15dvh"], x: [null, 0, 0, 0, 0, -100] } : { scale: [null, null, 10, 10, 10, 10], opacity: [null, 0, 0, 0, 0, 0], x: [null, 0, 0, 0, 0, 0], y: [null, null, null, "0dvh"] }) : (open ? { scale: [null, 1, 1, 1, 1, 1, 1, 1], opacity: [null, null, 1, 1, 1, 1], y: [0, 0, 0, -200, -200, -200], x: [0, 0, 0, 0, 0, 0] } : { scale: [1], opacity: [1], x: [0], y: [0] })) : ((!intro ? (open ? { scale: [null, .6, .6, .6], opacity: [null, .1, 1, 1, 1, 1], y: [null, "0dvh", "0dvh", "-25dvh", "-25dvh", "-25dvh"], x: [null, 0, 0, 0, 0, -60] } : { scale: [null, null, 3.2, 3.2, 3.2, 3.2], opacity: [null, 0.1, .02, .02, .02, 0], x: [null, 0, 0, 0, 0, 0], y: [null, "0dvh", "0dvh", "0dvh"] }) : (open ? { scale: [null, 1, 1, 1, 1, 1, 1, 1], opacity: [null, null, 1, 1, 1, 1], y: [0, 0, 0, -200, -200, -200], x: [0, 0, 0, 0, 0, 0] } : { scale: [1], opacity: [1], x: [0], y: [0] })))}
