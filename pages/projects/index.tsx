@@ -30,7 +30,7 @@ const Projects = () => {
                 <motion.div className='h-full flex items-center'>
                     <motion.div
                         className='flex gap-10 min-h-64 grid-rows-1 pr-20'>
-                        {projects.map(project => (
+                        {projects.toReversed().map(project => (
                             <Project key={`Baroque ${project.id} project`} {...project} />
                         ))}
                     </motion.div>

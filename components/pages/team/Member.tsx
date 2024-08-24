@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import React, { useState } from 'react'
 import Image from 'next/image'
 
-const Member = ({ firstName, lastName, img, pos }) => {
+const Member = ({ firstName, lastName, img, role }) => {
     const [hovered, setHovered] = useState(false)
     const [hasPlaceholder, setHasPlaceholder] = useState(true)
 
@@ -33,10 +33,16 @@ const Member = ({ firstName, lastName, img, pos }) => {
                                 initial={{ x: 50, opacity: 0 }}
                                 animate={{ x: 0, opacity: 1 }}
                                 exit={{ x: 50, opacity: 0 }}
-                                transition={{ delay: 1 }}
+                                transition={{ delay: 1.2 }}
                                 className='text-bold text-3xl'
                             >{lastName}</motion.h1>
-
+                            <motion.h1
+                                initial={{ x: 50, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                exit={{ x: 50, opacity: 0 }}
+                                transition={{ delay: 1 }}
+                                className='text-bold text-md'
+                            >{role}</motion.h1>
                         </motion.div>
                     }
                 </AnimatePresence>
@@ -70,6 +76,13 @@ const Member = ({ firstName, lastName, img, pos }) => {
                                 transition={{ delay: .1 }}
                                 className='text-bold text-3xl'
                             >{lastName}</motion.h1>
+                            <motion.h1
+                                initial={{ x: 50, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                exit={{ x: 50, opacity: 0 }}
+                                transition={{ delay: .3 }}
+                                className='text-zinc-600 capitalize text-lg'
+                            >{role}</motion.h1>
                         </motion.div>
                     }
                 </AnimatePresence>

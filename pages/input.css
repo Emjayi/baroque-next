@@ -33,6 +33,7 @@ body {
 }
 .persian{
   font-family: Persian !important;
+  direction: rtl;
 }
 .page{
   display: flex;
