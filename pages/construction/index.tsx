@@ -25,8 +25,8 @@ const Constructions = () => {
                 <link rel="canonical" href="https://baroquegp.com/construction" />
             </Head>
             <PageWrapper pageName="Constructions">
-                <div className='h-full flex items-center z-[10000000]'>
-                    {projects.map((project, index) => (
+                <div className='h-full flex items-center cursor-none'>
+                    {projects.toReversed().map((project, index) => (
                         <Construction key={index} {...project} />
                     ))}
                 </div>

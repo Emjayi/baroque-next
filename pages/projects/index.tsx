@@ -1,11 +1,9 @@
 "use client"
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import PageWrapper from '../../components/layout/PageWrapper';
 import { projects } from '../../lib/data'
-import HorizontalScroll from '../../components/layout/HorizontalScroll';
 import Project from '../../components/pages/projects/Project';
-import { AnimatePresence, motion } from 'framer-motion';
-import type { Metadata } from 'next/types';
+import { motion } from 'framer-motion';
 import Head from 'next/head';
 
 const Projects = () => {
@@ -30,7 +28,7 @@ const Projects = () => {
                 <motion.div className='h-full flex items-center'>
                     <motion.div
                         className='flex gap-10 min-h-64 grid-rows-1 pr-20'>
-                        {projects.toReversed().map(project => (
+                        {(projects.toReversed()).map(project => (
                             <Project key={`Baroque ${project.id} project`} {...project} />
                         ))}
                     </motion.div>

@@ -17,6 +17,7 @@ const Construction = ({ images, id, name, url }: any) => {
     const ref = useRef(null);
     const prevRef = useRef(null); // Ref for the previous button
     const nextRef = useRef(null); // Ref for the next button
+    const [imageIsOpen, setImageOpen] = useState(false)
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -69,7 +70,7 @@ const Construction = ({ images, id, name, url }: any) => {
 
     // State for hover and active states
     const [active, setActive] = useState(false);
-    const [imageIsOpen, setImageOpen] = useState(false)
+
     const handleImageOpening = () => {
         setImageOpen(!imageIsOpen)
     }
@@ -79,23 +80,11 @@ const Construction = ({ images, id, name, url }: any) => {
             {(images.construction) &&
                 <motion.div
                     key={id}
-                    className='text-white flex flex-col justify-center duration-300 w-[300px] md:w-[380px] text-center cursor-none'
-                    whileHover={{ width: 900 }}
+                    className='text-white flex flex-col justify-center duration-500 w-[300px] md:w-[380px] mr-10 text-center cursor-none'
+                    whileHover={{ width: 800 }}
                     transition={{ duration: .4, ease: "easeInOut" }}
-                    onMouseEnter={() => setHovered(true)}
-                    onMouseLeave={() => setHovered(false)}
-                    ref={ref}
                 >
-                    <div
-                        ref={prevRef}
-                        className='swiper-button-prev'
-                        style={hovered ? { position: 'fixed', display: 'none', transition: '0s', cursor: 'none' } : { opacity: 0, transition: '0s' }}
-                    />
-                    <div
-                        ref={nextRef}
-                        className='swiper-button-next'
-                        style={hovered ? { position: 'fixed', display: 'none', transition: '0s', cursor: 'none' } : { opacity: 0, transition: '0s' }}
-                    />
+
                     <motion.div
                         className='bg-black hidden lg:block z-40 py-[10px] tracking-widest text-center w-full font-bold text-white'>
                         <motion.h1 className={hovered && "text-primary"}>{name}</motion.h1>
@@ -107,33 +96,47 @@ const Construction = ({ images, id, name, url }: any) => {
 
                     {/* Desktop View */}
                     <motion.div
-                        className='hidden md:block md:w-full hover:text-primary h-[85dvh]'>
+                        className='hidden md:block md:w-full hover:text-primary h-[85dvh]'
+                        onMouseEnter={() => setHovered(true)}
+                        onMouseLeave={() => setHovered(false)}>
+                        <div
+                            ref={prevRef}
+                            className='swiper-button-prev cursor-none'
+                            style={hovered ? { position: 'fixed', display: 'none', transition: '0s', cursor: 'none' } : { opacity: 0, transition: '0s' }}
+                        />
+                        <div
+                            ref={nextRef}
+                            className='swiper-button-next cursor-none'
+                            style={hovered ? { position: 'fixed', display: 'none', transition: '0s', cursor: 'none' } : { opacity: 0, transition: '0s' }}
+                        />
                         <motion.div
-                            className='image-container hidden md:block w-full h-[80dvh]'
+                            className='image-container hidden md:block w-full h-[80dvh] cursor-none'
                         >
                             <Swiper
                                 navigation={{
                                     prevEl: prevRef.current,
                                     nextEl: nextRef.current,
                                 }}
-                                modules={[Keyboard, Navigation]} className="w-[900px] flex h-full bg-black/50">
+                                ref={ref}
+                                spaceBetween={50}
+                                modules={[Navigation]} className={"w-[800px] flex h-full items-center justify-center place-content-center bg-black/50 cursor-none"}>
                                 {
                                     images.construction.map((image: any, index: number) => (
-                                        <SwiperSlide key={index}>
+                                        <SwiperSlide key={index} className='flex items-center justify-center place-content-center'>
                                             <Image
                                                 placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                                                 src={`/projects/${url}/${image}`}
-                                                layout='fill'
+                                                width={1400}
+                                                height={1200}
                                                 loading='lazy'
                                                 alt={`Image ${index}`}
-                                                className='items-center flex object-cover'
+                                                className={!hovered ? 'flex w-[500%] h-[500%] scale-[1.3] items-center justify-center place-content-center duration-[2s] object-contain' : 'flex w-full h-full items-center justify-center place-content-center duration-[2s] object-contain'}
                                             />
                                         </SwiperSlide>
                                     ))
                                 }
                             </Swiper>
                         </motion.div>
-
                     </motion.div>
 
                     {/* Mobile View */}
