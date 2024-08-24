@@ -99,16 +99,7 @@ const Construction = ({ images, id, name, url }: any) => {
                         className='hidden md:block md:w-full hover:text-primary h-[85dvh]'
                         onMouseEnter={() => setHovered(true)}
                         onMouseLeave={() => setHovered(false)}>
-                        <div
-                            ref={prevRef}
-                            className='swiper-button-prev cursor-none'
-                            style={hovered ? { position: 'fixed', display: 'none', transition: '0s', cursor: 'none' } : { opacity: 0, transition: '0s' }}
-                        />
-                        <div
-                            ref={nextRef}
-                            className='swiper-button-next cursor-none'
-                            style={hovered ? { position: 'fixed', display: 'none', transition: '0s', cursor: 'none' } : { opacity: 0, transition: '0s' }}
-                        />
+
                         <motion.div
                             className='image-container hidden md:block w-full h-[80dvh] cursor-none'
                         >
@@ -122,19 +113,30 @@ const Construction = ({ images, id, name, url }: any) => {
                                 modules={[Navigation]} className={"w-[800px] flex h-full items-center justify-center place-content-center bg-black/50 cursor-none"}>
                                 {
                                     images.construction.map((image: any, index: number) => (
-                                        <SwiperSlide key={index} className='flex items-center justify-center place-content-center'>
+                                        <SwiperSlide key={index} className='flex items-s justify-start'>
                                             <Image
                                                 placeholder={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
                                                 src={`/projects/${url}/${image}`}
-                                                width={1400}
+                                                width={1600}
                                                 height={1200}
                                                 loading='lazy'
                                                 alt={`Image ${index}`}
-                                                className={!hovered ? 'flex w-[500%] h-[500%] scale-[1.3] items-center justify-center place-content-center duration-[2s] object-contain' : 'flex w-full h-full items-center justify-center place-content-center duration-[2s] object-contain'}
+                                                className={!hovered ? 'flex h-[120%] w-[160%] scale-[1.3] duration-[1s] object-left-top object-scale-down' : 'flex w-full h-full items-center justify-center place-content-center duration-[2s] object-scale-down'}
                                             />
+
                                         </SwiperSlide>
                                     ))
                                 }
+                                <div
+                                    ref={prevRef}
+                                    className='swiper-button-prev cursor-none'
+                                    style={hovered ? { position: 'fixed', display: 'none', transition: '0s', cursor: 'none' } : { opacity: 0, transition: '0s' }}
+                                />
+                                <div
+                                    ref={nextRef}
+                                    className='swiper-button-next cursor-none'
+                                    style={hovered ? { position: 'fixed', display: 'none', transition: '0s', cursor: 'none' } : { opacity: 0, transition: '0s' }}
+                                />
                             </Swiper>
                         </motion.div>
                     </motion.div>

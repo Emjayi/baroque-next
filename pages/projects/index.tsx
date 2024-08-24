@@ -1,7 +1,7 @@
 "use client"
 import React from 'react';
 import PageWrapper from '../../components/layout/PageWrapper';
-import { projects } from '../../lib/data'
+import { projectsReversed } from '../../lib/data'
 import Project from '../../components/pages/projects/Project';
 import { motion } from 'framer-motion';
 import Head from 'next/head';
@@ -28,7 +28,7 @@ const Projects = () => {
                 <motion.div className='h-full flex items-center'>
                     <motion.div
                         className='flex gap-10 min-h-64 grid-rows-1 pr-20'>
-                        {(projects.toReversed()).map(project => (
+                        {projectsReversed.map(project => (
                             <Project key={`Baroque ${project.id} project`} {...project} />
                         ))}
                     </motion.div>

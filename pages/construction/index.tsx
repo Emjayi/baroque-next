@@ -1,12 +1,9 @@
 import React from 'react';
 import PageWrapper from '../../components/layout/PageWrapper';
-import { projects } from '../../lib/data';
+import { projectsReversed } from '../../lib/data';
 import Construction from '../../components/pages/construction/Construction';
 import Head from 'next/head';
-
-
 const Constructions = () => {
-
     return (
         <>
             <Head>
@@ -26,7 +23,7 @@ const Constructions = () => {
             </Head>
             <PageWrapper pageName="Constructions">
                 <div className='h-full flex items-center cursor-none'>
-                    {projects.toReversed().map((project, index) => (
+                    {projectsReversed.map((project, index) => (
                         <Construction key={index} {...project} />
                     ))}
                 </div>
