@@ -26,6 +26,7 @@ export default function App({ Component, pageProps, router }) {
                         <meta property="og:image" content="https://baroque.com/images/about-og-image.jpg" />
                         <meta name="robots" content="index, follow" />
                         <link rel="canonical" href="https://baroquegp.com/" />
+                        <meta name="viewport" content="width=device-width , height=device-height, initial-scale=1.0, minimum-scale=1, user-scale=no" />
                     </Head>
 
                     {/* This needs some changes. Like the postal code and other stuff. */}
