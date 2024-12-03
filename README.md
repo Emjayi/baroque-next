@@ -2,7 +2,7 @@
 
 Baroque is a modern website designed for a construction company based in Mashhad, Iran. The website showcases the company's services, projects, and expertise in the construction industry. It provides a visually appealing and user-friendly interface to engage potential clients and partners.
 
-[**Live website**](https://baroque.liara.run/) or you can use the vercel link.
+[**Live website**](https://baroquegp.com/) or you can use the vercel link.
 
 ## Key Features
 
