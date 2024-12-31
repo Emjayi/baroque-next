@@ -38,7 +38,7 @@ const Footer = () => {
             </div>
             <motion.div className='w-full hidden md:flex lg:static absolute text-zinc-400 bottom-2 left-0 text-center gap-1 justify-end'>
                 {/* <p>Developed by <a href='https://emjayi.liara.run/' className='text-zinc-400 hover:text-primary duration-300'>Emjayi</a></p> */}
-                <p className=' hover:text-purple-400'>by <a href='https://khatoonadvertising.ir/' className='duration-300'>Khatoon.</a></p>
+                <p className=' hover:text-purple-400'>by <a href='https://emjaysepahi.com/' className='duration-300'>Emjayi.</a></p>
             </motion.div>
         </motion.div >
     )
