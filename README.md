@@ -52,4 +52,4 @@ Before running the project locally, ensure you have the following installed:
 	The website will be accessible locally at `http://localhost:3000`.
 
 
-By [**Emjayi**](https://emjayi.ir/)
+By [**Emjayi**](https://emjaysepahi.com/)
